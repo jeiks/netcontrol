@@ -256,10 +256,10 @@ Suas telas são apresentadas a seguir.
 :-------------:
 |**Fig. 51. Configuração do Webmail-01**|
 
-|[![alt text](screenshots/52-roundcube-02.png)](screenshots/52-roundcube-01.png)|
+|[![alt text](screenshots/52-roundcube-01.png)](screenshots/52-roundcube-01.png)|
 :-------------:
 |**Fig. 52. Acesso ao webmail (Roundcube-01)**|
 
-|[![alt text](screenshots/53-roundcube-01.png)](screenshots/53-roundcube-02.png)|
+|[![alt text](screenshots/53-roundcube-02.png)](screenshots/53-roundcube-02.png)|
 :-------------:
 |**Fig. 53. Acesso ao webmail (Roundcube-02)**|
