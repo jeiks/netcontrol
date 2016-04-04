@@ -4,7 +4,7 @@ O NetControl é um painel de controle/configuração web autônomo (standalone) 
 
 Através de seus módulos é possível configurar os serviços do servidor pela Web. Sendo necessário somente um navegador web (recomendado: Firefox) e a liberação do IP de acesso. Sua interface web é simplificada e fornece seus recursos de forma fácil para os administradores de sistemas.
 
-Dentre seus módulos, o de maior destaque é o LDAP, que permite que estações GNU/Linux e Windows funcionem sob o mesmo servidor LDAP (para autenticação de usuário) e de arquivos.
+Dentre seus módulos, o de maior destaque é o LDAP, que permite que estações GNU/Linux e Windows funcionem sob o mesmo servidor LDAP (para autenticação de usuário) e de arquivos. Olhe a Figura 28 à 34.
 
 Suas telas são apresentadas a seguir.
 
@@ -256,10 +256,10 @@ Suas telas são apresentadas a seguir.
 :-------------:
 |**Fig. 51. Configuração do Webmail-01**|
 
-|[![alt text](screenshots/44-roundcube-02.png)](screenshots/52-roundcube-01.png)|
+|[![alt text](screenshots/52-roundcube-02.png)](screenshots/52-roundcube-01.png)|
 :-------------:
 |**Fig. 52. Acesso ao webmail (Roundcube-01)**|
 
-|[![alt text](screenshots/45-roundcube-01.png)](screenshots/53-roundcube-02.png)|
+|[![alt text](screenshots/53-roundcube-01.png)](screenshots/53-roundcube-02.png)|
 :-------------:
 |**Fig. 53. Acesso ao webmail (Roundcube-02)**|
