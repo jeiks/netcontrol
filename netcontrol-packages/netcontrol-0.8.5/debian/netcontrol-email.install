@@ -1,0 +1,11 @@
+plugins/email/backend.py	var/lib/netcontrol/plugins/email/
+plugins/email/bind	var/lib/netcontrol/plugins/email/
+plugins/email/conf	var/lib/netcontrol/plugins/email/
+plugins/email/configServerEmail.py	var/lib/netcontrol/plugins/email/
+plugins/email/email	var/lib/netcontrol/plugins/email/
+plugins/email/files	var/lib/netcontrol/plugins/email/
+plugins/email/__init__.py	var/lib/netcontrol/plugins/email/
+plugins/email/layout	var/lib/netcontrol/plugins/email/
+plugins/email/main.py	var/lib/netcontrol/plugins/email/
+plugins/email/restart.py	var/lib/netcontrol/plugins/email/
+plugins/email/templates_confs	var/lib/netcontrol/plugins/email/

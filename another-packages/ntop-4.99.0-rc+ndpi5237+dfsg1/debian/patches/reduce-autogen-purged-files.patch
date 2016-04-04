@@ -1,0 +1,59 @@
+Description: reduce the amount of files purged by autogen.sh in order to make
+ the output of the clean target closer to the original state.
+Author: Ludovico Cavedon <cavedon@debian.org>
+Index: ntop/autogen.sh
+===================================================================
+--- ntop.orig/autogen.sh	2012-03-18 16:39:07.608056102 -0700
++++ ntop/autogen.sh	2012-03-18 16:39:23.152268241 -0700
+@@ -120,29 +120,29 @@
+ 
+     rm -f libtool.m4.in
+     rm -f config.guess
+-    rm -f config.sub
+-    rm -f install-sh
++#    rm -f config.sub
++#    rm -f install-sh
+     rm -f ltconfig
+     rm -f ltmain.sh
+-    rm -f missing
++#    rm -f missing
+ #    rm -f mkinstalldirs
+-    rm -f INSTALL
+-    rm -f COPYING
++#    rm -f INSTALL
++#    rm -f COPYING
+     rm -f texinfo.tex
+ 
+     rm -f acinclude.m4
+     rm -f aclocal.m4
+     rm -f config.h.in
+-    rm -f stamp-h.in
++#    rm -f stamp-h.in
+     rm -f Makefile.in
+ 
+     rm -f configure
+     rm -f config.h
+-    rm -f depcomp
++#    rm -f depcomp
+     rm -f stamp.h
+     rm -f libtool
+     rm -f Makefile
+-    rm -f stamp-h.in
++#    rm -f stamp-h.in
+     rm -f stamp-h
+     rm -f stamp-h1
+ 
+@@ -155,11 +155,11 @@
+     rm -f Makefile
+     rm -f Makefile.in
+     
+-    rm -f compile
++#    rm -f compile
+           
+     rm -f plugins/Makefile
+     rm -f plugins/Makefile.in
+-    rm -rf nDPI
++#    rm -rf nDPI
+     rm -f *~
+ 
+     exit 0

@@ -1,0 +1,88 @@
+Source: ntop
+Section: net
+Priority: optional
+Maintainer: Jordan Metzmeier <jordan@linuxgen.com>
+Uploaders: Ludovico Cavedon <cavedon@debian.org>
+Build-Depends-Indep: groff
+Build-Depends: debhelper (>= 8), libpcap0.8-dev, autoconf, automake,
+ libgdbm-dev, libpng-dev, libncurses5-dev, libtool, libwrap0-dev,
+ libgd2-noxpm-dev, libjpeg-dev, po-debconf, librrd2-dev, python-dev,
+ libgeoip-dev
+Standards-Version: 3.9.3
+Homepage: http://www.ntop.org/
+Vcs-Git: git://git.debian.org/git/collab-maint/ntop.git
+Vcs-Browser: http://git.debian.org/?p=collab-maint/ntop.git
+
+Package: ntop
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ntop-data (= ${source:Version}),
+ python-mako, net-tools, adduser, passwd
+Suggests: ntop-graphs, graphviz, gsfonts
+Description: display network usage in web browser
+ ntop is a network traffic probe that shows the network usage, similar to what
+ the popular top Unix command does. ntop is based on libpcap and it has been
+ written in a portable way in order to virtually run on every Unix platform and
+ on Win32 as well.
+ .
+ ntop users can use a web browser to navigate through ntop (that acts as a
+ web server) traffic information and get a dump of the network status. In the
+ latter case, ntop can be seen as a simple RMON-like agent with an embedded web
+ interface.
+ The use of:
+  * a web interface
+  * limited configuration and administration via the web interface
+  * reduced CPU and memory usage (they vary according to network size
+  and traffic)
+ make ntop easy to use and suitable for monitoring various kind of networks.
+ .
+ This package contains the ntop daemon.
+
+Package: ntop-dbg
+Section: debug
+Priority: extra
+Architecture: any
+Depends: ${misc:Depends}, ntop (= ${binary:Version}),
+ python-mako, net-tools, adduser, passwd
+Suggests: graphviz, gsfonts
+Description: display network usage in web browser (debug symbols)
+ ntop is a network traffic probe that shows the network usage, similar to what
+ the popular top Unix command does. ntop is based on libpcap and it has been
+ written in a portable way in order to virtually run on every Unix platform and
+ on Win32 as well.
+ .
+ ntop users can use a web browser to navigate through ntop (that acts as a
+ web server) traffic information and get a dump of the network status. In the
+ latter case, ntop can be seen as a simple RMON-like agent with an embedded web
+ interface.
+ The use of:
+  * a web interface
+  * limited configuration and administration via the web interface
+  * reduced CPU and memory usage (they vary according to network size
+  and traffic)
+ make ntop easy to use and suitable for monitoring various kind of networks.
+ .
+ This package contains the debug symbols for the ntop daemon.
+
+Package: ntop-data
+Architecture: all
+Depends: ${misc:Depends}
+Recommends: ntop (>= ${source:Version})
+Breaks: ntop (<< 3:4.0)
+Replaces: ntop (<< 3:4.0)
+Suggests: geoip-database-contrib
+Description: display network usage in a web browser (data files)
+ ntop users can use a web browser to navigate through ntop (that acts as a
+ web server) traffic information and get a dump of the network status. In the
+ latter case, ntop can be seen as a simple RMON-like agent with an embedded web
+ interface.
+ The use of:
+  * a web interface
+  * limited configuration and administration via the web interface
+  * reduced CPU and memory usage (they vary according to network size
+  and traffic)
+ make ntop easy to use and suitable for monitoring various kind of networks.
+ .
+ ntop displays a summary of network usage by machines on your network in a web
+ mode, which allows the display to be browsed with a web browser.
+ .
+ This package contains 3rd party data.

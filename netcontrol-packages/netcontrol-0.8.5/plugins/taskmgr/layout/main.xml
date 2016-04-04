@@ -1,0 +1,29 @@
+<xml>
+    <toolbar spacing="0">
+        <toolbutton id="btnRefresh" text="Atualizar" icon="/dl/core/ui/stock/refresh.png" />
+    </toolbar>
+
+    <pad id="main">
+        <dt id="list" width="100%">
+            <dtr header="True">
+                <dth width="1" />
+                <dth>
+                    <linklabel text="PID" id="sort/pid" />
+                </dth>
+                <dth>
+                    <linklabel text="CPU %" id="sort/get_cpu_percent" />
+                </dth>
+                <dth>
+                    <linklabel text="RAM %" id="sort/get_memory_percent" />
+                </dth>
+                <dth>
+                    <linklabel text="UID" id="sort/uid" />
+                </dth>
+                <dth>
+                    <linklabel text="Nome" id="sort/name" />
+                </dth>
+                <dth width="1" />
+            </dtr>
+        </dt>
+    </pad>
+</xml>

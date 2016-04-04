@@ -1,0 +1,24 @@
+#!/bin/bash
+# postinst script for netcontrol
+
+set -e
+
+case "$1" in
+    configure)
+        update-rc.d netcontrol defaults
+        netcontrol-pkg upgrade
+        /etc/init.d/netcontrol start
+    ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
+        update-rc.d -f netcontrol remove || true
+        /etc/init.d/netcontrol stop
+    ;;
+
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+
+exit 0

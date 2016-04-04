@@ -1,0 +1,41 @@
+# german translation squidguard templates.
+# Copyright (C) 2005 Erik Schanze
+# This file is distributed under the same license as the squidguard package.
+# Erik Schanze <mail@erikschanze.de>, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: squidguard templates\n"
+"Report-Msgid-Bugs-To: squidguard@packages.debian.org\n"
+"POT-Creation-Date: 2010-06-25 17:20+0100\n"
+"PO-Revision-Date: 2005-08-18 00:12+0200\n"
+"Last-Translator: Erik Schanze <mail@erikschanze.de>\n"
+"Language-Team: German <debian-l10n-german@lists.debian.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: boolean
+#. Description
+#: ../squidguard.templates:4
+msgid "Rebuild Squidguard blacklist database during postinst?"
+msgstr ""
+"Squidguards Blacklist-Datenbanken am Ende dieser Installation erneuern?"
+
+#. Type: boolean
+#. Description
+#: ../squidguard.templates:5
+msgid ""
+"Rebuilding the blacklist databases is time consuming and under some "
+"circumstances could cause problems.  With the breakout of individual "
+"blacklist section packages the time it takes for each package to rebuild "
+"will be extensive.  Also it may not be desireable to rebuild these databases "
+"on production servers.  You can manually perform a rebuild by running /usr/"
+"sbin/update-squidguard."
+msgstr ""
+"Das Erneuern der Blacklist-Datenbanken ist sehr zeitaufwändig und kann "
+"manchmal Probleme verursachen. Durch die Möglichkeit von individuellen "
+"Blacklist-Section-Paketen wird es sehr lange dauern, jedes Paket neu zu "
+"erstellen. Es könnte auch nicht erwünscht sein, diese Datenbanken auf "
+"produktiven Servern zu erneuern. Sie können das Neubauen durch das Kommando /"
+"usr/sbin/update-squidguard manuell einleiten."

@@ -1,0 +1,101 @@
+Quick build using MinGW
+-----------------------
+
+This is a quick description on how to build ntop on Win2k/XP using
+the MinGW toolchain. It is assumed you are familiar with MinGW and
+Windows programming in general. ntop requires many different libraries
+installed. This file does *not* tell you how to install those; it only
+briefly where to get them.
+
+If you're unable to build ntop from the sources, then you're probably
+better off using the Windows binary available from
+  http://sourceforge.net/project/showfiles.php?group_id=17233
+
+
+Obtaining Ntop
+--------------
+
+This was last tested against the 21-May 2004 CVS version of ntop 3.0.
+Available via these hairy commands:
+
+  cvs -d :pserver:anonymous@cvs.ntop.org:/export/home/ntop login
+  cvs -d :pserver:anonymous@cvs.ntop.org:/export/home/ntop co ntop
+  cvs -d :pserver:anonymous@cvs.ntop.org:/export/home/ntop logout
+
+use "ntop" when asked for a password.
+
+Note: the CVS-server is notoriously slow! Use the sources (ntop*.tgz)
+      at http://sourceforge.net/project/showfiles.php?group_id=17233
+      if you don't mind using "old" sources.
+
+
+Building Ntop
+-------------
+
+Prerequisites:
+
+  1) WinPCAP developer's pack available from
+     http://winpcap.polito.it/
+
+  2) GD-chart package available from
+     http://www.fred.net/brv/chart/
+
+  3) GD library (which is needed by GD-chart) is available from
+     http://www.boutell.com/gd/
+
+  4) PNG library for Portable Network Graphics images. Available from
+     http://gnuwin32.sourceforge.net/packages/libpng.htm
+
+  5) Zlib compression library available from
+     http://www.gzip.org/zlib/
+
+  6) GNU database library available from
+     http://sourceforge.net/project/showfiles.php?group_id=7382&package_id=12648
+
+  7) OpenSSL library is needed if "USE_SSL = 1" in Makefile.MingW. Available from
+     http://www.openssl.org/
+
+  8) Various tools; rm, sed, mkdir and man2html. The latter is only needed
+     to generate ntop.html.
+
+
+Steps
+
+  1) Install and build all prerequisites.
+
+  2) Edit ntop's Makefile.MingW and change the following root-values:
+
+     "PCAP_ROOT"     to the base directory of WinPCAP.
+     "GDCHART_ROOT"  to the base directory of GD-chart.
+     "GD_ROOT"       to the base directory of GD library.
+     "PNG_ROOT"      to the base directory of libpng.
+     "ZLIB_ROOT"     to the base directory of Zlib.
+     "GDBM_ROOT"     to the base directory of GNU database manager.
+     "OPENSSL_ROOT"  to the base directory of OpenSSL.
+
+
+  3) Build the make dependencies by
+     > make -f Makefile.MingW depend
+
+
+  4) Build ntop itself
+     > make -f Makefile.MingW
+
+     If after some time you see "Welcome to ntop", it has succeeded and
+     you're ready to use it. Otherwise review the Makefile.MingW and look
+     for missing packages.
+
+
+Installing Ntop
+---------------
+
+The Makefile.MingW uses static libraries for all packages except OpenSSL.
+This increases it's size, but makes maintenance and installation easier.
+In fact, there should be no need to install ntop; simply run it from the
+base directory. Only make sure the needed OpenSSL DLLs are somewhere in
+your PATH or in ntop's directory itself.
+
+
+---
+
+Gisle Vanem <giva@bgnett.no>  May 2004

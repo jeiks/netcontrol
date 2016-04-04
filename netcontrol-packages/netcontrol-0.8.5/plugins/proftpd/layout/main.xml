@@ -1,0 +1,30 @@
+<xml> 
+    <label text="Usuários" size="5" />
+    <toolbar>
+        <button id="salvar" text="Salvar Configurações" action="addUsers" onclick="form" form="box" icon="/dl/core/ui/stock/save.png" />
+        <button id="liberar" text="Liberar todos Usuários" action="libUsers" onclick="form" form="box"  />
+        <button id="block" text="Bloquear todos Usuários" action="blockUsers" onclick="form" form="box" /> 
+        <button id="msg" text="Mudar mensagem de Boas Vindas" action="msg" onclick="form" form="box" /> 
+    </toolbar>
+    <vcontainer>
+        <spacer height="10" />
+        <label text="Marque abaixo os usuários que devem ser liberados para acessar o FTP desse servidor." size="2"/>
+        <spacer height="10" />
+
+    <hcontainer>
+        <simpleform id="box" >
+            <hcontainer spacing="150">
+                <vcontainer >
+                  <table id="box1"/>
+                </vcontainer>
+                <vcontainer >
+                  <table id="box2"/>
+                </vcontainer>
+            </hcontainer>
+        </simpleform>
+    </hcontainer>
+    
+    </vcontainer>
+    <vcontainer id="error">
+    </vcontainer>
+</xml>

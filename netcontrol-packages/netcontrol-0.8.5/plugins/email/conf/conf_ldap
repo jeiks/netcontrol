@@ -1,0 +1,15 @@
+LDAP_URI	ldap://localhost
+LDAP_PROTOCOL_VERSION	3
+LDAP_BASEDN	[DC]
+LDAP_BINDDN	[CN], [DC]
+LDAP_BINDPW	[SENHA]
+LDAP_TIMEOUT	5
+LDAP_MAIL	uid
+LDAP_HOMEDIR	homeDirectory
+LDAP_FULLNAME	cn
+LDAP_CRYPTPW	userPassword
+LDAP_DEREF	never
+LDAP_TLS	0
+LDAP_UID	uidNumber
+LDAP_GID	gidNumber
+                  

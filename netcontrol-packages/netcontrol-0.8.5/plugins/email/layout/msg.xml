@@ -1,0 +1,4 @@
+<xml>
+    <spacer height='70' /> 
+    <center><label size="3" bold="True"  text="Nenhuma zona encotrada. Cadastre uma zona no módulo do BIND..." /> </center>
+</xml>

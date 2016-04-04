@@ -1,0 +1,8 @@
+ntop (3:4.99.0-rc+ndpi5237+dfsg1-1) unstable; urgency=low
+
+  Graphs have been removed from this Debian package of ntop because the
+  library used to genierate them is not DFSG compatible. Such library,
+  released under the Creative Commons Non-Commercial License, will be packaged
+  under ntop-graphs package in the non-free section.
+
+ -- Ludovico Cavedon <cavedon@debian.org>  Sun, 18 Mar 2012 18:56:20 -0700

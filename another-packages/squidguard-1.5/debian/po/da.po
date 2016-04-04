@@ -1,0 +1,40 @@
+# Danish translation squidguard templates.
+# Copyright (C) 2010 squidguard & nedenstående oversættere.
+# This file is distributed under the same license as the squidguard package.
+# Joe Hansen <joedalton2@yahoo.dk>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: squidguard templates\n"
+"Report-Msgid-Bugs-To: squidguard@packages.debian.org\n"
+"POT-Creation-Date: 2008-03-27 08:29+0100\n"
+"PO-Revision-Date: 2010-06-23 17:30+01:00\n"
+"Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
+"Language-Team: Danish <debian-l10n-danish@lists.debian.org> \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: boolean
+#. Description
+#: ../squidguard.templates:4
+msgid "Rebuild Squidguard blacklist database during postinst?"
+msgstr "Genkompiler Squidguards sortlistedatabase under postinst?"
+
+#. Type: boolean
+#. Description
+#: ../squidguard.templates:5
+msgid ""
+"Rebuilding the blacklist databases is time consuming and under some "
+"circumstances could cause problems.  With the breakout of individual "
+"blacklist section packages the time it takes for each package to rebuild "
+"will be extensive.  Also it may not be desireable to rebuild these databases "
+"on production servers.  You can manually perform a rebuild by running /usr/"
+"sbin/update-squidguard."
+msgstr ""
+"Genkompilering af sortlistedatabaserne tager undertiden lang tid og kan "
+"under nogle omstændigheder forårsage problemer. På grund af breakouten for "
+"individuelle sortlisteafsnitspakker kan tiden, det tager for hver pakke at "
+"blive genkompileret være omfattende. De er måske heller ikke ønskeligt at "
+"genkompilere disse databaser på produktionsservere. Du kan manuelt udføre en "
+"genkompilering ved at køre /usr/sbin/update-squidguard."

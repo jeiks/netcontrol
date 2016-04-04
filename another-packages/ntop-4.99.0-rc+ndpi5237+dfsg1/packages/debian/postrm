@@ -1,0 +1,11 @@
+#!/bin/sh -e
+
+set -e
+
+if [ "$1" = "purge" ] ; then
+  update-rc.d ntop remove >/dev/null
+fi
+
+/sbin/ldconfig
+
+exit 0

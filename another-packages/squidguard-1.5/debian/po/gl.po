@@ -1,0 +1,41 @@
+# Galician translation of squidguard's debconf templates
+# This file is distributed under the same license as the squidguard package.
+# Jacobo Tarrio <jtarrio@debian.org>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: squidguard\n"
+"Report-Msgid-Bugs-To: squidguard@packages.debian.org\n"
+"POT-Creation-Date: 2008-03-27 08:29+0100\n"
+"PO-Revision-Date: 2008-03-31 02:40+0100\n"
+"Last-Translator: Jacobo Tarrio <jtarrio@debian.org>\n"
+"Language-Team: Galician <proxecto@trasno.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: boolean
+#. Description
+#: ../squidguard.templates:1001
+msgid "Rebuild Squidguard blacklist database during postinst?"
+msgstr ""
+"¿Reconstruír a base de datos de listas negras de Squidguard durante o "
+"proceso de post-instalación?"
+
+#. Type: boolean
+#. Description
+#: ../squidguard.templates:1001
+msgid ""
+"Rebuilding the blacklist databases is time consuming and under some "
+"circumstances could cause problems.  With the breakout of individual "
+"blacklist section packages the time it takes for each package to rebuild "
+"will be extensive.  Also it may not be desireable to rebuild these databases "
+"on production servers.  You can manually perform a rebuild by running /usr/"
+"sbin/update-squidguard."
+msgstr ""
+"Reconstruír a bases de datos de listas negras liva moito tempo e nalgunhas "
+"circunstancias pode causar problemas. Coa separación en varios paquetes con "
+"seccións de lista negra individuais, o tempo que tome cada paquete en "
+"reconstruír pode ser excesivo. Ademáis, pode non ser desexable reconstruír "
+"esas bases de datos nos servidores de produción. Pode facer unha "
+"reconstrución manual executando \"/usr/sbin/update-squidguard\"."

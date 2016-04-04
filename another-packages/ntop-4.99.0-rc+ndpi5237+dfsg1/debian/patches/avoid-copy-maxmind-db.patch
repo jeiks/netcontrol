@@ -1,0 +1,18 @@
+Description: avoid copying GeoIP*.dat files, as they have been removed from the DFSG-clean tarball.
+Author: Ludovico Cavedon <cavedon@debian.org>
+Forwarded: not-needed
+Index: ntop/Makefile.am
+===================================================================
+--- ntop.orig/Makefile.am	2012-02-26 11:04:23.875929148 -0800
++++ ntop/Makefile.am	2012-02-26 11:04:32.440015909 -0800
+@@ -67,9 +67,7 @@
+ NTOPDATA = ntop-cert.pem \
+            $(ETTER_PASSIVE) \
+            oui.txt.gz \
+-           specialMAC.txt.gz \
+-	   GeoIPASNum.dat \
+-	   GeoLiteCity.dat
++           specialMAC.txt.gz
+ 
+ NTOPHTML = html html/*.js html/*.html  html/*.gif html/*.jpg html/*.ico html/*.png \
+            html/*.css html/*.dtd \

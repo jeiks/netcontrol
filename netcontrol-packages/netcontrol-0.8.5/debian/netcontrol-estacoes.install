@@ -1,0 +1,5 @@
+plugins/estacoes/backend.py	var/lib/netcontrol/plugins/estacoes/
+plugins/estacoes/files	var/lib/netcontrol/plugins/estacoes/
+plugins/estacoes/__init__.py	var/lib/netcontrol/plugins/estacoes/
+plugins/estacoes/layout	var/lib/netcontrol/plugins/estacoes/
+plugins/estacoes/main.py	var/lib/netcontrol/plugins/estacoes/

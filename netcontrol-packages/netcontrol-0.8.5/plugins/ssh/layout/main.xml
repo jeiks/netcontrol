@@ -1,0 +1,15 @@
+<xml> 
+    <label text="Configurações - Servidor OpenSSH" size="5" />    
+
+    <simpleform id="sshd">
+        <textinputarea id="texto" name="texto" width="750" height="600"/> 
+    </simpleform>
+    <dtr>
+        <dtd>
+            <button text="Salvar Configurações" form="sshd" action="salvar_config" onclick="form" icon="/dl/core/ui/stock/add.png" />
+        </dtd>
+        <dtd>
+            <button text="Reiniciar SSH" form="sshd" action="restart_ssh" onclick="form" icon="/dl/core/ui/stock/add.png" />
+        </dtd>
+    </dtr>
+</xml>

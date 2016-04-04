@@ -1,0 +1,71 @@
+%product PyCACIC
+%copyright Dataprev
+%vendor Dataprev
+%license /var/lib/netcontrol/plugins/cacic/pycacic/COPYING
+%readme /var/lib/netcontrol/plugins/cacic/pycacic/README
+%format !portable
+%requires python 2.3.0
+%format all
+%description Configurador Automatico e Coletor de Informacoes Computacionais
+%version 2.4.4.925
+%postinstall </var/lib/netcontrol/plugins/cacic/pycacic/internal/postinst
+%preremove </var/lib/netcontrol/plugins/cacic/pycacic/internal/prerm
+%system all
+
+d 0755 root root /usr/share/pycacic -
+f 0644 root root /usr/share/pycacic/licenca.txt /tmp/tmpKCBB7Ipycacic/pycacic/licenca.txt
+f 0644 root root /usr/share/pycacic/dialog.py /tmp/tmpKCBB7Ipycacic/pycacic/dialog.py
+d 0755 root root /usr/share/pycacic/logs -
+f 0644 root root /usr/share/pycacic/logs/__init__.py /tmp/tmpKCBB7Ipycacic/pycacic/logs/__init__.py
+f 0644 root root /usr/share/pycacic/logs/log.py /tmp/tmpKCBB7Ipycacic/pycacic/logs/log.py
+f 0644 root root /usr/share/pycacic/libmapacacic.py /tmp/tmpKCBB7Ipycacic/pycacic/libmapacacic.py
+f 0644 root root /usr/share/pycacic/globals.py /tmp/tmpKCBB7Ipycacic/pycacic/globals.py
+d 0755 root root /usr/share/pycacic/glade -
+f 0644 root root /usr/share/pycacic/glade/configuracoes.glade /tmp/tmpKCBB7Ipycacic/pycacic/glade/configuracoes.glade
+f 0644 root root /usr/share/pycacic/glade/logo.png /tmp/tmpKCBB7Ipycacic/pycacic/glade/logo.png
+f 0644 root root /usr/share/pycacic/glade/log_atividades.glade /tmp/tmpKCBB7Ipycacic/pycacic/glade/log_atividades.glade
+f 0644 root root /usr/share/pycacic/glade/mapacacic.glade /tmp/tmpKCBB7Ipycacic/pycacic/glade/mapacacic.glade
+f 0644 root root /usr/share/pycacic/glade/mapacacic_auth.glade /tmp/tmpKCBB7Ipycacic/pycacic/glade/mapacacic_auth.glade
+f 0644 root root /usr/share/pycacic/glade/info_geral.glade /tmp/tmpKCBB7Ipycacic/pycacic/glade/info_geral.glade
+f 0644 root root /usr/share/pycacic/glade/login.glade /tmp/tmpKCBB7Ipycacic/pycacic/glade/login.glade
+f 0644 root root /usr/share/pycacic/ger_cols.py /tmp/tmpKCBB7Ipycacic/pycacic/ger_cols.py
+f 0644 root root /usr/share/pycacic/README /tmp/tmpKCBB7Ipycacic/pycacic/README
+f 0755 root root /usr/share/pycacic/cacic.py /tmp/tmpKCBB7Ipycacic/pycacic/cacic.py
+d 0755 root root /usr/share/pycacic/lang -
+f 0644 root root /usr/share/pycacic/lang/pt_br.xml /tmp/tmpKCBB7Ipycacic/pycacic/lang/pt_br.xml
+f 0644 root root /usr/share/pycacic/lang/__init__.py /tmp/tmpKCBB7Ipycacic/pycacic/lang/__init__.py
+f 0644 root root /usr/share/pycacic/lang/language.py /tmp/tmpKCBB7Ipycacic/pycacic/lang/language.py
+f 0644 root root /usr/share/pycacic/lang/en_us.xml /tmp/tmpKCBB7Ipycacic/pycacic/lang/en_us.xml
+f 0644 root root /usr/share/pycacic/chkcacic.py /tmp/tmpKCBB7Ipycacic/pycacic/chkcacic.py
+f 0755 root root /usr/share/pycacic/guimapacacic.py /tmp/tmpKCBB7Ipycacic/pycacic/guimapacacic.py
+d 0755 root root /usr/share/pycacic/config -
+f 0644 root root /usr/share/pycacic/config/__init__.py /tmp/tmpKCBB7Ipycacic/pycacic/config/__init__.py
+f 0644 root root /usr/share/pycacic/config/io.py /tmp/tmpKCBB7Ipycacic/pycacic/config/io.py
+f 0666 root root /usr/share/pycacic/config/cacic.dat /tmp/tmpKCBB7Ipycacic/pycacic/config/cacic.dat
+f 0666 root root /usr/share/pycacic/config/MD5SUM /tmp/tmpKCBB7Ipycacic/pycacic/config/MD5SUM
+d 0755 root root /usr/share/pycacic/img -
+f 0644 root root /usr/share/pycacic/img/logo.png /tmp/tmpKCBB7Ipycacic/pycacic/img/logo.png
+f 0644 root root /usr/share/pycacic/chksis.py /tmp/tmpKCBB7Ipycacic/pycacic/chksis.py
+f 0755 root root /usr/share/pycacic/mapacacic.py /tmp/tmpKCBB7Ipycacic/pycacic/mapacacic.py
+d 0755 root root /usr/share/pycacic/coletores -
+f 0644 root root /usr/share/pycacic/coletores/col_undi.py /tmp/tmpKCBB7Ipycacic/pycacic/coletores/col_undi.py
+f 0644 root root /usr/share/pycacic/coletores/__init__.py /tmp/tmpKCBB7Ipycacic/pycacic/coletores/__init__.py
+d 0755 root root /usr/share/pycacic/coletores/lib -
+f 0644 root root /usr/share/pycacic/coletores/lib/__init__.py /tmp/tmpKCBB7Ipycacic/pycacic/coletores/lib/__init__.py
+f 0644 root root /usr/share/pycacic/coletores/lib/url.py /tmp/tmpKCBB7Ipycacic/pycacic/coletores/lib/url.py
+f 0644 root root /usr/share/pycacic/coletores/lib/computador.py /tmp/tmpKCBB7Ipycacic/pycacic/coletores/lib/computador.py
+f 0644 root root /usr/share/pycacic/coletores/lib/ccrypt.py /tmp/tmpKCBB7Ipycacic/pycacic/coletores/lib/ccrypt.py
+f 0644 root root /usr/share/pycacic/coletores/lib/arquivo.py /tmp/tmpKCBB7Ipycacic/pycacic/coletores/lib/arquivo.py
+f 0644 root root /usr/share/pycacic/coletores/lib/lshw /tmp/tmpKCBB7Ipycacic/pycacic/coletores/lib/lshw
+f 0644 root root /usr/share/pycacic/coletores/coletor.py /tmp/tmpKCBB7Ipycacic/pycacic/coletores/coletor.py
+f 0644 root root /usr/share/pycacic/coletores/col_soft.py /tmp/tmpKCBB7Ipycacic/pycacic/coletores/col_soft.py
+f 0644 root root /usr/share/pycacic/coletores/col_vamb.py /tmp/tmpKCBB7Ipycacic/pycacic/coletores/col_vamb.py
+f 0644 root root /usr/share/pycacic/coletores/col_network.py /tmp/tmpKCBB7Ipycacic/pycacic/coletores/col_network.py
+f 0644 root root /usr/share/pycacic/coletores/col_hard.py /tmp/tmpKCBB7Ipycacic/pycacic/coletores/col_hard.py
+f 0644 root root /usr/share/pycacic/coletores/col_patr.py /tmp/tmpKCBB7Ipycacic/pycacic/coletores/col_patr.py
+f 0644 root root /usr/share/pycacic/update.py /tmp/tmpKCBB7Ipycacic/pycacic/update.py
+f 0755 root root /usr/share/pycacic/gui.py /tmp/tmpKCBB7Ipycacic/pycacic/gui.py
+i 755 root sys cacic /var/lib/netcontrol/plugins/cacic/pycacic/internal/cacic
+f 755 root sys /etc/cron.hourly/chksis /var/lib/netcontrol/plugins/cacic/pycacic/internal/chksis
+f 644 root sys /usr/share/applications/pycacic.desktop /var/lib/netcontrol/plugins/cacic/pycacic/internal/pycacic.desktop
+f 644 root sys /etc/xdg/autostart/pycacic.desktop /var/lib/netcontrol/plugins/cacic/pycacic/internal/pycacic.desktop

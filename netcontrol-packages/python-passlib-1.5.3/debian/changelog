@@ -1,0 +1,18 @@
+python-passlib (1.5.3-2netcontrol1) unstable; urgency=low
+
+  * to netcontrol
+
+ -- Jacson RC Silva <jacsonrcsilva@gmail.com>  Wed, 29 Feb 2012 13:14:20 -0300
+
+python-passlib (1.5.3-2) unstable; urgency=low
+
+  * Fix arch
+  * Switch to dh_python2
+
+ -- Julien Danjou <acid@debian.org>  Thu, 12 Jan 2012 14:51:13 +0100
+
+python-passlib (1.5.3-1) unstable; urgency=low
+
+  * Initial release (Closes: #647171)
+
+ -- Julien Danjou <acid@debian.org>  Wed, 02 Nov 2011 16:49:09 +0100

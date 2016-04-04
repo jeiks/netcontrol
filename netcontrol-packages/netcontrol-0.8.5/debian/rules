@@ -1,0 +1,28 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+DEB_PYTHON_SYSTEM := pysupport
+
+include /usr/share/cdbs/1/rules/debhelper.mk
+include /usr/share/cdbs/1/class/python-distutils.mk
+
+clean::
+	rm -rf build build-stamp configure-stamp build/ MANIFEST
+	find $(CURDIR)/plugins -name '*deb' -delete
+	dh_clean
+
+install/netcontrol::
+	install -m 755 -D $(CURDIR)/packaging/files/netcontrol $(DEB_DESTDIR)/etc/init.d/netcontrol
+	install -m 644 -D $(CURDIR)/packaging/files/netcontrol.conf $(DEB_DESTDIR)/etc/netcontrol/netcontrol.conf
+	install -m 644 -D $(CURDIR)/packaging/files/.placeholder $(DEB_DESTDIR)/var/lib/netcontrol/plugins/.placeholder
+
+install/netcontrol-backup::
+	install -m 755 -D $(CURDIR)/packaging/files/netcontrol-backup $(CURDIR)/debian/netcontrol-backup/etc/init.d/netcontrol-backup
+
+binary-post-install/netcontrol::
+	cp -av $(CURDIR)/debian/tmp/* $(CURDIR)/debian/netcontrol/
+	mv $(CURDIR)/debian/netcontrol/usr/lib/python2.6/site-packages \
+		$(CURDIR)/debian/netcontrol/usr/lib/python2.6/dist-packages
+	#FIX or POG:
+	cp -av $(CURDIR)/netcontrol/* $(CURDIR)/debian/netcontrol/usr/lib/python2.6/dist-packages/netcontrol/
+

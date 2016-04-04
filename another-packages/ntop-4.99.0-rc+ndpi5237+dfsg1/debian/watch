@@ -1,0 +1,3 @@
+version=3
+opts=dversionmangle=s/(\+ndpi[0-9]+)?\+dfsg\d+$// \
+ http://sf.net/ntop/ntop-(.*)\.(?:tar\.gz|tgz)

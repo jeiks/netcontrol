@@ -1,0 +1,154 @@
+# translation of ru.po to Russian
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the ntop package.
+#
+# Yuri Kozlov <yuray@komyakino.ru>, 2009, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: ntop 3:4.0.3+dfsg1-3\n"
+"Report-Msgid-Bugs-To: ntop@packages.debian.org\n"
+"POT-Creation-Date: 2011-01-26 00:15-0800\n"
+"PO-Revision-Date: 2011-02-04 12:47+0300\n"
+"Last-Translator: Yuri Kozlov <yuray@komyakino.ru>\n"
+"Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. Type: string
+#. Description
+#: ../ntop.templates:1001
+msgid "User for the ntop process to run as:"
+msgstr "Пользователь, с правами будет работать процесс ntop:"
+
+#. Type: string
+#. Description
+#: ../ntop.templates:1001
+msgid ""
+"Please choose the login that should be used to execute the ntop process. The "
+"use of the root user is not allowed."
+msgstr ""
+"Введите имя учётной записи, которая должна использоваться для запуска "
+"процесса ntop. Пользователь root недопустим."
+
+#. Type: string
+#. Description
+#: ../ntop.templates:1001
+msgid ""
+"The account will be created if it does not already exist, but if you leave "
+"it blank, no login will be created and ntop will not run until manually "
+"configured."
+msgstr ""
+"Если учётная запись не существует, то она будет создана, но если ничего не "
+"вводить, то учётная запись создана не будет и ntop не будет работать, пока "
+"вы не выполните настройку вручную."
+
+#. Type: string
+#. Description
+#: ../ntop.templates:2001
+msgid "Interfaces for ntop to listen on:"
+msgstr "Интерфейсы, которые будет прослушивать ntop:"
+
+#. Type: string
+#. Description
+#: ../ntop.templates:2001
+msgid ""
+"Please enter a comma-separated list of interfaces that ntop should listen on."
+msgstr ""
+"Введите сетевые интерфейсы (через запятую), которые должен прослушивать ntop."
+
+#. Type: password
+#. Description
+#: ../ntop.templates:3001
+msgid "Administrator password:"
+msgstr "Пароль администратора:"
+
+#. Type: password
+#. Description
+#: ../ntop.templates:3001
+msgid ""
+"Please choose a password to be used for the privileged user \"admin\" in "
+"ntop's web interface."
+msgstr ""
+"Введите пароль привилегированного пользователя \"admin\", который будет "
+"использоваться в веб-интерфейсе ntop."
+
+#. Type: password
+#. Description
+#: ../ntop.templates:4001
+msgid "Re-enter password to verify:"
+msgstr "Введите пароль ещё раз для проверки:"
+
+#. Type: password
+#. Description
+#: ../ntop.templates:4001
+msgid ""
+"Please enter the same password again to verify that you have typed it "
+"correctly."
+msgstr ""
+"Введите тот же самый пароль ещё раз, чтобы убедиться в правильности ввода."
+
+#. Type: error
+#. Description
+#: ../ntop.templates:5001
+msgid "Empty password"
+msgstr "Пустой пароль"
+
+#. Type: error
+#. Description
+#: ../ntop.templates:5001
+msgid ""
+"You entered an empty password, which is not allowed. Please choose a non-"
+"empty password."
+msgstr "Был введён пустой пароль, что запрещено. Введите не пустой пароль."
+
+#. Type: error
+#. Description
+#: ../ntop.templates:6001
+msgid "Password input error"
+msgstr "Ошибка ввода пароля"
+
+#. Type: error
+#. Description
+#: ../ntop.templates:6001
+msgid "The two passwords you entered were not the same. Please try again."
+msgstr "Два введённых пароля не совпали. Попробуйте ещё раз."
+
+#. Type: boolean
+#. Description
+#: ../ntop.templates:7001
+msgid "Set a new administrator password?"
+msgstr "Установить новый пароль администратора?"
+
+#. Type: boolean
+#. Description
+#: ../ntop.templates:7001
+msgid ""
+"A password for ntop's administrative web interface has already been set."
+msgstr "Пароль для веб-интерфейса управления ntop уже задан."
+
+#. Type: boolean
+#. Description
+#: ../ntop.templates:7001
+msgid "Please choose whether you want to change that password."
+msgstr "Укажите, хотите ли вы изменить этот пароль."
+
+#~ msgid ""
+#~ "The selected user will be created if not already available. Don't choose "
+#~ "root, it is not recommended and will be discarded anyway."
+#~ msgstr ""
+#~ "Указанный пользователь будет создан, если его нет в системе. Не "
+#~ "указывайте root, так как это не рекомендуется и всё равно не сработает."
+
+#~ msgid ""
+#~ "If you select an empty string no user will be created on the system and "
+#~ "you will need to do that configuration yourself."
+#~ msgstr ""
+#~ "Если вы оставите пустую строку, то никаких пользователей создано не будет "
+#~ "и вам придётся выполнить эту настройку вручную."
+
+#~ msgid "Which is the name of the user to run the ntop daemon as ?"
+#~ msgstr "С правами какого пользователя будет работать служба ntop?"

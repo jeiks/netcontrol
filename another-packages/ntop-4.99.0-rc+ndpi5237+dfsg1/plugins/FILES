@@ -1,0 +1,10 @@
+plugins
+plugins/Makefile.am
+plugins/Makefile.in
+plugins/icmpPlugin.c
+plugins/lastSeenPlugin.c
+plugins/netflowPlugin.c
+plugins/pdaPlugin.c
+plugins/sflowPlugin.c
+plugins/rrdPlugin.c
+plugins/remotePlugin.c

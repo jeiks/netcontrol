@@ -1,0 +1,14 @@
+<dialogbox id="addFaixa">
+        <formline text="IP Inicial:">
+            <textinput id="inicial" name="inicial" />
+        </formline>
+        <formline text="IP Final:">
+            <textinput id="final" name="final" />
+        </formline>
+        <formline text="Executar os aplicativos">
+            <select id="apps" name="apps" >
+                <selectoption value="servidor" text="no servidor" />
+                <selectoption value="cliente"  text="no próprio cliente" />
+            </select>
+        </formline>
+</dialogbox>

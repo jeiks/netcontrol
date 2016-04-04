@@ -1,0 +1,24 @@
+<xml> 
+    <pad id="msg">
+    </pad>
+    
+    <pad>
+        <simpleform id="form_dominio"> 
+            <dt width="100%">
+                <dtr>
+                    <dth id="info">
+                        <!--<label text="Mudar dominio para o servidor de email" />-->
+                    </dth>
+                    <dth>
+                        <select id="dominios" name="dominios" >
+                        </select> 
+                    </dth>
+                    <dth>
+                        <button id="confirmar_dominio" text="Confirme o dominio" onclick="form" form="form_dominio" action="confirmar_dominio" icon="/dl/email/icon.png" />
+                    </dth>
+                </dtr>
+            </dt>
+        </simpleform>
+        
+    </pad>
+</xml>

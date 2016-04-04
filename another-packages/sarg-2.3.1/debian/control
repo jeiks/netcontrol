@@ -1,0 +1,17 @@
+Source: sarg
+Build-Depends: debhelper (>= 6), autotools-dev, libgd2-noxpm-dev | libgd2-xpm-dev, libldap2-dev, dpatch
+Section: web
+Priority: optional
+Maintainer: Luigi Gangitano <luigi@debian.org>
+Standards-Version: 3.9.1
+
+Package: sarg
+Architecture: any
+Replaces: sqmgrlog
+Depends: ${shlibs:Depends}, ${misc:Depends}, ttf-dejavu-core | ttf-freefont
+Suggests: squid3, httpd | apache2, squidguard, libapache2-mod-php5
+Conflicts: sqmgrlog
+Description: squid analysis report generator
+ Sarg is a Squid Analysis Report Generator that allow you to view "where" 
+ your users are going to on the Internet. Sarg generate reports in html, 
+ with many fields, like: users, IP Addresses, bytes, sites and times.

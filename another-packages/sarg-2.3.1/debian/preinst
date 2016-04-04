@@ -1,0 +1,75 @@
+#! /bin/sh
+
+set -e
+
+# Prepare to move a conffile without triggering a dpkg question
+prep_mv_conffile() {
+    local PKGNAME="$1"
+    local CONFFILE="$2"
+
+    [ -e "$CONFFILE" ] || return 0
+
+    local md5sum="$(md5sum $CONFFILE | sed -e 's/ .*//')"
+    local old_md5sum="$(dpkg-query -W -f='${Conffiles}' $PKGNAME | \
+            sed -n -e "\' $CONFFILE ' { s/ obsolete$//; s/.* //; p }")"
+    if [ "$md5sum" = "$old_md5sum" ]; then
+        rm -f "$CONFFILE"
+    fi
+}
+
+# Remove a no-longer used conffile
+rm_conffile() {
+    local PKGNAME="$1"
+    local CONFFILE="$2"
+
+    [ -e "$CONFFILE" ] || return 0
+
+    local md5sum="$(md5sum $CONFFILE | sed -e 's/ .*//')"
+    local old_md5sum="$(dpkg-query -W -f='${Conffiles}' $PKGNAME | \
+            sed -n -e "\' $CONFFILE ' { s/ obsolete$//; s/.* //; p }")"
+    if [ "$md5sum" != "$old_md5sum" ]; then
+        echo "Obsolete conffile $CONFFILE has been modified by you."
+        echo "Saving as $CONFFILE.dpkg-bak ..."
+        mv -f "$CONFFILE" "$CONFFILE".dpkg-bak
+    else
+        echo "Removing obsolete conffile $CONFFILE ..."
+        rm -f "$CONFFILE"
+    fi
+}
+
+case "$1" in
+	upgrade)
+		version=$2
+		if dpkg --compare-versions "$2" lt 2.2.6-1; then
+			prep_mv_conffile sarg "/etc/squid/sarg.conf"
+			prep_mv_conffile sarg "/etc/squid/sarg.exclude_codes"
+			prep_mv_conffile sarg "/etc/squid/sarg.hosts"
+			prep_mv_conffile sarg "/etc/squid/sarg-reports.conf"
+			prep_mv_conffile sarg "/etc/squid/sarg.users"
+			prep_mv_conffile sarg "/etc/squid/sarg.usertab"
+			prep_mv_conffile sarg "/etc/squid/user_limit_block"
+
+			rm_conffile sarg "/etc/squid/fonts/DejaVuSans.ttf"
+			rm_conffile sarg "/etc/squid/fonts/FreeSans.ttf"
+
+			if test -d /etc/squid/languages; then
+				rm -rf /etc/squid/languages 
+			fi
+
+			if test -d /etc/squid/images; then
+				mv /etc/squid/images /usr/share/sarg
+			fi
+
+			if test -d /var/www/squid-reports; then
+				if test -d /var/lib/sarg ; then
+					mv /var/www/squid-reports/* /var/lib/sarg || true
+					rmdir /var/www/squid-reports
+				else
+					mv /var/www/squid-reports /var/lib/sarg || true
+				fi
+			fi
+		fi
+		;;
+esac
+
+#DEBHELPER#

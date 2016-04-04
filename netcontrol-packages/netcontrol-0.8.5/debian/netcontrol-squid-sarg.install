@@ -1,0 +1,3 @@
+plugins/squid_sarg/files	var/lib/netcontrol/plugins/squid_sarg/
+plugins/squid_sarg/__init__.py	var/lib/netcontrol/plugins/squid_sarg/
+plugins/squid_sarg/ui_sarg.py	var/lib/netcontrol/plugins/squid_sarg/

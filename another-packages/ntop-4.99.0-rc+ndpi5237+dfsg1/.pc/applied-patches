@@ -1,0 +1,14 @@
+fix-manpage-errors.patch
+fix-wget-during-build.patch
+dot-path.patch
+reduce-autogen-purged-files.patch
+change-plugin-dir.patch
+build-without-ntop-darwin.patch
+avoid-copy-maxmind-db.patch
+hostaname-in-man-description.patch
+netflow-plugin-links.patch
+kfreebsd-ftbfs.patch
+do-not-require-svn.patch
+tcp-option-parsing.patch
+l7_major_proto-fix.patch
+debian-changes-3:4.99.0-rc+ndpi5237+dfsg1-1flux2

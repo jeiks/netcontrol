@@ -1,0 +1,61 @@
+<xml>
+    <toolbar>
+        <hcontainer>
+            <button text="Atualizar lista de plugin" id="update" icon="/dl/plugins/update-lists.png" />
+            <button text="Reiniciar NetControl" id="restart" icon="/dl/core/ui/stock/refresh.png" />
+        </hcontainer>
+    </toolbar>
+
+    <label size="5" text="Instalado" />
+
+    <pad id="main">
+        <dt width="100%" id="list">
+            <dtr header="True">
+                <dth />
+                <dth />
+                <dth>
+                    <label text="Nome" />
+                </dth>
+                <dth>
+                    <label text="Descrição" />
+                </dth>
+                <dth>
+                    <label text="Versão" />
+                </dth>
+                <dth>
+                    <label text="Autor" />
+                </dth>
+                <dth />
+            </dtr>
+        </dt>
+    </pad>
+
+    <label size="5" text="Disponível" />
+
+    <pad>
+        <dt width="100%" id="avail">
+            <dtr header="True">
+                <dth />
+                <dth />
+                <dth>
+                    <label text="Nome" />
+                </dth>
+                <dth>
+                    <label text="Descrição" />
+                </dth>
+                <dth>
+                    <label text="Versão" />
+                </dth>
+                <dth>
+                    <label text="Autor" />
+                </dth>
+                <dth />
+            </dtr>
+        </dt>
+
+        <spacer height="10" />
+        <label size="2" text="Fazer upload de plugin" />
+        <spacer height="5" />
+        <uploader url="/upload_plugin" text="Instalar" />
+    </pad>
+</xml>

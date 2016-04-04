@@ -1,0 +1,242 @@
+chmod 0755 /usr/share/pycacic/cacic.py
+chmod 0755 /usr/share/pycacic/gui.py
+(nohup python /usr/share/pycacic/gui.py > /dev/null 2>&1)&if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi
+if [ "$$DISPLAY" = "" ]; then
+    (nohup python /usr/share/pycacic/mapacacic.py > /dev/null 2>&1)
+else
+    (nohup python /usr/share/pycacic/guimapacacic.py > /dev/null 2>&1)&
+fi

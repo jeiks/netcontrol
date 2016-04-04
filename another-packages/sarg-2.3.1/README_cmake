@@ -1,0 +1,216 @@
+WHY SWITCH TO CMAKE
+
+I (Frederic Marchal) could not make the autotools work with msys+mingw. The
+choices reduced to: fight some more time with the autotools; wait until the msys
+port evolved or switch to cmake. Despite not being familiar with cmake, I
+decided to give it a chance and was surprised to come up  within a few hours
+with something capable of compiling sarg.
+
+Now, that doesn't mean that the autotools are to be discarded on the spot. The
+two systems may coexist for some times especially since it is my first project
+with cmake and I'm sure it is done in an definitely autotoolistic way.
+
+Any comment about the usage of cmake is welcome.
+
+
+
+
+CONFIGURING SARG
+
+It is recommended to build sarg out of the source directory. It makes it easier
+to delete the build directory completely and restart the configuration from
+scratch if the first attempt doesn't produce the expected result.
+
+If you intent to use both cmake and the autotools, then you MUST build sarg out
+of the source directory as it will overwrite the original stub config.h in the
+source directory and you won't be able to use the autotools afterward.
+
+To build sarg out of source, create a build directory and cd into that directory.
+For instance, assuming your prompt is in the source directory, run
+
+ mkdir build
+ cd build
+
+Configure sarg with the command (assuming the case of a build directory one level
+below the sources of sarg):
+
+ ccmake ..
+
+On the first run, it will report that the cache is empty. Press 'c' to configure
+the cache. Then ccmake will display an interface to select some configuration
+options. You should set the CMAKE_INSTALL_PREFIX to the root of the directory to
+install sarg, for instance: /usr. You may also need to change SYSCONFDIR to
+/etc/sarg to install the configuration files at that location.
+
+Then press 'c' again to reconfigure sarg. Four more configuration variables
+appear. They are build from the paths you provided for the installation
+directories of the components. These are the absolute paths sarg will use to
+find the corresponding files. You then have the opportunity to adjust them if
+the final location of the files it not what is resolved with the installed
+configuration.
+
+Finally, press 'g' to generate the final configuration.
+
+Compile with
+
+ make
+
+Install with
+
+ make install
+
+
+
+
+CONFIGURATION VARIABLES
+
+These configuration variables are available on the first configuration run.
+
+   CMAKE_INSTALL_PREFIX - The root of the installation.
+      default: /usr/local
+
+   SYSCONFDIR - The directory with the configuration files relative to the
+                installation prefix.
+      default: etc/sarg
+
+   BINDIR - The directory to copy sarg executable to.
+      default: bin
+
+   MANDIR - The directory to install the man page.
+      default: share/man
+
+   LANGDIR - The directory to copy the languages files to.
+      default: share/sarg/languages
+
+   FONTDIR - The directory where the fonts for the reports are located.
+      default: share/sarg/fonts
+
+   IMAGEDIR - The directory containing the images to use in the reports.
+      default: share/sarg/images
+
+   SARGPHPDIR - The directory to install sarg-php.
+      default: share/sarg/sarg-php
+
+   ENABLE_EXTRA_PROTECT - Compile sarg with some GCC options to increase the
+              security (tolerate no compilation warning, use the stack smashing
+              protection, improved printf check, and so on).
+      default: use standard warnings and no protection.
+
+These variables are initialized with the values of the above variables and are
+available on the second run.
+
+   SYSCONFDIR_SOURCE - The full path to the configuration files to compile in
+                       sarg.
+      default: CMAKE_INSTALL_PREFIX/SYSCONFDIR
+
+   LANGDIR_SOURCE - The full path to the languages files to compile in sarg.
+      default: CMAKE_INSTALL_PREFIX/LANGDIR
+
+   FONTDIR_SOURCE - The full path to the fonts to compile in sarg.
+      default: CMAKE_INSTALL_PREFIX/FONTDIR
+
+   IMAGEDIR_SOURCE - The full path to the images to compile in sarg.
+      default: CMAKE_INSTALL_PREFIX/IMAGEDIR
+
+There are other configuration variables whose documentation is visible during the
+configuration with ccmake.
+
+
+
+
+COMPILATION WITH MSYS+MINGW
+
+The autotools don't compile sarg with msys. You have to use cmake in an msys
+terminal.
+
+If cmake is not already installed on your system, download and uncompress the
+cmake sources in your home directory then run the following commands in an msys
+terminal:
+
+ configure
+ make
+ make install
+
+Permanently add the path to cmake.exe by appending this line at the end of your
+profile file (c:/msys/1.0/etc/profile):
+
+ export PATH="$PATH:/c/Program files/CMake/bin"
+
+Reopen the msys terminal or run the above command in the same terminal to
+register the new path.
+
+Get the sources of sarg and uncompress them in your home directory. Let's assume
+they are in a directory named "sarg".
+
+Create a separate build directory and change to that directory. For instance,
+assuming your prompt is in the sarg directory, run the following commands:
+
+ mkdir build
+ cd build
+
+Configure, compile and install sarg:
+
+ cmake .. -G "MSYS Makefiles"
+ make
+ make install
+
+This will compile sarg outside of the sources and install it in c:\Program
+Files\sarg.
+
+If the compilation fails because mkstemp cannot be found, ensure that the LIB
+and INCLUDE environment variables are set properly to the lib and include
+directories of mingw. For instance, type the following two commands and run make
+again:
+
+ export LIB=c:/mingw/lib
+ export INCLUDE=c:/mingw/include
+
+You can make them permanent by appending those two commands at the end of the
+profile file in c:/msys/1.0/etc/profile.
+
+
+
+
+CONFIGURING SARG TO RUN ON WINDOWS
+
+Cmake install a sample configuration file in c:/Program
+Files/sarg/etc/sarg/sarg.conf.exemple. Rename it as sarg.conf and edit it.
+
+You must change the following options:
+
+ access_log c:/Program Files/sarg/log/access.log
+ temporary_dir c:/Program Files/sarg/tmp
+ output_dir c:/Program Files/sarg/www/squid-reports
+
+Adjust and create the directories according to your configuration.
+
+You may have to adjust other options to suit your needs.
+
+If sarg complains about a missing sort command, then you have to install
+the unxtools or run sarg from msys.
+
+If you want to run sarg from a regular dos prompt, download UnxUtils.zip from
+http://unxutils.sourceforge.net/ and uncompress it somewhere. Change the system
+path to include the usr\local\wbin directory before the Windows system
+directory.
+
+You must be sure that the unxutils are found before the windows native commands.
+To check this, open a dos prompt and type
+
+ls
+
+If it list the content of the directory, then the unxutils are found. Then type
+
+sort --help
+
+It should display the help of the sort command if the unxutils command is found
+first. If the windows command is found first, it will complain that the --help
+file cannot be found.
+
+Finally, if sort complains that it cannot write in the /tmp directory, either
+create that directory or set TMPDIR like this:
+
+ set TMPDIR=c:/Program Files/sarg/tmp
+
+It may be set to your TMP or TEMP directory or the temporary directory you named
+in your sarg.conf file.

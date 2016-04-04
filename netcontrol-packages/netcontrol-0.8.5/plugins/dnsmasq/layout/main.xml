@@ -1,0 +1,62 @@
+<xml>
+    <toolbar>
+        <button id="btnAddHost" text="Add DHCP host" icon="/dl/core/ui/stock/add.png" />
+        <button id="btnAddDomain" text="Add domain" icon="/dl/core/ui/stock/add.png" />
+    </toolbar>
+    
+    <label size="5" text="Entradas DNS" />
+
+    <pad>
+        <dt id="domains" width="100%">
+            <dtr header="True">
+                <dth>
+                    <label text="Hostname" />
+                </dth>
+                <dth>
+                    <label text="Endereço" />
+                </dth>
+                <dth width="1" />
+            </dtr>
+        </dt>
+    </pad>
+
+    <label size="5" text="Hosts DHCP" />
+
+    <pad>
+        <dt id="hosts" width="100%">
+            <dtr header="True">
+                <dth>
+                    <label text="MAC" />
+                </dth>
+                <dth>
+                    <label text="Identificação" />
+                </dth>
+                <dth>
+                    <label text="IP" />
+                </dth>
+                <dth>
+                    <label text="Ação" />
+                </dth>
+                <dth width="1" />
+            </dtr>
+        </dt>
+    </pad>
+    
+    <label size="5" text="Concessões ativas" />
+
+    <pad id="main">
+        <dt id="list" width="100%">
+            <dtr header="True">
+                <dth>
+                    <label text="MAC" />
+                </dth>
+                <dth>
+                    <label text="IP" />
+                </dth>
+                <dth>
+                    <label text="Host" />
+                </dth>
+            </dtr>
+        </dt>
+    </pad>
+</xml>

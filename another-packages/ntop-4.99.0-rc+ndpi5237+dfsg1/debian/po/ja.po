@@ -1,0 +1,148 @@
+# Japanese debconf templates translation for ntop.
+# Copyright (C) 2007 Noritada Kobayashi
+# This file is distributed under the same license as the ntop package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ntop (debconf) 3:3.2-9\n"
+"Report-Msgid-Bugs-To: ntop@packages.debian.org\n"
+"POT-Creation-Date: 2011-01-26 00:15-0800\n"
+"PO-Revision-Date: 2007-03-01 21:03+0900\n"
+"Last-Translator: Noritada Kobayashi <nori1@dolphin.c.u-tokyo.ac.jp>\n"
+"Language-Team: Japanese <debian-japanese@lists.debian.org>\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: string
+#. Description
+#: ../ntop.templates:1001
+msgid "User for the ntop process to run as:"
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../ntop.templates:1001
+msgid ""
+"Please choose the login that should be used to execute the ntop process. The "
+"use of the root user is not allowed."
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../ntop.templates:1001
+msgid ""
+"The account will be created if it does not already exist, but if you leave "
+"it blank, no login will be created and ntop will not run until manually "
+"configured."
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../ntop.templates:2001
+#, fuzzy
+#| msgid "Which interfaces should ntop listen on?"
+msgid "Interfaces for ntop to listen on:"
+msgstr "ntop はどのインタフェースで待ち受けますか?"
+
+#. Type: string
+#. Description
+#: ../ntop.templates:2001
+#, fuzzy
+#| msgid ""
+#| "Please enter a comma separated list of interfaces ntop should listen on."
+msgid ""
+"Please enter a comma-separated list of interfaces that ntop should listen on."
+msgstr ""
+"ntop に待ち受けさせるインタフェースをコンマ区切りのリストで入力してください。"
+
+#. Type: password
+#. Description
+#: ../ntop.templates:3001
+msgid "Administrator password:"
+msgstr ""
+
+#. Type: password
+#. Description
+#: ../ntop.templates:3001
+msgid ""
+"Please choose a password to be used for the privileged user \"admin\" in "
+"ntop's web interface."
+msgstr ""
+
+#. Type: password
+#. Description
+#: ../ntop.templates:4001
+msgid "Re-enter password to verify:"
+msgstr ""
+
+#. Type: password
+#. Description
+#: ../ntop.templates:4001
+msgid ""
+"Please enter the same password again to verify that you have typed it "
+"correctly."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ntop.templates:5001
+msgid "Empty password"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ntop.templates:5001
+msgid ""
+"You entered an empty password, which is not allowed. Please choose a non-"
+"empty password."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ntop.templates:6001
+msgid "Password input error"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ntop.templates:6001
+msgid "The two passwords you entered were not the same. Please try again."
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../ntop.templates:7001
+msgid "Set a new administrator password?"
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../ntop.templates:7001
+msgid ""
+"A password for ntop's administrative web interface has already been set."
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../ntop.templates:7001
+msgid "Please choose whether you want to change that password."
+msgstr ""
+
+#~ msgid ""
+#~ "The selected user will be created if not already available. Don't choose "
+#~ "root, it is not recommended and will be discarded anyway."
+#~ msgstr ""
+#~ "選択されたユーザがまだ存在しない場合、作成されます。root を選択しないでく"
+#~ "ださい。root は推奨されていないので、選択しても無効になります。"
+
+#~ msgid ""
+#~ "If you select an empty string no user will be created on the system and "
+#~ "you will need to do that configuration yourself."
+#~ msgstr ""
+#~ "空の文字列を入力した場合、ユーザはシステムに作成されません。その場合は実行"
+#~ "ユーザの設定を自分でする必要があります。"
+
+#~ msgid "Which is the name of the user to run the ntop daemon as ?"
+#~ msgstr "どのユーザ名で ntop デーモンを実行しますか?"

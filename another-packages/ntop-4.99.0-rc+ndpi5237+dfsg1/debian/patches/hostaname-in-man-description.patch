@@ -1,0 +1,43 @@
+Description: add servername:port in the DESCRIPTION section of the man
+ page, be less vague about the URL of ntop web interface
+Author: A. Costa <agcosta@gis.net>
+Bug-Debian: http://bugs.debian.org/466506
+Bug-Debian: http://bugs.debian.org/466507
+
+Index: ntop/ntop.8
+===================================================================
+--- ntop.orig/ntop.8	2012-02-26 11:01:20.992719416 -0800
++++ ntop/ntop.8	2012-02-26 11:04:35.328045167 -0800
+@@ -107,14 +107,11 @@
+ 
+ .SH DESCRIPTION
+ .B ntop
+-shows the current network usage. It displays a list of hosts that are
+-currently using the network and reports information concerning the (IP and non-IP) 
+-traffic generated and received by each host.
++shows the current network usage in a web browser, the default URL is 'http://localhost:3000'.
++It displays a list of hosts that are currently using the network and reports
++information concerning the (IP and non-IP) traffic generated and received by each host.
+ .B ntop
+-may operate as a front-end collector (sFlow and/or netFlow plugins) or as a stand-alone
+-collector/display program. A web browser is needed to access the information captured by the 
+-.B ntop
+-program. 
++may operate as a front-end collector (sFlow and/or netFlow plugins) or as a stand-alone program.
+ 
+ .B ntop
+ is a hybrid layer 2 / layer 3 network monitor, that is by default it uses the layer 2 Media
+@@ -578,7 +575,12 @@
+ 
+ For example, if started with -w 3000 (the default port), the URL to access 
+ .B ntop
+-is http://hostname:3000/.  If started with a full specification, e.g. -w 192.168.1.1:3000,
++is http://hostname:3000/, where "hostname" is the name or address of the
++system where ntop is installed. For example, if
++.B ntop
++is installed on the local machine, the web interface can be accessed at
++http://localhost:3000.
++If started with a full specification, e.g. -w 192.168.1.1:3000,
+ .B ntop
+ listens on only that address/port combination.
+ 

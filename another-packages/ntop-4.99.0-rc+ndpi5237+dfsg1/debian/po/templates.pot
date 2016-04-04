@@ -1,0 +1,127 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: ntop@packages.debian.org\n"
+"POT-Creation-Date: 2011-01-26 00:15-0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: string
+#. Description
+#: ../ntop.templates:1001
+msgid "User for the ntop process to run as:"
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../ntop.templates:1001
+msgid ""
+"Please choose the login that should be used to execute the ntop process. The "
+"use of the root user is not allowed."
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../ntop.templates:1001
+msgid ""
+"The account will be created if it does not already exist, but if you leave "
+"it blank, no login will be created and ntop will not run until manually "
+"configured."
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../ntop.templates:2001
+msgid "Interfaces for ntop to listen on:"
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../ntop.templates:2001
+msgid ""
+"Please enter a comma-separated list of interfaces that ntop should listen on."
+msgstr ""
+
+#. Type: password
+#. Description
+#: ../ntop.templates:3001
+msgid "Administrator password:"
+msgstr ""
+
+#. Type: password
+#. Description
+#: ../ntop.templates:3001
+msgid ""
+"Please choose a password to be used for the privileged user \"admin\" in "
+"ntop's web interface."
+msgstr ""
+
+#. Type: password
+#. Description
+#: ../ntop.templates:4001
+msgid "Re-enter password to verify:"
+msgstr ""
+
+#. Type: password
+#. Description
+#: ../ntop.templates:4001
+msgid ""
+"Please enter the same password again to verify that you have typed it "
+"correctly."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ntop.templates:5001
+msgid "Empty password"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ntop.templates:5001
+msgid ""
+"You entered an empty password, which is not allowed. Please choose a non-"
+"empty password."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ntop.templates:6001
+msgid "Password input error"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../ntop.templates:6001
+msgid "The two passwords you entered were not the same. Please try again."
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../ntop.templates:7001
+msgid "Set a new administrator password?"
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../ntop.templates:7001
+msgid ""
+"A password for ntop's administrative web interface has already been set."
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../ntop.templates:7001
+msgid "Please choose whether you want to change that password."
+msgstr ""

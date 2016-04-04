@@ -1,0 +1,46 @@
+/*! \file sort.c
+\brief Sort the temporary log files.
+*/
+
+
+
+
+/*! \fn void tmpsort(void)
+Sort all the \c utmp files form the temporary directory. The sort can be made according to the
+number of connections, the accessed sites or the time of the access depending on the value of
+::UserSortField. The sorting is either made in increasing or decreasing order as specified by
+the value of ::UserSortOrder.
+*/
+
+
+
+
+
+/*! \fn void sort_users_log(const char *tmp, int debug)
+The function sorts all the \c unsort files in the temporary directory. These files correspond
+to the format described in \ref UserUnsortLog.
+
+\param tmp The temorary directory of the sarg files.
+\param debug \c True to output debug information.
+
+The user's files are sorted by columns 5, 1 and 2 that are the columns of the number of bytes transfered,
+the date of the access and the time of the access.
+
+The file with the downloads is sorted by columns 3, 1, 2 and 5 that are the columns of the user's ID, the
+date, the time and the URL.
+
+In both cases, the sorted files are written in files with the extension \c log and the name of the unsorted
+file without the \c unsort extension. The unsorted file is deleted just after the sorting.
+*/
+
+
+
+
+
+/*! \fn void sort_labels(const char **label,const char **order)
+Get the internationalized text to display when reporting the sort criterion and order
+of a user list.
+
+\param label A pointer to set to the string of the sort criterion name.
+\param order A pointer to set to the string of the sort order name
+*/

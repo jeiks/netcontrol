@@ -1,0 +1,101 @@
+/*! \file exclude.c
+\brief Handle exclusion of sites and users from the report.
+*/
+
+
+
+
+/*!\fn static void store_exclude_ip4(unsigned short int *addr,int mask)
+Store an IPv4 address to exclude from the report. A mask may be provided
+to exclude a subnet.
+
+\param addr The numbers of the IP address.
+\param mask The number of bits to mask when matching the IP address.
+*/
+
+
+
+
+/*! \fn static void store_exclude_url(char *url,int length)
+Store an URL to exclude from the report.
+
+If the URL contains a wildcard (*), only the part of the URL after
+the first dot encountered after the wildcard is stored. It serves
+to exclude a subdomain.
+
+\param url The URL to exclude.
+\param length The length of the URL in bytes.
+*/
+
+
+
+
+
+/*!\fn static void gethexclude(const char *hexfile, int debug)
+Get the list of the hosts to exclude from the report.
+
+You must call free_exclude() to free the memory allocated by this function.
+
+\param hexfile The name of the file to read. There is one host per line. Any line
+containing a # anywhere in the line is a comment.
+\param debug Set to \c true to print debug informations.
+*/
+
+
+
+
+
+/*! \fn static void getuexclude(const char *uexfile, int debug)
+Get the list of the users to exclude from the report.
+
+You must call free_exclude() to free the memory allocated by this function.
+
+\param uexfile The name of the file to read. There is one user per line. Any line
+containing a # anywhere in the line is a comment.
+\param debug Set to \c true to print debug informations.
+*/
+
+
+
+
+
+/*! \fn int vhexclude(const char *url)
+Tell if the site accessed by the user is excluded from the report.
+
+\param url The URL to check.
+
+\retval 1 The site is not excluded.
+\retval 0 The site is excluded.
+*/
+
+
+
+
+
+/*! \fn int vuexclude(const char *user)
+Tell if the user is excluded from the report.
+
+\param user The user to check.
+
+\retval 1 The user is not excluded.
+\retval 0 The user is excluded.
+*/
+
+
+
+
+
+/*! \fn bool is_indexonly(void)
+Tell if the exclusion list of the users mention the word "indexonly" meaning that
+the user only want to produce the index.html.
+
+\return \c True if only the index is requested or \c false if normal processing is requested.
+*/
+
+
+
+
+
+/*! \fn void free_exclude(void)
+Free the memory allocated by gethexclude() and getuexclude().
+*/

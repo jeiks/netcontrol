@@ -1,0 +1,9 @@
+*
+To use sarg-squidGuard you need to change:
+
+1. These two variables on sarg-squidguard-block.php file:
+$SargConf = "/usr/local/sarg/sarg.conf";
+$squidGuardConf = "/usr/local/squidGuard/squidGuard.conf";
+
+2.change the squidGuard db file to the same httpd process owner:
+chown apache /var/www/html/sarg-php

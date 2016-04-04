@@ -1,0 +1,70 @@
+#ifndef CONFIG_H
+#define CONFIG_H
+
+#define PACKAGE_NAME "@PACKAGE_NAME@"
+#define PACKAGE_VERSION "@PACKAGE_VERSION@"
+#define SYSCONFDIR "@SYSCONFDIR_SOURCE@"
+#define LANGDIR "@LANGDIR_SOURCE@"
+#define FONTDIR "@FONTDIR_SOURCE@"
+#define IMAGEDIR "@IMAGEDIR_SOURCE@"
+
+#cmakedefine HAVE_STDIO_H
+#cmakedefine HAVE_STDLIB_H
+#cmakedefine HAVE_STRING_H
+#cmakedefine HAVE_STRINGS_H
+#cmakedefine HAVE_SYS_TIME_H
+#cmakedefine HAVE_TIME_H
+#cmakedefine HAVE_UNISTD_H
+#cmakedefine HAVE_SYS_DIRENT_H
+#cmakedefine HAVE_DIRENT_H
+#cmakedefine HAVE_SYS_SOCKET_H
+#cmakedefine HAVE_NETDB_H
+#cmakedefine HAVE_ARPA_INET_H
+#cmakedefine HAVE_SYS_TYPES_H
+#cmakedefine HAVE_NETINET_H
+#cmakedefine HAVE_SYS_STAT_H
+#cmakedefine HAVE_CTYPE_H
+#cmakedefine HAVE_GD_H
+#cmakedefine HAVE_GDFONTL_H
+#cmakedefine HAVE_GDFONTT_H
+#cmakedefine HAVE_GDFONTS_H
+#cmakedefine HAVE_GDFONTMB_H
+#cmakedefine HAVE_GDFONTG_H
+#cmakedefine HAVE_ICONV_H
+#cmakedefine HAVE_ERRNO_H
+#cmakedefine HAVE_SYS_RESOURCE_H
+#cmakedefine HAVE_SYS_WAIT_H
+#cmakedefine HAVE_STDARG_H
+#cmakedefine HAVE_INTTYPES_H
+#cmakedefine HAVE_LIMITS_H
+#cmakedefine HAVE_WINDOWS_H
+#cmakedefine HAVE_WINSOCK_H
+#cmakedefine HAVE_LDAP_H
+#cmakedefine HAVE_MATH_H
+#cmakedefine HAVE_LOCALE_H
+#cmakedefine HAVE_EXECINFO_H
+#cmakedefine HAVE_LIBINTL_H
+#cmakedefine HAVE_LIBGEN_H
+#cmakedefine HAVE_STDBOOL_H
+#cmakedefine HAVE_GETOPT_H
+#cmakedefine HAVE_WS2TCPIP_H
+
+#cmakedefine IBERTY_LIB
+
+#cmakedefine HAVE_BZERO
+#cmakedefine HAVE_MKSTEMP
+#cmakedefine HAVE_FOPEN64
+#cmakedefine HAVE_BACKTRACE
+#cmakedefine HAVE_SYMLINK
+#cmakedefine HAVE_LSTAT
+#cmakedefine HAVE_GETNAMEINFO
+#cmakedefine HAVE_INET_ATON
+
+#define RLIM_STRING "@RLIM_STRING@"
+#define ICONV_CONST @ICONV_CONST@
+
+#cmakedefine ENABLE_DOUBLE_CHECK_DATA
+
+#cmakedefine HAVE_LC_MESSAGES
+
+#endif /*CONFIG_H*/

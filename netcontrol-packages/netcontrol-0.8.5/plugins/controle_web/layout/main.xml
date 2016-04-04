@@ -1,0 +1,186 @@
+<xml>
+    <script src="/dl/controle_web/checkall.js"></script>
+
+    <div style="text-align: center">
+        <label text="Controle de Acesso WEB" size="5" />
+    </div>
+
+    <toolbar>
+        <div style="text-align: center">
+            <spacer height="10" />
+            <hcontainer>
+                <button id="addGroup" text="Adicionar grupo" icon="/dl/core/ui/stock/add.png" />
+                <spacer width="40" />
+                <button id="applyAllSettings" text="Aplicar modificações ao Servidor de Proxy" icon="/dl/core/ui/stock/refresh.png" />
+            </hcontainer>
+        </div>
+    </toolbar>
+
+    <div style="text-align: center">
+        <spacer height="10" />
+        <label text="" size="3" id="titulo" name="titulo" />
+    </div>
+   
+    <pad>
+    <lt>
+        <ltr>
+            <ltd id="grupos" name="grupos">
+                <container id="tree" width="160" height="360" />
+            </ltd>
+            <ltd id="conteudo" name="conteudo">
+                <div style="border-bottom:1px solid #cccccc;" width="620" height="360">
+                    <container id="data" width="620" height="100%">
+                        <tabcontrol id="tabs" active="0">
+                            <tabheader pid="tabs" text="Usuários"            id="0" />
+                            <tabheader pid="tabs" text="IPs"                 id="1" />
+                            <tabheader pid="tabs" text="Grupos de Sites"     id="2" />
+                            <tabheader pid="tabs" text="Lista Personalizada" id="3" />
+                            <tabbody pid="usuarios"   id="0">
+
+                                <simpleform name="frm_usr" id="frm_usr" width="620" height="360">
+                                <lt width="620" height="360" border="1">
+                                    <ltr>
+                                        <ltd width="40%" height="300">
+                                            <vcontainer width="100%">
+                                                <center>
+                                                    <label name="texttusuarios" text="Todos os Usuários" size="3" bold="True" />
+                                                </center>
+                                                <dt width="100%" name="todos_usuarios" id="todos_usuarios">
+                                                </dt>
+                                            </vcontainer>
+                                        </ltd>
+                                        <ltd width="20%" height="300">
+                                            <spacer height="30" />
+                                            <center>
+                                                <button id="addUsers" name="addUsers" form="frm_usr"
+                                                        text="&#62;&#62;" onclick="form" action="addUsers"/>
+                                            </center>
+                                            <spacer height="10" />
+                                            <center>
+                                                <button id="delUsers" name="delUsers" form="frm_usr"
+                                                        text="&#60;&#60;" onclick="form" action="delUsers"/>
+                                            </center>
+                                        </ltd>
+                                        <ltd width="40%" height="300" valign="top">
+                                            <vcontainer width="100%">
+                                                <center>
+                                                    <label text="Usuários deste grupo" size="3" bold="True"/>
+                                                </center>
+                                                <table width="100%" height="100%" name="usuarios" id="usuarios">
+                                                </table>
+                                            </vcontainer>
+                                        </ltd>
+                                    </ltr>
+                                </lt>
+                                </simpleform>
+                            </tabbody>
+
+                            <tabbody pid="ipstab" id="1">
+                                <center>
+                                    <simpleform id="frm_IPList" name="frm_IPList">
+                                        <vcontainer width="100%" height="100%">
+                                            <label text="Adicionar IP:" size="3" bold="True" />
+                                            <hcontainer>
+                                                <textinput id="inputIP" name="inputIP" />
+                                                <button id="addNewIP" name="addNewIP"
+                                                        form="frm_IPList" action="addNewIP"
+                                                        onclick="form"    text="Adicionar" />
+                                            </hcontainer>                                 
+                                            <spacer height="10" />
+                                            <label text="IPs cadastrados nesse grupo:" size="3" bold="True"/>
+                                            <scrollcontainer width="300" height="500">
+                                                <dt width="280" name="lista_IPs" id="lista_IPs">
+                                                </dt>
+                                            </scrollcontainer>
+                                            <spacer height="10" />
+                                        </vcontainer>
+                                    </simpleform>
+                                </center>
+                            </tabbody>
+
+                            <tabbody pid="sites_grupos"  id="2">
+                                <simpleform id="frm_setSquidGroups" name="frm_setSquidGroups">
+                                    <center>
+                                        <div style="background-color: #F0F0F0; border-radius: 10px 10px 10px 10px; margin-bottom: 10px;">
+                                            <span onclick="javascript:checkAll(1);" style="color: #0069D6;  cursor: pointer; ">
+                                                Marcar Todos
+                                            </span>
+
+                                            <a onclick="return Netcontrol.submit('frm_setSquidGroups', 'setSquidGroups'); "
+                                                href="" style="margin-left: 100px; margin-right: 100px;">
+                                                Aplicar
+                                            </a>
+
+                                            <span onclick="javascript:checkAll(0);" style="color: #0069D6;  cursor: pointer;">
+                                                Desmarcar Todos
+                                            </span>
+                                        </div>
+                                        <label text="Marque abaixo os grupos que devem ser liberados para este grupo navegar:"
+                                               bold="True" />
+                                    </center>
+                                    <hcontainer width="100%" height="100%" name="sites_grupos" id="sites_grupos">
+                                    </hcontainer>
+                                </simpleform>
+                            </tabbody>
+                            <tabbody pid="sites_pers" id="3">
+                                <simpleform id="frm_addlib" name="frm_addlib">
+                                <lt width="620" height="360" border="1">
+                                    <ltr>
+                                        <ltd width="50%" height="100%">
+                                            <center>
+                                                <vcontainer>
+                                                    <center>
+                                                        <label text="Liberados" size="3" bold="True" />
+                                                    </center>
+                                                    <center>
+                                                        <label text="Para vários sites, separe com vírgula" size="1" />
+                                                    </center>
+                                                    <hcontainer>
+                                                        <textinput id="site_lib" name="site_lib" />
+                                                        <button id="addLiberado"  name="addLiberado"
+                                                                form="frm_addlib" action="addLiberado"
+                                                                onclick="form"    text="Adicionar" />
+                                                    </hcontainer>
+                                                </vcontainer>
+                                            </center>
+                                            <spacer height="10" />
+                                            <scrollcontainer height="360" width="100%">
+                                                <dt id="sites_liberados" name="sites_liberados"   width="100%">
+                                                </dt>
+                                            </scrollcontainer>
+                                        </ltd>
+                                        <ltd width="50%" height="100%">
+                                            <center>
+                                                <label text="Bloqueados" size="3" bold="True" />
+                                            </center>
+                                            <center>
+                                                <label text="Para vários sites, separe com vírgula" size="1" />
+                                            </center>
+                                            <hcontainer>
+                                                <textinput id="site_bloq" name="site_bloq" />
+                                                <button id="addBloqueado" name="addBloqueado"
+                                                        form="frm_addlib" action="addBloqueado"
+                                                        onclick="form"    text="Adicionar" />
+                                            </hcontainer>
+                                            <spacer height="10" />
+                                            <scrollcontainer height="360" width="100%">
+                                                <dt id="sites_bloqueados" name="sites_bloqueados" width="100%">
+                                                </dt>
+                                            </scrollcontainer>
+                                        </ltd>
+                                    </ltr>
+                                </lt>
+                            </simpleform>
+                            </tabbody>
+                        </tabcontrol>
+                    </container>
+                </div>
+            </ltd>
+        </ltr>
+    </lt>
+    </pad>
+    <div style="text-align: center">
+        <label text="" size="2" id="mainMessage" name="mainMessage" />
+    </div>
+
+</xml>

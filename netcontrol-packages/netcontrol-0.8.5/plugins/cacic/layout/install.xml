@@ -1,0 +1,6 @@
+<xml>
+  <toolbar>
+     <center><button id="install_serv" text="Instalar servidor Cacic" icon="/dl/core/ui/stock/refresh.png" /></center>
+  </toolbar>
+  <center style="margin-top:15px;"><label style="margin-top:10px; " text="Nenhum servidor Cacic instalado..." size="3"/></center>
+</xml>

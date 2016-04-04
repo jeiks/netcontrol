@@ -1,0 +1,13 @@
+#!/usr/bin/make -f
+
+DEB_PYTHON_SYSTEM=pycentral
+DEB_PYTHON_INSTALL_ARGS_ALL='--install-layout=deb'
+
+include /usr/share/cdbs/1/rules/debhelper.mk
+include /usr/share/cdbs/1/class/python-distutils.mk
+
+binary-post-install/python-netcontroldhcp::
+	mv $(CURDIR)/debian/python-netcontroldhcp/usr/lib/python2.6/site-packages \
+		$(CURDIR)/debian/python-netcontroldhcp/usr/lib/python2.6/dist-packages
+	sed -i 's;python2.6/site-packages;python2.6/dist-packages;' \
+		$(CURDIR)/debian/python-netcontroldhcp/usr/share/pyshared-data/python-netcontroldhcp

@@ -1,0 +1,8 @@
+<dialogbox id="dlgEditGroup">
+    <label text="Informações sobre o Grupo:" size="3" />
+    <spacer height="10" />
+    <formline text="Nome do Grupo">
+        <textinput id="name" name="name" />
+    </formline>
+    <label text="" id="alert" name="alert" bold="True" />
+</dialogbox>

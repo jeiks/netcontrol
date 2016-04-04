@@ -1,0 +1,52 @@
+
+What's in the ntop distribution ?
+---------------------------------
+
+1) ntop                 [. directory]
+All of the source for ntop is in this, root, directory of the distribution.
+
+2) rrd                  [myrrd/ directory]
+This is a frozen (stable) version of rrdtool which ntop statically links to.
+
+3) configureextra
+OS and distribution/release specific extensions for ./configure
+
+4) plugins
+ntop add ons, such as sflow, pda, etc.
+
+5)  html
+html files used by ntop, includes images
+
+6) docs
+All the documentation that's fit to print! Please help us out and write more!
+
+7) utils
+Little pieces of code that might be useful or are used in the preparation
+of data files and such.
+
+8) www
+How to extract data out of ntop using Perl/PHP/Python
+
+9) packages
+Files used to build executable packages for MacOSX, RedHat and Suse environments.
+More a starting point than a finished output, due to tool differences, file layouts,
+etc.
+
+   NOTE: The 'RedHat' files are older and NOT the ones used to create the
+         .rpm files posted at SourceForge.
+
+10) installer
+Files used to build executable packages for MacOSX.
+
+11) NetFlow
+(Old) A simple NetFlow collector that stores in a MySQL DB all the traffic information 
+sent by a NetFlow probe such as ntop.
+
+
+
+
+Have fun!
+
+-----------------------------------
+Luca Deri <deri@ntop.org>, March 2001 / updated June 2002 / updated March 2003
+Burton - Updated Feb 2004

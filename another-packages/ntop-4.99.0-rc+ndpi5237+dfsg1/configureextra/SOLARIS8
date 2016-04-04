@@ -1,0 +1,11 @@
+#!/bin/sh
+
+echo "        Setting Solaris 8 specific flag values"
+LDFLAGS="-L/usr/local/lib"
+LIBS="-lnsl -lsocket ${LIBS}"
+
+. configureextra/functions
+
+# Test for GNU libiconv (e.g. SunFreeware)
+test_library iconv    iconv_open
+

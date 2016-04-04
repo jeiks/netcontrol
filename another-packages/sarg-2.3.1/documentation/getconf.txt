@@ -1,0 +1,94 @@
+/*! \file getconf.c
+\brief Configure sarg.
+*/
+
+
+/*! \fn static int is_param(const char *param,const char *buf)
+Tell if the buffer contains a line defining the given parameter.
+
+\param param The name of the parameter to find.
+\param buf The string read from the input file.
+
+\retval 1 Parameter match.
+\retval 0 The line is not for that parameter.
+*/
+
+
+
+
+/*! \fn static int getparam_string(const char *param,char *buf,char *value,int value_size)
+Extract a string value from a line if it is the right parameter.
+
+\param param The name of the parameter to find.
+\param buf The string read from the input file.
+\param value The buffer to store the value.
+\param value_size The size of the output buffer.
+
+\retval 1 Parameter match.
+\retval 0 The line is not for that parameter.
+*/
+
+
+
+
+
+/*! \fn static int getparam_quoted(const char *param,char *buf,char *value,int value_size)
+Extract a quoted string value from a line if it is the right parameter.
+
+\param param The name of the parameter to find.
+\param buf The string read from the input file.
+\param value The buffer to store the value.
+\param value_size The size of the output buffer.
+
+\retval 1 Parameter match.
+\retval 0 The line is not for that parameter.
+*/
+
+
+
+
+
+/*! \fn static int getparam_int(const char *param,char *buf,int *value)
+Extract an integer value from a line if it is the right parameter.
+
+\param param The name of the parameter to find.
+\param buf The string read from the input file.
+\param value The variable to store the value.
+
+\retval 1 Parameter match.
+\retval 0 The line is not for that parameter.
+*/
+
+
+
+
+
+/*! \fn static int getparam_bool(const char *param,char *buf,int *value)
+Extract a boolean flag from a line if it is the right parameter.
+
+\param param The name of the parameter to find.
+\param buf The string read from the input file.
+\param value The variable to store the value.
+
+\retval 1 Parameter match.
+\retval 0 The line is not for that parameter.
+*/
+
+
+
+
+
+/*! \fn static void parmtest(char *buf)
+Find what parameter is passed in the input buffer and store the value in memory.
+
+\param buf One line of text from the configuration file.
+*/
+
+
+
+
+
+/*! \fn void getconf(void)
+Read the configuration file whose name is in ::ConfigFile.
+*/
+

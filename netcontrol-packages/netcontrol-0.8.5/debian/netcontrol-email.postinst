@@ -1,0 +1,23 @@
+#!/bin/bash
+# postinst script for netcontrol
+
+set -e
+
+case "$1" in
+    configure)
+        netcontrol-pkg upgrade
+        /etc/init.d/apache2    restart || true
+	    /etc/init.d/netcontrol restart || true
+    ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
+        echo
+    ;;
+
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+
+exit 0

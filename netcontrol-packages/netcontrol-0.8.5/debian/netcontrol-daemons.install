@@ -1,0 +1,5 @@
+plugins/daemons/backend.py	var/lib/netcontrol/plugins/daemons/
+plugins/daemons/files	var/lib/netcontrol/plugins/daemons/
+plugins/daemons/__init__.py	var/lib/netcontrol/plugins/daemons/
+plugins/daemons/layout	var/lib/netcontrol/plugins/daemons/
+plugins/daemons/main.py	var/lib/netcontrol/plugins/daemons/

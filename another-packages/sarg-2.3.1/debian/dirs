@@ -1,0 +1,11 @@
+usr/bin
+usr/sbin
+etc/sarg
+etc/cron.daily
+etc/cron.weekly
+etc/cron.monthly
+usr/share/lintian/overrides
+usr/share/man/man1
+usr/share/sarg
+usr/share/doc/sarg
+var/lib/sarg

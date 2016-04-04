@@ -1,0 +1,13 @@
+<dialogbox id="listaUsersLdap" cancel="false">
+        <vcontainer>
+			<dt  id="users" name="users">
+				<dtr>
+					<dth>Login:</dth>
+					<dth>Nome:</dth>
+					<dth>Sobrenome:</dth>
+					<dth>E-mail:</dth>
+				</dtr>
+			</dt>
+        </vcontainer>
+        
+</dialogbox>

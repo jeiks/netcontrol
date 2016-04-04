@@ -1,0 +1,10 @@
+plugins/squid/api.py	var/lib/netcontrol/plugins/squid/
+plugins/squid/backend.py	var/lib/netcontrol/plugins/squid/
+plugins/squid/config.py	var/lib/netcontrol/plugins/squid/
+plugins/squid/files	var/lib/netcontrol/plugins/squid/
+plugins/squid/__init__.py	var/lib/netcontrol/plugins/squid/
+plugins/squid/main.py	var/lib/netcontrol/plugins/squid/
+plugins/squid/ui_acls.py	var/lib/netcontrol/plugins/squid/
+plugins/squid/ui_bindings.py	var/lib/netcontrol/plugins/squid/
+plugins/squid/ui_http_access.py	var/lib/netcontrol/plugins/squid/
+plugins/squid/ui_refresh_patterns.py	var/lib/netcontrol/plugins/squid/

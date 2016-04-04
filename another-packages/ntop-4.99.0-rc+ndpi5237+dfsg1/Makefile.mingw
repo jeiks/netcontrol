@@ -1,0 +1,105 @@
+#
+# ntop makefile for MingW
+#
+
+USE_SSL = 1
+
+VERSION = 3.0
+
+#
+# Root direcories for need packages. Edit these as needed.
+#
+GDCHART_ROOT = ../../Graphics/gdchart0.94c
+GD_ROOT      = ../../Graphics/gdchart0.94c/gd-1.8.3
+PNG_ROOT     = ../../Graphics/libpng-1.24
+ZLIB_ROOT    = ../../zlib-1.2.1
+GDBM_ROOT    = ../../gdbm-1.8.0
+PCAP_ROOT    = ../libpcap
+OPENSSL_ROOT = ../OpenSSL-0.9.8
+
+OBJ_DIR = MingW_obj
+
+VPATH = plugins myrrd
+
+CC     = gcc
+CFLAGS = -O2 -Wall -g -I. -I./myrrd -I$(PCAP_ROOT) -I$(PCAP_ROOT)/bpf/net \
+         -I$(PCAP_ROOT)/Win32/include -I$(GD_ROOT) -I$(PNG_ROOT) -I$(GDBM_ROOT) \
+         -DHAVE_FCNTL_H -DHAVE_PCAP_H -DHAVE_STDARG_H -DHAVE_PCAP_OPEN_DEAD \
+         -DHAVE_PCAP_LIB_VERSION -DHAVE_STRFTIME -DHAVE_MATH_H -DHAVE_INT8_T \
+         -DHAVE_INT16_T -DHAVE_INT32_T -DHAVE_UINT8_T -DHAVE_UINT16_T \
+         -DHAVE_UINT32_T
+
+LDFLAGS = -s
+
+LIBS = $(PCAP_ROOT)/libwpcap.a      $(ZLIB_ROOT)/libz.a \
+       $(GDCHART_ROOT)/libgdchart.a $(GD_ROOT)/libgd.a \
+       $(PNG_ROOT)/lib/libpng.a     $(GDBM_ROOT)/libgdbm.a \
+       -lversion -lws2_32
+
+PROGRAM = ntop.exe
+
+SOURCE = ntop.c ntop_win32.c main.c address.c admin.c dataFormat.c emitter.c \
+         globals-core.c globals-report.c graph.c hash.c http.c initialize.c leaks.c \
+         fcUtils.c pbuf.c plugin.c protocols.c iface.c qsort.c report.c reportUtils.c \
+         sessions.c term.c traffic.c util.c vendor.c version.c webInterface.c \
+         getopt.c getopt1.c ssl.c \
+         \
+         $(addprefix plugins/, icmpPlugin.c lastSeenPlugin.c netflowPlugin.c \
+           pdaPlugin.c sflowPlugin.c rrdPlugin.c) \
+         \
+         $(addprefix myrrd/, gdlucidab10.c gdlucidab12.c gdlucidab12l2.c gdlucidab14.c \
+           gdlucidan10.c gdlucidan10l2.c gdlucidan12.c gdlucidan14.c gdpng.c gifsize.c \
+           parsetime.c pngsize.c rrd_create.c rrd_diff.c rrd_error.c rrd_fetch.c \
+           rrd_format.c rrd_graph.c rrd_last.c rrd_open.c rrd_update.c dummy.c)
+
+OBJECTS = $(addprefix $(OBJ_DIR)/, $(notdir $(SOURCE:.c=.o)))
+
+ifeq ($(USE_SSL),1)
+  CFLAGS += -I$(OPENSSL_ROOT)/outinc -DHAVE_OPENSSL -DOPENSSL_NO_KRB5
+  LIBS   += $(OPENSSL_ROOT)/out/libeay32.dll.a $(OPENSSL_ROOT)/out/libssl32.dll.a
+endif
+
+all: ./config.h $(OBJ_DIR) $(PROGRAM) ntop.html
+	@echo Welcome to ntop
+
+$(OBJ_DIR):
+	mkdir $(OBJ_DIR)
+
+$(PROGRAM): $(OBJECTS)
+	$(CC) $(LDFLAGS) -o $@ $^ $(LIBS)
+
+$(OBJ_DIR)/%.o: %.c
+	$(CC) $(CFLAGS) -o $@ -c $<
+	@echo
+
+./config.h:
+	@echo '/* config.h for MingW */' > $@
+	@echo '#include <winsock2.h>' >> $@
+	@echo '#include <ws2tcpip.h>' >> $@
+
+version.c:
+	@echo Creating version.c...
+	@echo 'char *VERSION = "$(VERSION)";'   > $@
+	@echo 'char *version = "$(VERSION)";'  >> $@
+	@echo 'char *osName  = "Win32/MingW";' >> $@
+	@echo 'char *release = "(rel)";'       >> $@
+	@echo 'char *distro  = "(??)";'        >> $@
+	@echo 'char *author  = "Luca Deri <deri@unipi.it>";' >> $@
+	@echo 'char *compiler_cflags = "$(CFLAGS)";' >> $@
+	@echo 'char *core_libs       = "$(LIBS)";'   >> $@
+	@echo 'char *system_libs     = "$(LIBS)";'   >> $@
+
+clean:
+	rm -f $(OBJECTS)
+
+vclean distclean: clean
+	rm -f $(PROGRAM) version.c ./config.h .depend
+
+ntop.html: ntop.8
+	man2html < $^ | sed -e 's/Content-type: text\/html//g' > $@
+
+depend: version.c ./config.h
+	$(CC) -MM $(CFLAGS) $(SOURCE) | \
+	sed -e 's/^\([a-zA-Z0-9_-]*\.o:\)/'$(OBJ_DIR)'\/\1/' > .depend
+
+-include .depend

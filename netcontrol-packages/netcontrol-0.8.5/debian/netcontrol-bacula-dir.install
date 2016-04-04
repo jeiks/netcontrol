@@ -1,0 +1,5 @@
+plugins/bacula_dir/backend.py	var/lib/netcontrol/plugins/bacula_dir/
+plugins/bacula_dir/files	var/lib/netcontrol/plugins/bacula_dir/
+plugins/bacula_dir/__init__.py	var/lib/netcontrol/plugins/bacula_dir/
+plugins/bacula_dir/layout	var/lib/netcontrol/plugins/bacula_dir/
+plugins/bacula_dir/main.py	var/lib/netcontrol/plugins/bacula_dir/

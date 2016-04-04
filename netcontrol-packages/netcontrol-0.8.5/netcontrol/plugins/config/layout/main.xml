@@ -1,0 +1,68 @@
+<xml>
+    <toolbar>
+        <hcontainer>
+            <button text="Adicionar novo usuário" id="adduser" icon="/dl/core/ui/stock/add.png" />
+            <button text="Reiniciar NetControl" id="restart" icon="/dl/core/ui/stock/refresh.png" />
+        </hcontainer>
+    </toolbar>
+    <label size="5" text="Geral" />
+
+        <simpleform id="frmGeneral">
+            <formline text="Host">
+                <textinput name="bind_host" id="bind_host"/>
+            </formline>
+            <formline text="Porta">
+                <textinput name="bind_port" id="bind_port"/>
+            </formline>
+            <formline text="Autorização" help="Veja abaixo as contas autorizadas">
+                <checkbox id="httpauth" name="httpauth" text="Habilitar" />
+            </formline>
+            <formline text="SSL" help="Alterar as configurações de SSL requer que o NetControl seja reiniciado">
+                <checkbox name="ssl" id="ssl" text="Habilitar" />
+            </formline>
+            <formline text="Certificado SSL">
+                <textinput name="cert_file" id="cert_file" design="xlarge" />
+            </formline>
+            <formline text="SSL key">
+                <textinput name="cert_key" id="cert_key" design="xlarge" />
+            </formline>
+            <formline>
+                <button onclick="form" form="frmGeneral" design="primary" action="OK" text="Salvar" />
+            </formline>
+        </simpleform>
+ 
+    <label size="5" text="Usuários" />
+
+    <pad id="main">
+        <dt width="300" id="accounts">
+            <dtr header="True">
+                <dth><label text="Conta"/></dth>
+                <dth width="1" />
+            </dtr>
+        </dt>
+
+        <dialogbox id="dlgAddUser" title="Nova conta">
+            <formline text="Nome de usuário">
+                <textinput name="login" />
+            </formline>
+            <formline text="Senha">
+                <textinput name="password" password="True" />
+            </formline>
+        </dialogbox>
+
+    </pad>
+
+    <label size="5" text="Plugin interno de configuração" />
+
+    <pad>
+        <dt width="300" id="configs">
+            <dtr header="True">
+                <dth width="20" />
+                <dth>
+                    <label text="Nome"/>
+                </dth>
+                <dth width="1" />
+            </dtr>
+        </dt>
+    </pad>
+</xml>

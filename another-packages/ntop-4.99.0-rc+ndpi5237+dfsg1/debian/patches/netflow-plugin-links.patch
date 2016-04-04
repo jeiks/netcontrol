@@ -1,0 +1,19 @@
+Description: fix links in NetFlow plugin description.
+Author: Ludovico Cavedon <cavedon@debian.org>
+Bug-Debian: http://bugs.debian.org/530334
+
+Index: ntop/plugins/netflowPlugin.c
+===================================================================
+--- ntop.orig/plugins/netflowPlugin.c	2012-02-25 19:26:19.426459459 -0800
++++ ntop/plugins/netflowPlugin.c	2012-02-26 11:04:39.900091485 -0800
+@@ -118,8 +118,8 @@
+     "NetFlow",
+     "This plugin is used to setup, activate and deactivate NetFlow support.<br>"
+     "<b>ntop</b> can both collect and receive "
+-    "<A HREF=http://www.cisco.com/warp/public/cc/pd/iosw/ioft/neflct/tech/napps_wp.htm>NetFlow</A> "
+-    "V1/V5/V7/V9 and <A HREF=http://ipfix.doit.wisc.edu/>IPFIX</A> (draft) data.<br>"
++    "<A HREF=http://en.wikipedia.org/wiki/Netflow>NetFlow</A> "
++    "V1/V5/V7/V9 and <A HREF=http://en.wikipedia.org/wiki/IP_Flow_Information_Export>IPFIX</A> (draft) data.<br>"
+     "<i>Received flow data is reported as a separate 'NIC' in the regular <b>ntop</b> "
+     "reports.<br><em>Remember to <A HREF=/switch.html>switch</A> the reporting NIC.</em>",
+     "4.4", /* version */

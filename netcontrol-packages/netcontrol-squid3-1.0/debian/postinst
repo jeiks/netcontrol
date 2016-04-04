@@ -1,0 +1,31 @@
+#!/bin/sh
+# postinst script
+#
+# see: dh_installdeb(1)
+
+set -e
+
+case "$1" in
+    configure)
+        DIR='/var/lib/squidguard/db'
+        if test -L $DIR;then rm -f $DIR;fi
+        ln -s /usr/share/netcontrol-squid3/blacklists $DIR || true
+        chown -R proxy.proxy $DIR /usr/share/netcontrol-squid3/blacklists >/dev/null 2>&1
+        chmod 2770 $DIR /usr/share/netcontrol-squid3/blacklists >/dev/null 2>&1
+    ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
+        DIR='/var/lib/squidguard/db'
+        if test -L $DIR;then
+            rm -f $DIR
+        fi
+        rm -rf /usr/share/netcontrol-squid3
+    ;;
+
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+
+exit 0

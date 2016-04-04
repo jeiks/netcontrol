@@ -1,0 +1,5 @@
+plugins/dnsmasq/backend.py	var/lib/netcontrol/plugins/dnsmasq/
+plugins/dnsmasq/files	var/lib/netcontrol/plugins/dnsmasq/
+plugins/dnsmasq/__init__.py	var/lib/netcontrol/plugins/dnsmasq/
+plugins/dnsmasq/layout	var/lib/netcontrol/plugins/dnsmasq/
+plugins/dnsmasq/main.py	var/lib/netcontrol/plugins/dnsmasq/

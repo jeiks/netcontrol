@@ -1,0 +1,44 @@
+#!/bin/sh
+#
+#       del-filter-from-squid  -  delete squidGuard filter from squid config.
+#
+#       Copyright 2011-2012 Joachim Wiedorn <ad_debian at joonet.de>
+#       
+#       This program is free software; you can redistribute it and/or modify
+#       it under the terms of the GNU General Public License version 2 as
+#       published by the Free Software Foundation.
+#       
+#       This program is distributed in the hope that it will be useful,
+#       but WITHOUT ANY WARRANTY; without even the implied warranty of
+#       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#       GNU General Public License for more details.
+#       
+#       You should have received a copy of the GNU General Public License
+#       along with this program; if not, write to the Free Software
+#       Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+#       MA 02110-1301, USA.
+
+set -e
+
+if test -f /etc/squid3/squid.conf; then
+    SQUIDCONF=/etc/squid3/squid.conf
+elif test -f /etc/squid/squid.conf; then
+    SQUIDCONF=/etc/squid/squid.conf
+else
+    echo "File squid.conf not found - abort!" 
+    exit 1
+fi
+
+if [ $(grep -c 'FILTER START' ${SQUIDCONF}) -eq 0 ]; then
+    echo "Lines for squidguard not found inside squid.conf - exiting."
+    exit 0
+fi
+
+LINE=$(grep -n '### FILTER START ###' ${SQUIDCONF} | cut -d':' -f1)
+CUTT=$(( LINE - 2 ))
+
+head -n${CUTT} ${SQUIDCONF}   > ${SQUIDCONF}_tmp
+cat ${SQUIDCONF}_tmp    > ${SQUIDCONF}
+
+echo "Lines for squidguard deleted from squid.conf."
+

@@ -1,0 +1,5 @@
+plugins/dhcp/backend.py	var/lib/netcontrol/plugins/dhcp/
+plugins/dhcp/files	var/lib/netcontrol/plugins/dhcp/
+plugins/dhcp/__init__.py	var/lib/netcontrol/plugins/dhcp/
+plugins/dhcp/layout	var/lib/netcontrol/plugins/dhcp/
+plugins/dhcp/main.py	var/lib/netcontrol/plugins/dhcp/

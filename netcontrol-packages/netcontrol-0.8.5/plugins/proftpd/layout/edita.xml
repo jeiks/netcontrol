@@ -1,0 +1,5 @@
+<dialogbox id="msg_user">
+        <simpleform id="msg_user">
+            <textinputarea id="texto" name="texto" width="500" height="300"/> 
+        </simpleform>
+</dialogbox>

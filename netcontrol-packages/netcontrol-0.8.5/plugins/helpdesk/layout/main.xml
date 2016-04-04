@@ -1,0 +1,88 @@
+<xml> 
+    <center>
+		<button text="Ativar Help Desk" id="ativar" design="success" />
+		<button text="Desativar Help Desk" id="desativar" design="danger" />
+		<button text="Listar usuários" id="listarUsers"  />
+		<outlinklabel id="linkHelp" name="linkHelp" url="" text="ACESSAR HELPDESK" />
+    <spacer height="30"/>
+    <!-- Dados do servidor LDAP  -->
+    <label id="titulo" name="titulo" size="3" />
+    <hcontainer width="100%">
+			<simpleform id="configurarServer">
+			<dt>
+				<dtr>
+					<dth>
+						<dt>
+					  <dtr>
+						<dth colspan="5"><center><label size="3" text="Servidor LDAP" /></center></dth>
+					  </dtr>
+					  <dtr>
+						<dth><label text="Nome" size="2" /></dth>
+						<dth><textinput name="nomeServidor" id="nomeServidor" /></dth>
+						<dth><center><tipicon text="Nome do servidor" icon="/dl/core/ui/stock/info.png"/></center></dth>
+					  </dtr>
+					  <dtr>
+						<dth><label text="IP ou Dominio" size="2" /></dth>
+						<dth><textinput name="enderecoServidor" id="enderecoServidor" /></dth>
+						<dth><center><tipicon text="Endereo do Servidor seja IP ou dominio" icon="/dl/core/ui/stock/info.png"/></center></dth>
+					  </dtr>
+					  <dtr>
+						<dth><label text="Porta" size="2" /></dth>
+						<dth><textinput name="porta" id="porta" /></dth>
+						<dth><checkbox id="protSSL" name="protSSL" text="LDAPS" /></dth>
+					  </dtr>
+					  <dtr>
+						<dth><label text="Conta" size="2" /></dth>
+						<dth><textinput name="contaLDAP" id="contaLDAP" /></dth>
+						<dth><center><tipicon text="Conta de acesso LDAP" icon="/dl/core/ui/stock/info.png"/></center></dth>
+					  </dtr>
+					  <dtr>
+						<dth><label text="Senha" size="2" /></dth>
+						<dth><textinput name="senhaContLDAP" id="senhaContLDAP" /></dth>
+						<dth><center><tipicon text="Senha do usuário LDAP" icon="/dl/core/ui/stock/info.png"/></center></dth>
+					  </dtr>
+					  <dtr>
+						<dth><label text="Base DN" size="2" /></dth>
+						<dth><textinput name="baseDN" id="baseDN" /></dth>
+						<dth><center><tipicon text="BASE DN" icon="/dl/core/ui/stock/info.png"/></center></dth>
+					  </dtr>
+					 </dt>
+					</dth>
+					<dth>
+						<dt>
+							<dtr>
+								<dth colspan="5"><center><label size="3" text="Atributos LDAP" /></center></dth>
+							</dtr>
+							<dtr>
+							  <dth><label text="Usuário" size="2" /></dth>
+							  <dth><textinput name="usuario" id="usuario" /></dth>
+							  <dth><center><tipicon text="Usuário administrador da Base LDAP" icon="/dl/core/ui/stock/info.png"/></center></dth>
+							</dtr>
+							<dtr>
+							  <dth><label text="Nome" size="2" /></dth>
+							  <dth><textinput name="nomeUser" id="nomeUser" /></dth>
+							  <dth><center><tipicon text="Nome do usuário" icon="/dl/core/ui/stock/info.png"/></center></dth>
+							</dtr>
+							<dtr>
+							  <dth><label text="Sobrenome" size="2" /></dth>
+							  <dth><textinput name="sobrenome" id="sobrenome" /></dth>
+							  <dth><center><tipicon text="Sobrenome" icon="/dl/core/ui/stock/info.png"/></center></dth>
+							</dtr>
+							<dtr>
+							  <dth><label text="E-mail" size="2" /></dth>
+							  <dth><textinput name="email" id="email" /></dth>
+							  <dth><center><tipicon text="Sobrenome" icon="/dl/core/ui/stock/info.png"/></center></dth>
+							</dtr>
+							
+						 </dt>
+					</dth>
+				</dtr>
+				<dtr>
+					<dth colspan="2"><center><button id="configServer" text="Salvar" action="configServer" onclick="form" form="configurarServer" icon="/dl/core/ui/stock/save.png" /></center></dth>
+				</dtr>
+			</dt>
+				
+			  </simpleform>
+    </hcontainer>
+    </center>
+</xml>

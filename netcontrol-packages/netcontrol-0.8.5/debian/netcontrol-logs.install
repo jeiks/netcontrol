@@ -1,0 +1,6 @@
+plugins/logs/config.py	var/lib/netcontrol/plugins/logs/
+plugins/logs/files	var/lib/netcontrol/plugins/logs/
+plugins/logs/__init__.py	var/lib/netcontrol/plugins/logs/
+plugins/logs/layout	var/lib/netcontrol/plugins/logs/
+plugins/logs/main.py	var/lib/netcontrol/plugins/logs/
+plugins/logs/widgets	var/lib/netcontrol/plugins/logs/

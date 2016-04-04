@@ -1,0 +1,11 @@
+plugins/pkgman/api.py	var/lib/netcontrol/plugins/pkgman/
+plugins/pkgman/component.py	var/lib/netcontrol/plugins/pkgman/
+plugins/pkgman/files	var/lib/netcontrol/plugins/pkgman/
+plugins/pkgman/__init__.py	var/lib/netcontrol/plugins/pkgman/
+plugins/pkgman/layout	var/lib/netcontrol/plugins/pkgman/
+plugins/pkgman/main.py	var/lib/netcontrol/plugins/pkgman/
+plugins/pkgman/pm_apt.py	var/lib/netcontrol/plugins/pkgman/
+plugins/pkgman/pm_pacman.py	var/lib/netcontrol/plugins/pkgman/
+plugins/pkgman/pm_portage.py	var/lib/netcontrol/plugins/pkgman/
+plugins/pkgman/pm_ports.py	var/lib/netcontrol/plugins/pkgman/
+plugins/pkgman/pm_yum.py	var/lib/netcontrol/plugins/pkgman/

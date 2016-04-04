@@ -1,0 +1,10 @@
+plugins/limite_banda/backend.py	var/lib/netcontrol/plugins/limite_banda/
+plugins/limite_banda/etc	var/lib/netcontrol/plugins/limite_banda/
+plugins/limite_banda/exec_bash.py	var/lib/netcontrol/plugins/limite_banda/
+plugins/limite_banda/files	var/lib/netcontrol/plugins/limite_banda/
+plugins/limite_banda/geany_run_script.sh	var/lib/netcontrol/plugins/limite_banda/
+plugins/limite_banda/GerenciaEtc.py	var/lib/netcontrol/plugins/limite_banda/
+plugins/limite_banda/GerenciaShaper.py	var/lib/netcontrol/plugins/limite_banda/
+plugins/limite_banda/__init__.py	var/lib/netcontrol/plugins/limite_banda/
+plugins/limite_banda/layout	var/lib/netcontrol/plugins/limite_banda/
+plugins/limite_banda/main.py	var/lib/netcontrol/plugins/limite_banda/

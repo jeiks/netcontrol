@@ -1,0 +1,66 @@
+Package:     squidguard
+Subject:     update samples to use default UTF-8
+Author:      Joachim Wiedorn <ad_debian at joonet.de>
+Forwarded:   no
+Last-Update: 2012-04-13
+
+The sample files have charset ISO-8859-15 with some typos.
+But all text files in sources should be UTF-8.
+---
+
+diff -urN s06/samples/sample.conf.in s07/samples/sample.conf.in
+--- s06/samples/sample.conf.in	2007-11-16 17:58:32.000000000 +0100
++++ s07/samples/sample.conf.in	2012-04-13 23:55:47.880436363 +0200
+@@ -56,7 +56,7 @@
+ 	domainlist	dest/adult/domains
+ 	urllist		dest/adult/urls
+ 	expressionlist	dest/adult/expressions
+-	redirect 	http://admin.foo.bar.de/cgi/blocked?clientaddr=%a+clientname=%n+clientuser=%i+clientgroup=%s+targetgroup=%t+url=%u
++	redirect http://admin.foo.bar.de/cgi-bin/blocked.cgi?clientaddr=%a&clientname=%n&clientuser=%i&clientgroup=%s&targetgroup=%t&url=%u
+ }
+ 
+ 
+@@ -78,6 +78,6 @@
+ 	default {
+ 		pass	 local none
+ 		rewrite	 dmz
+-		redirect http://admin.foo.bar.de/cgi/blocked?clientaddr=%a+clientname=%n+clientuser=%i+clientgroup=%s+targetgroup=%t+url=%u
++		redirect http://admin.foo.bar.de/cgi-bin/blocked.cgi?clientaddr=%a&clientname=%n&clientuser=%i&clientgroup=%s&targetgroup=%t&url=%u
+ 	}
+ }
+diff -urN s06/samples/squidGuard.cgi.in s07/samples/squidGuard.cgi.in
+--- s06/samples/squidGuard.cgi.in	2011-10-01 20:49:00.000000000 +0200
++++ s07/samples/squidGuard.cgi.in	2012-04-13 23:54:15.472144482 +0200
+@@ -2,7 +2,7 @@
+ #
+ # Explain to the user that the URL is blocked and by which rule set
+ #
+-# Original by Pål Baltzersen 1999 (pal.baltzersen@ost.eltele.no)
++# Original by PÃ¥l Baltzersen 1999 (pal.baltzersen@ost.eltele.no)
+ # French texts thanks to Fabrice Prigent (fabrice.prigent@univ-tlse1.fr)
+ # Dutch texts thanks to Anneke Sicherer-Roetman (sicherer@sichemsoft.nl)
+ # German texts thanks to Buergernetz Pfaffenhofen (http://www.bn-paf.de/filter/)
+diff -urN s06/samples/squidGuard-simple.cgi.in s07/samples/squidGuard-simple.cgi.in
+--- s06/samples/squidGuard-simple.cgi.in	2007-11-16 17:58:32.000000000 +0100
++++ s07/samples/squidGuard-simple.cgi.in	2012-04-13 23:55:47.910579514 +0200
+@@ -2,7 +2,7 @@
+ #
+ # Sample CGI to explain to the user that the URL is blocked and by which rule set
+ #
+-# By Pål Baltzersen 1998
++# By PÃ¥l Baltzersen 1998
+ # Modifications by Christine Kronberg, 2007.
+ #
+ 
+diff -urN s06/samples/squidGuard-simple-de.cgi.in s07/samples/squidGuard-simple-de.cgi.in
+--- s06/samples/squidGuard-simple-de.cgi.in	2007-11-16 17:58:32.000000000 +0100
++++ s07/samples/squidGuard-simple-de.cgi.in	2012-04-13 23:55:47.943993139 +0200
+@@ -3,7 +3,7 @@
+ # Beispel-CGI Skript, um dem Benutzer zu erklaeren, aufgrund welcher Regel
+ # eine URL geblockt worden ist.
+ #
+-# Englisches Orginal von Pål Baltzersen 1998
++# Englisches Orginal von PÃ¥l Baltzersen 1998
+ # Deutsche Uebersetzung von Christine Kronberg 2007
+ #
+ 

@@ -1,0 +1,5 @@
+    [[NAME]] {
+        pass [[SQUID_GROUPS]] any
+        redirect http://localhost/block.html
+    }
+

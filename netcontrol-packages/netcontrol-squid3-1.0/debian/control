@@ -1,0 +1,14 @@
+Source: netcontrol-squid3
+Section: web
+Priority: extra
+Maintainer: Washington Luis Ribeiro Alves <washington@fluxsoftwares.com>
+Uploaders: Jacson RC Silva <jacsonrcsilva@gmail.com>
+Build-Depends: debhelper (>= 7.0.50~)
+Standards-Version: 3.8.4
+
+Package: netcontrol-squid3
+Architecture: any
+Conflicts: squid
+Depends: squid3, squidguard (>= 1.4-3flux1)
+Description: Squid3 and squidguard with ldap
+ This package configures squid3 and squidguard to works with ldap

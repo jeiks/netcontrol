@@ -1,0 +1,39 @@
+<xml>
+    <toolbar>
+        <button id="refresh" text="Atualizar" icon="/dl/core/ui/stock/refresh.png" />
+        <button id="getlists" text="Lista de Download" icon="/dl/pkgman/update-lists.png" />
+        <button id="apply" text="Aplicar alterações" icon="/dl/core/ui/stock/dialog-ok.png" />
+        <button id="cancelall" text="Cancelar" icon="/dl/core/ui/stock/dialog-cancel.png" />
+            <simpleform id="frmSearch">
+                <textinput name="query" size="20" />
+                <button text="Buscar" onclick="form" form="frmSearch" />
+            </simpleform>
+    </toolbar>
+
+    <pad id="main">
+        <tabcontrol id="tabs" live="True" active="upgrades">
+            <tabheader text="Upgrades" id="upgrades" />
+            <tabheader text="Interrompido" id="broken" />
+            <tabheader text="Busca" id="search" />
+            <tabheader text="Pendente" id="pending" />
+        </tabcontrol>
+
+        <scrollcontainer width="765" height="520" >
+            <dt id="list" noborder="True" width="100%">
+                <dtr header="True">
+                    <dth width="20" />
+                    <dth>
+                        <label text="Nome" />
+                    </dth>
+                    <dth>
+                        <label text="Versão" />
+                    </dth>
+                    <dth>
+                        <label text="Descrição" />
+                    </dth>
+                    <dth width="1" />
+                </dtr>
+            </dt>
+        </scrollcontainer>
+    </pad>
+</xml>

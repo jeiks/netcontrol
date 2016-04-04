@@ -1,0 +1,181 @@
+#! /bin/sh
+#
+# (C) 2003-07 - Luca Deri <deri@ntop.org>
+# (C) 2007-08 - Massimo Torquati <torquati@ntop.org>
+#
+
+. /usr/local/sbin/stop_app.sh
+
+APPNAME=ntop
+PERSISTENT_DIR=/usr/local/share/ntop
+SPOOL_DIR=$PERSISTENT_DIR/spool
+NTOP_PATH=/usr/local/bin/ntop
+NTOP_CONF=/etc/ntop/ntop.conf
+NTOP_PIDFILE=/var/run/ntop.pid
+
+# Enable watchdogging
+USERUNSV=1
+RUNSV="/usr/local/bin/runsv"
+RUNSV_PIDFILE="/var/run/runsv.ntop"
+TIMETOWAIT=2
+THRESHOLD=30
+RUNSV_OPT="-p $RUNSV_PIDFILE -s $TIMETOWAIT -S $THRESHOLD -L -- "
+
+
+
+####################
+
+start_ntop() {
+   if test -f /etc/ntop/ntop.start; then
+       if [ $USERUNSV -eq 1 ]; then
+	   ${RUNSV} ${RUNSV_OPT} $NTOP_PATH @$NTOP_CONF > /dev/null &
+       else
+	   start-stop-daemon --start --quiet --name $APPNAME --background --exec $NTOP_PATH @$NTOP_CONF > /dev/null
+       fi
+   fi
+
+   return 0
+}
+
+####################
+
+wait_for_deaddaemon () {
+    WAITFORDAEMON=15
+    pid=$1
+    sleep 1
+    if test -n "$pid"
+	then
+	if kill -0 $pid 2>/dev/null
+	    then
+	    echo -n "."
+	    cnt=0
+	    while kill -0 $pid 2>/dev/null
+	      do
+	      cnt=`expr $cnt + 1`
+	      if [ $cnt -gt $WAITFORDAEMON ]
+		  then
+		  echo " FAILED."
+		  return 1
+	      fi
+	      sleep 1
+	      echo -n "."
+	    done
+	fi
+    fi
+
+    rm -f $NTOP_PIDFILE
+    return 0
+}
+
+####################
+
+stop_ntop() { 
+    if [ $USERUNSV -eq 1 ]; then
+	pid=`cat $NTOP_PIDFILE 2>/dev/null`
+	stop_app -a ntop -r
+	if [ -n $pid ]; then
+	    wait_for_deaddaemon $pid
+	fi
+    else
+	if [ -f $NTOP_PIDFILE ]; then
+	    pid=`cat $NTOP_PIDFILE 2>/dev/null`
+	    if [ -n $pid ]; then
+		kill $pid
+	        wait_for_deaddaemon $pid
+	    fi
+	fi
+    fi
+}
+
+####################
+
+default_ntop() { 
+    if [ ! -d $PERSISTENT_DIR ] && [ ! -h  $PERSISTENT_DIR ]; then
+	mkdir -p $PERSISTENT_DIR/rrd
+	chown -R nobody $PERSISTENT_DIR
+	chmod gou+w $PERSISTENT_DIR
+    fi
+
+    if [ ! -f $PERSISTENT_DIR/ntop_pw.db ]; then
+	$NTOP_PATH -u nobody -P $PERSISTENT_DIR -Q $SPOOL_DIR --set-admin-password=admin
+    fi
+
+    if [ ! -d /etc/ntop ]; then
+	mkdir /etc/ntop
+	touch /etc/ntop/ntop.start
+	echo "-P $PERSISTENT_DIR" > $NTOP_CONF
+	echo "-Q $SPOOL_DIR" >> $NTOP_CONF
+	echo "-u nobody" >> $NTOP_CONF
+    fi
+
+    if [ ! -d $SPOOL_DIR ]; then
+	mkdir -p $SPOOL_DIR
+	chmod gou+w $SPOOL_DIR
+	chown -R nobody $SPOOL_DIR
+    fi
+}
+
+########
+
+case "$1" in
+  start)
+	echo -n "Starting ntop "
+	default_ntop;
+	start_ntop;
+	echo " Done."
+	;;
+  stop)
+        echo -n "Stopping ntop "
+       	stop_ntop;
+	echo " Done."
+	;;
+
+  default)
+        echo -n "Defaulting ntop "
+       	default_ntop;
+	echo " Done."
+	;;
+
+  restart)
+        echo -n "Restarting ntop "
+	stop_ntop;
+	start_ntop;
+	echo " Done."
+	;;
+  launch)
+	if [ -z "$2" ]; then
+	    echo "Usage: /etc/init.d/ntop launch <options>"
+	    exit 1    
+	fi
+	echo -n "Launching ntop "
+	start-stop-daemon --start --quiet --background --exec $NTOP_PATH -- $2 > /dev/null
+	sleep 3
+	echo " Done."
+	;;
+
+    kill)
+	if [ -z "$2" ]; then
+	    echo "Usage: /etc/init.d/ntop kill pid"
+	    exit 1    
+	fi
+	pid=$2
+	echo -n "Stopping ntop with pid=$pid "
+	rc=`ps xa | awk '{print $1}' | grep $pid | wc -l`
+	if [ $rc -gt 0 ]; then
+	    kill -9 $pid > /dev/null
+	    wait_for_deaddaemon $pid
+	    echo " Done."
+	    exit 0
+	else
+	    echo 
+	    echo "No process with pid=$pid found!!"
+	    exit 2
+	fi
+	;;
+
+	*)
+	echo "Usage: /etc/init.d/ntop {start|stop|restart|default|launch|kill}"
+	exit 1
+esac
+
+exit 0

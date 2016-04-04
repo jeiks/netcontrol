@@ -1,0 +1,56 @@
+# Portuguese translation for squidguard's debconf messages
+# Luís de Matos <gass@otiliamatos.ath.cx>, 2005
+#
+# 2005-11-03 - Luís de Matos <gass@otiliamatos.ath.cx> - Initial translation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: squidguard\n"
+"Report-Msgid-Bugs-To: squidguard@packages.debian.org\n"
+"POT-Creation-Date: 2008-03-27 08:29+0100\n"
+"PO-Revision-Date: 2006-06-30 02:04+0100\n"
+"Last-Translator: Luis Matos <gass@otiliamatos.ath.cx>\n"
+"Language-Team: Portuguese <traduz@debianpt.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: boolean
+#. Description
+#: ../squidguard.templates:1001
+msgid "Rebuild Squidguard blacklist database during postinst?"
+msgstr "Reconstruir a base de dados de listas negras durante a pos-instalação?"
+
+#. Type: boolean
+#. Description
+#: ../squidguard.templates:1001
+msgid ""
+"Rebuilding the blacklist databases is time consuming and under some "
+"circumstances could cause problems.  With the breakout of individual "
+"blacklist section packages the time it takes for each package to rebuild "
+"will be extensive.  Also it may not be desireable to rebuild these databases "
+"on production servers.  You can manually perform a rebuild by running /usr/"
+"sbin/update-squidguard."
+msgstr ""
+"Reconstruir as bases de dados das listas negras é consumo de tempo e em "
+"algumas circunstâncias pode causar problemas. Com bloqueio de secções "
+"individuais dos pacotes de listas negras o tempo que demorará para "
+"reconstruir cada pacote poderá ser extenso. Não é desejavel reconstruir "
+"estas bases de dados em servidores de produção. Poderá efectuar uma "
+"reconstrução manual executando /usr/sbin/update-squidguard."
+
+#~ msgid "Squidguard now uses DB4.3. Rebuild your blacklist databases."
+#~ msgstr ""
+#~ "O Squidguard agora utiliza DB4.3. Reconstrua as suas bases de dados de "
+#~ "Listas Negras."
+
+#~ msgid ""
+#~ "You need to make sure that you rebuild all your Squidguard blacklists "
+#~ "otherwise Squidguard and ultimatly Squid may not function properly.  By "
+#~ "default any blacklists listed in /etc/squid/squidGuard.conf will be "
+#~ "rebuilt."
+#~ msgstr ""
+#~ "Tenha a certeza que reconstrói todas as suas listas negras do Squidguard "
+#~ "caso contrário o Squidguard e também o Squid poderão não funcionar "
+#~ "correctamente. Por omissão irão ser reconstruídas quaisquer listas negras "
+#~ "listadas em /etc/squid/squidGuard.conf."

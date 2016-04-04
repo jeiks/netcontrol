@@ -1,0 +1,1117 @@
+SARG ChangeLog
+
+Sep-18-2010 Version 2.3.1
+		- Remove the distinct printf for the alpha architecture as it doesn't work anymore and is not necessary anyway.
+		- Don't abort if "onload" or "script" is found in the user agent string.
+		- Take the configured locale path into account when installing sarg.
+		- Fix the realtime and e-mail reports.
+		- Allow for the translation of the sort criterion on the report pages.
+		- The mail_utility command isn't quoted any more so it is possible to add some command line arguments.
+		- Fix a wrongly reported error if the two "hours" and "weekdays" options are enabled in sarg.conf (thanks to guyizsolt).
+		- Add a link on the denied page to link the page to the corresponding user.
+		- Fix a problem with the progress indicator when reading from a compressed log file.
+		- Report an error if the output directory is a subdirectory of the temporary directory.
+		- Use a more robust protection against an attack using javascript in the useragent string.
+		- Prevent a segfault if the parameter passed to command line option -d is invalid (thanks to ItalianPenguin).
+		- Check for the return code of the tail command to generate the realtime report.
+		- Escape the invalid characters in the LDAP search string instead of truncating it at the first invalid character (thanks to mouchar for reporting the problem and testing the fix).
+
+Jun-21-2010 Version 2.3
+		- LDAP usertab added. 
+		  Now you can have your users in a LDAP Server.
+		  Use these tags in sarg.conf: LDAPHost, LDAPPort, LDAPBindDN, LDAPBindPW,
+		                               LDAPBaseSearch, LDAPFilterSearch
+		- Parse the string flags from sarg.conf once during the reading of sarg.conf instead of manipulating and duplicating the tests of the strings where they are used.
+		- Useragent report limited to requested date range.
+		- Link to external css file instead of including it verbatim in each HTML file (thanks to Maxim Britov).
+		- Enable gettext configuration for autotools.
+		- Use gettext translations instead of the custom languages files.
+		- Keep the user name unchanged in the report (suppress the replacement of some characters by underscores).
+		- Try to resolve a user's IP address only once and store the result. It can speed up the processing a lot.
+		- Resolve IPv6 addresses (to be tested).
+		- Don't limit the maximum length of a URL (the only limit is that a single line of text from the log file must fit in memory).
+		- The creation of the datafile is working again.
+		- Use a template to build the .htaccess file of each report.
+		- Accept spaces in the replacement label of the usertab file (thanks to Alex Sav).
+		- Change the version number of the release candidate to conform to the numbering of the translationproject.org.
+		- Store the period internaly and get rid of the sarg-period file.
+		- Display the period using the locale's month name in the HTML files.
+		- Check the correct writing of the HTML files (thanks to Markus Elfring).
+		- Use the word "Redirector" instead of mentioning explicitly squidGuard in the reports as at least Rejik is compatible with sarg (thanks to Maxim Britov).
+		- The date range passed as argument is not restricted to the actual range covered by the log files any more.
+		- Fix the exclusion of status codes to exclude more than one code.
+		- Accept date ranges for -d command line option as day-n, week-n and month-n where n is the number of backward days, weeks and months to report.
+		- Strengthen the making of the report file name to drastically limit the characters from the user ID that can appear in the file name. The presence of an unescaped backquote in the user ID would execute the rest of the name as a shell command (fixes bug #2997707 reported by anonymous).
+		- Purge the content of sarg-general to free a lot of disk space.
+		- Use parameteric dimensions in the graph creation instead of hard coded constants.
+		- Remove the temporary file and sorting in graph creation.
+		- Add the redirector_log option in sarg.conf to read a log file created by squidGuard or Rejik (thanks to Maxim Britov for pointing out this missing option).
+		- Allow up to 64 redirector log files to be passed through the command line option -L and the sarg.conf option redirector_log.
+		- Configuration option squidguard_log_format renamed into redirector_log_format for equity with the various redirectors that can be used with sarg.
+		- Read a compressed log file through a pipe.
+		- The graph was wrong. The bars were not reaching the correct height with respect to the Y axis.
+		- Use a computed logarithmic scale for the Y axis when plotting bytes data instead of a fixed scale.
+		- Show the time when plotting the elapsed time.
+		- Fix the reporting of only one user with command line option -u.
+		- Output both date/time textual and graphical reports.
+		- Sarg log file now stores the date in the format dd/mm/yyyy and doesn't change it depending on the current date representation selected in sarg.conf. It will break existing sarg log files.
+		- Intermediary log files store the date as dd/mm/yyyy irrespective of the current date representation in sarg.conf.
+		- Fix a regression to accept any directory name length in the index.
+		- Change the CSS template file and cleanup of the hardcoded styles (thanks to Maxim Britov).
+		- Accept unlimited line length when converting or splitting the log file.
+		- Use long options on the command line.
+		- Sarg can output the internal css inlined in the reports. It replaces the css.tpl distributed with the sources.
+		- Command line option -l is optional. The input log files may be named on the command line without prefixing them with -l. It allows the use of wildcards in the command line.
+		- Accept unlimited URL length in the redirector log (thanks to Joseph L Casale).
+		- Replace redirector_ignore_date by redirector_filter_out_date that behave as the name implies.
+		- Replace dansguardian_ignore_date by dansguardian_filter_out_date that behave as the name implies.
+
+Feb-10-2010 Version 2.2.7.1
+		- Fixed compilation error reported by some compilers due to an sizeof in a fprintf (thanks to Maxim Britov and Renato Botelho).
+		- The path to the font used to create the graphs can be set in sarg.conf.
+		- The installation of our fonts can be disabled with --disable-fontdir.
+
+Feb-05-2010 Version 2.2.7
+		- Extra compile and run time protection (FORTIFY_SOURCE) fixed in configure.
+		- Use tabulations as columns separator in intermediary files to avoid problems when a field of the log contains a space.
+		- Input log file type detection partly rewritten to clearly distinguish which type is processed where.
+		- Read the input log file from standard input if log file name is -.
+		- Use string pointers in getword instead of copying the strings over and over.
+		- Use LC_TIME to format some dates and times in the report according to the selected locale.
+		- Sarg.conf can list up to 255 access.log files.
+		- Downloaded files suffixes are matched against a sorted list and use a dichotomic search.
+		- Added getword_atoll to read a number directly from a file without an intermediary string storage.
+		- Use boolean to enable the options instead of string compares.
+		- Accept an absolute path for the language file in sarg.conf.
+		- Experimental: Can show the backtrace of the program when a getword loop is detected to help in locating the origin of the error.
+		- Protect the creation of the index against invalid directories.
+		- Only copy the files (not the subdirs) when creating the directory with the images to include in the reports.
+		- Directories deleted without using the rm system command.
+		- Index created using an internal sort algorithm instead of a system call.
+		- Fixed Debian bug #408577 (changed exclude_hosts to exclude subdomains and IPv4 subnets).
+		- Replace --enable-htmldir by --enable-sargphp to avoid confusion on the name (thanks to Peter Nixon).
+		- Installation of sarg-php can be disabled with --disable-sargphp.
+		- Fixed empty entries in squidGuard log when the URL doesn't start with protocol://.
+		- Fixed regressions in creation and reading of a sarg parsed log (thanks to Joao Alves).
+		- Does not report URLs consisting of only a host name ending with .com as a downloaded file.
+		- Mangle the $ and @ signs in user ID to make the resulting file name valid in shell commands.
+		- Fixed a regression in the default value of --enable-sargphp.
+		- Increase the maximum size of a line read from access.log and detect longer lines that were silently splitted in previous versions.
+
+Jan-06-2010 Version 2.2.6.1
+		- Remove unnecessary dependency on off_t.
+		- Configuration doesn't fail if rlim_t is not available.
+		- Test for the availability of -Werror=implicit-function-declaration and -Werror=format flags in gcc (thanks to Murilo Moreira de Oliveira and pjetko).
+		- Fix sort delimiter when reading useragent log (thanks to Maxim Britov).
+		- Fix user agent report font size and statistics on user agent.
+		- Test for the availability of -Werror=format-security in gcc (thanks to Maxim Britov).
+		- Test the existence of bzero with autoconf and don't redefine it (thanks to Maxim Britov).
+		- Remove warnings if libgd is not available.
+		- The date stored in sarg-date is now stored in a more machine readable form (thanks to rcastanheira for pointing this out).
+		- The date read from sarg-date was not properly parsed and would produce a wrongly sorted index across a year change (thanks to rcastanheira for pointing this out).
+		- my_mkdir changed to avoid the use of getword, be simpler and, maybe, work reliably on windows.
+		- Makefile supports DESTDIR for easy package creation (thanks to Erjo).
+		- Real time report honour the user_ip flag of the configuration file and the -l and -n passed on command line.
+		- Fix usage of -Werror and detection of fopen64 with old compilers not supporting -Werror=implicit-function-declaration.
+
+Oct-14-2009 Version 2.2.6
+		- Protection against buffer overflows in getword and friends and report the origin of the error instead of always blaming access.log.
+		- Patch #2224623 applied.
+		- Updated to autoconf 2.61.
+		- Detect external commands failures and print the exact command that produced the error. The offending file is kept for debugging if possible.
+		- The format of the date written in sarg-date is forced to prevent a failure if the locale is not en_US.
+		- Removed the duplicate file opening that resulted in a resource leak.
+		- Patch #1945235 applied.
+		- Patch #1918397 applied.
+		- Limit the content of the squidguard log file to the date of the day being processed.
+		- Removed fscanf that is prone to buffer overflows.
+		- Size of buffers increased.
+		- Protect ip2name against buffer overflows.
+		- Replace characters that are valid in URL but not in file names when building a file name from a URL.
+		- Patch #2657320 applied.
+		- Fix #else #if into #elif.
+		- Remove all the compilation warnings (inspired from patch #1771501).
+		- Fixed the real time report.
+		- Fixed the same bug as patch #1733337 but in a cleaner way.
+		- All the sprintf/fputs have been replaced by fprintf to avoid an intermediary buffer and possible buffer overflow.
+		- Moved all the functions declarations from conf.h to defs.h for consistency.
+		- Fixed bug #2089451.
+		- Fixed Debian bug #444845.
+		- Replaced the ifdef FOPEN64 by a single call to MY_FOPEN for code clarity.
+		- User IP/ID is searched only in the first column of the usertab file.
+		- Some of indentation fixes.
+		- Speed up by removing two unnecessary ip resolutions.
+		- Applied debian patches: sarg-polish.patch, sarg-turkish.patch
+		- Applied debian patch: opensuse_2_enlarge_report_buffers.patch
+		- Applied debian patch: opensuse_3_too_small_font_buffer.patch
+		- Applied debian patch: opensuse_4_enlarge_log_buffer.patch
+		- Applied and extended debian patch: opensuse_5_limit_sprintf.patch
+		- Function debuga format the output string itself, so there is no need to use sprintf.
+		- Applied debian patch: opensuse_7_year_assertion.patch
+		- Removed a few unnecessary strings copy.
+		- Embryo of documentation for the code with doxygen.
+		- Changed subs to replace the string in place and avoid allocating a memory that was freed on only one occasion.
+		- A few improvements on strings manipulations.
+		- Fixed debian bug #504749.
+		- Detect downloaded suffix bigger than 3 characters, don't match the cases and don't stop on a partial match.
+		- Fixed bug #2716729.
+		- Sanitized a little bit the generated HTML.
+		- Don't reject URL without directories.
+		- Use the correct format for off_t on amd64.
+		- Use the mechanism provided by configure to set the directories of the application instead of the custom variables.
+		- Fixed bug #1814212.
+		- Fixed bug #1847374.
+		- Partly applied advice of bug #1659784.
+		- Fixed bug #1740268.
+		- Applied suggestion of bug #2830643.
+		- Fixed bug #2216451.
+		- Fixed bug #2000178.
+		- Protect the reading of the configuration file against buffer overflows.
+		- Logo image height taken into account.
+		- Accept longer mail utility name.
+		- Fixed e-mail report (may also fix bug #2153024).
+		- Fixed total and percentages of topuser page.
+		- Applied Gentoo patch 10_all_sarg-2.2.5-enlarge-day-mon-buffers.patch.
+		- Applied Gentoo patch 12_all_sarg-2.2.5-enlarge-ntemp.patch.
+		- Open only once the denied.log and authfail.log when parsing more than one access.log.
+		- Use configurable paths for the files that used to reside in SYSCONFDIR.
+		- Add cmake configuration files.
+		- Compute the report date without resorting to the system command.
+		- Allow the use of spaces in the temporary directory.
+		- Fixed bug #2863485.
+		- Removed misplaced off_t as suggested in bug #2864425.
+		- Z files are uncompressed by zcat to avoid deleting the original log file.
+		- Compressed log files are uncompressed in /tmp/sarg to delete the file when the process completes.
+		- Fixed several memory leaks.
+
+Mar-03-2008	Version 2.2.5
+		- new fix to the script insertion vulnerability via user-agent
+		  report. javascript can still be executed via e.g. the "<BODY onload=function();>" scheme
+		     Thanks to Alin Rad Pop, Security Specialist, Secunia, Denmark
+
+Mar-02-2008	version 2.2.4
+		- security issues can be exploited to execute arbitrary code when sarg
+		  is used with malicious input files.
+		  The vulnerability within the processing of the useragent.log is rather
+		  critical, as this can be exploited by passing a long user agent string
+	          when browsing via a squid proxy. the manipulated GET request in the
+	          access log would not be accepted by squid, so that file has to be specially crafted.
+		     Thank you to L4teral l4teral@gmail.com
+
+		- French language fixed.
+		    Thanks to Nicod <smlpnicod@orange.fr>
+		- Fixed: Segfault in x86_64
+
+Jan-02-2007     version 2.2.3.1
+		- fixed -m option to show all the used tags
+		- date period invalid in download reports
+		- wrong results when userid contain '%20' character
+		- previous reports info wrong in index.html
+
+Dec/23/2006	Version 2.2.3
+		- gd graph font change from FreeSans.ttf to DejaVuSans.ttf
+		- minor fixes when only denied records in access.log file.
+		- ulimit tag changed. If you run sarg with a low privilege user, 
+		  set to 'none' to disable ulimit.
+		     Thanks to Jorge Morgado <jorge@morgado.ch>
+		- Russian_UTF-8 language fixed by Igor Ageikin <iageikin@lipen.elektra.ru>
+		- realtime_unauthenticated_records tag changed to show by default.
+		- chmod 755 in sarg-php due to errors in rpmbuild.
+		     Thanks to Davide Madrisan <davide.madrisan@gmail.com>
+		- when the keyword "anonymous" is used in squidGuard.conf, Sarg does
+		  not find the log-files anymore. 
+		     Thanks to Daniel Vogel <daniel_vogel@t-online.de>
+		- after reading the squidGuard configuration, the data read from the
+		  usertab file was corrupted. 
+		     Thanks to Daniel Vogel <daniel_vogel@t-online.de>
+		- millisec values showed as bytes. Thanks to Carlos <ke09@terra.com.br> 
+		- with squidGuard, you can log groups in only one log file.
+		  We must parse each log files only one time. 
+		     Thanks to Christophe BADINA <christophe.badina@ch-moulins-yzeure.fr>
+		- error message(removetmp) Cannot open /tmp/sarg_tmp/../general
+		  when sending report by email. Thanks to Peter Volkov <pva@gentoo.org>
+		- incorrect off_t size in printf. In FreeBSD off_t is 64bit long long,
+		  but sarg always use %d to display off_t in log processing. This cause garbage
+		  while reading log files on a freebsd, and possible crash.
+		     Thanks to Alex Samorukov <samm@os2.kiev.ua>
+		- squid24 on/off tag added in sarg.conf to implement compatibility if using
+		  squid <= 2.4 and using squid common logs.
+		     Thanks to Valter Dal Bo <dalbo@tesco.it>
+		- exclude_hosts and some code errors fixed by 
+		     Alexander Kozlov <avk@post.eao.ru>. Many thanks.
+		- temporary file names changed to sarg-... to avoid conflicts
+		  with usernames. Thanks to Ukrainian Elephant <superlamer@users.sourceforge.net>
+		- SARG support Japanese wordset but not support charset.
+		     submitted by anonymous at sourceforge.net  Many thanks.
+		- support for utf-8 character set added by Peter Warasin
+		     <peter-endian@users.sourceforge.net>. Many thanks.
+	        - if all the data is at the hour each day, totaliza_day() treats it all as being 
+		  on the last day. This is observed for users which only download via a cron job
+		  at the same time each day. Now the date and time will be
+		  checked to see if changed. 
+		     Thanks to Ian Dall <iandall@users.sourceforge.net>
+		- greport_day() doesn't add the volume for the first hour of each day to the total.
+		     Thanks to Ian Dall <iandall@users.sourceforge.net>
+		- Russian_koi8 and Russian_windows1251 languages updated by 
+		  Stas Degteff <stas.grumbler@gmail.com>. Many thanks
+		- realtime reporting is sorted by URL, and not by Date/Time.
+		    Thanks to Puce-Xcit <puce-xcit@users.sourceforge.net>
+
+Aug/29/2006	Version 2.2.2
+		- malloc test implemented to avoid high-memory consuming.
+			Thanks to Rodrigo Rubira Branco <rodrigo@kernelhacking.com>
+		- Czech UTF8 language added by Josef Karliak <karliak@ajetaci.cz>
+		- fixed: parsed mismatch in realtime_access_log_lines and 
+			access_log_lines tags.
+			Thanks to Kuznetsov Andrey <pm_kan@mail.ru>
+		- changed: realtime report sort changed by date/time
+			Thanks to Leonardo Buonsanti <leonardo.buonsanti@gmail.com>
+		- GD minor fixes added.
+		- bug fixed. *** buffer overflow detected ***: sarg terminated
+		  in Fedora Core 5 when using -D FORTIFY_SOURCE in gcc or in kernel.
+
+May/19/2006	Version 2.2.1
+		- iconv problems fixed in Freebsd and Slackware.
+			Thanks to Grigory Trenin <gtrenin@gmail.com>.
+		- new word added to languages: Topuser
+		- missing fclose fp-in in css.c
+			Thanks to Renato Botelho <rbgarga@gmail.com>.
+		- index.c fixed. Missing -r in reverse sort.
+			Thanks to Fernando Lemes da Silva <fernando@koho.com.br>
+		- wrong values in columns in-cache and out-cache.
+			Thanks to Hugo P S Costa <hpcosta@nutron.com.br>
+
+May/17/2006	Version 2.2
+		- sarg ported to 64 bits.
+		 	Thanks to Antonio F. Zago <zagolinux@uol.com.br>
+			to share your Fedora Core 5 64 bits with me. 
+		- fixed conflict types for 'saverecs2' in .configure
+		- fixed no index.html when lastlog tag is greater then 0,
+		  caused by some debug messages.
+		- removed some development debug message
+		- user_limit_block script added to block users when limit exceeded
+		- fixed wrong sort in index.html
+		- removed '+' argument to sort utility.
+		  	Thanks to Julio Cesar Covolato <julio@psi.com.br>
+		- fixed "file too long" messages when using long_url
+			Thanks to Fabio Lo Votrico <fabio@link.it>
+		- fixes and improvements from Oleg <xsov@mail.ru> - Tanks.
+		  . fprintf faster than sprintf+fputs (fixed in some places);
+		  . strcpy+strcat is faster than sprintf (fixed in some places);
+		  . unused variables removed;
+		  . fixed headers look and feel (<th class="header3">);
+		  . fixed word 'BYTES' localization for datetime user report;
+		  . fixed corrupted top header on index, denied, download and tt-reports;
+		  . fixed "No" table header in topsites;
+		  . fixed user report table look;
+		  . fixed floating point exception on long url (added checks 
+		    for division by zero);
+		  . fixed incorrect long url view;
+		  . fixed too wide table entries in user report by adding url_limit 
+		    internal parameter in html.c (default 40);
+		  . fixed charset.c file (was in MS-DOS text format);
+		  . also included all previous fixes by other people (from 
+	            datafile.patch and lastlog.patch files).
+
+Nov/29/2005	version 2.1
+		- index_tree tag added.
+			Look at TAG: index_tree in sarg.conf file
+			default is file - old format.
+		- realtime report added. sarg -r option
+			Look at these tags ion sarg.conf file:
+				TAG: realtime_refresh_time num sec
+				TAG: realtime_access_log_lines num
+				TAG: realtime_types: GET,PUT,CONNECT,ICP_QUERY,POST
+				TAG: realtime_unauthenticated_records: ignore|show
+		- garbage in topuser report with uninitialized variable.
+			Thanks to Craig Brockmeier <craig@ppco.com>
+		- memory leaks caused by a wrong variable size
+			Fixed by Klaus Singvogel <kssingvo@suse.de>. Thanks.
+		- ignoring users with '.' in password file.
+			Thanks to Emerson Valdir Pellis <webmaster@marisol.com.br>
+		- error with "resolve_ip" with "user_authentication yes"
+			Fixed by Grigory Trenin <gtrenin@gmail.com>. Thanks.
+		- long url causing fault.
+			Thanks to Vassily Andin <vasya@avitalight.com>
+		- hanging on a log file containing space.
+			Thanks to Fabio Lo Votrico <fabio@link.it>
+		- bug fixed in squidguard report module
+		- squidguard_ignore_date on|off tag added to sarg.conf file
+			You can ignore the squidguard log record date if outside of
+			date range in squid access.log file.
+		- alternate squidguard log added using -L option on sarg command line.
+			Thanks to Dave Karlson <dkarlson@r9esd.k12.or.us>
+		- fixed malloc without free.
+		- datafile-url ip|name added to sarg.conf file - saves ip address or name
+		  in url when using datafile tag.  Thanks to Calvin Muller <calvin@siryn.co.za>
+		- wrong link point in Generated by sarg-2..
+			Thanks to Markus Hoffmann <ipcop@mh-lantech.de> 
+		- Russian_UTF-8 language added by Alex Deiter <tiamat@komi.mts.ru>
+
+Aug/04/2005	version 2.0.9
+		- dansguardian_report_limit missing in sarg.conf file.
+		- ntlm domain+user format added.
+		- index date sort fixed by Olivier JAVAUX. Thanks
+		- Improve broken record detection
+			Thanks to Artem Korneev <akorneev@intelsysus.com>
+		- sort open failed causing an empty topuser report
+		- sarg losslessly size optimized images
+			Thanks to Tonda M��ek <tonda.misek@post.cz> and Luigi Gangitano.
+		- sarg calling sort without quoting filenames
+			Thanks to Luigi Gangitano.
+		- download_report_limit tag added.
+			Thanks to Leonardo Rodrigues <leonardo@solutti.com.br>
+		- logo css class defined but never used.
+			Thanks to Roger Favero <favero@sparkenergy.it>
+
+May/29/2005	version 2.0.8
+		- verdana.ttf font removed to avoid patent infringement issues.
+		  Now sarg uses a GPL FreeSans font from http://savannah.gnu.org
+		- ISA report with wrong date in date/time report.
+			Thanks to Richard Berndt
+		- connect records ignored when using emulate_http_log on in squid.conf file.
+			Thanks to Dusan Woletz
+		- bug that prevents the correct usage of switch -d <date1-date2> when using
+			an "emulate_httpd_log on" logfile and some performance improvements
+			added.
+			Thanks to Filippo Grassilli
+		- Spanish language fixed by Jos� Luis Hern�ndez L�pez. Thanks.
+		- url variable size changed to accommodate big urls with coded symbols and some
+		  minor changes in util.c file.
+			Thanks to Oleg <xsov@mail.ru>
+		- download suffixes improved by Oleg <xsov@mail.ru>. Thanks.
+			Now sarg uses these suffixes:
+			   7z,ace,arj,avi,bat,bin,bz2,bzip,cab,com,cpio,dll,doc,dot,exe,gz,iso,
+			   lha,lzh,mdb,mov,mp3,mpeg,mpg,mso,nrg,ogg,ppt,rar,rtf,shs,src,sys,tar,
+			   tgz,vcd,vob,wma,wmv,zip
+
+May/02/2005	version 2.0.7
+		- DansGuardian report added.
+			Thanks to Adolfas Kupliauskas for the access.log
+		- Slovak language added by Dusan Woletz
+			Thank you		
+		- wrong usertab user on topuser report.
+			Thanks to Marcos Favoretto
+		- ntlm_user_format added to sarg.conf. Now you can choose the following formats
+		  for the username on reports: user|domainname+user
+			Suggested by Roger Favero
+		- exclude_users ignored in some situations.
+		- Fixes by Sapon Oleg from Russia:
+		   . there are two equal lines about Evren Yurtesen in CONTRIBUTORS file.
+		   . Internationalization of SARG user graph added, using iconv function, which
+		     is presented only in Linux, so I add required #ifdef and other stuff to clean
+		     compile code on other platforms.
+		   . Fixed two issues:
+			- '?' symbol problems for apache and other cgi-supporting web server which
+			  doesn't support '?' symbol in links (all of them interpret this like 
+			  parameter to cgi script);
+			- some good optimization to all three similar cicles in these files by 
+			  reducing false checks in 'if ...' strings.
+		   . Fixes segfault, produced by improper use of strncpy functions, look - strncpy 
+		     doesn't copy leading '\0' symbol!
+		   . Just localization support for repday report.
+		   . Support usertab IP->USERNAME change in siteuser report.
+		   . Just proper Russian koi8 localization.
+
+Apr/22/2005	version 2.0.6
+		- Greek language by Antonis Maglaras <vegos@magla.gr>
+			Thank you.
+		- time period added to -t option. Now you can use -t HH-HH, HH:MM-HH:MM
+		- support to isa proxy 2004 log added.
+			Thanks to William da Rocha Lima <wrochal@linuxit.com.br>
+		- French language fixed by Alexey Znamerovskiy <alexz@everys.com>
+			Thanks
+		- internal LC_ALL=C removed to avoid errors on Solaris.
+			Thanks to Hraska, Frantisek <frantisek.hraska@hupro.sk>
+		- non authenticated records removed from Topuser report.
+			Thanks to Brian <brian@reginachristianschool.org>
+		- Compilation error on FreeBSD > 5 - log.c:645: error: `RLIMIT_OFILE' undeclared
+		- Sarg abbreviation values improved.
+
+Mar/21/2005	version 2.0.5
+		- fixed: some changes to avoid segmentation fault.
+		- fixed: some changes to avoid compilation errors on freeBSD.
+		- fixed: exclude_hosts not excluding correctly.
+
+Feb/17/2005	version 2.0.4
+		- exclude hosts not excluding correctly.
+			Thanks to Oleg
+		- download report showing jpeg files.
+		- support to Microsoft isa proxy log files added.
+			Thanks to Trankov Vladislav <vtrankov@kb-obibank.ru>
+		- fixed: error when using relative paths in -o and -w options. Just absolute paths
+			can be used now.
+			Thanks to Andreas Grosse <andi@majestyk.de>
+		- fixed: segfault fix in vrfydir() in util.c
+			 Prevent buffer overflow in subs(); replace one constant with sizeof() in my_lltoa().
+			 vrfydir(): fix segfault if sub-directory "images" is not exists
+			 function builddia() don't check the parameters. Result: segmentation fault in some cases.
+			Thanks to Stas Degteff stas_degteff@users.sourceforge.net for the fixes.
+		- fixed: wrong date period in squidguard_log when using European date format.
+			Thanks to Guenther Mair <gunnyst@users.sourceforge.net>
+		- ulimit tag added on sarg.conf to avoid "Too many open files" error.
+			Thanks to Paulo Pires <paulo.pires@vodafone.pt>
+
+
+Feb/02/2005	version 2.0.3
+		- squidguard parse logs method changed.
+			Thanks to Joao Mendes <jmendes@credibom.pt>
+			Thanks to Guenther Mair <gunnyst@users.sourceforge.net>
+		- wrong results in -v option.
+		- fixed: error when using -u (include user)
+			Thanks to Bochkarev Vladimi <bochkarev@expocentr.ru>
+		- export LC_ALL=C will be issued before sort to avoid high cpu usage
+
+Nov/22/2004:    version 2.0.2
+		- grepday with invalid font path.
+			Thanks to Marcelo Ricardo Leitner <mrl@conectiva.com.br>
+		- -v option added to display Sarg version on console
+		- Segmentation fault caused by an unclosed file.
+			Thanks to Pustovalov Leonid
+		- SquidGuard log formats added.
+			Thanks to Kolotov Alexandr
+		- time field added to topsites report
+			Thanks to Miles Roper <mroper@westcoastdhb.org.nz>
+		- fixtime function with wrong definition, changed to long long
+			Thanks to Valery from Russia
+		- Solaris 9 compiling error: error: conflicting types for 'my_mkdir'
+			Thanks to Brad Larden <Brad.Larden@alphawest.com.au>
+		- segfaults if the denied report is disabled in sarg.conf.
+			Thanks to Filippo Carletti <filippo.carletti@nethesis.it>
+		- reading performance improved by Francesco Perrillo <fperillo@totalfax.it>
+			Thanks
+		- Russian sarg-php translation added.
+			Thanks to Michael Stepanenko <mistic@ecolines.ru>
+
+
+Oct/04/2004:    version 2.0.1   
+		- configure error with no gd installed.
+		- graph with no text when using --enable-sysconfdir
+		- graph day incorrect when using dd/mm/yy date format
+		- show_sarg_logo yes|no added
+		- site_user_time_date with wrong patch. 
+			Thanks to Ricardo R. Hoffmann <hoffmann@uninet.com.br>
+
+
+Sep/29/2004: -  version 2.0
+			- Internal/External css implemented
+			- User authentication access (htaccess) implemented
+			- large file support added
+			- Report limits implemented
+			- Download report implemented
+			- Sarg logo by Osamu Matsuzaki <matsu_o@robata.org> added.
+			- Internal mkdir added to easy port to various platform.
+			- long url now show only accessed site and module name.
+			- now you can add a user report url to a flat file to be blocked
+		          by some Squid acl. 
+				Request by Francesco Collini <collini@colliniconsulting.it>
+			- remove temporary files, if already exist, to avoid conflicts with a 
+			  previous sarg process..
+				Thanks to Renato Leon <rl_sita@hotmail.com>
+			- squidGuard improved
+				- now only records with the same period from access.log
+				  will be in squidGuard report.
+				- squidGuard limit report
+				- now you can save some urls in squidGuard db using
+				  sarg-squidguard PHP utility.
+
+		bug fixed: fault caused by rewinddir after closedir. 
+			Thanks to Lucas Bocchi <challado@ibocchi.com.br>
+			   and to Freek
+                Fixed:  - missing </body> tags in all HTML pages
+                        - missing </html> tag in some HTML pages
+                        - missing DOCTYPE in all HTML pages
+                        - grammar in man page
+                        - URL Links to SourceForge http://sarg.sourceforge.net/
+                Added:  - Included more detailed information in man the page
+                           Thanks to Billy Newsom of U.S.
+                To Do:  - There are still major validation problems in the HTML generated
+
+
+Apr/25/2003: -  fixed:  - link error to denied site in squidGuard report 
+                        - resolve name error in squidGuard report 
+                        - some fixes to HPUX. Thanks to Miles Roper <mroper@westcoastdhb.org.nz>
+                        - index_sort_order tag don't work correctly.
+                        - too many open files fixed. Thanks to Francesco Perrillo <fperillo@totalfax.it>
+                        - Ukrainian_windows1251 included in sarg.conf file
+                        - exclude_string don�t work correctly. Thanks to Modric Kristijan 
+					<Kristijan.Modric@pliva.hr>
+                             
+Mar/17/2003: -  Release 1.4
+		Added:  Now you can choose the fields that will be in User Reports.
+			Look at user_report_fields tag in sarg.conf file
+			Implementation requested by Daniel T. Joye <daniel@dragontail.com>
+
+                Added: 	Now sarg saves the processed log in a sarg format after parsing
+			the squid log file. This allow futures sarg reprocess and data 
+			will be smaller than Squid the log files
+                        Look at parsed_output_log directory and
+			        parsed_output_log_compress tags in sarg.conf file
+			Implementation requested by Joe Cooper <joe@swelltech.com>.
+				Many thanks for the donation.
+
+                Added:  Now sarg can display the report values in abbreviation format.
+			Look at displayed_values in sarg.conf
+
+		Added:  Ukrainian_windows1251 language by Roman Vynar <rvynar@icqmail.com>
+			Thank you.
+
+		Added:  Catalan language by Andreu Sanchez <tanis@lleida.com>
+			Thank you.
+
+Nov/16/2002: -  Fixed: squidGuard report fail with non authenticated users.
+			Thanks to Dan Ratzlaff <norb@norbysoft.com>
+                Fixed: Turkish language by Evren Yurtesen 
+               		<yurtesen@ispro.net.tr>. Thanks
+                Fixed: English language by Luigi Gangitano
+		       	<gangitano@lugroma3.org>. Thanks
+                Fixed: "CONNECT" average values are incorrectly calculated.
+                        Arvids <arvids@vendomar.lv>. Thanks
+
+Oct/15/2002: -  Added: sarg man page created by Luigi Gangitano 
+			<gangitano@lugroma3.org>
+	        Added: Reading statistics, show_read_statistics tag
+                Added: Index sort order. See index_sort_order tag
+		Added: squidGuard report - squidguard_log_path tag
+		Added: show_sarg_info on report bottom optional - show_sarg_info tag
+		Changed: gzipped file will be decompressed using zcat
+		         bzipped file will be decompressed using bzcat
+                Changed: new sort routine added.
+		Changed: strsep changed to getnumlist function by Robert Tiismus
+
+Jun/02/2002: -  Added: save the results in a flat file to use to populate some
+    		       database. Look at these tags in sarg.conf file:
+                         TAG: datafile file
+	                 TAG: datafile_delimiter ";"
+                         TAG: datafile_fields all
+		Added: logic to detect a broken record in access.log file
+		       and ignore it.
+		Added: now you can select the records to be processed by
+		       week and/or time using these tags in sarg.conf file:
+			 TAG: weekdays
+			 TAG: hours
+	               Thanks to Robert Tiismus from Institute of Physics, 
+		              University of Tartu, Estonia. 
+			      <robert@fi.tartu.ee>, and for the repday.c
+			      improvements.
+
+Apr/03/2002: -  bug fixed: cannot create temporary file when url contain '/'
+                   and using long_url
+		   Thanks to Enrico Sorge <enrico.sorge@activevr.it>
+
+Dez/10/2001: -  Added: sarg now shows statistics when reading the log file
+		       if running with -x option
+
+Dez/05/2001: -  bug fixed: - loop process when using "tmp" chars in usernames
+		   Thanks to Jasper vd Heijden <extern@midkemia.nl>
+		new tag added: show_successful_message yes
+		   Show "Successful report generated on dir" message at end of process.
+			Requested by: Wendell Schubert <wendell@webeworld.com>
+				      Mauricio Felizardo dos Santos <mfelizardo@ansett.com.br>
+		bug fixed: core dump when removing auth_failures report from
+			   report_type tag.
+	           Thanks to Leonardo Rodrigues <coelho@persogo.com.br>
+		bug fixed: core dump with a big number of users.
+		   Thanks to Zverev, Alexandr V. <AVZverev@rtc.tnk.ru>
+		new tags added: topuser_fields
+                                topuser_num
+		   Now you can choose which fields must be in Topuser report and how many users.
+		   Requested by Hidde Beumer <Hidde.Beumer@cmg.nl>
+		bug fixed: auth_failures report missing
+		   Thanks to Clary Harridge <clary@csee.uq.edu.au>
+		Polish language added by Wszebor Boksa <Wszebor_Boksa@koncept.pl>
+	           Thank you.
+		Romanian language added by Adi Cretu <adi@usv.ro>
+	           Thank you.
+
+Jul/03/2001: -  new report added: site/user/date/time
+                  Now report_type tag has the following default setup:
+		    report_type topsites sites_users date_time denied auth_failures site_user_date_time
+             -  bug fixed - error when using squid-ntlm authenticator (domain\user)
+				Thanks to Jakob Curdes <jc@info-systems.de>
+	                  - ignoring changes in report_type tag
+			  - Site&Users report with users shifted down one row.
+				Thanks to Jason Urkow <jaque@telusplanet.net>
+                         - some temporary files not removed.
+                         - site/user/date/time report without </table> and </html>
+
+May/30/2001: - bug fixed: - user table garbage
+			  - chmod 644 removed from makefile
+			  - ignoring first user in usertable
+			  - ignoring users names with dots (".")
+			  	Thanks to Daniel Malmgren <daniel@leeloo.lund.se>
+			  - same values for connect and bytes fields in reports on Solaris 8
+			  	Thanks to Craig Brockmeier <craig@ppco.com>
+	       New tag added: user_invalid_char "&/"
+			  To avoid core dumps, records that contain invalid characters 
+			  in userid will be ignored by Sarg.
+	       New tag added: privacy yes|no
+	                      privacy_string "***.***.***.***"
+	                      privacy_string_color blue
+	       		  In some countries the sysadm cannot see the visited sites by a restrictive law.
+	       	          Using privacy yes the visited url will be changed by privacy_string and 
+			  the link will be removed from reports.
+			     Requested by Diaolin <diaolin@diaolin.com> (Natali Giuliano) 
+               New tag added: include_users "user1:user2:...:usern"
+	                  Reports will be generated only for listed users.
+	       		     exclude_string "string1:string2:...:stringn"
+	       		  Records from access.log file that contain one of listed strings will be ignored.
+			     Requested by Michael Koptyaev <mk@aney.ru>
+
+
+Apr/02/2001: - implementation of --enable-bindir and --enable-sysconfdir in configure script.
+			Thanks to Sergei Dushenkov <dusha@dnttm.ru>
+	     - bug fixed: getword excessive long string detection function fixed.
+			Thanks to Junghausz Norbert <nigga@nigga.hu>
+	     - bug fixed: wrong charset for windows-1251 and koi8 Russian languages.
+			Thanks to Alexey Zhigayev <murphy@fio.samara.ru>
+	     - bug fixed: - Help page (-h) is empty because at start (log.c) program doesn't
+	                    load definitions to text[][] array.
+	                  - Definitions for Russian language doesn't have last 2 lines.
+                          - Definitions of Charset field for Russian language is not so correct.
+                            Better is 'windows-1251' or 'koi8-r'
+			  - I think in topuser.c the definition of wheader[] is too short for words
+			    on some languages
+			  - Initialization and use of variables TopuserSortField and
+                            TopuserSortOrder is mismatch
+			Thanks to Alex Voronin <al_vg@mail.ru>
+             - bug fixed: core dump with big user table.
+			Thanks to Jorge Cuellar Martinez <jorge.cuellar@sat.gob.mx>
+	     - Latvian languages by Juris Valdovskis <juris@auce.lv>
+			Thank you
+
+Mar/22/2001: - Now the user can choose the language using the language TAG in /usr/local/sarg/sarg.conf file.
+               There is no more --enable-language in configure script.
+             - New report added: Authentication Failures
+			Requested by Sergei Dushenkov <dusha@dnttm.ru>
+             - NONE/400 (bad request) is excluded by default (/usr/local/sarg/exclude_codes)
+             - Now sarg support big numbers (64 bits) in any platform.
+             - Date/Time report now use bytes or elapsed time as specified in date_time_by tag in sarg.conf
+               		Requested by Inters <inters@mailbox.riga.lv>
+	     - bug fixed: sites&users report sorted on the User field rather than the Site field
+	       		Thanks to Simon Bryan <sbryan@olmc.nsw.edu.au>
+             - sites&users report was changed.
+             - Russian_windows125 language fixed.
+			Thanks to Dima I. Allaverdov <allav@ur.rags.ru>  (rasa)
+             - bug fixed: getconf was catching a wrong value in replace_index tag
+			Thanks to vrush_22@softhome.net
+             - bug fixed: per_user_limit file with duplicate users.
+             - Russian languages fixed by Nikolai V. Ivanyushin <koko@infocenter.bryansk.ru>. Thank you.
+             - charset TAG added to sarg.conf file. The following charsets are available:
+			Latin1 (West European), Latin2 (East European), Latin3 (South European)
+			Latin4 (North European), Cyrillic, Arabic, Greek, Hebrew
+			Latin5 (Turkish), Latin6 (Nordic)
+             	    Requested by Nikolai V. Ivanyushin <koko@infocenter.bryansk.ru>
+             - configure now accept only two options:
+			--enable-bindir     - where sarg binary will be saved
+			--enable-sysconfdir - where the configuration directory is
+
+Mar/09/2001: Sqmgrlog has gained a new name: SARG - Squid Analysis Report Generator.
+             Many people have asked me about why sqmgrlog. I really don�t know.
+             No inspiration I think.
+             SARG was suggested by an user from Philippines, but, I lost his email
+             and don�t remember his name.
+
+             Thank you anyway.
+
+
+
+sqmgrlog ChangeLog
+
+Feb/06/2001: Version 3.0 released:
+             - Denied report added.
+			Request by Jason Staudenmayer <JasonS@NJAQUARIUM.ORG>
+	     - User table added. You can override your userid or IP Address with
+	       a real user name.
+			TAG usertab added to sqmgrlog.conf
+             - Now you can have the long url in reports
+			TAG long_url added to sqmgrlog.conf
+             - Now you can choose the report types
+			TAG report_type added to sqmgrlog.conf
+	     - sqmgrlog.conf file now will be in 644 mod.
+			Request by Michail Vidiassov <master@iaas.msu.ru>
+	     - sqmgrlog coredumps if there is a very long line in the config file.
+			Thank you to Michail Vidiassov <master@iaas.msu.ru>
+             - Url parser changed to get connect records from a better way
+			Thanks to Sergey Erokhin <esl@vechnost.com>
+	     - Michail Vidiassov <master@iaas.msu.ru> made gcc -Wall ... happy on FreeBSD 4.1
+			Thank you
+             - Russian_Koi8 language fixed by 
+			Andrew Okhmat <andy@crgu.com>. Thank you.
+			Maks Nefedchenko <maks@viaduk.net>. Thank you.
+             - Russian and Bulgarian language fixed by 
+			Nikolai V. Ivanyushin <koko@infocenter.bryansk.ru> 
+
+
+
+Nov/09/2000: Two patches form Brad Guillory <proxyadm@baileylink.net> added:
+              1. max-elapsed tag added to sqmgrlog.conf file:
+                 # TAG: max_elapsed milliseconds
+	         #      If elapsed time is recorded in log is greater than max_elapsed use 0 for elapsed time.
+  	         #      Use 0 for no checking
+                 #
+                 #max_elapsed 0
+                 # 8 Hours
+                 max_elapsed 28800000
+              2. day report (the one that looks like a calendar) changed:
+	         Every minute that a request is logged your time is incremented by the smaller
+                 of 1 minute or the total time for the requests.
+                
+                 Thank you Brad. Brad Guillory is the newest sqmgrlog contributor.
+
+              Changed: sort now compare according to arithmetic value.
+	        
+Jul/11/2000: Dutch language fixed by Pieter Kooistra <pkooistra@hr.nl>
+       		Thank you.
+             Changed: Russian_koi8 changed to Russian_Koi8.
+		Thank you to Eugene AKA Kevin Kevin <kevin@id.ru> 
+             Slightly changed Czech language
+             Added: TAG: replace_index
+                Replace "index.html" in the main index file with this string
+                Vladimir Smelhaus <smelhaus@atlas.cz>
+             Bug fixed: For some reason, Squid occasionally logs a blank line. Running sqmgrlog
+		against a log containing a blank line causes sqmgrlog to take 99+% CPU
+		Thanks to Giese, Bill <bill@gieses.com> 
+	     Added: now every squid code that contain the MISS word will be counted as out cache.
+         	Thanks to Kostya Panov <twin@beep.ru> 
+
+Jun/09/2000: Bug fixed: abnormal end if userid contain ';'
+		Thanks to Victor Feoktistov <feoktist@triniti.ru>
+             Japanese language fixed by
+                Akira Kitamura <click@anet.ne.jp> Takamatsu-City Kagawa Japan
+             Bug fixed: Wrong date when setting date_format u in sqmgrlog.conf file
+                Thanks to Dale Perkel <dale@think.co.za, Nuno Almeida <nalm@vanguarda.com>, 
+		          Marcio Rodrigo Bordignon <mrbordignon@uol.com.br> 
+
+Mar/15/2000: Japanese language added by 
+		Akira Kitamura <click@anet.ne.jp> Takamatsu-City Kagawa Japan
+                Thank you.
+             Serbian language added by 
+		Radovan Drobnjakovic <admin.rts@rts.co.yu>
+                Thank you.
+             Bug fixed: wrong sort field when lower case used in
+		sort tags.
+		Thanks to Scott Larsen <slarsen@cascorp.com>
+                  and to WOLETZ, Dusan <woletz@globtel.sk>
+             Abuse report removed.
+             Changed: report1_sort_field TAG in sqmgrlog.conf 
+			changed to topuser_sort_field
+             Changed: report2_sort_field TAG in sqmgrlog.conf 
+			changed to user_sort_field
+             Added: topsites sort field options added:
+               # TAG: topsites_sort_order CONNECT|BYTES A|D
+               #      Sort for topsites report, where A=Ascendant, D=Descendant
+               #
+               #topsite_sort_oder CONNECT D
+             Implementation requested by
+		 Michael G. Koch <Michael.G.Koch@globalknowledge.de>
+
+Feb/26/2000: Bulgarian-windows1251 language added by
+	      Ivan Minchev <vanko@uni-svishtov.bg>.
+               Thank you.
+             French language updated by 
+	      Olivier Rousselot <olivier.rousselot@ssti.fr>
+               Thank you.
+
+Feb/15/2000: SmarfFilter report added.
+               Implementation requested by Andrew Bradshaw <andyb@excite.co.uk>
+             Bug fixed: files created with 09Feb2000-09022000 instead 09Feb2000-09Feb2000
+               Thanks to Andy Parfenov <andy@nursat.net>
+             Changed: ignore records with HTTP/0.0 string.
+               Implementation requested by Bernd Kossmann <bko@shd.de>
+             Changed: some code added to ignore broken records in access.log file
+             Bug fixed: removing old file with lastlog dont work.
+               Thanks to Evren Yurtesen <yurtesen@ispro.net.tr>
+
+Jan/20/2000: Indonesian language added by V Gatut Harijoso  <gatut@student.unpar.ac.id>
+	       Thank you.
+             Fixed: change in conf.h to compile on OpenBSD 2.6 system.
+	       Thanks to Kenneth Ingham <ingham@i-pi.com>
+             Fixed: small bug, which fills the "periodo" with 
+		    "01Jan2000-20000101" instead of "01Jan2000-01Jan2000".
+               Thanks to Schlosser, Carsten ECOFIS <c.schlosser@ecofis.de>
+             Fixed: After calling system function malloc, variable excludecode 
+		    have some symbols inside (excludecode wasn't zeroed).
+               Thanks to Andrew Katkov <askat@crimea.net>
+
+Dec/29/1999: Czech language added by Milos Prudek <prudek@nembv.cz>
+               Thank you.
+             Russian-windows1251 language added by Dima I. Allaverdov <allav@ur.rags.ru>
+               Thank you.
+             Changed: Russian language changed to Russian_koi8 language.
+             Bug fixed: Sites&Users report dont resolve ip address.
+               Thanks to Pavel Jezek <Pavel.Jezek@i.cz>
+
+Nov/29/1999: Bug fixed: DENIED word translated to another language never printed.
+               Thanks to Rodolphe SIBERT <rsi@kyxar.fr>
+             New report added: Sites & Users
+               Implementation requested by Rodolphe SIBERT <rsi@kyxar.fr>
+             Added: The date format now also has the option "w" for week.
+                    The report is then 1999.47-1999.47 for instance.
+               Implemented by Seth Mos <stimpy@stimpy.multiweb.nl>, thank you for the patch.
+             Dutch language added by Seth Mos <stimpy@stimpy.multiweb.nl>
+               Thank you.
+             Added: new tag on sqmgrlog.conf, named user_ip, for setting a system wire -p, use ip address
+                    instead userid.
+               Implemented by Carlo Marcelo Arenas Belon <carenas@chasqui.lared.net.pe>
+               Thank you for the patch.
+             Added: new tag on sqmgrlog.conf, exclude_codes pointing to a file with codes to be
+                    ignored by sqmgrlog. Eg.: NONE/400
+               Implementation asked by Doug Burks <DBurks@Augserv.com>
+
+Sep/28/1999: Bug fixed: -split and -convert dont work with multiples -l options.
+               Thanks to G. Kelana Sudibyo" <kelana@inn.bppt.go.id>
+             Bug fixed: Bytes and Average corrupted in index.html after second execution.
+               Thanks to Rob Glasser <orso@onelist.com>
+
+Sep/13/1999: Bug fixed: get wrong access.log file when using access_log in sqmgrlog.conf file.
+               Thanks to Michael G. Koch <Michael.G.Koch@globalknowledge.de>
+
+Sep/10/1999: Spanish language added by Leonardo A. D'Angelo <ldangelo@san-cayetano.com>
+               Thank you.
+             New report added: topsites. This report show the top n sites accessed.
+                    You can set the top num sites in topuser_num tag in sqmgrlog.conf file.
+             Bug fixed: wrong userid when using Samba authenticator.
+	       Thanks to klaubert@bcb.gov.br (Klaubert Herr da Silveira)
+	     Changed: -v option removed. No more support for Squid-1 log format.
+               Thanks to Nik Oxley <nik.oxley@iholland.co.uk>
+
+Aug/18/1999: New fields added to sqmgrlog.conf: 
+               - lastlog n
+                   With lastlog you can tell to sqmgrlog to remove old reports files.
+                   Usage: lastlog 0  - no remove nothing
+                          lastlog 10 - maintain only the last 10 reports
+                   Implementation requested by Evren Yurtesen <yurtesen@ispro.net.tr>
+                      Thank you for your help.
+               - remove_temp_files yes|no
+                   Remove temporary files: geral, usuarios, top, periodo from root report directory.
+                   Implementation requested by Fred Pacquier <fredp@dial.oleane.com>
+               - index yes|no|only
+                   Usage: index yes  - will generate the main index.html in reports
+                          index no   - dont generate the main index.html in reports
+                          index only - generate only the main index.html in reports
+                   Implementation asked by Fred Pacquier <fredp@dial.oleane.com>
+               - overwrite_report yes|no
+                   If yes and the report already exist for that date, the reports will be overwritten.
+                   If no and the report already exist, that report will be renamed to filename.n, filename.n+1
+                     Implementation requested by Eugeny Kuzakov <CoreDumped@CoreDumped.null.ru>
+               - records_without_userid ignore|ip|everybody
+                    What can I do with records without user id (no authentication) in access.log file ?
+                      ignore - This record will be ignored.
+                          ip - Use ip address instead. (default)
+                   everybody - Use "everybody" instead.
+               - use_comma
+                   Use comma instead point in reports.
+                     Eg.: use_comma yes => 23,450,110
+                          use_comma no  => 23.450.110
+               - mail_utility mail|mailx
+                   Which mail command must I use to send reports ?
+
+             Added: now every squid code that contain the MISS word will be counted as out cache. 
+                Implementation requested by Eugeny Kuzakov <CoreDumped@CoreDumped.null.ru>
+                   Thank you for your help and for share your FreeBSD with me.
+             Changed: the field url was changed to 8192 bytes to support big urls.
+                Thanks to Eugeny Kuzakov <CoreDumped@CoreDumped.null.ru>
+             Changed: the header "TIME SPENT" changed to "USED TIME" in topuser report.
+             Changed: no more nouser will be in reports but IP address instead.
+             Changed: no more squid 1 log format supported.
+             Bug fixed: wrong reports when using common log format (emulate_http on).
+                Thanks to Patrick LIN <patrickl@cst.ca>  
+
+Aug/06/1999: French language added by Fred Pacquier <fredp@dial.oleane.com>
+                Thank you
+             Bug fixed: negative percentage in IN-CACHE-OUT.
+                Thanks to brad@baileylink.net
+             Bug fixed: wrong directory name created when using -g e and -d
+                Thanks to Fred Pacquier <fredp@dial.oleane.com>
+             Changed: atol use to get total bytes changed to atoll.
+                Thanks to brad@baileylink.net for the patch.
+             Changed: now use ',' as separator instead '.' when using US date (-g u)
+                Implementations requested by brad@baileylink.net
+             Changed: added -convert and -split to usage help (-h)
+                      new messages added to easy translation.
+                Implementations requested by Fred Pacquier <fredp@dial.oleane.com>
+
+Jul/29/1999: Changed: convert userid to lowercase to disable username case-sensitivity
+                when using auth_smb.
+                Implementations requested by Doug Burks <DBurks@Augserv.com>               
+             Changed: the sqmgrlog.conf now installs into /usr/local/etc
+                Implementations requested by Daniel L Sjvsvdrd <daniel.sjosvard@paals.se>
+
+Jul/06/1999: Y2K bug fixes.
+                Thanks to askat@crimea.net  (JSC CRELCOM)
+             Bug fixed: special character in userid cause core dump.
+	        Thanks to Rick_Barzilli@xircom.com
+	     Splitlog function added:  -split will split the log file by date in -d parameter.
+                Eg.: sqmgrlog -split -d 01/07/1999-02/07/1999 [-convert] [-g e]
+
+Jun/14/1999: German language added by Andreas Piesk <a.piesk@gmx.net>
+                Thank you
+             Some minor changes made by Andreas Piesk, thanks for the patches.
+
+Jun/09/1999: Bug fixed: to send reports via mail, use mail instead mailx in FreeBSD.
+                Thanks to Evren Yurtesen <yurtesen@ispro.net.tr> to share your FreeBSD with me.
+             Bug fixed: wrong userid when using smb_auth authenticator.
+                        The userid will be changed from NTDOMAIN\username to NTDOMAIN.username.
+                Thanks to Jouko Ylikulju <Jouko.Ylikulju@pkcables.com>
+
+Jun/04/1999: Y2K compliance implemented.
+             Bug fixed: wrong report created when using common log format.
+                Thanks to Carlos Santillana <Carlos@los-fresnos-cons.k12.tx.us>
+             Bug fixed: wrong fopen with "rt", must be "r".
+                Thanks to Wayne Bastow <wbastow@ccahs.health.nsw.gov.au>
+
+May/31/1999: Turkish language added by Evren Yurtesen <yurtesen@ispro.net.tr>
+                Thank you
+             Bug fixed: users in exclude_users file were not removed from reports.
+                Thanks to Arthur S. Petrossian <arthur@ipia.sci.am>
+                Thanks to Evren Yurtesen <yurtesen@ispro.net.tr>
+             Bug fixed: core dump when using output_email parm and mailx not installed.
+                Thanks to Evren Yurtesen <yurtesen@ispro.net.tr>
+             Thanks to Evren Yurtesen <yurtesen@ispro.net.tr> to share your FreeBSD with me.
+
+May/20/1999: New report field added: IN CACHE and OUT CACHE. 
+                This field show how many bytes (percent) was retrieved from the cache.
+  	        Implementations requested by Arthur S. Petrossian <arthur@ipia.sci.am>
+
+May/14/1999: Bug fixed. Abnormal End when using -i option
+                Thanks to Carlos Canau <canau@ionia.EUnet.pt> for the patch.            
+             Bug fixed. Sqmgrlog freeze if some records are broken in access.log file.
+                Thanks to Rick_Barzilli@xircom.com
+             Bugfix that prevents sqmgrlog from freezing up if a log file has "holes" (sequences of zeros) 
+             (caused by filesystem crash).
+                Thanks to drdivano@mail.axon.ru for the patch.
+
+Apr/14/1999: Per user limit added.
+                 If the user exceed the limit, userid will be saved in a file that can
+                 be used in squid acl.
+	         Field per_user_limit added to sqmgrlog.conf: per_user_limit file limit
+                    file : where userid must be saved
+                    limit: in MB   Eg. 40 will limit in 40 MB.
+	         Implementation requested by Csaba Kabai <ckabai@icnpharm.com>
+
+Mar/11/1999: Field exclude_users now accept indexonly to create only index.html report.
+                Implementation requested by Hanni Daniel <daniel.haenni@softlab.ch>
+	     Bug fixed for FreeBSD. Missing \n on topuser.
+                Thanks to Andrew <andrew@extrim.ru> for share your FreeBSD-3.1
+             Some minors fixes and changes in html layout.
+                Thanks to Andrew Barnes <a.barnes@kaldor.com.au>
+
+Mar/03/1999: Bug fixed. Wrong href link if userid in format userid.name...
+                Thanks to Manon Goo <manon@manon.de>
+             Some changes on variable translations.
+                Thanks to Matteo Colombo <matteo@calcol.it>
+             Russian language (KOI8-R) added by Palamarchuk Eugen <eugen@cit.od.ukrtel.net>
+                Thank you
+             Field exclude_users added to sqmgrlog.conf. 
+	        Users within the file will be excluded from reports.
+                Implementation requested by Hanni Daniel <daniel.haenni@softlab.ch>
+
+Feb/26/1999: New date/time report added.
+	        Look at http://www.orso.x5.net/squid-reports/1999Feb01-1999Feb08/duser24.html
+	     -d option now accept from-until (dd/mm/yy-dd/mm/yy) dates.
+	        Requested by Eric V. Pino <ericvp@roadrunner.com.ph>
+
+Feb/10/1999: Italian language added by Matteo Colombo <matteo@calcol.it>
+             Thank you.
+             -convert option added. Convert the access.log file to a legible date
+             and time format. May be used with -l and/or -g options.
+
+Feb/05/1999: Field date_format added to sqmgrlog.conf.
+                date_format u: reports with USA format mm/dd/yy
+                date_format e: reports with Europe format dd/mm/yy
+                Implementation requested by Matteo Colombo <matteo@calcol.it>
+             Bug fixed: temporary file cannot be created if not run in root.
+                Thanks to Carlos Canau <canau@ionia.EUnet.pt> for the patch.
+             Changes from Tony Lorime <alorimes@csc.com>: use atoll instead atol in Solaris
+			                                : ignore .htaccess when selecting files
+	        Thank you.
+
+Dec/21/1998: -b option added. Generate useragent report. 
+                field useragent_log added to sqmgrlog.conf
+    	        Implementation requested by Alp <support@x5.net>
+             -j option added. Generate a kind of abuse report.
+    	        Implementation requested by Alp <support@x5.net>
+                To use this feature you must apply a patch (http://www.orso.x5.net/patches) on Squid.
+             -c exclude option improved. Now you can exclude B classes
+    	        Implementation requested by Yin Jun <yinj@mars.ahu.edu.cn>
+             Bug fixed for Solaris. Must user -lsocket and -lnsl to resolve names.
+                Thanks to Ryan Roehrich <ryanscott@mindless.com>
+
+Dec/11/1998:  Bug fixed for long long int in Alpha Digital
+   	        Thanks to Ilya V. Komarov <mur@mur.lynx.ru> for share your Digital server.
+
+Dec/10/1998:  Version 2.2 released
+	     -n option added. Resolve domain name for reports with IP Address.
+                Field resolve_ip added to sqmgrlog.conf
+             Sort report by header fields implemented
+                Fields report1_sort_field and report2_sort_field added to sqmgrlog.conf 
+             -f option added. Allow config file override
+             Exclude hosts implemented            
+                Field exclude_hosts file added to sqmgrlog.conf. Exclude ips, names, subnets
+                  from reports.
+  	        Implementations requested by Arthur S. Petrossian <arthur@ipia.sci.am>
+
+Dec/07/1998:  Version 2.1 released
+             sqmgrlog now can read log file in gzip or compress format.
+    	        Implementation requested by Alp <support@x5.net>
+
+Nov/09/1998:  Version 2.0 released
+             -p option added. Allow redirect output report to email address.
+             sqmgrlog.conf with colors, headers, title, font size, background color, text color,
+                background image, font face, etc... added.
+             Reports will be generated only for users in passwd file (tag password in sqmgrlog.conf).
+             Many changes in html output layout.
+                Thanks to Alp <support@x5.net>
+
+Oct/19/1998:  Bug fixed by Maxim Berlin <mak@unesco.mitht.rssi.ru> for long long int in FreeBsd.
+             Many thanks.
+             Thanks to Ilya V. Komarov <mur@mur.lynx.ru> to share your FreeBSD 3.0 server to help on fixing.
+
+Sep/28/1998:  Bug fixed for log with emulate http on (Squid 1.2.beta)
+                Thanks to Alp <support@x5.net>
+	     -p option added. Generated reports with IP Address instead Userid.
+	     Use this option if you do not use Proxy authentication on Squid.
+    	        Implementation requested by Szalma Zoltan <zszalma@file.matav.hu>
+	
+Aug/11/1998:  Bug fixed for memory slack. 
+		Thanks to kevin@mcpeake.net
+		 	  Jose Luiz <jluiz@projesom.com.br>
+			  Patrick Darden <darden@server2.armc.org>
+			  Steve Chan <Steve.Chan@lucasfilm.com>
+
+Jul/07/1998:  Spent time added for native Squid log format (emulate_httpd_log off).
+	     Connect added.
+	     Layout change in html reports.
+
+Jun/02/1998:  -o option added. Allow output dir override.
+	     Implemented index.html on root output dir.
+	     Implemented auto rename if output dir already exist.
+	     bug fixed, link error if user change output dir in conf.h
+	     Thanks to Alp <cybergulf@cybergulf.net>
+
+May/28/1998:  -v option added. Allow Squid version override.
+
+May/28/1998:  Bug fixed in common log format
+	     Thanks to Tony Lorimer <tlorimer@health.csc.com.au>
+                       Alp <cybergulf@cybergulf.net>
+	               Carlos Santillana <carlos@los-fresnos-cons.k12.tx.us
+
+May/21/1998:  Implemented Squid version verification because common log 
+	     from 1.1 differ from 1.2 version.
+	     -i option added (report by user and IP address)
+
+May/19/1998:  configure script implemented.
+
+May/18/1998:  Implemented auto log format recognize (Squid and Common log)
+
+Apr/15/1998:  bug fixed. Some garbage on period.
+             Thanks to Lee Shakespeare <lee@webfoundry.co.uk>
+ 
+Apr/15/1998:  -z option added (debug)
+
+Apr/07/1998:  top.html changed to index.html
+
+Mar/31/1998:  index.html added
+
+Mar/25/1998:  sqmgrlog was created

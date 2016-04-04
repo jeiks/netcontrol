@@ -1,0 +1,8 @@
+plugins/sysload/api.py	var/lib/netcontrol/plugins/sysload/
+plugins/sysload/files	var/lib/netcontrol/plugins/sysload/
+plugins/sysload/__init__.py	var/lib/netcontrol/plugins/sysload/
+plugins/sysload/layout	var/lib/netcontrol/plugins/sysload/
+plugins/sysload/meters.py	var/lib/netcontrol/plugins/sysload/
+plugins/sysload/ss_bsd.py	var/lib/netcontrol/plugins/sysload/
+plugins/sysload/ss_linux.py	var/lib/netcontrol/plugins/sysload/
+plugins/sysload/widget.py	var/lib/netcontrol/plugins/sysload/

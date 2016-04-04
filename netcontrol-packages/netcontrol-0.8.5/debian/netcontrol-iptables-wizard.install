@@ -1,0 +1,5 @@
+plugins/iptables_wizard/backend.py	var/lib/netcontrol/plugins/iptables_wizard/
+plugins/iptables_wizard/files	var/lib/netcontrol/plugins/iptables_wizard/
+plugins/iptables_wizard/__init__.py	var/lib/netcontrol/plugins/iptables_wizard/
+plugins/iptables_wizard/layout	var/lib/netcontrol/plugins/iptables_wizard/
+plugins/iptables_wizard/main.py	var/lib/netcontrol/plugins/iptables_wizard/

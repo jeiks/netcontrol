@@ -1,0 +1,58 @@
+<xml>
+    <toolbar>
+        <button id="add" text="Adicionar novo ponto de montagem" icon="/dl/core/ui/stock/add.png" />
+    </toolbar>
+
+    <pad>
+        <dt id="list" width="100%">
+            <dtr header="True">
+                <dth>
+                    <label text="Fonte" />
+                </dth>
+                <dth>
+                    <label text="Ponto de montagem" />
+                </dth>
+                <dth width="60">
+                    <label text="Sistema de arquivo" />
+                </dth>
+                <dth>
+                    <label text="Opções" />
+                </dth>
+                <dth with="1" />
+                <dth with="1" />
+                <dth with="1" />
+            </dtr>
+        </dt>
+    </pad>
+
+    <dialogbox id="dlgEdit">
+        <formline text="Fonte" id="sources" iid="source" />
+        <formline iid="src">
+            <textinput id="src" name="src" design="xlarge" />
+        </formline>
+        <formline text="Ponto de montagem" iid="mp">
+            <textinput id="mp" name="mp" design="xlarge" />
+        </formline>
+        <formline text="Sistema de arquivo" iid="mp">
+            <textinput id="fs" name="fs" />
+        </formline>
+        <formline text="Opções" iid="opts">
+            <textinput id="opts" name="opts" design="xlarge" />
+        </formline>
+        <formline text="Somente leitura" iid="ro">
+            <checkbox id="ro" name="ro" />
+        </formline>
+        <formline text="Bind" iid="bind">
+            <checkbox id="bind" name="bind" />
+        </formline>
+        <formline text="Loop" iid="loop">
+            <checkbox id="loop" name="loop" />
+        </formline>
+        <formline text="Dump order" iid="dump_p">
+            <textinput id="dump_p" name="dump_p" />
+        </formline>
+        <formline text="fsck order" iid="fsck_p">
+            <textinput id="fsck_p" name="fsck_p" />
+        </formline>
+    </dialogbox>
+</xml>

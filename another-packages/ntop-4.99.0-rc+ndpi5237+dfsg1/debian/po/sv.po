@@ -1,0 +1,131 @@
+# Swedish translation of the debconf template for ntop.
+# Copyright (C) 2011 Martin Bagge <brother@bsnet.se>
+# This file is distributed under the same license as the ntop package.
+#
+# Daniel Nylander <po@danielnylander.se>, 2005.
+# Martin Bagge <brother@bsnet.se>, 2011
+msgid ""
+msgstr ""
+"Project-Id-Version: ntop 2:3.2rc1-1\n"
+"Report-Msgid-Bugs-To: ntop@packages.debian.org\n"
+"POT-Creation-Date: 2011-01-26 00:15-0800\n"
+"PO-Revision-Date: 2011-01-26 11:41+0100\n"
+"Last-Translator: Martin Bagge / brother <brother@bsnet.se>\n"
+"Language-Team: Swedish <debian-l10n-swedish@lists.debian.org>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: Sweden\n"
+
+#. Type: string
+#. Description
+#: ../ntop.templates:1001
+msgid "User for the ntop process to run as:"
+msgstr "Användarkonto som ntop-processen ska köras som:"
+
+#. Type: string
+#. Description
+#: ../ntop.templates:1001
+msgid "Please choose the login that should be used to execute the ntop process. The use of the root user is not allowed."
+msgstr "Ange vilket användarkonto som ska användas för att köra ntop-processen. Att använda root är inte tillåtet."
+
+#. Type: string
+#. Description
+#: ../ntop.templates:1001
+msgid "The account will be created if it does not already exist, but if you leave it blank, no login will be created and ntop will not run until manually configured."
+msgstr "Användarkontot kommer att skapas om det inte redan existerar, lämnas fältet tomt kommer inget konto att skapas och ntop kommer inte att köras förrens du gjort inställningarna manuellt."
+
+#. Type: string
+#. Description
+#: ../ntop.templates:2001
+msgid "Interfaces for ntop to listen on:"
+msgstr "Gränssnitt som ntop ska lyssna på:"
+
+#. Type: string
+#. Description
+#: ../ntop.templates:2001
+msgid "Please enter a comma-separated list of interfaces that ntop should listen on."
+msgstr "Ange en kommaseparerad lista med gränssnitt som ntop ska lyssna på."
+
+#. Type: password
+#. Description
+#: ../ntop.templates:3001
+msgid "Administrator password:"
+msgstr "Adminstrationslösenord:"
+
+#. Type: password
+#. Description
+#: ../ntop.templates:3001
+msgid "Please choose a password to be used for the privileged user \"admin\" in ntop's web interface."
+msgstr "Ange ett lösenord som ska användas av den priviligerade användaren \"admin\" i ntops webbgränssnitt."
+
+#. Type: password
+#. Description
+#: ../ntop.templates:4001
+msgid "Re-enter password to verify:"
+msgstr "Upprepa lösenordet:"
+
+#. Type: password
+#. Description
+#: ../ntop.templates:4001
+msgid "Please enter the same password again to verify that you have typed it correctly."
+msgstr "Upprepa samma lösenord en gång till för att säkerställa att du skrev in det korrekt."
+
+#. Type: error
+#. Description
+#: ../ntop.templates:5001
+msgid "Empty password"
+msgstr "Tomt lösenord"
+
+#. Type: error
+#. Description
+#: ../ntop.templates:5001
+msgid "You entered an empty password, which is not allowed. Please choose a non-empty password."
+msgstr "Du angav ett tomt lösenord, detta är inte tillåtet. Välj ett lösenord som inte är tomt."
+
+#. Type: error
+#. Description
+#: ../ntop.templates:6001
+msgid "Password input error"
+msgstr "Fel vid inmatning av lösenord"
+
+#. Type: error
+#. Description
+#: ../ntop.templates:6001
+msgid "The two passwords you entered were not the same. Please try again."
+msgstr "De båda lösenorden du angav stämmer inte överrens. Försök igen."
+
+#. Type: boolean
+#. Description
+#: ../ntop.templates:7001
+msgid "Set a new administrator password?"
+msgstr "Ange ett nytt administrationslösenord?"
+
+#. Type: boolean
+#. Description
+#: ../ntop.templates:7001
+msgid "A password for ntop's administrative web interface has already been set."
+msgstr "Ett lösenord för ntops administrativa webbgränssnitt har redan satts."
+
+#. Type: boolean
+#. Description
+#: ../ntop.templates:7001
+msgid "Please choose whether you want to change that password."
+msgstr "Ange om du vill byta ut det lösenordet."
+
+#~ msgid ""
+#~ "The selected user will be created if not already available. Don't choose "
+#~ "root, it is not recommended and will be discarded anyway."
+#~ msgstr ""
+#~ "Den valda användaren kommer att skapas om den inte redan finns. Välj inte "
+#~ "root, det är inte rekommenderat och kommer att kunna användas."
+#~ msgid ""
+#~ "If you select an empty string no user will be created on the system and "
+#~ "you will need to do that configuration yourself."
+#~ msgstr ""
+#~ "Om du väljer en blank stäng kommer ingen användare att skapas på ditt "
+#~ "system och du måste göra den konfigurationen själv."
+#~ msgid "Which is the name of the user to run the ntop daemon as ?"
+#~ msgstr "Vad är namnet på den användare som ntop-daemonen ska köras som?"

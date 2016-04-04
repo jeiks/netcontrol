@@ -1,0 +1,20 @@
+/*!\file css.c
+\brief Write the Content Style Sheet of the HTML reports.
+*/
+
+
+/*! \fn void css_content(FILE *fp_css)
+Write the content of the CSS in the file.
+
+\param fp_css The file to write the CSS to.
+*/
+
+
+
+
+/*! \fn void css(FILE *fp_css)
+Write the CSS in the file either as a link to an external file whose name is in
+::ExternalCSSFile or as an inline text.
+
+\param fp_css The file to write the CSS to.
+*/

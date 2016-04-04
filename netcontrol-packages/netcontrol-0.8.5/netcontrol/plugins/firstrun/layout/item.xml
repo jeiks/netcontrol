@@ -1,0 +1,20 @@
+    <dtr>
+        <dtd>
+            <checkbox id="check" />
+        </dtd>
+        <dtd>
+            <image id="icon" />
+        </dtd>
+        <dtd id="reqs">
+            <label id="name" />
+        </dtd>
+        <dtd>
+            <label id="desc" />
+        </dtd>
+        <dtd>
+            <label id="version" />
+        </dtd>
+        <dtd>
+            <outlinklabel id="author" />
+        </dtd>
+    </dtr>

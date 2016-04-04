@@ -1,0 +1,5 @@
+plugins/ntop/backend.py	var/lib/netcontrol/plugins/ntop/
+plugins/ntop/files	var/lib/netcontrol/plugins/ntop/
+plugins/ntop/__init__.py	var/lib/netcontrol/plugins/ntop/
+plugins/ntop/layout	var/lib/netcontrol/plugins/ntop/
+plugins/ntop/main.py	var/lib/netcontrol/plugins/ntop/

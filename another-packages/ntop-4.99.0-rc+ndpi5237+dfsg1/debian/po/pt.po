@@ -1,0 +1,158 @@
+# Portuguese translation of ntop's debconf messages.
+# Copyright (C) 2007
+# This file is distributed under the same license as the ntop package.
+# Ricardo Silva <ardoric@gmail.com>, 2007.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ntop 3:3.2-10\n"
+"Report-Msgid-Bugs-To: ntop@packages.debian.org\n"
+"POT-Creation-Date: 2011-01-26 00:15-0800\n"
+"PO-Revision-Date: 2007-03-13 23:06+0000\n"
+"Last-Translator: Ricardo Silva <ardoric@gmail.com>\n"
+"Language-Team: Portuguese <traduz@debianpt.org>\n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: string
+#. Description
+#: ../ntop.templates:1001
+msgid "User for the ntop process to run as:"
+msgstr "Utilizador a utilizar para correr o processo ntop:"
+
+#. Type: string
+#. Description
+#: ../ntop.templates:1001
+msgid ""
+"Please choose the login that should be used to execute the ntop process. The "
+"use of the root user is not allowed."
+msgstr ""
+"Por favor escolha o utilizador que deve ser usado para executar o processo ntop. "
+"Não é permitido a escolha do utilizador root."
+
+#. Type: string
+#. Description
+#: ../ntop.templates:1001
+msgid ""
+"The account will be created if it does not already exist, but if you leave "
+"it blank, no login will be created and ntop will not run until manually "
+"configured."
+msgstr ""
+"A conta será criada se ainda não existir, mas se deixar a opção em branco, "
+"não será criado nenhum utilizador e o ntop não será executado até que seja "
+"configurado manualmente."
+
+
+#. Type: string
+#. Description
+#: ../ntop.templates:2001
+msgid "Interfaces for ntop to listen on:"
+msgstr "Interfaces em que o ntop deve escutar:"
+
+#. Type: string
+#. Description
+#: ../ntop.templates:2001
+msgid ""
+"Please enter a comma-separated list of interfaces that ntop should listen on."
+msgstr ""
+"Por favor introduza uma lista de interfaces separadas por vírgulas onde o "
+"ntop deva escutar."
+
+#. Type: password
+#. Description
+#: ../ntop.templates:3001
+msgid "Administrator password:"
+msgstr "Palavra-passe de administrador:"
+
+#. Type: password
+#. Description
+#: ../ntop.templates:3001
+msgid ""
+"Please choose a password to be used for the privileged user \"admin\" in "
+"ntop's web interface."
+msgstr ""
+"Por favor escolha a palavra passe a ser usada pelo utilizador privilegiado "
+"\"admin\" na interface web do ntop."
+
+#. Type: password
+#. Description
+#: ../ntop.templates:4001
+msgid "Re-enter password to verify:"
+msgstr "Volte a introduzir a palavra passe para verificação:"
+
+#. Type: password
+#. Description
+#: ../ntop.templates:4001
+msgid ""
+"Please enter the same password again to verify that you have typed it "
+"correctly."
+msgstr ""
+"Por favor volte a introduzir a mesma palavra passe de forma a verificarmos "
+"que a escreveu corretamente."
+
+#. Type: error
+#. Description
+#: ../ntop.templates:5001
+msgid "Empty password"
+msgstr "Palavra passe vazia"
+
+#. Type: error
+#. Description
+#: ../ntop.templates:5001
+msgid ""
+"You entered an empty password, which is not allowed. Please choose a non-"
+"empty password."
+msgstr ""
+"Introduziu uma palavra passe vazia, o que não é permitido. Por favor escolha "
+"uma palavra passe não vazia."
+
+#. Type: error
+#. Description
+#: ../ntop.templates:6001
+msgid "Password input error"
+msgstr "Erro na introdução da palavra passe"
+
+#. Type: error
+#. Description
+#: ../ntop.templates:6001
+msgid "The two passwords you entered were not the same. Please try again."
+msgstr "As duas palavras passe que introduziu não são iguais. Por favor tente de novo."
+
+#. Type: boolean
+#. Description
+#: ../ntop.templates:7001
+msgid "Set a new administrator password?"
+msgstr "Definir uma nova palavra passe de administrador?"
+
+#. Type: boolean
+#. Description
+#: ../ntop.templates:7001
+msgid ""
+"A password for ntop's administrative web interface has already been set."
+msgstr ""
+"Já foi definida uma palavra passe para a interface web administrativa do ntop."
+
+#. Type: boolean
+#. Description
+#: ../ntop.templates:7001
+msgid "Please choose whether you want to change that password."
+msgstr "Por favor escolha se quer alterar essa palavra passe."
+
+#~ msgid ""
+#~ "The selected user will be created if not already available. Don't choose "
+#~ "root, it is not recommended and will be discarded anyway."
+#~ msgstr ""
+#~ "O utilizador seleccionado será criado se ainda não existir. Não escolha "
+#~ "root, não é recomendado e será descartado de qualquer das formas."
+
+#~ msgid ""
+#~ "If you select an empty string no user will be created on the system and "
+#~ "you will need to do that configuration yourself."
+#~ msgstr ""
+#~ "Se introduzir uma string vazia não será criado nenhum utilizador no "
+#~ "sistema e precisará de fazer essa configuração você mesmo."
+
+#~ msgid "Which is the name of the user to run the ntop daemon as ?"
+#~ msgstr "Qual é o nome do utilizador com que correr o daemon ntop ?"

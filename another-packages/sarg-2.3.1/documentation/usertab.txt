@@ -1,0 +1,115 @@
+/*!\file
+\brief Provide a meanigfull name instead of the user ID or IP address shown in the
+reports.
+*/
+
+
+/*! \enum UserTabEnum
+The possible sources to map the user ID or IP address to the name to display
+in the reports.
+*/
+
+
+
+
+
+/*! \var enum UserTabEnum which_usertab
+Tell the database source to use to map the user ID or IP address to a meaningfull
+name.
+*/
+
+
+
+
+
+/*! \fn void init_usertab(const char *UserTabFile)
+Initialize the data used by user_find().
+
+If \a UserTabFile is ldap, the user ID is fetched from a LDAP server.
+
+\param UserTabFile The name of the file to read or ldap. If it is empty, the function does nothing.
+
+\note The memory and resources allocated by this function must be released by
+a call to close_usertab().
+*/
+
+
+
+
+
+/*! \fn void user_find(char *mappedname, int namelen, const char *userlogin)
+Find the real name of the user with the ID or IP address in \a userlogin. The name is fetched
+from the source initialized by init_usertab().
+
+The usertab data must have been initialized by init_usertab().
+
+\param mappedname A buffer to write the real name of the user.
+\param namelen The size of the buffer.
+\param userlogin The ID or IP address of the user.
+*/
+
+
+
+
+
+/*! \fn void close_usertab(void)
+Free the memory and resources allocated by init_usertab().
+*/
+
+
+
+
+
+/*! \fn static void init_file_usertab(const char *UserTabFile)
+Read the \a UserTabFile database.
+
+The file contains the IP address or ID of the user then some spaces and
+the real name of the user to show in the report.
+
+Any trailing space or tabulation is removed from the real name. The user ID or IP cannot contain
+a space or a tabulation but it may contain any other character, including the colon that was
+forbidden in the past. That change was made to allow IPv6 addresses.
+
+The file may contain comments if the line starts with a #.
+
+\param UserTabFile The name of the file to read.
+*/
+
+
+
+
+
+/*! \fn static void get_usertab_name(const char *user,char *name,int namelen)
+Get the real name of the user from the usertab file read by init_file_usertab().
+
+\param user The user ID or IP address to search.
+\param name The buffer to store the real name of the user.
+\param namelen The size of the \a name buffer.
+
+If the user ID or IP address isn't found, the output buffer \a name contains
+the unmatched input string.
+*/
+
+
+
+
+
+/*! \fn static void init_ldap_usertab(void)
+Initialize the communication with the LDAP server whose name is in
+::LDAPHost and connect to port ::LDAPPort.
+*/
+
+
+
+
+
+/*! \fn static void get_ldap_name(const char *userlogin,char *mappedname,int namelen)
+Get the real name of a user by searching the userlogin (user ID) in a LDAP.
+
+\param userlogin The user ID to search.
+\param name The buffer to store the real name of the user.
+\param namelen The size of the \a name buffer.
+
+If the user ID isn't found in the LDAP, the output buffer \a name contains
+the unmatched input string.
+*/

@@ -1,0 +1,12 @@
+$TTL    604800
+@       IN      SOA     [ZONA]. root.[ZONA].net. (
+                        4
+                        604800
+                        86400
+                        2419200
+                        604800 )
+@               IN      NS     [ZONA].
+[ZONA].      	IN      MX 10  mail.[ZONA].
+[ZONA].      	IN      A      [IP]
+www             IN      CNAME  [ZONA].
+mail            IN      A      [IP]

@@ -1,0 +1,7 @@
+plugins/proftpd/backend.py	var/lib/netcontrol/plugins/proftpd/
+plugins/proftpd/files	var/lib/netcontrol/plugins/proftpd/
+plugins/proftpd/__init__.py	var/lib/netcontrol/plugins/proftpd/
+plugins/proftpd/layout	var/lib/netcontrol/plugins/proftpd/
+plugins/proftpd/main.py	var/lib/netcontrol/plugins/proftpd/
+plugins/proftpd/restart.py	var/lib/netcontrol/plugins/proftpd/
+plugins/proftpd/templates	var/lib/netcontrol/plugins/proftpd/

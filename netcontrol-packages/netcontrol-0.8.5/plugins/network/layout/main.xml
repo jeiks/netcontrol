@@ -1,0 +1,29 @@
+<xml>
+    <toolbar>
+      <button text="Adicionar Interface Virtual" id="addFace" icon="/dl/network/icon.png"/>
+      <button text="Reiniciar serviço de rede" id="reiniciarRede" icon="/dl/core/ui/stock/refresh.png"/>
+    </toolbar>
+
+    <label text="Interfaces de Rede" size="4" />
+    <pad id="main">
+        <dt id="list" width="100%">
+            <dtr header="True">
+                <dth>
+                    <label text="Interface de rede" />
+                </dth>
+                <dth>
+                    <label text="Classe" />
+                </dth>
+                <dth>
+                    <label text="IP" />
+                </dth>
+                <dth>
+                    <label text="Estatus" />
+                </dth>
+                <dth width="1" />
+            </dtr>
+        </dt>
+    </pad>
+    <pad id="IfacesVirtuais">
+    </pad>
+</xml>

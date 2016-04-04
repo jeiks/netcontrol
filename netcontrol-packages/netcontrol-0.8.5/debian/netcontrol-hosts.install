@@ -1,0 +1,5 @@
+plugins/hosts/backend.py	var/lib/netcontrol/plugins/hosts/
+plugins/hosts/files	var/lib/netcontrol/plugins/hosts/
+plugins/hosts/__init__.py	var/lib/netcontrol/plugins/hosts/
+plugins/hosts/layout	var/lib/netcontrol/plugins/hosts/
+plugins/hosts/main.py	var/lib/netcontrol/plugins/hosts/

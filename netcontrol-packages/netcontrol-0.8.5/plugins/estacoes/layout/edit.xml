@@ -1,0 +1,5 @@
+<dialogbox id="dlgEdit">
+        <formline text="Hostname">
+            <textinput id="name" name="name" />
+        </formline>
+</dialogbox>

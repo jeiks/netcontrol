@@ -1,0 +1,21 @@
+squidGuard for Debian
+---------------------
+
+The upstream release file were created in this way:
+
+  1. Download the last archive file in the browser with this link:
+     http://www2.squidguard.org/cgi-bin/aeget/squidGuard.1.5.C22/?aetar+es
+
+  2. Extract this file, which is an bzip2 file (!):
+     tar -xjf squidguard.1.5.tar.gz
+
+  3. Copy the upstream source directory 'prog':
+     cp -p squidGuard.1.5.C22/prog squidguard-1.5
+
+  4. Set release version in squidGuard-1.5/src/version.h at line 19:
+     #define VERSION "1.5"
+
+  5. Create the source archive, usable for packaging:
+     tar -czf squidguard_1.5.orig.tar.gz squidguard-1.5
+
+ -- Joachim Wiedorn <ad_debian@joonet.de>  Fri, 20 Apr 2012 21:26:44 +0200

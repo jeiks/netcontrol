@@ -1,0 +1,5 @@
+#!/bin/sh
+
+if [ -x /usr/sbin/sarg-reports ]; then
+  /usr/sbin/sarg-reports daily
+fi

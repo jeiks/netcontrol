@@ -1,0 +1,129 @@
+.\"                                      Hey, EMACS: -*- nroff -*-
+.\" First parameter, NAME, should be all caps
+.\" Second parameter, SECTION, should be 1-8, maybe w/ subsection
+.\" other parameters are allowed: see man(7), man(1)
+.TH SARG-REPORTS 1 "may 17, 2008"
+.\" Please adjust this date whenever revising the manpage.
+.\"
+.\" Some roff macros, for reference:
+.\" .nh        disable hyphenation
+.\" .hy        enable hyphenation
+.\" .ad l      left justify
+.\" .ad b      justify to both left and right margins
+.\" .nf        disable filling
+.\" .fi        enable filling
+.\" .br        insert line break
+.\" .sp <n>    insert n+1 empty lines
+.\" for manpage-specific macros, see man(7)
+.SH NAME
+sarg-reports \- Daily/Weekly/Monthly squid usage reports creation tool
+.SH SYNOPSIS
+.B sarg-reports
+.RB [OPTIONS]
+.SH DESCRIPTION
+This manual page documents briefly the
+.B sarg-reports
+command.
+.PP
+.\" TeX users may be more comfortable with the \fB<whatever>\fP and
+.\" \fI<whatever>\fP escape sequences to invode bold face and italics, 
+.\" respectively.
+\fBsarg-reports\fP is a script written to automate the SARG (a powerful
+squid log analyzer) reports and log management.
+Sarg it self, provide to end user a generic interface to create
+reports based on squid access log (begin of log to current date).
+sarg-reports is useful because it allow you to easly create and manage
+Daily, Weekly and Monthly reports.
+.SH OPTIONS
+A summary of options is included below.
+.TP
+.B manual
+.br 
+Create Manual report
+.TP
+.B today
+Create Today report
+.TP
+.B daily
+Create Daily report
+.TP
+.B weekly
+Create Weely report
+.TP
+.B monthly
+Create Monthly report
+.SH CRONTAB
+If you want the reports can be generated automatically insert the 
+following lines (the today report creation time depend mostly of 
+your sarg server load average, tune it):
+.PP
+.br
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+.br
+00 08-18/1 * * * sarg-reports today
+.br
+00 00      * * * sarg-reports daily
+.br
+00 01      * * 1 sarg-reports weekly 
+.br
+30 02      1 * * sarg-reports monthly
+.br
+.PP
+REMEMBER: if you use logrotate, configure it to rotate the logs within 
+MONTHLY basis, AFTER sarg-reports created the monthly html report.
+.SH VARIABLES
+Check before using the sarg-reports that the following variables are set 
+to file /etc/sarg/sarg.conf
+.TP
+.B SARG
+.br 
+The sarg executable location
+.TP
+.B CONFIG
+.br 
+The sarg main configuration file location
+.TP
+.B HTMLOUT
+.br 
+Location where will be saved the reports
+.TP
+.B PAGETITLE
+.br 
+The title of main index page
+.TP
+.B LOGOIMG
+.br 
+Image logo to view in main index page
+.TP
+.B LOGOLINK
+.br 
+HTTP web page link of logo
+.TP
+.B DAILY
+.br 
+Word 'daily' translation, translate it to your language
+.TP
+.B WEEKLY
+.br 
+Word 'weekly' translation, translate it to your language
+.TP
+.B MONTHLY
+.br 
+Word 'monthly' translation, translate it to your language
+.TP
+.B EXCLUDELOG1
+.br 
+Exclude text from cron emails (normally, sarg, during cron activity,
+if it don't find any valid records,
+.TP
+.B EXCLUDELOG2
+.br 
+It will output an error message (usually on 'today' reports). I 
+don't want to be warned by email about this, so, i wrote the 'text' 
+that will be never logged. This is useful to receive email of real
+problems only.
+.SH AUTHOR
+sarg-reports was written by Ugo Viti <ugo.viti@initzero.it>
+.PP
+This manual page was written by Juan Angulo Moreno <juan@apuntale.com>,
+for the Debian project (but may be used by others).

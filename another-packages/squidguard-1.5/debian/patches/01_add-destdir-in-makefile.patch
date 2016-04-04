@@ -1,0 +1,73 @@
+Package:     squidguard
+Subject:     Add $DESTDIR in Makefile
+Author:      Adam Cécile (Le_Vert) <gandalf@le-vert.net>
+Forwarded:   no
+Last-Update: 2012-04-13
+
+Add variable $DESTDIR into Makefile for use with Debian.
+---
+
+diff -urN s00/Makefile.in s01/Makefile.in
+--- s00/Makefile.in	2008-05-17 20:36:44.000000000 +0200
++++ s01/Makefile.in	2012-04-13 23:38:01.576438576 +0200
+@@ -47,34 +47,25 @@
+ 
+ install-conf:
+ 	@echo Installing configuration file  ;
+-	@if [ ! -d $(prefix)/squidGuard ]; then \
+-		$(MKINSTALLDIRS) $(prefix)/squidGuard ; \
+-		echo Created directory $(prefix)/squidGuard ; \
+-		chown -R $(SQUIDUSER) $(prefix)/squidGuard || exit 1  ; \
+-		echo Assigned $(prefix)/squidGuard to user $(SQUIDUSER) ; \
+-	fi ; 
+-	@if [ ! -d $(dbhomedir) ]; then \
+-		$(MKINSTALLDIRS) $(dbhomedir) ; \
++	@if [ ! -d $(DESTDIR)/$(dbhomedir) ]; then \
++		$(MKINSTALLDIRS) $(DESTDIR)/$(dbhomedir) ; \
+ 		echo Created directory $(dbhomedir) ; \
+-		chown -R $(SQUIDUSER) $(dbhomedir) || exit 1 ; \
+-		echo Assigned $(dbhomedir) to user $(SQUIDUSER) ; \
+ 	fi ; 
+-	@if [ ! -d $(logdir) ]; then \
+-		$(MKINSTALLDIRS) $(logdir) ; \
++	@if [ ! -d $(DESTDIR)/$(logdir) ]; then \
++		$(MKINSTALLDIRS) $(DESTDIR)/$(logdir) ; \
+ 		echo Created directory $(logdir) ; \
+-		chown -R $(SQUIDUSER) $(logdir) || exit 1 ; \
+-		echo Assigned $(logdir) to user $(SQUIDUSER) ; \
+ 	fi ; 
+-	@if [ ! -d `dirname $(configfile)` ]; then \
++	@if [ ! -d `dirname $(DESTDIR)/$(configfile)` ]; then \
+ 		umask 022 ; \
+-		mkdir -p `dirname $(configfile)` ; \
+-		echo No configuration directory found. Created `dirname $(configfile)`. ; \
++		mkdir -p `dirname $(DESTDIR)/$(configfile)` ; \
++		echo No configuration directory found. \
++		echo Created `dirname $(DESTDIR)/$(configfile)`. ; \
+ 	fi;
+-	@if test ! -f $(configfile); then \
+-		cp samples/sample.conf $(configfile) || exit 1  ; \
++	@if test ! -f $(DESTDIR)/$(configfile); then \
++		cp samples/sample.conf $(DESTDIR)/$(configfile) || exit 1  ; \
+ 		echo Copied sample squidGuard.conf ; \
+-		chmod 644 $(configfile) || exit 1 ; \
+-		echo $(configfile) is now readable ; \
++		chmod 644 $(DESTDIR)/$(configfile) || exit 1 ; \
++		echo $(DESTDIR)/$(configfile) is now readable ; \
+ 		echo The initial configuration is complete. ; \
+ 	else \
+ 		echo Configuration file found. Not changing anything ; \
+@@ -85,10 +76,10 @@
+ 
+ install-build:
+ 	@echo Installing squidGuard 
+-	@if [ ! -d $(bindir) ]; then \
+-		$(MKINSTALLDIRS) $(bindir) ; \
++	@if [ ! -d $(DESTDIR)/$(bindir) ]; then \
++		$(MKINSTALLDIRS) $(DESTDIR)/$(bindir) ; \
+ 	fi ; \
+-	cp src/squidGuard $(bindir) || exit 1 ;  \
++	cp src/squidGuard $(DESTDIR)/$(bindir) || exit 1 ;  \
+ 	echo Done. ;
+ 
+ clean::

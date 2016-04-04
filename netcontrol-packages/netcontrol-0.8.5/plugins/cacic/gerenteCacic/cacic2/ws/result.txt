@@ -1,0 +1,67 @@
+get_config.php:170:	$te_so           				 = DeCrypt($key,$iv,$_POST['te_so']					,$v_cs_cipher,$v_cs_compress,$strPaddingKey); // Novo Identificador de S.O. (New O.S. Id)
+get_config.php:181:	// ATENÇÃO: Retornará um ARRAY contendo "id_so" e "te_so".
+get_config.php:184:												$te_so,
+get_config.php:197:						te_so = "'.$arrSO['te_so'].'",
+get_patrimonio.php:48:$te_so           	= DeCrypt($key,$iv,$_POST['te_so']				,$v_cs_cipher,$v_cs_compress, $strPaddingKey); 
+get_patrimonio.php:60:												$te_so,
+instalacacic.php:19:$queryINS 	= "INSERT INTO insucessos_instalacao (te_ip, te_so, id_usuario, cs_indicador, dt_datahora)
+instalacacic.php:20:			 	VALUES ('" . $v_id_ip_estacao . "', '" . $_POST['te_so'] . "','" . $_POST['id_usuario'] . "','" . $_POST['cs_indicador'] . "', NOW())";
+mapa_get_patrimonio.php:45:$te_so           	= DeCrypt($key,$iv,$_POST['te_so']				,$v_cs_cipher,$v_cs_compress,$strPaddingKey); 
+mapa_get_patrimonio.php:58:												$te_so,
+mapa_set_patrimonio.php:45:$te_so           		= DeCrypt($key,$iv,$_POST['te_so']				,$v_cs_cipher,$v_cs_compress,$strPaddingKey); 
+mapa_set_patrimonio.php:61:											  	$te_so, 										
+set_compart.php:43:$te_so           			= DeCrypt($key,$iv,$_POST['te_so']				,$v_cs_cipher, $v_cs_compress, $strPaddingKey); 
+set_compart.php:53:												$te_so,
+set_hardware.php:45:$te_so           	= DeCrypt($key,$iv,$_POST['te_so']				,$v_cs_cipher, $v_cs_compress, $strPaddingKey); 
+set_hardware.php:102:												$te_so, 										
+set_marisol1.php:83:	$v_array_te_softwares_inventariados = array ();
+set_marisol1.php:86:		array_push($v_array_te_softwares_inventariados,$v_reg_inv['id_software_inventariado']);
+set_marisol1.php:87:		array_push($v_array_te_softwares_inventariados,trim($v_reg_inv['nm_software_inventariado']));		
+set_marisol1.php:91:		$v_posicao = array_search(trim($v_array_te_inventario_softwares[$v1]), $v_array_te_softwares_inventariados);
+set_marisol1.php:94:			$v_achei = $v_array_te_softwares_inventariados[$v_posicao-1];
+set_marisol.php:86:	$queryConfiguracao = "SELECT te_software_gr_at FROM configuracoes LIMIT 1 ";
+set_marisol.php:90:	$v_array_te_software_gr_at = explode(',',$v_reg_conf['te_software_gr_at']);
+set_marisol.php:96:	$v_array_te_softwares_inventariados = array ();
+set_marisol.php:99:		array_push($v_array_te_softwares_inventariados,$v_reg_inv['id_software_inventariado']);
+set_marisol.php:100:		array_push($v_array_te_softwares_inventariados,trim($v_reg_inv['nm_software_inventariado']));		
+set_marisol.php:104:		$v_posicao = array_search(trim($v_array_te_inventario_softwares[$v1]), $v_array_te_softwares_inventariados);
+set_marisol.php:107:			$v_achei = $v_array_te_softwares_inventariados[$v_posicao-1];
+set_marisol.php:113:				for ($t1=0; $t1 < count($v_array_te_software_gr_at); $t1 ++){								
+set_marisol.php:114:				  $texto .= strstr(strtoupper($v_array_te_inventario_softwares[$v1]), strtoupper($v_array_te_software_gr_at[$t1]));		
+set_monitorado.php:41:$te_so           			= DeCrypt($key,$iv,$_POST['te_so']				 ,$v_cs_cipher,$v_cs_compress,$strPaddingKey); 
+set_monitorado.php:55:												$te_so,
+set_officescan.php:41:$te_so           			= DeCrypt($key,$iv,$_POST['te_so']					,$v_cs_cipher,$v_cs_compress, $strPaddingKey); 
+set_officescan.php:53:												$te_so,
+set_patrimonio.php:45:$te_so           	= DeCrypt($key,$iv,$_POST['te_so']				,$v_cs_cipher,$v_cs_compress,$strPaddingKey); 
+set_patrimonio.php:58:											  	$te_so, 										
+set_software_nao_opcional.php:45:$te_so           	= DeCrypt($key,$iv,$_POST['te_so']				,$v_cs_cipher,$v_cs_compress,$strPaddingKey); 
+set_software_nao_opcional.php:58:											  	$te_so, 										
+set_software.php:43:$te_so           	= DeCrypt($key,$iv,$_POST['te_so']				,$v_cs_cipher,$v_cs_compress,$strPaddingKey); 
+set_software.php:57:											  	$te_so, 										
+set_tcp_ip.php:42:$te_so           			= DeCrypt($key,$iv,$_POST['te_so']				,$v_cs_cipher, $v_cs_compress,$strPaddingKey); 
+set_tcp_ip.php:58:												$te_so, 										
+set_unid_discos.php:45:$te_so           	= DeCrypt($key,$iv,$_POST['te_so']				,$v_cs_cipher,$v_cs_compress,$strPaddingKey); 
+set_unid_discos.php:58:											  	$te_so, 										
+srcacic_auth_client.php:23:function insereNovoSO($te_so_new)
+srcacic_auth_client.php:36:				  INTO 		so(id_so,te_desc_so,sg_so,te_so) 
+srcacic_auth_client.php:37:				  VALUES    ('.$id_so.',"S.O. a Cadastrar","Sigla a Cadastrar","'.$te_so_new.'")';
+srcacic_auth_client.php:74:$te_so          = DeCrypt($key,$iv,$_POST['te_so']      ,$v_cs_cipher,$v_cs_compress,$strPaddingKey);
+srcacic_auth_client.php:77:$te_so_cli        	= DeCrypt($key,$iv,$_POST['te_so_cli']    ,$v_cs_cipher,$v_cs_compress,$strPaddingKey);
+srcacic_auth_client.php:82:// ATENÇÃO: Apenas retornará um ARRAY contendo "id_so" e "te_so".
+srcacic_auth_client.php:85:											$te_so,
+srcacic_auth_client.php:136:				$arrIdSO = getValores('so','id_so','trim(te_so) = "'.trim($te_so_cli).'"');
+srcacic_auth_client.php:142:					$id_so_cli = insereNovoSO($te_so_cli);
+srcacic_get_config.php:67:$te_so             	= DeCrypt($key,$iv,$_POST['te_so']		     ,$v_cs_cipher,$v_cs_compress,$strPaddingKey); 
+srcacic_get_config.php:72:GravaTESTES('srCACIC_getConfig.te_so:'.$te_so);
+srcacic_get_config.php:76:// ATENÇÃO: Apenas retornará um ARRAY contendo "id_so" e "te_so".
+srcacic_get_config.php:79:											$te_so,
+srcacic_set_session_original.php:42:$te_so             	= DeCrypt($key,$iv,$_POST['te_so']				,$v_cs_cipher,$v_cs_compress,$strPaddingKey); 
+srcacic_set_session_original.php:45:// ATENÇÃO: Apenas retornará um ARRAY contendo "id_so" e "te_so".
+srcacic_set_session_original.php:48:											$te_so,
+srcacic_set_session.php:88:$te_so             	= DeCrypt($key,$iv,$_POST['te_so']							,$v_cs_cipher,$v_cs_compress,$strPaddingKey); 
+srcacic_set_session.php:92:// ATENÃ‡ÃƒO: Apenas retornarÃ¡ um ARRAY contendo "id_so" e "te_so".
+srcacic_set_session.php:95:											$te_so,
+srcacic_set_session.php:228:				$arr_te_so_cli 	   	= explode('<REG>',DeCrypt($key,$iv,$_POST['te_so_cli']	 	,$v_cs_cipher,$v_cs_compress,$strPaddingKey));
+srcacic_set_session.php:232:					$te_so_cli 		= $arr_te_so_cli[$i]; 								
+srcacic_set_session.php:234:					$arr_id_so_cli	= getValores('so','id_so','trim(te_so)="'.trim($te_so_cli).'"');
+srcacic_set_transf.php:41:$te_so             	= DeCrypt($key,$iv,$_POST['te_so']							,$v_cs_cipher,$v_cs_compress,$strPaddingKey); 

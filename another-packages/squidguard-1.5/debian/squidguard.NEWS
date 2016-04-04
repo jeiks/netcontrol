@@ -1,0 +1,51 @@
+squidguard (1.5-1) unstable; urgency=low
+
+  Now squidGuard will use /etc/squidguard as config directory.
+  
+  To reduce time of package upgrade the postinst script will recreate
+  the hole database only if the BDB version has changed. This behaviour
+  can also be used by hand with 'update-squidguard --checkdb'.
+
+ -- Joachim Wiedorn <ad_debian@joonet.de>  Fri, 20 Apr 2012 21:26:44 +0200
+
+squidguard (1.4-6) unstable; urgency=low
+
+  Because of problems with packages squid2.7 and logrotate the directory
+  for log files has changed to /var/log/squidguard/. Path in config file
+  were updated automatically for default installations.
+
+ -- Joachim Wiedorn <ad_debian@joonet.de>  Thu, 12 Apr 2012 22:34:39 +0200
+
+squidguard (1.4-5) unstable; urgency=low
+
+  Because of problems with packages squid2.7 and logrotate the directory
+  for log files has changed to /var/log/squidguard/. Path in config file
+  were updated automatically for default installations.
+
+ -- Joachim Wiedorn <ad_debian@joonet.de>  Mon, 09 Apr 2012 00:10:25 +0200
+
+squidguard (1.4-4) unstable; urgency=low
+
+  Now it is possible to use Squidguard with BDB 5.1, too.
+  Then you must rebuild your blacklist databases.
+
+ -- Joachim Wiedorn <ad_debian@joonet.de>  Tue, 31 May 2011 20:15:26 +0200
+
+squidguard (1.4-3) unstable; urgency=low
+
+  Now Squidguard uses BDB 4.8 as default.
+  Please rebuild your blacklist databases.
+
+ -- Joachim Wiedorn <ad_debian@joonet.de>  Sun, 29 May 2011 20:55:35 +0200
+
+squidguard (1.4-1) unstable; urgency=medium
+
+  Now Squidguard uses DB4.7. Please rebuild your blacklist databases.
+  You need to make sure that you rebuild all your Squidguard blacklists
+  otherwise Squidguard and ultimatly Squid may not function properly. 
+  Unless you have disabled it during installation, any blacklists listed
+  in /etc/squid/squidGuard.conf will be rebuilt. You can use
+  /usr/sbin/update-squidguard to manually perform a rebuild.
+
+ -- Joachim Wiedorn <ad_debian@joonet.de>  Mon, 31 May 2010 20:59:00 +0200
+

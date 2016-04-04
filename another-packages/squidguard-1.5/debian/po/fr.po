@@ -1,0 +1,65 @@
+#
+#    Translators, if you are not familiar with the PO format, gettext
+#    documentation is worth reading, especially sections dedicated to
+#    this format, e.g. by running:
+#         info -n '(gettext)PO Files'
+#         info -n '(gettext)Header Entry'
+#    Some information specific to po-debconf are available at
+#            /usr/share/doc/po-debconf/README-trans
+#         or http://www.debian.org/intl/l10n/po-debconf/README-trans#
+#    Developers do not need to manually edit POT or PO files.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: squidguard_1.2.0-4\n"
+"Report-Msgid-Bugs-To: squidguard@packages.debian.org\n"
+"POT-Creation-Date: 2008-03-27 08:29+0100\n"
+"PO-Revision-Date: 2005-08-18 00:12+0200\n"
+"Last-Translator: Michel Grentzinger <mic.grentz@online.fr>\n"
+"Language-Team: French <debian-l10n-french@lists.debian.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-15\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: boolean
+#. Description
+#: ../squidguard.templates:1001
+msgid "Rebuild Squidguard blacklist database during postinst?"
+msgstr ""
+"Reconstruire la base de données des listes noires de Squidguard pendant la "
+"post-installation ?"
+
+#. Type: boolean
+#. Description
+#: ../squidguard.templates:1001
+msgid ""
+"Rebuilding the blacklist databases is time consuming and under some "
+"circumstances could cause problems.  With the breakout of individual "
+"blacklist section packages the time it takes for each package to rebuild "
+"will be extensive.  Also it may not be desireable to rebuild these databases "
+"on production servers.  You can manually perform a rebuild by running /usr/"
+"sbin/update-squidguard."
+msgstr ""
+"La reconstruction des bases de données de liste noire prend du temps et peut "
+"causer des problèmes dans certaines circonstances. Avec la séparation en "
+"section des paquets individuels des listes noires, le temps de "
+"reconstruction de chaque paquet sera plus important. Ainsi, il n'est pas "
+"souhaitable de reconstruire chaque base de données sur des serveurs en "
+"production. Vous pouvez reconstruire vous-même chaque base de données en "
+"lançant /usr/sbin/update-squidguard."
+
+#~ msgid "Squidguard now uses DB4.3. Rebuild your blacklist databases."
+#~ msgstr ""
+#~ "Squidguard utilise désormais DB4.3. Reconstruisez votre base de données "
+#~ "de listes noires."
+
+#~ msgid ""
+#~ "You need to make sure that you rebuild all your Squidguard blacklists "
+#~ "otherwise Squidguard and ultimatly Squid may not function properly.  By "
+#~ "default any blacklists listed in /etc/squid/squidGuard.conf will be "
+#~ "rebuilt."
+#~ msgstr ""
+#~ "Vous avez besoin de vous assurer que vous reconstruisez bien toutes vos "
+#~ "listes noires sans quoi Squidguard et éventuellement Squid ne "
+#~ "fonctionneront pas correctement. Par défaut toutes les listes noires "
+#~ "répertoriées dans /etc/squid/squidGuard.conf seront reconstruites."

@@ -1,0 +1,19 @@
+Source: python-passlib
+Section: python
+Priority: extra
+Maintainer: Julien Danjou <acid@debian.org>
+Build-Depends: debhelper (>= 8.0.0), python, python-setuptools
+Standards-Version: 3.9.2
+Homepage: http://code.google.com/p/passlib/
+Vcs-Git: git://git.debian.org/collab-maint/python-passlib.git
+Vcs-Browser: http://git.debian.org/?p=collab-maint/python-passlib.git;a=summary
+
+Package: python-passlib
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}
+Description: comprehensive password hashing framework
+ Password hashing library for Python 2 & 3, which provides cross-platform
+ implementations of over 20 password hashing algorithms, as well as a
+ framework for managing existing password hashes. It's designed to be useful
+ for a wide range of tasks; from verifying a hash found in /etc/shadow, to
+ providing full-strength password hashing for multi-user applications.

@@ -1,0 +1,5 @@
+    default {
+        pass none
+        redirect http://localhost/block.html
+    }
+

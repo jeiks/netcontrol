@@ -1,0 +1,3 @@
+<dialogbox id="dlgConfirmDel">
+    <label text="Confirma a exclusão de " size="3" id="msg" name="msg" />
+</dialogbox>

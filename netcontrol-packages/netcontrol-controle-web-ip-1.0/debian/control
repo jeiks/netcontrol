@@ -1,0 +1,12 @@
+Source: netcontrol-controle-web-ip
+Section: misc
+Priority: extra
+Maintainer: Jacson RC Silva <jacsonrcsilva@gmail.com>
+Build-Depends: debhelper (>= 7.0.50~), libattr1, libc6, libcap2, libgcrypt11, libgnutls26, libgpg-error0, libldap-2.4-2, libsasl2-2, libtasn1-3, zlib1g
+Standards-Version: 3.8.4
+
+Package: netcontrol-controle-web-ip
+Architecture: any
+Depends: netcontrol-controle-web
+Description: Squid IP adaptation used by netcontrol-controle-web
+ Squid IP adaptation used by netcontrol-controle-web

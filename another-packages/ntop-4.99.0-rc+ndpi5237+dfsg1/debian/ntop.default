@@ -1,0 +1,9 @@
+# In order to change thwe user ntop should run as or the interfaces it should
+# listen on, please run:
+#    dpkg-reconfigure -plow ntop
+
+# set ENABLED to 0 if you want to avoid ntop being started at system boot
+ENABLED=1
+
+# Additional ommand line options passed when invoking ntop
+GETOPT=""

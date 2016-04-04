@@ -1,0 +1,7 @@
+plugins/helpdesk/backend.py	var/lib/netcontrol/plugins/helpdesk/
+plugins/helpdesk/config	var/lib/netcontrol/plugins/helpdesk/
+plugins/helpdesk/files	var/lib/netcontrol/plugins/helpdesk/
+plugins/helpdesk/__init__.py	var/lib/netcontrol/plugins/helpdesk/
+plugins/helpdesk/layout	var/lib/netcontrol/plugins/helpdesk/
+plugins/helpdesk/main.py	var/lib/netcontrol/plugins/helpdesk/
+plugins/helpdesk/sql	var/lib/netcontrol/plugins/helpdesk/

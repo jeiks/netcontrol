@@ -1,0 +1,22 @@
+/*!\file denied.c
+\brief List the denied accesses made by the user.
+
+
+/*! \fn static void show_ignored_denied(FILE *fp_ou,int count)
+Append a line in the table to show how many entries have been ignored for the user.
+
+\parm fp_ou The html file with the denied report page.
+\param count The number of ignored entries.
+*/
+
+
+
+
+
+/*! \fn void gen_denied_report(void)
+Write the denied report page from the sorted denied list file.
+*/
+
+
+
+*/

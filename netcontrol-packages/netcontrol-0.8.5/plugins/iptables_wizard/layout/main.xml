@@ -1,0 +1,240 @@
+<xml>
+    <toolbar>
+        <center>
+            <hcontainer>
+                <button name="aplicarConfig" id="aplicarConfig" text="Aplicar Configurações" icon="/dl/core/ui/stock/service-run.png" />
+            </hcontainer>
+        </center>
+    </toolbar>
+
+    <label text="Assistente de Firewall" size="5" />
+    <pad id="main">
+        <tabcontrol id="tabs" active="0">
+            <tabheader pid="tabs" text="Interfaces"     id="0" />
+            <tabheader pid="tabs" text="Entrada"   id="1" />
+            <tabheader pid="tabs" text="Saída"     id="2" />
+            <tabheader pid="tabs" text="Internas"  id="3" />
+            <tabheader pid="tabs" text="DMZ"       id="4" />
+            <tabheader pid="tabs" text="SQL"       id="5" />
+            <tabheader pid="tabs" text="Extras"    id="6" />
+            <tabheader pid="tabs" text="VPN"       id="7" />
+            <tabheader pid="tabs" text="OvNg"      id="8" />
+
+
+
+            <tabbody pid="tabs0" id="0">
+                <center><div style="color: red"><label text="" name="msgIfaces" id="msgIfaces" bold="True" size="3"/></div></center>
+                <spacer height="10" />
+                <lt id="ifacelist" width="100%">
+                    <ltr header="True">
+                        <ltd width="40%"><label text="Aplicação" bold="True" size="2"/></ltd>
+                        <ltd width="40%"><center><label text="Interface" bold="True" size="2"/></center></ltd>
+                        <ltd width="20%"><label text="" bold="True" size="2"/></ltd>
+                    </ltr>
+                    <ltr> <td colspan="3"> <hr/> </td> </ltr>
+                    <ltr>
+                        <ltd><label text="Saída para Internet" /></ltd>
+                        <ltd><simpleform id="ifaceSAIDA" name="ifaceSAIDA"></simpleform></ltd>
+                        <ltd><center><button form="ifaceSAIDA" onclick="form" text="Salvar" icon="/dl/core/ui/stock/save.png"/></center></ltd>
+                    </ltr>
+                    <ltr> <td colspan="3"> <hr/> </td> </ltr>
+                    <ltr>
+                        <ltd><label text="Redes Internas" /></ltd>
+                        <ltd><simpleform id="ifaceINTERNA" name="ifaceINTERNA"></simpleform></ltd>
+                        <ltd><center><button form="ifaceINTERNA" onclick="form" text="Salvar" icon="/dl/core/ui/stock/save.png"/></center></ltd>
+                    </ltr>
+                    <ltr> <td colspan="3"> <hr/> </td> </ltr>
+                    <ltr>
+                        <ltd><label text="Rede DMZ" /></ltd>
+                        <ltd><simpleform id="ifaceDMZ" name="ifaceDMZ"></simpleform></ltd>
+                        <ltd><center><button form="ifaceDMZ" onclick="form" text="Salvar" icon="/dl/core/ui/stock/save.png"/></center></ltd>
+                    </ltr>
+                    <ltr> <td colspan="3"> <hr/> </td> </ltr>
+                    <ltr>
+                        <ltd><label text="Servidor SQL" /></ltd>
+                        <ltd><simpleform id="ifaceSQL" name="ifaceSQL"></simpleform></ltd>
+                        <ltd><center><button form="ifaceSQL" onclick="form" text="Salvar" icon="/dl/core/ui/stock/save.png"/></center></ltd>
+                    </ltr>
+                </lt>
+                <hr/>
+                <center id="mesgTab1">
+                    <label text="Configure as interfaces de rede em Hardware->Rede." bold="True" />
+                    <br />
+                    <label text="Depois, volte aqui e defina essas opções." bold="True" />
+                </center>
+
+            </tabbody>
+
+            <tabbody pid="tabs1" id="1">
+                <!-- Entrada -->
+                <center>
+                    <label text="Selecione abaixo as configurações desejadas para a entrada de conexões no servidor:" bold="True"/>
+                </center>
+                <simpleform id="frm_cfgENTRADA" name="frm_cfgENTRADA">
+                    <checkbox text=" Utilizar política DROP"            id="cfgentrada1"  name="cfgentrada1" />
+                    <checkbox text=" Aceitar ping (ICMP)"               id="cfgentrada2"  name="cfgentrada2" />
+                    <checkbox text=" Aceitar SSH"                       id="cfgentrada3"  name="cfgentrada3" />
+                    <checkbox text=" Aceitar qualquer conexão NOVA"     id="cfgentrada4"  name="cfgentrada4" />
+                    <checkbox text=" Aceitar conexões já estabelecidas" id="cfgentrada5"  name="cfgentrada5" />
+                </simpleform>
+                <hr/>
+                <center><button form="frm_cfgENTRADA" onclick="form" text="Salvar" icon="/dl/core/ui/stock/save.png"/></center>
+            </tabbody>
+
+            <tabbody pid="tabs2" id="2">
+                <!-- Saída  -->
+                <center>
+                    <label text="Selecione abaixo as configurações desejadas para a saída de conexões do servidor:" bold="True"/>
+                </center>
+                <simpleform id="frm_cfgSAIDA" name="frm_cfgSAIDA">
+                    <checkbox text=" Utilizar política DROP"            id="saida1"  name="saida1" />
+                    <checkbox text=" Permitir conexões de saída"         id="saida2"  name="saida2" />
+                </simpleform>
+                <hr/>
+                <center><button form="frm_cfgSAIDA" onclick="form" text="Salvar" icon="/dl/core/ui/stock/save.png"/></center>
+            </tabbody>
+
+            <tabbody pid="tabs3" id="3">
+                <lt width="100%" id="tab_IntNet" name="tab_IntNet">
+                    <ltr>
+                        <ltd colspan="2">
+                            <center><label id="textIfaceINTERNA" name="textIfaceINTERNA" bold="True" /></center>
+                        </ltd>
+                    </ltr>
+                    <ltr>
+                        <ltd width="30%">
+                            <scrollcontainer id="listIntNets" name="listIntNets" width="100%" height="300" />
+                        </ltd>
+                        <ltd width="70%" style="border-radius: 20px">
+                            <scrollcontainer id="optIntNets" name="optIntNets" width="100%" height="300">
+                                <simpleform id="frm_IntNets" name="frm_IntNets">
+                                    <label text="Portas liberadas para acesso à Internet:"/>
+                                    <textinput name="portasliberadasinterna" id="portasliberadasinterna"/>
+                                    <spacer height="5" />
+                                    <hr/>
+
+                                    <label text="Portas do proxy transparente:"/>
+                                    <textinput name="portasproxy" id="portasproxy" />
+                                    <spacer height="5" />
+                                    <hr/>
+
+                                    <checkbox text=" Habilitar proxy transparente"                              id="habilitarproxytransp"  name="habilitarproxytransp" />
+                                    <checkbox text=" Utilizar política DROP"                                    id="intusardrop"  name="intusardrop" />
+                                    <checkbox text=" Permitir conexões com as máquinas das outras redes Internas"  id="interna1"  name="interna1" />
+                                    <checkbox text=" Permitir conexões FTP"                                     id="interna2"  name="interna2" />
+                                    <checkbox text=" Permitir conexões à rede DMZ"                              id="interna3"  name="interna3" />
+                                    <checkbox text=" Permitir conexões ao SQL"                                  id="interna4"  name="interna4" />
+                                    <spacer height="5" />
+                                    <hr/>
+                                    <center>
+                                        <button text="Salvar" id="saveIntNet"
+                                                form="frm_IntNets" name="saveIntNet"
+                                                onclick="form"
+                                                icon="/dl/core/ui/stock/save.png"/>
+                                    </center>
+                                </simpleform>
+                            </scrollcontainer>
+
+                        </ltd>
+                    </ltr>
+                </lt>
+            </tabbody>
+
+            <tabbody pid="tabs4" id="4">
+                <!-- Rede DMZ  -->
+                <center>
+                    <label text="Configure abaixo as opções para a rede DMZ:" bold="True"/>
+                </center>
+                <spacer height="10" />
+                <simpleform id="frm_cfgDMZ" name="frm_cfgDMZ">
+                    <checkbox text=" Liberar acesso externo" id="cfgdmz1"  name="cfgdmz1" />
+                    <checkbox text=" Liberar acesso das redes internas" id="cfgdmz2"  name="cfgdmz2" />
+                    <spacer height="10" />
+                    <hr/>
+                    <label text="Portas liberadas:"/>
+                    <textinput name="portasliberadasdmz" id="portasliberadasdmz" width="100%" size="100%"/>
+                </simpleform>
+                <hr/>
+                <center><button form="frm_cfgDMZ" onclick="form" text="Salvar" icon="/dl/core/ui/stock/save.png"/></center>
+            </tabbody>
+
+            <tabbody pid="tabs5" id="5">
+                <!-- Rede SQL  -->
+                <center>
+                    <label text="Configure abaixo as opções para a rede SQL:" bold="True"/>
+                </center>
+                <spacer height="10" />
+                <simpleform id="frm_cfgSQL" name="frm_cfgSQL">
+                    <checkbox text=" Liberar acesso externo" id="cfgsql1"  name="cfgsql1" />
+                    <checkbox text=" Liberar acesso das redes internas" id="cfgsql2"  name="cfgsql2" />
+                    <spacer height="10" />
+                    <hr/>
+                    <label text="Portas liberadas para acessar Internet:"/>
+                    <textinput name="portasliberadassql" id="portasliberadassql" width="100%" size="100%"/>
+                </simpleform>
+                <hr/>
+                <center><button form="frm_cfgSQL" onclick="form" text="Salvar" icon="/dl/core/ui/stock/save.png"/></center>
+            </tabbody>
+
+            <tabbody pid="tabs6" id="6">
+                <!-- Extras -->
+                <vcontainer width="100%">
+                    <center><label    text="Selecione abaixo as configurações desejadas:" bold="True"/></center>
+                    <spacer height="10" />
+                    <simpleform id="frm_cfgEXTRAS" name="frm_cfgEXTRAS">
+                        <checkbox text=" Bloquear ICMP para broadcast e multicast"                     id="proc1"  name="proc1" />
+                        <checkbox text=" Bloquear source routed packets"                               id="proc2"  name="proc2" />
+                        <checkbox text=" Habilitar a proteção de cookie TCP SYN para SYN floods"       id="proc3"  name="proc3" />
+                        <checkbox text=" Não aceitar mensagens redirecionaas ICMP"                     id="proc4"  name="proc4" />
+                        <checkbox text=" Não enviar mensagens redrecionadas ICMP"                      id="proc5"  name="proc5" />
+                        <checkbox text=" Habilitar proteção de spoofing do IP de origem"               id="proc6"  name="proc6" />
+                        <checkbox text=" Logar pacotes com endereços de origem impossíveis (martians)" id="proc7"  name="proc7" />
+                        <checkbox text=" Liberar encaminhamento de pacotes"                            id="proc8"  name="proc8" />
+                    </simpleform>
+                    <spacer height="10" />
+                    <center><button form="frm_cfgEXTRAS" onclick="form" text="Salvar" icon="/dl/core/ui/stock/save.png"/></center>
+                </vcontainer>
+            </tabbody>
+            <tabbody pid="tabs7" id="7">
+                <!-- VPN  -->
+                <center>
+                    <label text="Configure abaixo as opções para a rede VPN:" bold="True"/>
+                </center>
+                <spacer height="10" />
+                <center>
+                    <simpleform id="frm_cfgVPN" name="frm_cfgVPN">
+                        <checkbox text=" Liberar acesso à VPN" id="cfgvpn"  name="cfgvpn" />
+                        <spacer height="10" />
+                        <hr/>
+                        <label text="Servidores VPN:"/>
+                        <textinputarea width="100%" height="150" name="servidoresvpn" id="servidoresvpn" value=""/>
+    </simpleform>
+                </center>
+                <hr/>
+                <center><button form="frm_cfgVPN" onclick="form" text="Salvar" icon="/dl/core/ui/stock/save.png"/></center>
+            </tabbody>
+
+            <tabbody pid="tabs8" id="8">
+                <!-- OvNg  -->
+                <center>
+                    <label text="Configure abaixo as opções para os clientes que devem fugir das regras do controle web:" bold="True"/>
+                </center>
+                <spacer height="10" />
+                <center>
+                    <simpleform id="frm_cfgOvNg" name="frm_cfgOvNg">
+                        <label text="Hosts com msn liberado:"/>
+                        <textinputarea width="100%" height="150" name="hostsmsn" id="hostsmsn" value=""/>
+
+                        <hr/>
+                        <label text="Hosts liberados do Proxy:"/>
+                        <textinputarea width="100%" height="150" name="hostslivres" id="hostslivres" value="" />
+    </simpleform>
+                </center>
+                <hr/>
+                <center><button form="frm_cfgOvNg" onclick="form" text="Salvar" icon="/dl/core/ui/stock/save.png"/></center>
+            </tabbody>
+
+        </tabcontrol>
+    </pad>
+
+</xml>

@@ -1,0 +1,124 @@
+Desription: do not download data files from the internet when building.
+Author: Jordan Metzmeier <jordan@linuxgen.com>
+Index: ntop/Makefile.am
+===================================================================
+--- ntop.orig/Makefile.am	2012-02-25 19:26:19.266454402 -0800
++++ ntop/Makefile.am	2012-02-26 11:03:26.991352868 -0800
+@@ -359,28 +359,7 @@
+ dnvt:
+ 	@echo ""
+ 	@echo ""
+-	@echo -n "Preparing "
+-	@if test -f oui.txt; then \
+-	  rm -rf oui.txt; \
+-	fi
+-	@if test -f oui.txt.gz.old; then \
+-	  rm -rf oui.txt.gz.old; \
+-	fi;
+-	@mv oui.txt.gz oui.txt.gz.old
+-	@echo "(old oui.txt.gz file is now oui.txt.gz.old)"
+-	@echo ""
+-	@wget -c http://standards.ieee.org/regauth/oui/oui.txt
+-	@gzip oui.txt
+-	@echo ""
+-	@echo ""
+-	@echo -n "Old file lines were: "
+-	@gunzip -c oui.txt.gz.old | wc -l
+-	@echo -n "New file lines are:  "
+-	@gunzip -c oui.txt.gz | wc -l
+-	@echo ""
+-	@echo ""
+-	@echo "New file is:"
+-	@ls -l oui.txt.gz
++	@echo -n "Nothing to do here "
+ 
+ # download the Novell SAP Protocol information table
+ #dnsapt:
+@@ -390,43 +369,8 @@
+ dnetter:
+ 	@echo ""
+ 	@echo ""
+-	@echo "Preparing "
+-	@echo ""
+-
+-	@if test -f $(ETTER_PASSIVE).old; then \
+-	  echo "...Deleting prior file, $(ETTER_PASSIVE).old..."; \
+-	  rm -rf $(ETTER_PASSIVE).old; \
+-	fi;
+-	@if test -f $(ETTER_PASSIVE); then \
+-	  echo "...Moving current $(ETTER_PASSIVE) to $(ETTER_PASSIVE).old"; \
+-	  mv $(ETTER_PASSIVE) $(ETTER_PASSIVE).old; \
+-	fi;
+-	@for file in $(ETTER_PASSIVE) $(ETTER_PASSIVE).gz \
+-		$(ETTER_PASSIVE_FILE) $(ETTER_PASSIVE_FILE).gz; do \
+-          if test -f $$file; then \
+-	     echo "...Deleting prior file, $$file..."; \
+-             rm -rf $$file; \
+-          fi; \
+-        done
+-	@echo ""
+-	@echo "...Downloading new file..."
+-	@wget -O $(ETTER_PASSIVE_FILE) \
+-		$(ETTER_PASSIVE_DOWNLOAD_FROM)/$(ETTER_PASSIVE_FILE)?$(ETTER_PASSIVE_DOWNLOAD_PARMS)
+-	@echo ""
+-	@echo "gziping downloaded file..."
+-	@gzip $(ETTER_PASSIVE_FILE)
+-	@echo ""
+-	@echo ""
+-	@if test -f $(ETTER_PASSIVE).old; then \
+-	  echo -n "Old file lines were: "; \
+-	  gunzip -c $(ETTER_PASSIVE).old | wc -l; \
+-	fi;
+-	@echo -n "New file lines are:  "
+-	@gunzip -c $(ETTER_PASSIVE) | wc -l
+-	@echo ""
++	@echo "Nothing to do here "
+ 	@echo ""
+-	@echo "New file is:"
+-	@ls -l $(ETTER_PASSIVE)
+ 
+ # ntop census
+ census-fail:
+Index: ntop/autogen.sh
+===================================================================
+--- ntop.orig/autogen.sh	2012-02-25 19:26:19.274454656 -0800
++++ ntop/autogen.sh	2012-02-26 11:03:26.991352868 -0800
+@@ -202,16 +202,6 @@
+   GNU_OR_DIE=0
+ }
+ 
+-WGET=`find_command 'wget*'`
+-($WGET --version) < /dev/null > /dev/null 2>&1 ||
+-{
+-  echo
+-  echo "You must have wget installed to compile $progname."
+-  echo "Download the appropriate package for your distribution, or get the"
+-  echo "source tarball from ftp://ftp.gnu.org/pub/gnu/wget"
+-  GNU_OR_DIE=0
+-}
+-
+ if test "$GNU_OR_DIE" -eq 0; then
+   exit 1
+ fi
+Index: ntop/configure.in
+===================================================================
+--- ntop.orig/configure.in	2012-02-25 19:26:19.314455920 -0800
++++ ntop/configure.in	2012-02-26 11:03:27.007353033 -0800
+@@ -1750,7 +1750,7 @@
+    if test -f "3rd_party/GeoLiteCity.dat.gz"; then
+      cp 3rd_party/GeoLiteCity.dat.gz .
+    else
+-     wget http://www.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz
++	echo 'GeoLiteCity.dat.gz: file not found'
+    fi
+ 
+    gunzip GeoLiteCity.dat.gz
+@@ -1764,7 +1764,7 @@
+    if test -f "3rd_party/GeoIPASNum.dat.gz"; then
+      cp 3rd_party/GeoIPASNum.dat.gz .
+    else
+-     wget http://www.maxmind.com/download/geoip/database/asnum/GeoIPASNum.dat.gz
++	echo 'GeoIPASNum.dat.gz: file not found'
+    fi
+ 
+    gunzip GeoIPASNum.dat.gz

@@ -1,0 +1,29 @@
+Description: change plugin directory to $(libdir)/plugins, as libdir is already
+ pointing to a private library diretory in the debian package.
+Author: Ludovico Cavedon <cavedon@debian.org>
+Index: ntop/configure.in
+===================================================================
+--- ntop.orig/configure.in	2012-02-26 11:03:27.007353033 -0800
++++ ntop/configure.in	2012-02-26 11:03:40.231487001 -0800
+@@ -1890,7 +1890,7 @@
+ AC_DEFINE_UNQUOTED(CFG_RUN_DIR,"$CFG_RUN_DIR", [Run files directory])
+ echo "    Run directory is      $CFG_RUN_DIR"
+ 
+-CFG_PLUGIN_DIR=$libdir/ntop/plugins
++CFG_PLUGIN_DIR=$libdir/plugins
+ CFG_PLUGIN_DIR=`(
+   test "x$prefix" = xNONE && prefix=${ac_default_prefix}
+   test "x$exec_prefix" = xNONE && exec_prefix=${prefix}
+Index: ntop/plugins/Makefile.am
+===================================================================
+--- ntop.orig/plugins/Makefile.am	2012-02-25 19:26:19.414459081 -0800
++++ ntop/plugins/Makefile.am	2012-02-26 11:03:40.231487001 -0800
+@@ -34,7 +34,7 @@
+ # 
+ # Where to install the plugin 
+ # 
+-plugindir = $(libdir)/ntop/plugins
++plugindir = $(libdir)/plugins
+ 
+ INCLUDES = -I.. @INCS@ ${RRD_INC} -I ../@NDPI_INC@
+ 

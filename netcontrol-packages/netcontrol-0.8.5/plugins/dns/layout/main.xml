@@ -1,0 +1,43 @@
+<xml>
+
+    <toolbar>
+        <button text="Adicionar opção" id="addns" icon="/dl/core/ui/stock/add.png" />
+    </toolbar>
+
+    <label text="Servidores DNS e opções" size="5" />
+    <div style="text-align: center">
+        <spacer height="15" />
+        <label text="Aqui você pode configurar quais os servidores de DNS 
+                     que este computador utilizará para efetuar suas pesquisas de nome" size="3" />
+    </div>
+
+    <pad>
+        <dt id="list">
+            <dtr header="True">
+                <dth width="50%">
+                    <label text="Tipo" />
+                </dth>
+                <dth width="50%">
+                    <label text="Endereço" />
+                </dth>
+                <dth width="1" />
+            </dtr>
+        </dt>
+    </pad>
+
+    <dialogbox id="dlgEdit">
+        <formline text="Type">
+            <select name="cls">
+                <selectoption text="Nameserver" id="cls-nameserver" />
+                <selectoption text="Domínio Local" id="cls-domain" />
+                <selectoption text="Lista de busca" id="cls-search" />
+                <selectoption text="Sort list" id="cls-sortlist" />
+                <selectoption text="Opções" id="cls-options" />
+            </select>
+        </formline>
+        <formline text="Value">
+            <textinput name="address" id="value" />
+        </formline>
+    </dialogbox>
+
+</xml>

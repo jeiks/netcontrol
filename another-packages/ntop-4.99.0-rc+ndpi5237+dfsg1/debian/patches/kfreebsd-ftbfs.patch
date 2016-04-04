@@ -1,0 +1,40 @@
+Description: Fix building under kFreeBSD.
+Author: Christoph Egger <christoph@debian.org>
+Forwarded: not-needed
+Bug-Debian: http://bugs.debian.org/636389
+Reviewed-by: Ludovico Cavedon <cavedon@debian.org>
+Index: ntop/configure.in
+===================================================================
+--- ntop.orig/configure.in	2012-02-26 11:03:40.231487001 -0800
++++ ntop/configure.in	2012-02-26 11:04:43.272125645 -0800
+@@ -385,7 +385,7 @@
+         echo "* This appears to be ${DEFINEOS} (MacOSX)"
+       ;;
+ 
+-    *-*-freebsd*:* )
++    *-*-*freebsd*:* )
+         DEFINEOS="FREEBSD"
+         RELEASE=`utils/linuxrelease --release | sed -e 's/\.//' -e 's/-.*$//g'`
+         echo "* This appears to be ${DEFINEOS} ${RELEASE}"
+Index: ntop/ntop.h
+===================================================================
+--- ntop.orig/ntop.h	2012-02-25 19:26:19.414459081 -0800
++++ ntop/ntop.h	2012-02-26 11:04:43.300125929 -0800
+@@ -80,7 +80,7 @@
+ #endif
+ #endif
+ 
+-#ifdef LINUX
++#ifdef LINUX || __GLIBC__
+ /*
+  * This allows to hide the (minimal) differences between linux and BSD
+  */
+@@ -114,7 +114,7 @@
+ #endif
+ #define _THREAD_SAFE
+ 
+-#if defined(__linux__)
++#if defined(__linux__) || defined(__GLIBC__)
+ #ifndef  _GNU_SOURCE
+ #define _GNU_SOURCE
+ #endif

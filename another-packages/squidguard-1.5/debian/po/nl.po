@@ -1,0 +1,59 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: squidguard\n"
+"Report-Msgid-Bugs-To: squidguard@packages.debian.org\n"
+"POT-Creation-Date: 2008-03-27 08:29+0100\n"
+"PO-Revision-Date: 2007-03-15 18:55+0100\n"
+"Last-Translator: Bart Cornelis <cobaco@skolelinux.no>\n"
+"Language-Team: debian-l10n-dutch <debian-l10n-dutch@lists.debian.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Dutch\n"
+
+#. Type: boolean
+#. Description
+#: ../squidguard.templates:1001
+msgid "Rebuild Squidguard blacklist database during postinst?"
+msgstr ""
+"Wilt u de Squidguard zwarte lijst database opnieuw bouwen tijden het "
+"uitvoeren van het 'postinst'-script?"
+
+#. Type: boolean
+#. Description
+#: ../squidguard.templates:1001
+msgid ""
+"Rebuilding the blacklist databases is time consuming and under some "
+"circumstances could cause problems.  With the breakout of individual "
+"blacklist section packages the time it takes for each package to rebuild "
+"will be extensive.  Also it may not be desireable to rebuild these databases "
+"on production servers.  You can manually perform a rebuild by running /usr/"
+"sbin/update-squidguard."
+msgstr ""
+"Opnieuw bouwen van de zwarte lijst database is een tijdrovend proces, en kan "
+"onder sommige omstandigheden problemen veroorzaken. Door het opsplitsen van "
+"de individuele zwarte lijst sectie pakketten is de tijd die nodig is om elk "
+"pakket opnieuw te bouwen aanzienlijk. Mogelijk is het ook niet gewenst om "
+"deze databases opnieuw te bouwen op productie-servers. U kunt het opnieuw "
+"bouwen handmatig uitvoeren met het commando '/usr/sbin/update-squidguard'."
+
+#~ msgid "Squidguard now uses DB4.3. Rebuild your blacklist databases."
+#~ msgstr ""
+#~ "Squidguard gebruikt nu DB4.3. U dient uw zwartelijst-databases opnieuw te "
+#~ "bouwen."
+
+#~ msgid ""
+#~ "You need to make sure that you rebuild all your Squidguard blacklists "
+#~ "otherwise Squidguard and ultimatly Squid may not function properly.  By "
+#~ "default any blacklists listed in /etc/squid/squidGuard.conf will be "
+#~ "rebuilt."
+#~ msgstr ""
+#~ "Om te vermijden dat Squidguard en Squid niet juist functioneren dient u "
+#~ "ervoor te zorgen dat u al uw Squidguard zwarte lijsten opnieuw bouwt. "
+#~ "Standaard worden alle zwarte lijsten in /etc/squid/squidGuard.conf "
+#~ "opnieuw gebouwd."

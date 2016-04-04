@@ -1,0 +1,44 @@
+Since sarg 2.2.6-1 configuration files have been moved to /etc/sarg.
+
+Output files from sarg execution are located in /var/lib/sarg. During the
+upgrade process existing files are moved to the new locations, but
+administrators should check that everything is in the right place.
+
+Be especially careful that references to exclude lists in /etc/sarg/sarg.conf
+is updated to match the new setup. Files have been moved following this pattern
+
+   Old Path                      New Path
+   /etc/squid/sarg.conf          /etc/sarg/sarg.conf
+   /etc/squid/sarg.users         /etc/sarg/exclude_users
+   /etc/squid/sarg.hosts         /etc/sarg/exclude_hosts
+   /etc/squid/sarg.exclude_codes /etc/sarg/exclude_codes
+   /etc/squid/sarg.usertab       /etc/sarg/usertab
+   /etc/squid/sarg-reports.conf  /etc/sarg/sarg-reports.conf
+   /var/www/squid-reports        /var/lib/sarg
+
+Following the FHS data from sarg is now stored by default in /var/lib/sarg and
+not anymore in /var/www/squid-reports. To enable access to reports on the net
+a web server needs to be properly configured.
+
+This can be easily accomplished in Apache 2.x adding the following line to
+/etc/apache2/conf.d/sarg
+
+   Alias /sarg /var/lib/sarg
+
+ -- Luigi Gangitano <luigi@debian.org>, Mon, 11 Jan 2010 21:03:00 +0100
+
+In sarg 2.1-3 the rotation script has been changed with Ugo Viti's version.
+New script will create daily, weekly and monthly reports by default and can be
+configured editing /etc/squid/sarg-reports.conf.
+
+Please see /usr/sbin/sarg-reports for istructions.
+
+ -- Luigi Gangitano <luigi@debian.org>, Wed, 20 Dec 2005 21:03:00 +0200
+
+Since version 2.0 sarg includes some PHP script that integrate with squid
+guard or a blocklist allowing you to add forbidden sites from the reports.
+
+Those scripts are not activated by default. You can find them in
+/usr/share/sarg. Please configure variables and webserver appropriately.
+
+ -- Luigi Gangitano <luigi@debian.org>, Wed, 06 Oct 2004 18:08:00 +0200

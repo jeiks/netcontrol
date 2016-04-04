@@ -1,0 +1,8 @@
+contrib/sgclean/sgclean 		usr/bin/
+contrib/hostbyname/hostbyname	usr/bin/
+usr/bin/squidGuard      		usr/bin/
+debian/update-squidguard		usr/sbin/
+debian/squidGuard.conf.default	etc/squidguard/
+debian/scripts/squidguard-data	usr/lib/squidguard/
+debian/scripts/add-sg-to-squid	usr/lib/squidguard/
+debian/scripts/del-sg-from-squid	usr/lib/squidguard/

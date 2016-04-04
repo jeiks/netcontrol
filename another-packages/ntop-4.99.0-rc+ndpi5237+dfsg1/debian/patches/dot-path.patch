@@ -1,0 +1,15 @@
+Description: fix location of dot binary.
+Author: Ola Lundqvist <opal@debian.org>
+Index: ntop/report.c
+===================================================================
+--- ntop.orig/report.c	2012-03-06 23:41:12.503731410 -0800
++++ ntop/report.c	2012-03-06 23:41:16.051759383 -0800
+@@ -2274,7 +2274,7 @@
+   if(fetchPrefsValue("dot.path", buf, sizeof(buf)) != -1) {
+     snprintf(dotPath, sizeof(dotPath), "%s", buf);
+   } else {
+-    snprintf(dotPath, sizeof(dotPath), "/usr/local/bin/dot");
++    snprintf(dotPath, sizeof(dotPath), "/usr/bin/dot");
+     storePrefsValue("dot.path", dotPath); /* Set the default */
+   }
+ 

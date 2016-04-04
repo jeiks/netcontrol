@@ -1,0 +1,24 @@
+<xml>
+    <toolbar>
+        <button id="btnRefresh" text="Atualizar" icon="/dl/core/ui/stock/refresh.png" />
+        <button id="btnSettings" text="Configurar" icon="/dl/core/ui/stock/settings.png" />
+        <button text="Ajuda" icon="/dl/core/ui/stock/info.png" onclick="window.open('http://wiki.netcontrol.org/users:health');return false" />
+    </toolbar>
+
+    <pad id="main">
+        <dt id="list" width="100%">
+            <dtr header="True">
+                <dth>
+                    <label text="Estado" />
+                </dth>
+                <dth>
+                    <label text="Medidor" />
+                </dth>
+                <dth>
+                    <label text="Valor" />
+                </dth>
+                <dth width="1" />
+            </dtr>
+        </dt>
+    </pad>
+</xml>

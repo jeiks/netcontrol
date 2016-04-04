@@ -1,0 +1,75 @@
+<html>
+<head id="_head">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <headstylesheets/>
+    <link rel="stylesheet/less" href="/core/styles.less" />
+    <headscripts/>
+    <title>NetControl | Servidor NetControl</title>
+    <!-- <link href='http://fonts.googleapis.com/css?family=OpenSans:400,700' rel='stylesheet' type='text/css' /> -->
+    <link rel="shortcut icon" href="/dl/core/ui/favicon.png" />
+</head>
+<body id="main" style="background:#eee">
+
+<div id="page">
+    <div id="topbar">
+        <div class="container">
+            <a href="./"><img class="logo" src="/dl/core/ui/logo.png" /></a>
+           <h2 class="logotipo">Servidor NetControl</h2>
+        </div>
+    </div>
+
+    <div id="topbar2">
+        <div class="container">
+            <span id="topplaceholder-top"/>
+            <span id="topplaceholder-bottom"/>
+            
+            <a class="ui-el-top-category ui-el-top-category-nohover"  href="#" id="cat-username">
+                <img src="/dl/core/ui/stock/user.png" class="ui-el-category-icon" />
+            </a>
+
+		<a class="ui-el-top-category" style="border: medium none;   padding-right: 10px;" href="/logout">
+                Sair<img src="/dl/core/ui/stock/dialog-cancel.png" class="ui-el-category-icon" />
+            </a>
+        </div>
+    </div>
+
+    <div id="whiteout" style="display:none;opacity:0" />
+    <img id="ajax-loader" src="/dl/core/ui/ajax.gif" style="display:none;opacity:0" />
+    
+    <div class="main-container">
+        <div class="sidebar" id="leftplaceholder" />
+   	    <div class="content" id="rightplaceholder" />
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <div id="version" style="display:none;"/>
+<div><span class="ui-el-label-2" style="  float: left;   height: 30px; "> <a style=" float: left;  color:#aaa;  font-size: 13px;    font-weight: normal;    height: 30px;    padding: 10px;" href="http://www.fluxsoftwares.com/">Flux Softwares</a></span></div>
+            <div id="links">
+            </div>
+        </div>
+    </div>
+
+    <div class="fade" id="warningbox" style="display:none">
+        <div class="modal-header">
+            <h3>Ação perigosa</h3>
+        </div>
+        <div class="modal-body">
+            Você está prestes a:
+            <strong id="warning-text" />
+        </div>
+        <div class="modal-footer">
+            <button text="OK" design="danger warning-button" onclick="none" />
+            <a class="btn" id="warning-cancel-button" href="#">Cancelar</a>
+        </div>
+    </div>
+
+    <div class="progress-box-wr" id="progress-box" />
+
+    <script>
+        Netcontrol.init();
+    </script>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+# Vietnamese translation for squidguard.
+# Copyright © 2005 Free Software Foundation, Inc.
+# Clytie Siddall <clytie@riverland.net.au>, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: squidguard 1.2.0-5\n"
+"Report-Msgid-Bugs-To: squidguard@packages.debian.org\n"
+"POT-Creation-Date: 2008-03-27 08:29+0100\n"
+"PO-Revision-Date: 2005-08-18 00:12+0200\n"
+"Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
+"Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"X-Generator: LocFactoryEditor 1.2.2\n"
+
+#. Type: boolean
+#. Description
+#: ../squidguard.templates:1001
+msgid "Rebuild Squidguard blacklist database during postinst?"
+msgstr ""
+"Xây dụng lại cơ sở dữ liệu danh sách màu đen trong khi tiến trình cuối cùng "
+"cài đặt không?"
+
+#. Type: boolean
+#. Description
+#: ../squidguard.templates:1001
+msgid ""
+"Rebuilding the blacklist databases is time consuming and under some "
+"circumstances could cause problems.  With the breakout of individual "
+"blacklist section packages the time it takes for each package to rebuild "
+"will be extensive.  Also it may not be desireable to rebuild these databases "
+"on production servers.  You can manually perform a rebuild by running /usr/"
+"sbin/update-squidguard."
+msgstr ""
+"Xây dụng lại các cơ sở dữ liệu danh sách màu đèn tiêu phí thời giờ, và trong "
+"một số trường hợp có thể gây ra lỗi. Gồm phá mà gói phần danh sách màu đen "
+"riêng ra, việc xây dụng lại mỗi gói sẽ mất lâu. Hơn nữa, có lẽ không phải là "
+"một ý kiến tốt để xây dụng lại những cơ sở dữ liệu này trên máy bận. Bạn có "
+"thể tự xây dụng lại bằng cách chạy lệnh «/usr/sbin/update-squidguard»."
+
+#~ msgid "Squidguard now uses DB4.3. Rebuild your blacklist databases."
+#~ msgstr ""
+#~ "Trình Squidguard lúc bây giở dùng DB4.3. Bạn hãy xây dụng lại các cơ sở "
+#~ "dữ liệu danh sách màu đen."
+
+#~ msgid ""
+#~ "You need to make sure that you rebuild all your Squidguard blacklists "
+#~ "otherwise Squidguard and ultimatly Squid may not function properly.  By "
+#~ "default any blacklists listed in /etc/squid/squidGuard.conf will be "
+#~ "rebuilt."
+#~ msgstr ""
+#~ "Bạn hãy đảm bảo đã xây dụng lại các danh sách màu đen Squidguard. Nếu "
+#~ "không thì trình Squidguard có thể không hoạt động cho đúng. Mặc định là "
+#~ "mọi danh sách màu đen được liệt kê trong «/etc/squid/squidGuard.conf» sẽ "
+#~ "được xây dụng lại. "

@@ -1,0 +1,33 @@
+#!/bin/bash
+# postinst script for netcontrol
+
+set -e
+
+case "$1" in
+    configure)
+
+        echo libnss-ldapd    libnss-ldapd/nsswitch   multiselect     group, hosts, passwd, shadow | debconf-set-selections
+        echo libnss-ldapd    libnss-ldapd/clean_nsswitch     boolean false | debconf-set-selections
+        echo debconf	debconf/frontend	select	Dialog | debconf-set-selections
+        echo debconf	debconf/priority	select	high   | debconf-set-selections
+
+        dpkg-reconfigure -pcritical libnss-ldapd
+
+        chmod +x /var/lib/netcontrol/plugins/ldap_server/createMachine.py || true
+        netcontrol-pkg upgrade
+	/etc/init.d/netcontrol restart || true
+    ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
+        echo libnss-ldapd    libnss-ldapd/nsswitch   multiselect     , | debconf-set-selections
+        echo libnss-ldapd    libnss-ldapd/clean_nsswitch     boolean true | debconf-set-selections
+        dpkg-reconfigure -pcritical libnss-ldapd
+    ;;
+
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+
+exit 0

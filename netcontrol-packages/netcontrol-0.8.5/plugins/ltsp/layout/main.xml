@@ -1,0 +1,179 @@
+<xml> 
+    <label text="Boot Remoto" size="5" />
+ 
+    <pad id="main">
+        <tabcontrol id="tabs" active="0">
+        <tabheader pid="tabs" text="Configurar Interface de Rede" id="0"/>
+        <tabheader pid="tabs" text="Clientes" id="1"/>
+        <tabheader pid="tabs" text="Configurar sistema dos clientes" id="2"/>
+        <tabheader pid="tabs" text="Verificar configuração" id="3"/>
+        
+            <tabbody pid="tabs1" id="0">
+                <simpleform id="interface">
+                    <toolbar>
+                        <button id="setServidor" text="Definir a interface abaixo para fornecer LTSP"
+                                icon="/dl/core/ui/stock/save.png" onclick="form"
+                                form="interface" action="cadastrar_servidor"/>
+                    </toolbar>
+
+                <dt id="listSites" width="100%">
+                    <dtr>
+                        <dth id="info" > <label text="Interfaces de rede do servidor:" /> </dth>
+                        <dth>
+                            <select id="iface" name="iface" >
+                            </select>
+                        </dth>
+                    </dtr>
+                </dt>
+
+                <dt id="servidorConfig" width="100%">
+
+                </dt>
+                </simpleform>
+                <spacer height="10" />
+                <div style="text-align: center;">
+                    <label text="" id="msgError" name="msgError" bold="True" />
+                </div>
+            <spacer height="10" />
+            </tabbody>
+
+            <tabbody pid="tabs2" id="1">
+                <simpleform id="clientes">
+                <dt id="listBS" width="550">
+                    <dtr header="True">
+                        <dth> <label text="MAC - Cliente"/>                  </dth>
+                        <dth> <textinput id="clientMAC" name="clientMAC" />  </dth>
+                    </dtr>
+                    <dtr>
+                        <dth> <label text="IP - Cliente"/>                  </dth>
+                        <dth> <textinput id="clientIP" name="clientIP" />   </dth>
+                    </dtr>
+                    <dtr>
+                        <dth> <label text="Onde executar os aplicativos:"/>   </dth>
+                        <dth>
+                            <select id="clientAPP" name="clientAPP" >
+                                        <selectoption value="servidor" text="no servidor" />
+                                        <selectoption value="cliente"  text="no próprio cliente" />
+                            </select>
+                        </dth>
+                    </dtr>
+                    <dtr>
+                        <dth colspan="2">
+                            <div style="text-align: center;">
+                            <button id="setCliente" text="Adicionar novo cliente"
+                                    icon="/dl/core/ui/stock/add.png"
+                                    onclick="form" form="clientes" action="addCliente" />
+                                <spacer height="0" id="msgError2Spacer" name="msgError2Spacer" />
+                                <label text="" id="msgError2" name="msgError2" bold="True" />
+                            </div>
+                        </dth>
+
+                    </dtr>
+                    <dtr>
+                        <dth colspan="2"> <div style="text-align: center;"> <label text="OU" /> </div> </dth>
+                    </dtr>
+                    <dtr>
+                        <dth colspan="2">
+                            <div style="text-align: center;">
+                            <button id="setFaixa" text="Definir uma faixa de IPS / Definir execução de aplicativos"
+                                    icon="" name="setFaixa" />
+                            <spacer height="0" id="msgError3Spacer" name="msgError3Spacer" />
+                            <label text="" id="msgError3" name="msgError3" bold="True" />
+                            </div>
+                        </dth>
+
+                    </dtr>
+                </dt>
+                
+            </simpleform>
+            <vcontainer>
+                <div id="divRange" style="text-align: center;border: 1px solid #ccc; width: 530px; padding: 10px;">
+                    <vcontainer>
+                    <label msg="" id="msgApps" name="msgApps" />
+                    <label msg="" id="msgRange" name="msgRange" />
+                </vcontainer>
+                </div>
+            <spacer height="10" />
+            <dt id="listaClientes" width="550">
+                    <dtr>
+                <dth>
+                </dth>
+                        <dth>
+                            <label text="Mac" />
+                        </dth>
+                        <dth>
+                            <label text="IP" />
+                        </dth>
+                        <dth>
+                            <label text="Exec. aplicativos" />
+                        </dth>
+                        <dth>
+                        </dth>
+                    </dtr>
+                </dt>
+                </vcontainer>
+            </tabbody>
+            
+            
+            <tabbody pid="tabs1" id="2">
+                <simpleform id="clientImage">
+
+                <dt id="listSites" width="100%">
+                    <dtr>
+                        <dth> <label text="Repositório a utilizar:" /> </dth>
+                        <dth> <textinput id="mirror" name="mirror" /> </dth>
+                        <dth> <tipicon text="Ex.: http://ftp.br.debian.org/debian
+                                             Também podem ser utilizados outros repositórios compatíveis." icon='/dl/core/ui/stock/info.png' /> </dth>
+                    </dtr>
+                </dt>
+
+                <div style='text-align: center' width="100%">
+                    <vcontainer width="100%">
+                        <div style="text-align: center; color: red">
+                            <label text="" id="infoImageCreated" name="infoImageCreated" size="2" />
+                        </div>
+                        <spacer height="15" />
+                        <label text="Este processo é demorado e depende do poder de processamento de seu computador." />
+                        <label text="Tempo estimado: 30 minutos" />
+                        <spacer height="15" />
+                        <div style="text-align: center">
+                            <button id="createLTSPImage" text="Criar nova imagem do cliente do Boot Remoto"
+                                    icon="" onclick="form"
+                                    form="clientImage" action="criar_imagem"/>    
+                        </div>
+                    </vcontainer>
+                </div>
+
+                </simpleform>
+                <spacer height="10" />
+                <div style="text-align: center;">
+                    <label text="" id="msgError4" name="msgError4" bold="True" />
+                </div>
+            </tabbody>
+
+<!-- TAB 4 -->
+            <tabbody pid="tabs1" id="3">
+                <simpleform id="info">
+
+                <vcontainer>
+                    <div style='text-align: center' id="preInfo" name="preInfo">
+                        <label text="Aqui você pode testar as configurações do Boot Remoto para verificar se todos" size="2" />
+                        <label text="os detalhes necessários foram realizados." size="2" />
+                        <spacer height="15" />
+                        <label text="Clique no botão abaixo para a checagem do Boot Remoto." size="2" />
+                        <spacer height="15" />
+                        <button id="getInfoLTSP" text="Checar Boot Remoto"
+                                icon="" onclick="form"
+                                form="info" action="getInfoLTSP"/>    
+                    </div>
+                </vcontainer>
+                <div style='text-align: center' id="postInfo" name="postInfo">
+                </div>
+
+                </simpleform>
+            </tabbody>
+<!-- FIM: TAB 4 -->
+
+    </tabcontrol>
+    </pad>
+</xml>

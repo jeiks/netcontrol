@@ -1,0 +1,60 @@
+Running ntop for the first time
+===============================
+
+The 1st time ntop is run, ntop will prompt the user for the admin password and 
+create a new password database file.
+
+The most efficient way to do this is to manually run ntop with a limited command 
+line, let it create the file and then shutdown.  
+
+After the 1st run, ntop will operate without this intervention, unless the 
+password database ntop_pw.db can not be found, which is treated as a 1st time 
+run.
+
+Remember - you must create a user for ntop to run.  This userid should have
+only minimal privledges, but it needs to be able to read/write in the
+directory where the ntop databases are stored.  ntop is customary, but it
+can be anything - it's shown as "<ntopuserid>" below.
+
+***Win32*** Skip -u, it's not valid for Win32 anyway...
+
+The (recommended) minimal command line is:
+
+/usr/bin/ntop -P <your directory> -u <ntopuserid> -A
+
+DO NOT give the -d parameter.  You may need other parameters if the default 
+values interfere with ntop's ability to run.  But this execution will not be 
+operational for long, so don't bother with a full command line.
+
+The output from ntop will look like this:
+
+[root@tigger root]# /usr/bin/ntop -P /usr/share/ntop -u ntop -A
+Wait please: ntop is coming up...
+DD/MMM/YYYY HH:MM:SS Initializing IP services...
+SSL is present but https is disabled: use -W <https port> for enabling it
+DD/MMM/YYYY HH:MM:SS Initializing GDBM...
+DD/MMM/YYYY HH:MM:SS Initializing network devices...
+DD/MMM/YYYY HH:MM:SS ntop v.2.0.99 ntop-02-04-12.tgz MT (SSL) [i686-pc-linux-gnu] (04/12/02 10:02:15 AM build)
+DD/MMM/YYYY HH:MM:SS Listening on [eth0]
+DD/MMM/YYYY HH:MM:SS Copyright 1998-2002 by Luca Deri <deri@ntop.org>
+DD/MMM/YYYY HH:MM:SS Get the freshest ntop from http://www.ntop.org/
+DD/MMM/YYYY HH:MM:SS Initializing...
+...
+DD/MMM/YYYY HH:MM:SS Welcome to sFlow: listening on UDP port 6343...
+
+Please enter the password for the admin user: 
+
+*****enter the admin password ("admin" is NOT a good idea) and press enter!
+
+Please enter the password again: 
+
+*****enter the admin password again and press enter!
+
+*****ntop will store the password and stop.
+
+You should now be able to run ntop as usual.
+
+------------------------------------------------------
+Burton M. Strauss III <BStrauss@acm.org>      Sep 2002
+(Revised to reflect the -A parameter)
+(Revised w/ the Win32 skip -u note)

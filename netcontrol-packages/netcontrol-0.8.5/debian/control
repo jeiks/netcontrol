@@ -1,0 +1,307 @@
+Source: netcontrol
+Section: admin
+Priority: extra
+Maintainer: Jacson RC Silva <jacsonrcsilva@gmail.com>
+Build-Depends: cdbs, debhelper (>= 7.0.50~), python-central (>= 0.6), cdbs (>= 0.4.49), python-setuptools
+XS-Python-Version: >= 2.6
+Standards-Version: 3.8.4
+
+Package: netcontrol
+Architecture: all
+XB-Python-Version: ${python:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, python-lxml (>= 2.2.4), python-gevent, python-openssl, python-libxml2, python-netcontroldhcp, python-netcontrolrede, python-beautifulsoup, python-dmidecode, python-imaging, python-mysqldb, python-netifaces, python-passlib, python-psutil
+Description: Server Administration Web Interface
+ It is a Web Server that provides a lot of web frontends to
+ manage your server configuration.
+
+Package: netcontrol-allplugins
+Architecture: all
+Depends: netcontrol, netcontrol-apache, netcontrol-backup, netcontrol-bacula-common, netcontrol-bacula-dir, netcontrol-bind, netcontrol-cacic, netcontrol-controle-banda, netcontrol-controle-web, netcontrol-cron, netcontrol-daemons, netcontrol-dhcp, netcontrol-dns, netcontrol-dnsmasq, netcontrol-email, netcontrol-estacoes, netcontrol-filesystems, netcontrol-fm, netcontrol-hddtemp, netcontrol-helpdesk, netcontrol-hosts, netcontrol-iptables, netcontrol-iptables-wizard, netcontrol-ldap-server, netcontrol-lib-rcconf, netcontrol-limite-banda, netcontrol-logs, netcontrol-ltsp, netcontrol-munin, netcontrol-network, netcontrol-notepad, netcontrol-ntop, netcontrol-pkgman, netcontrol-power, netcontrol-proftpd, netcontrol-sarg, netcontrol-services, netcontrol-shell, netcontrol-squid, netcontrol-squid-sarg, netcontrol-ssh, netcontrol-supervisor, netcontrol-sysload, netcontrol-taskmgr, netcontrol-terminal, netcontrol-users, netcontrol-users-ldap, netcontrol-webserver-common
+Description: All NetControl's Plugins
+ All NetControl's Plugins
+
+Package: netcontrol-apache
+Architecture: all
+Depends: netcontrol, apache2, libapache2-mod-php5, mysql-server, netcontrol-webserver-common
+Description: Apache webserver control plugin
+ Apache webserver control plugin
+
+Package: netcontrol-backup
+Architecture: all
+Depends: netcontrol, tar, gzip
+Description: Backup Plugin
+ Backup Plugin
+
+Package: netcontrol-bacula-common
+Architecture: all
+Depends: netcontrol, netcontrol-bacula-dir, bacula
+Description: Common infrastructure for Bacula control plugins
+ Common infrastructure for Bacula control plugins
+
+Package: netcontrol-bacula-dir
+Architecture: all
+Depends: netcontrol, netcontrol-bacula-common, netcontrol-services, netcontrol-bacula-common, bacula
+Description: Director configurator and manager
+ Director configurator and manager
+
+Package: netcontrol-bind
+Architecture: all
+Pre-Depends: resolvconf
+Depends: netcontrol, bind9
+Description: Edit Domain Name Server Values
+ Edit Domain Name Server Values
+
+Package: netcontrol-cacic
+Architecture: all
+Depends: netcontrol, apache2, mysql-server, python-mysqldb, libapache2-mod-php5, php5-mysql, php5-mcrypt, php5-ldap, php5-gd, php5-xmlrpc, xml2, python-lxml
+Description: Inventory Plugin
+ Inventory Plugin
+
+Package: netcontrol-controle-banda
+Architecture: all
+Depends: netcontrol
+Description: Bandwidth Manager
+ Bandwidth Manager
+
+Package: netcontrol-controle-web
+Architecture: all
+Conflicts: squid
+Depends: netcontrol, netcontrol-squid3, netcontrol-sarg, netcontrol-ldap-server, netcontrol-controle-web-ip, sarg (= 2.3.1-3netcontrol1), squid3, squidguard (= 1.5-1netcontrol1), apache2
+Description: WEB Access Control
+ WEB Access Control
+
+Package: netcontrol-cron
+Architecture: all
+Depends: netcontrol
+Description: Edit crontabs easily
+ Edit crontabs easily
+
+Package: netcontrol-daemons
+Architecture: all
+Depends: netcontrol, daemon
+Description: Define and control background tasks
+ Define and control background tasks
+
+Package: netcontrol-dhcp
+Architecture: all
+Depends: netcontrol, dhcp3-server
+Description: DHCP Server Plugin
+ DHCP Server Plugin
+
+Package: netcontrol-dns
+Architecture: all
+Depends: netcontrol
+Description: DNS Plugin
+ DNS PLugin
+
+Package: netcontrol-dnsmasq
+Architecture: all
+Depends: netcontrol, dnsmasq, netcontrol-services
+Description: dnsmasq configuration
+ dnsmasq configuration
+
+Package: netcontrol-email
+Architecture: all
+Conflicts: exim4
+Depends: netcontrol, netcontrol-bind, roundcube, courier-authdaemon, courier-imap, courier-ldap, courier-pop, postfix, netcontrol-bind, php-mdb2-driver-mysql
+Description: Webmail Server Plugin
+ Webmail Server Plugin
+
+Package: netcontrol-estacoes
+Architecture: all
+Depends: netcontrol, arp-scan
+Description: Netcontrols
+ Netcontrols
+
+Package: netcontrol-filesystems
+Architecture: all
+Depends: netcontrol
+Description: Edit fstab
+ Edit fstab
+
+Package: netcontrol-fm
+Architecture: all
+Depends: netcontrol
+Description: Simple remote file manager
+ Simple remote file manager
+
+Package: netcontrol-helpdesk
+Architecture: all
+Depends: netcontrol, netcontrol-ldap-server, python-mysqldb, mysql-server, apache2, libapache2-mod-passenger, redmine (= 1.0.1-2flux1), redmine-mysql (= 1.0.1-2flux1)
+Description: NetControl HelpDesk
+ NetControl HelpDesk
+
+Package: netcontrol-hddtemp
+Architecture: all
+Depends: netcontrol, hddtemp
+Description: HDD temperature Widget
+ HDD temperature
+
+Package: netcontrol-hosts
+Architecture: all
+Depends: netcontrol, netcontrol-lib-rcconf
+Description: Edit hosts file
+ Edit hosts file
+
+Package: netcontrol-iptables
+Architecture: all
+Depends: netcontrol 
+Description: Netfilter rules control plugin
+ Netfilter rules control plugin
+
+Package: netcontrol-iptables-wizard
+Architecture: all
+Depends: netcontrol
+Description: IPTables Wizard
+ IPTables Wizard
+
+Package: netcontrol-ldap-server
+Architecture: all
+Pre-Depends: netcontroldbpriority
+Depends: netcontrol, gnutls-bin, nslcd, python-ldap, slapd, python-netcontrolldap, python-netcontrolrede, netcontrol-users-ldap, samba, samba-tools, nslcd, libnss-ldapd
+Description: OpenLDAP Server Plugin
+ OpenLDAP Server Plugin
+
+Package: netcontrol-lib-rcconf
+Architecture: all
+Depends: netcontrol 
+Description: Common infrastructure for rc.conf management
+ Common infrastructure for rc.conf management
+
+Package: netcontrol-limite-banda
+Architecture: all
+Depends: netcontrol, shaper
+Description: NetControl bandwidth shaper
+ NetControl bandwidth shaper
+
+Package: netcontrol-logs
+Architecture: all
+Depends: netcontrol 
+Description: Read system logs
+ Read system logs
+
+Package: netcontrol-ltsp
+Architecture: all
+Depends: netcontrol, netcontrol-ldap-server, python-netifaces, ltsp-server-standalone, gdm3, openbsd-inetd
+Description: LTSP Server plugin
+ LTSP Server plugin
+
+Package: netcontrol-munin
+Architecture: all
+Depends: netcontrol, munin, python-beautifulsoup
+Description: View Munin graphs
+ View Munin graphs
+
+Package: netcontrol-network
+Architecture: all
+Depends: netcontrol, netcontrol-lib-rcconf
+Description: Network interfaces management
+ Network interfaces management
+
+Package: netcontrol-notepad
+Architecture: all
+Depends: netcontrol
+Description: Configuration files editor
+ Configuration files editor
+
+Package: netcontrol-ntop
+Architecture: all
+Depends: netcontrol, ntop
+Description: Ntop
+ Ntop
+
+Package: netcontrol-pkgman
+Architecture: all
+Depends: netcontrol
+Description: Manage software packages
+ Manage software packages
+
+Package: netcontrol-power
+Architecture: all
+Depends: netcontrol
+Description: Shutdown, reboot, examine batteries and uptime
+ Shutdown, reboot, examine batteries and uptime
+
+Package: netcontrol-proftpd
+Architecture: all
+Depends: netcontrol, netcontrol-ldap-server, proftpd-basic, proftpd-mod-ldap, python-netifaces
+Description: FTP Server plugin
+ FTP Server plugin
+
+Package: netcontrol-sarg
+Architecture: all
+Depends: netcontrol, netcontrol-controle-web, psutils, python-pisa, sarg (= 2.3.1-3netcontrol1)
+Description: Sarg
+ Sarg
+
+Package: netcontrol-services
+Architecture: all
+Depends: netcontrol
+Description: System services
+ System services
+
+Package: netcontrol-shell
+Architecture: all
+Depends: netcontrol
+Description: Remote command execution
+ Remote command execution
+
+Package: netcontrol-squid
+Architecture: all
+Depends: netcontrol, netcontrol-services, squid3 
+Description: Control Squid caching proxy server
+ Control Squid caching proxy server
+
+Package: netcontrol-squid-sarg
+Architecture: all
+Depends: netcontrol, netcontrol-squid, sarg (= 2.3.1-3netcontrol1), netcontrol-squid
+Description: Control Squid report generator
+ Control Squid report generator
+
+Package: netcontrol-ssh
+Architecture: all
+Depends: netcontrol, openssh-server
+Description: Open SSH Server
+ Open SSH Server
+
+Package: netcontrol-supervisor
+Architecture: all
+Depends: netcontrol, netcontrol-services, supervisor
+Description: Control processes under supervisord
+ Control processes under supervisord
+
+Package: netcontrol-sysload
+Architecture: all
+Depends: netcontrol
+Description: CPU load and memory usage widgets for dashboard
+ CPU load and memory usage widgets for dashboard
+
+Package: netcontrol-taskmgr
+Architecture: all
+Depends: netcontrol, psutils
+Description: Task Manager
+ Task Manager
+
+Package: netcontrol-terminal
+Architecture: all
+Depends: netcontrol, python-imaging 
+Description: Terminal VT100
+ Terminal VT100
+
+Package: netcontrol-users
+Architecture: all
+Depends: netcontrol 
+Description: Manage user accounts
+ Manage user accounts
+
+Package: netcontrol-users-ldap
+Architecture: all
+Depends: netcontrol, netcontrol-ldap-server
+Description: Edit LDAP Users and Groups
+ Edit OpenLDAP Users and Groups
+
+Package: netcontrol-webserver-common
+Architecture: all
+Depends: netcontrol, netcontrol-services
+Description: Common infrastructure for webserver control plugins
+ Common infrastructure for webserver control plugins

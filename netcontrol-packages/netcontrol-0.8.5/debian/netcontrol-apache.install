@@ -1,0 +1,5 @@
+plugins/apache/config.py	var/lib/netcontrol/plugins/apache/
+plugins/apache/files	var/lib/netcontrol/plugins/apache/
+plugins/apache/__init__.py	var/lib/netcontrol/plugins/apache/
+plugins/apache/main.py	var/lib/netcontrol/plugins/apache/
+plugins/apache/main_single.py	var/lib/netcontrol/plugins/apache/

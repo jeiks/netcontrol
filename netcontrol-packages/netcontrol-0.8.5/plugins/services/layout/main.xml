@@ -1,0 +1,14 @@
+<xml>
+    <label text="Serviços do sistema" size="5" />
+    <pad>
+        <dt id="list" width="100%">
+            <dtr header="True">
+                <dth width="20" />
+                <dth>
+                    <label text="Nome" />
+                </dth>
+                <dth width="1"/>
+            </dtr>
+        </dt>
+    </pad>
+</xml>

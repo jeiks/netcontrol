@@ -1,0 +1,17 @@
+README
+setup.py
+bin/netcontrol-panel
+bin/netcontrol-pkg
+netcontrol/__init__.py
+netcontrol/apis.py
+netcontrol/com.py
+netcontrol/config.py
+netcontrol/daemon.py
+netcontrol/deployed.py
+netcontrol/feedback.py
+netcontrol/plugmgr.py
+netcontrol/standalone.py
+netcontrol.egg-info/PKG-INFO
+netcontrol.egg-info/SOURCES.txt
+netcontrol.egg-info/dependency_links.txt
+netcontrol.egg-info/top_level.txt

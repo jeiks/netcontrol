@@ -1,0 +1,7 @@
+<dialogbox id="dlgEditUG">
+    <label text="" size="3" id="msg" name="msg" /> 
+    <formline text="">
+        <scrollcontainer width="200" height="300" id="checkboxes" name="checkboxes">
+        </scrollcontainer>
+    </formline>
+</dialogbox>

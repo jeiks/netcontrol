@@ -1,0 +1,17 @@
+all:
+	#
+	# Remember to configure the package with --enable-mysql 
+	#
+	rm -rf debian/tmp
+	cd ..;make install install-data-as
+	#cd ./debian/tmp; find usr -type d > ../dirs
+	@find ./debian -name "*~" -exec /bin/rm {} ';' 
+	dpkg-buildpackage -rfakeroot #-d # -us -uc 
+	@\rm -f ../ntop*dsc ../ntop*.gz ../ntop*changes 
+	@/bin/mv ../ntop*deb . 
+	@echo 
+	@echo "Package built." 
+	@/bin/ls ntop*deb 
+	@echo "-------------------------------" 
+	-dpkg --contents ntop*deb 
+	@echo "-------------------------------" 

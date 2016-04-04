@@ -1,0 +1,31 @@
+Source: shaper
+Section: net
+Priority: extra
+Maintainer: David B. Harris <dbharris@debian.org>
+Standards-Version: 3.6.1.0
+Build-Depends: debhelper (>= 4.1.16)
+
+Package: shaper
+Architecture: all
+Depends: debconf | debconf-2.0, iproute
+Description: Traffic shaper init script (cbq.init) for Linux
+ This init script sets up traffic shaping using Linux's class-based queueing.
+ This can be used to build smart bandwidth shapers which understand TCP/IP.
+ See /usr/share/doc/shaper/README.shaper.gz for more details.
+ .
+ The kernel support needed to use either of these facilities is described in
+ README.Debian.
+ .
+ cbq.init comes from http://sourceforge.net/projects/cbqinit/
+
+Package: shapecfg
+Architecture: any
+Depends: ${shlibs:Depends},
+Description: Bandwidth limiter for virtual network interfaces
+ The traffic shaper for Linux configures a virtual interface, for which all
+ outgoing packets are shaped. This means that you may set parameters and
+ limits on outgoing network traffic. Incoming traffic may not be limited or
+ shaped using this utility. See /usr/share/doc/shapecfg/README.shapecfg.gz for
+ instructions.
+ .
+ shapecfg for Debian was ported from Red Hat's utility of the same name

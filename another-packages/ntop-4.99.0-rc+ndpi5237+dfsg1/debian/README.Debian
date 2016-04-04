@@ -1,0 +1,67 @@
+ntop admin password need to be set:
+===================================
+
+When ntop is installed for the first time, you should be asked for a password to
+set as admin password for ntop. However, if it is not possible to interact with
+the user during installation, a random password will be set, in order to protect
+from unauthorized access.
+
+In the last case, if you want to access admin functionalities, you need to set a
+new password by reconfiguring the ntop package:
+
+# dpkg-reconfigure -plow ntop
+
+ -- Ludovico Cavedon <cavedon@debian.org>  Sun, 09 Jan 2011 12:45:10 -0800
+
+ntop protocol list:
+===================
+
+If you start ntop in daemon mode with the supplied init script it will
+automatically use /etc/ntop/protocol.list to choose which TCP Protocols
+should be monitored. The format of this file is simply:
+
+<label>=<protocol list>
+
+where label is used to symbolically identify the <protocol list>. The
+format of <protocol list> is <protocol>[|<protocol>], where <protocol>
+is either a valid protocol specified inside the /etc/services file or
+a numeric port range (e.g. 80, or 6000-6500).
+
+Dennis Schoen (Mon Dec 17 14:10:25 CET 2001)
+
+log and rotation:
+=================
+
+Logs are placed in /var/log/ntop/ and will be rotated every week. The
+log rotation will restart the ntop server which will reset the ntop
+statistics. If you want to keep the statistics you have to edit or delete
+the /etc/logrotate.d/ntop file.
+
+upgrade notes:
+==============
+
+Option names may have been changed between ntop versions. You can either
+change them in /etc/default/ntop or rerun the configuration using
+dpkg-reconfigure ntop.
+
+ -- Ola Lundqvist <ola@tigereye.opal.dhs.org>, Fri Aug  6 21:45:02 2004
+
+
+geolocation:
+===========
+
+The current version of ntop does not display the geographic location and the AS
+number of the hosts. The reason is that the databases containing this
+information are non-DFSG incompatible because they are in binary only format,
+so they have been removed from the Debian package.
+
+You can get such databases by installing the geoip-database-contrib package from
+the contrib archive area.
+
+Alternatively, you can download them yourself from [1] and [2] and place them in
+/usr/share/ntop/.
+
+[1] http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoLiteCity.dat.gz 
+[2] http://geolite.maxmind.com/download/geoip/database/asnum/GeoIPASNum.dat.gz
+
+ -- Ludovico Cavedon <cavedon@debian.org>  Sun, 16 Jan 2011 23:52:42 -0800

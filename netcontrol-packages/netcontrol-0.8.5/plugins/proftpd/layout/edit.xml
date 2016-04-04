@@ -1,0 +1,4 @@
+<dialogbox id="resposta_proftpd">
+        <vcontainer id="resposta" name="resposta">
+        </vcontainer>
+</dialogbox>

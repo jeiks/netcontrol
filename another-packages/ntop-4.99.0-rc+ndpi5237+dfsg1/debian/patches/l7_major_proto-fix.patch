@@ -1,0 +1,16 @@
+Description: Avoid major_proto exceeding IPOQUE_MAX_SUPPORTED_PROTOCOLS.
+Author: Ludovico Cavedon <cavedon@debian.org>
+
+Index: ntop/sessions.c
+===================================================================
+--- ntop.orig/sessions.c	2012-03-06 23:31:55.731385501 -0800
++++ ntop/sessions.c	2012-03-06 23:41:01.583645336 -0800
+@@ -1892,7 +1892,7 @@
+ 
+       if(rc != -1) {
+ 	/* We have found a protocol defined thus we map the protocol */
+-	theSession->l7.major_proto = IPOQUE_MAX_SUPPORTED_PROTOCOLS + rc;
++	theSession->l7.major_proto = rc;
+       } else {
+ 	if(myGlobals.device[actualDeviceId].l7.l7handler != NULL) {
+ 	  static u_int8_t once = 0;

@@ -1,0 +1,10 @@
+zone "[ZONA]" {
+    type master;
+    file "/etc/bind/db.[ZONA]";
+};
+
+zone "[IP].in-addr.arpa"{
+    type master;
+    file "/etc/bind/reverso.[ZONA]";
+};
+

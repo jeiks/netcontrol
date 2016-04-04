@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- ntop v3.1 release, Burton Strauss, Dec2004 -->
+<html>
+<head>
+<!-- Validates as HTML 4.01 Transitional with the addition of the following tag 
+     AND the removal of the cellspacing/cellpadding option below! -->
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<link rel=stylesheet HREF="/style.css" type="text/css">
+<script src="/functions.js" type="text/javascript" language="javascript"></script>
+<script src="/reflection.js" type="text/javascript" language="javascript"></script>
+<title>ntop Data Dump</title>
+
+<!--#include virtual="/menuHead.html" -->
+
+</head>
+<body background="/white_bg.gif" bgcolor="#FFFFFF" LINK="blue" VLINK="blue">
+
+<!--#include virtual="/menuBody.html" -->
+
+<center><H1>ntop Data Dump</H1></center>
+<p><b>ntop</b> is able to dump traffic data in various formats (e.g. text, perl,
+php) so that external programs can use this data for further processing, such as
+storage in a database.  This page is the access point for these HTTP data dumps.</p>
+
+<!-- Note, to overcome w3c limits on form tag placement we nest the table -->
+
+<center>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#DDDDDD"><th align="center">Report Type</th>
+<th align="center">Description</th>
+<th align="center">Action</th></tr>
+
+<tr><th align=left>Hosts</th>
+    <td>Dump information about known hosts</td>
+    <th align="center"><form method="get" action="/dumpData.html">
+      <table border="0" width="100%">
+        <tr><th align="left">Format:</th><td align="left"><select name=language>
+<option value="text">text
+<option value="json">json
+<option value="xml">xml
+<option value="perl">perl
+<option value="php">php
+<option value="python">python</select>
+           </td>
+        </tr>
+        <tr><th align="right">Attributes List:</th><td><select name=view>
+<option value="long">Long
+<option value="short">Short</select>
+            </td>
+        </tr>
+        <tr><td colspan="2" align="center"><input type=submit value="Dump Data"></td></tr>
+      </table>
+    </form></th></tr>
+
+<tr><th align=left>Hosts Matrix</th>
+    <td>Dump local hosts traffic matrix</td>
+    <th align="center"><form method="get" action="/dumpHostsMatrix.html">
+      <table border="0" width="100%">
+        <tr><th align="left">Format:</th><td align="left"><select name=language>
+<option value="text">text
+<option value="json">json
+<option value="xml">xml
+<option value="perl">perl
+<option value="php">php
+<option value="python">python</select>
+           </td>
+        </tr>
+        <tr><th align="right">Attributes List:</th><td><select name=view>
+<option value="long">Long
+<option value="short">Short</select>
+            </td>
+        </tr>
+        <tr><td colspan="2" align="center"><input type=submit value="Dump Data"></td></tr>
+      </table>
+    </form></th></tr>
+
+<tr><th align=left>Network Interfaces</th>
+    <td>Dump per-interface information</td>
+    <th align="center"><form method="get" action="/dumpTrafficData.html">
+      <table border="0" width="100%">
+        <tr><th align="left">Format:</th><td align="left"><select name=language>
+<option value="text">text
+<option value="json">json
+<option value="xml">xml
+<option value="perl">perl
+<option value="php">php
+<option value="python">python</select>
+           </td>
+        </tr>
+        <tr><th align="right">Attributes List:</th><td><select name=view>
+<option value="long">Long
+<option value="short">Short</select>
+            </td>
+        </tr>
+        <tr><td colspan="2" align="center"><input type=submit value="Dump Data"></td></tr>
+      </table>
+    </form></th></tr>
+
+<tr><th align=left>Network Flows</th>
+    <td>Dump traffic information of the configured network flows</td>
+    <th align="center"><form method="get" action="/dumpFlows.html">
+      <table border="0" width="100%">
+        <tr><th align="left">Format:</th><td align="left"><select name=language>
+<option value="text">text
+<option value="json">json
+<option value="xml">xml
+<option value="perl">perl
+<option value="php">php
+<option value="python">python</select>
+           </td>
+        </tr>
+        <tr><th align="right">Attributes List:</th><td><select name=view>
+<option value="long">Long
+<option value="short">Short</select>
+            </td>
+        </tr>
+        <tr><td colspan="2" align="center"><input type=submit value="Dump Data"></td></tr>
+      </table>
+    </form></th></tr>
+
+</table>
+</center>
+
+<p>You may also use other tools, such as wget, if you construct the equivalent
+command. For example, to dump key per-host data in php format,</p>
+<pre>wget -O ntop-20040123.php "http://127.0.0.1:3000/dumpData.html?language=php&amp;view=short"</pre>
+
+<p>which gives:</p>
+<pre>$ntopHash = array(
+'192.168.3.2' =&gt; array(
+        'hostSymIpAddress' =&gt; 'xxx.ntop.org',
+        'pktSent' =&gt; '1031',
+        'pktRcvd' =&gt; '922',
+  ...
+        'icmpRcvd' =&gt; '0',
+),
+...</pre>
+</body>
+</html>

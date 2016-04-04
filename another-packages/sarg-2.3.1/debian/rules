@@ -1,0 +1,124 @@
+#!/usr/bin/make -f
+# Sample debian/rules that uses debhelper.
+# GNU copyright 1997 to 1999 by Joey Hess.
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+# This is the debhelper compatability version to use.
+#export DH_COMPAT=4
+
+include /usr/share/dpatch/dpatch.make
+
+CFLAGS = -Wall -g
+LDFLAGS = -lm
+INSTALL = install
+INSTALL_FILE    = $(INSTALL) -p    -o root -g root  -m  644
+INSTALL_PROGRAM = $(INSTALL) -p    -o root -g root  -m  755
+INSTALL_SCRIPT  = $(INSTALL) -p    -o root -g root  -m  755
+INSTALL_DIR     = $(INSTALL) -p -d -o root -g root  -m  755
+     
+ifneq (,$(filter noopt,$(DEB_BUILD_OPTIONS)))
+    CFLAGS += -O0
+else
+    CFLAGS += -O2
+endif
+ifeq (,$(filter nostrip,$(DEB_BUILD_OPTIONS)))
+    INSTALL_PROGRAM += -s
+endif
+ifneq (,$(filter parallel=%,$(DEB_BUILD_OPTIONS)))
+    NUMJOBS = $(patsubst parallel=%,%,$(filter parallel=%,$(DEB_BUILD_OPTIONS)))
+    MAKEFLAGS += -j$(NUMJOBS)
+endif
+
+build: build-stamp
+build-stamp: patch-stamp
+	dh_testdir
+	
+	./configure --prefix=/usr \
+		--mandir=\$${prefix}/share/man \
+		--infodir=\$${prefix}/share/info \
+		--bindir=/usr/bin \
+		--sysconfdir=/etc/sarg \
+		--mandir=/usr/share/man/man1 \
+		--enable-fontdir=/usr/share/fonts/truetype/ttf-dejavu \
+		--enable-imagedir=/usr/share/sarg/images \
+		--enable-sargphp=/usr/share/sarg
+
+	# Add here commands to compile the package.
+	make
+
+	touch build-stamp
+
+clean: unpatch
+	dh_testdir
+	rm -f build-stamp
+
+	# Add here commands to clean up after the build process.
+	[ ! -f Makefile ] || $(MAKE) distclean
+
+	dh_clean
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_clean -k
+	dh_installdirs
+
+	make install DESTDIR=`pwd`/debian/sarg
+	$(INSTALL_FILE) debian/sarg.conf debian/sarg/etc/sarg
+	$(INSTALL_FILE) debian/sarg.hosts debian/sarg/etc/sarg/exclude_hosts
+	$(INSTALL_FILE) debian/sarg.users debian/sarg/etc/sarg/exclude_users
+	$(INSTALL_FILE) debian/sarg.usertab debian/sarg/etc/sarg/usertab
+	#mv debian/sarg/etc/sarg/exclude_codes debian/sarg/etc/sarg/exclude_codes
+	#mv debian/sarg/usr/share/sarg/fonts/license debian/sarg/usr/share/doc/sarg/font.copyright
+	#mv debian/sarg/usr/share/sarg/fonts/README debian/sarg/usr/share/doc/sarg/README.font
+	rm -r debian/sarg/usr/share/fonts
+	$(INSTALL_SCRIPT) debian/sarg-reports debian/sarg/usr/sbin/sarg-reports
+	$(INSTALL_FILE) debian/sarg-reports.conf debian/sarg/etc/sarg
+	$(INSTALL_SCRIPT) debian/sarg-reports.cron.daily debian/sarg/etc/cron.daily/sarg
+	$(INSTALL_SCRIPT) debian/sarg-reports.cron.weekly debian/sarg/etc/cron.weekly/sarg
+	$(INSTALL_SCRIPT) debian/sarg-reports.cron.monthly debian/sarg/etc/cron.monthly/sarg
+	$(INSTALL_FILE) css.tpl debian/sarg/usr/share/doc/sarg
+	rm debian/sarg/usr/share/sarg/sarg-php/COPYING
+	mv debian/sarg/usr/share/sarg/sarg-php/INSTALL debian/sarg/usr/share/doc/sarg/README.sarg.php
+	mv debian/sarg/usr/share/sarg/sarg-php/LANGUAGES debian/sarg/usr/share/doc/sarg/LANGUAGES.sarg.php
+
+# Build architecture-independent files here.
+binary-indep: build install
+# We have nothing to do by default.
+
+# Build architecture-dependent files here.
+binary-arch: build install
+#	dh_testversion
+	dh_testdir
+	dh_testroot
+	#dh_installdebconf	
+	dh_installdocs
+	dh_installexamples
+	dh_installmenu
+	dh_installcron
+	dh_installman debian/sarg-reports.1
+	dh_installinfo
+	#dh_undocumented
+	dh_installchangelogs ChangeLog
+	dh_link
+	dh_strip
+	dh_compress
+	dh_fixperms
+	chmod 644 debian/sarg/etc/sarg/sarg.*
+	chmod 755 debian/sarg/etc/sarg
+	chmod 755 debian/sarg/usr/sbin/sarg-reports
+	chmod 755 debian/sarg/etc/cron.daily/sarg
+	chmod 755 debian/sarg/etc/cron.weekly/sarg
+	chmod 755 debian/sarg/etc/cron.monthly/sarg
+	dh_makeshlibs
+	dh_installdeb
+	#dh_perl
+	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install

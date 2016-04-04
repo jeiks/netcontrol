@@ -1,0 +1,4 @@
+plugins/webserver_common/api.py	var/lib/netcontrol/plugins/webserver_common/
+plugins/webserver_common/files	var/lib/netcontrol/plugins/webserver_common/
+plugins/webserver_common/__init__.py	var/lib/netcontrol/plugins/webserver_common/
+plugins/webserver_common/layout	var/lib/netcontrol/plugins/webserver_common/

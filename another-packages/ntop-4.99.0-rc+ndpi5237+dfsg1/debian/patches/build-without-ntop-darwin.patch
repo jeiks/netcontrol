@@ -1,0 +1,14 @@
+Description: build without ompiling ntop_drawin.c, as it conatins non-DFSG compliant code.
+Author: Ludovico Cavedon <cavedon@debian.org>
+Index: ntop/Makefile.am
+===================================================================
+--- ntop.orig/Makefile.am	2012-02-26 11:03:26.000000000 -0800
++++ ntop/Makefile.am	2012-02-26 11:04:23.875929148 -0800
+@@ -120,7 +120,6 @@
+                      plugin.c     prefs.c       protocols.c   \
+                      sessions.c   term.c        util.c        utildl.c \
+                      traffic.c    vendor.c      version.c      \
+-                     ntop_darwin.c \
+ 		     prng.c countmin.c
+ 
+ libntop_la_DEPENDENCIES =  config.h

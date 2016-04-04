@@ -1,0 +1,82 @@
+squidguard for Debian
+---------------------
+
+*** General ***
+ 
+To use squidGuard, you must 
+ * modify /etc/squidguard/squidGuard.conf file, 
+ * setup your blacklist files in /var/lib/squidguard/db
+ * modify squid.conf file.
+ * execute update-squidguard.
+
+*** Squid ***
+
+A) Modify squid.conf of Squid2:
+The following piece in /etc/squid/squid.conf needs to be set:
+     ---
+     #  TAG: redirect_program
+     #
+     redirect_program /usr/bin/squidGuard -c /etc/squidguard/squidGuard.conf
+
+B) Modify squid.conf of Squid3:
+The following piece in /etc/squid3/squid.conf needs to be set:
+     ---
+     #  TAG: url_rewrite_program
+     #
+     url_rewrite_program /usr/bin/squidGuard -c /etc/squidguard/squidGuard.conf
+
+*** Contrib ***
+
+I'm including all the contrib scripts into the main package:
+
+    squidGuardRobot - basically a beta version without documentation 
+                 at this time.
+    sgclean    - removes redundant entries in domain files and url files. 
+    hostbyname - takes a squidGuard domain or url list and does some half
+                 harted effort to expand it with the corresponding 
+                 IP-addresses
+
+All three scripts are perl scripts. So just take a look at them to find 
+out the proper command line arguments and all. I will work on adding 
+proper documentation when I can (or when they become available).
+
+There is also a squidGuard.cgi script that you can use.  It's in the
+/usr/share/doc/squidguard/examples directory.  I'm leaving it there as
+some people may not want to run a separate web server on the same server
+as the squid proxy.
+
+*** Blacklists ***
+
+You also need to make sure all your blacklist files are owned by the 
+"proxy" user. All these files need to be located under 
+/var/lib/squidguard/db.
+
+*** Documentation ***
+
+More (older) documentation can be found in the package squidguard-doc
+in /usr/share/doc/squidguard-doc/.
+
+Online you can found some infos on http://www.squidguard.org/Doc/ and 
+on http://www.maynidea.com/squidguard/faq-plus.html.
+
+*** update-squidguard ***
+
+With this script the database for squidguard can be checked and recreated.
+Now this script supports a verbose option for testing:
+
+	update-squidguard --verbose
+
+This script also can check for a BDB version change. Then only if the 
+BDB version has changed the full database files will be recreated. Use:
+
+	update-squidguard --checkdb
+
+*** squidguard-data ***
+ 
+This new example script (beta version) downloads and extracts the latest
+database of www.shallalist.de:
+
+	/usr/share/doc/squidguard/examples/squidguard-data
+
+
+ -- Joachim Wiedorn <ad_debian@joonet.de>  Mon, 23 Apr 2012 00:33:50 +0200

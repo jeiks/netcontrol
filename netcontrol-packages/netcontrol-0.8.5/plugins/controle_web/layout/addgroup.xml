@@ -1,0 +1,22 @@
+<xml>
+    <dialogbox id="dlg_addGroup">
+        <div style="text-align: center">
+            <label text="Utilize somente letras, números e espaços" />
+        </div>
+
+        <formline text="Nome do Grupo">
+            <tipicon text="Indique aqui o nome do grupo que deseja adicionar ao Controle WEB" icon="/dl/core/ui/stock/info.png"/>
+            <textinput id="nameGroup" name="nameGroup" />
+        </formline>
+        <formline text="Este grupo é de IPs">
+            <hcontainer>
+                <tipicon text="Marque essa caixinha para que seja possível adicionar IPs nesse grupo ao invés de nomes de usuários" icon="/dl/core/ui/stock/info.png"/>
+                <spacer width="3" />
+                <checkbox id="typeGroupIP" name="typeGroupIP" />
+            </hcontainer>
+        </formline>
+        <div style="text-align: center;color: red">
+            <label text="" size="2" id="dlgAddGroupMsg" name="dlgAddGroupMsg" />
+        </div>
+    </dialogbox>
+</xml>

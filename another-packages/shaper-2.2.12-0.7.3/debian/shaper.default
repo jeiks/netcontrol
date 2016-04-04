@@ -1,0 +1,4 @@
+# This is a skeleton file which will be read after /etc/init.d/shaper sets
+# some default variables. You can thus override those variables. Variables of
+# note are are CBQ_PATH, CBQ_DEBUG, and CBQ_PROBE. Read /etc/init.d/shaper,
+# starting at line 466, for more information.

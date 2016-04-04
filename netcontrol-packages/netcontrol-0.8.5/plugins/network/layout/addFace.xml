@@ -1,0 +1,22 @@
+<xml>
+  <dialogbox id="addIFace">
+      <dt>
+      <dtr>
+          <dth><label text="Escolha a interface principal."/></dth>
+          <dth><select id="iface" name="iface"></select></dth>
+          <dth><tipicon text="Escolha sobre qual interface real será criada a virtual" icon='/dl/core/ui/stock/info.png' /></dth>
+      </dtr>
+      <dtr>
+          <dth><label text="Defina o IP da interface virtual" size="2" /></dth>
+          <dth><textinput name="ip" id="ip" /></dth>
+          <dth><tipicon text="IP para a interface virutual" icon='/dl/core/ui/stock/info.png' /></dth>
+      </dtr>
+      <dtr>
+          <dth><label text="Defina a Máscara" size="2" /></dth>
+          <dth><textinput name="masc" id="masc" /></dth>
+          <dth><tipicon text="Máscara de rede para a interface." icon='/dl/core/ui/stock/info.png' /></dth>
+      </dtr>
+      </dt>
+      <label text=" " name="erro" id="erro" size="3" style="color:red;"/>
+  </dialogbox>
+</xml>

@@ -1,0 +1,57 @@
+/*!\file index.c
+\brief Create the HTML index of the reports
+*/
+
+
+
+
+/*! \fn void make_index(void)
+Create the main HTML index of the available reports.
+*/
+
+
+
+
+
+/*! \fn static void make_date_index(void)
+Create an index with the reports sorted hierarchicaly by date. A first level lists
+the year. The second level lists the months (possibly a range) and the third level
+lists the days or day ranges.
+*/
+
+
+
+
+
+/*! \fn static void make_file_index(void)
+Create an index with the reports sorted by directory name. There is only one level
+which is the name of the directory containing the report.
+*/
+
+
+
+
+
+/*! \fn static void file_index_to_date_index(const char *entry)
+Convert a report from the file tree into a report for a date tree.
+
+This function is invoked for each directory entry when ::IndexTree request a date index.
+The function has to opportunity to convert a previous entry created when ::IndexTree was
+requesting a file index.
+
+\param entry The directory name that may require to be converted.
+*/
+
+
+
+
+
+/*! \fn static void date_index_to_file_index(const char *entry)
+Convert a report from the date tree into a report for a file tree.
+
+This function is invoked for each directory entry when ::IndexTree request a file index.
+The function has to opportunity to convert a previous entry created when ::IndexTree was
+requesting a date index.
+
+\param entry The directory name that may require to be converted.
+*/

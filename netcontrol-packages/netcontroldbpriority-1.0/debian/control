@@ -1,0 +1,12 @@
+Source: netcontroldbpriority
+Section: misc
+Priority: extra
+Maintainer: Jacson RC Silva <jeiks@sistemaprolinux.com.br>
+Build-Depends: debhelper (>= 7.0.50~)
+Standards-Version: 3.8.4
+
+Package: netcontroldbpriority
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: To set new DebConf Priority
+ To set new DebConf Priority

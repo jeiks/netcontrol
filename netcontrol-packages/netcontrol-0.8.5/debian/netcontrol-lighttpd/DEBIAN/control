@@ -1,0 +1,11 @@
+Package: netcontrol-lighttpd
+Source: netcontrol
+Version: 0.8.5-1
+Architecture: all
+Maintainer: Jacson RC Silva <jacsonrcsilva@gmail.com>
+Installed-Size: 26
+Depends: netcontrol, lighttpd, netcontrol-webserver-common
+Section: admin
+Priority: extra
+Description: lighttpd webserver control plugin
+ lighttpd webserver control plugin

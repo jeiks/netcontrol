@@ -1,0 +1,5 @@
+<dialogbox id="resposta_proftpd">
+        <vcontainer>
+	  <label text="" name="msg" id="msg" size="3"/>
+        </vcontainer>
+</dialogbox>

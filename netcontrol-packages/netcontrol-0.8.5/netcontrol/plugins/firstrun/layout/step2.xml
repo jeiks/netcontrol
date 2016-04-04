@@ -1,0 +1,5 @@
+<xml>
+    <label size="5" text="Instalação completa" />
+    <label size="1" text="Você será redirecionado para o Painel de controle em alguns segundos..." />
+    <completerefresh />
+</xml>

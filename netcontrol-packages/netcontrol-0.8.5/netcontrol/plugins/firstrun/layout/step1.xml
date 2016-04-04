@@ -1,0 +1,17 @@
+<xml>
+    <div style="text-align: center">
+        <label size="4" text="Bem-vindo ao NetControl" />
+    </div>
+    <pad>
+    <formbox hidecancel="True" id="frmChangePassword">
+        <label size="3" text="Altere seu login e senha" />
+        <spacer height="20" />
+        <formline text="Novo login">
+            <textinput name="login" value="admin" />
+        </formline>
+        <formline text="Senha">
+            <textinput name="password" password="True" />
+        </formline>
+    </formbox>
+    </pad>
+</xml>

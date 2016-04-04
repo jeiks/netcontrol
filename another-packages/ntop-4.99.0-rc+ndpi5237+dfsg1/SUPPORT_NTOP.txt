@@ -1,0 +1,13 @@
+
+ntop is distributed under GPL2. However, if you like and use ntop, we would appreciate
+a small donation to the project using the follwing URL:
+
+http://shop.ntop.org/
+
+This is necessary because we get no founding at all I have to purchase myself
+books, hardware and software for better developing ntop and improving ntop.
+
+Thanks for supporting ntop!
+
+Cheers, Luca Deri <deri@ntop.org>
+

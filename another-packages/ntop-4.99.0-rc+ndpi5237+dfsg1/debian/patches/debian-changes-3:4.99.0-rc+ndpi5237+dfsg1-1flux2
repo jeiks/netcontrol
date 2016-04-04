@@ -1,0 +1,116 @@
+Description: Upstream changes introduced in version 3:4.99.0-rc+ndpi5237+dfsg1-1flux2
+ This patch has been created by dpkg-source during the package build.
+ Here's the last changelog entry, hopefully it gives details on why
+ those changes were made:
+ .
+ ntop (3:4.99.0-rc+ndpi5237+dfsg1-1flux2) unstable; urgency=low
+ .
+   * removed: header, bottom and About
+ .
+ The person named in the Author field signed this changelog entry.
+Author: Jacson RC Silva <jeiks@sistemaprolinux.com.br>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: http://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- ntop-4.99.0-rc+ndpi5237+dfsg1.orig/httpd.c
++++ ntop-4.99.0-rc+ndpi5237+dfsg1/httpd.c
+@@ -540,38 +540,38 @@ static void ssiMenu_Head(void) {
+ 		  "<script type=\"text/javascript\" language=\"JavaScript\"><!--\n"
+ 		  "var ntopMenu =\n"
+ 		  "[\n"
+-		  "	[null,'About',null,null,null,\n"
+-		  "		[null,'What is ntop?','/" CONST_ABTNTOP_HTML "',null,null],\n"
+-		  "		[null,'ntop blog','http://www.ntop.org/blog/',null,null],\n"
+-		  "		[null,'Credits','/" CONST_CREDITS_HTML "',null,null],\n"
+-		  "		[null,'Make a Donation', 'http://shop.ntop.org/',null,null],\n"
+-
+-
+-		  "  [null,'ntop World',null,null,null,\n"
+-		  "          [null,'ntop-based Solutions','http://www.ntop.org/solutions.html',null,null],\n"
+-		  "          [null,'nMon.net Products','http://www.nmon.net/products.html',null,null],\n"
+-		  "          ],\n"
+-
+-		  "  [null,'Online Documentation',null,null,null,\n"
+-		  "		[null,'Man Page','/" CONST_MAN_NTOP_HTML "',null,null],\n");
+-
+-
+-#ifdef HAVE_PYTHON
+-  sendStringWOssi(
+-		  "             ['<img src=/icon_python.png>','Python ntop Engine',null,null,null,\n"
+-		  "		    [ null,'Python API','/docs/python/index.html', '_blank',null],\n"
+-		  "		    [ null,'Tutorial','http://www.ntop.org/blog/?p=112', '_blank',null],\n"
+-		  "             ],\n");
+-#endif
+-
+-    sendStringWOssi(
+-		  "		['<img src=\"/help.png\">','Help','/ntop" CONST_NTOP_HELP_HTML "',null,null],\n"
+-		  "		[null,'FAQ','/faq.html',null,null],\n"
+-		  "		['<img src=\"/Risk_high.gif\">','Risk Flags','/" CONST_NTOP_HELP_HTML "',null,null],\n"
+-		  "     ],\n"
+-		  "	  [null,'Show Configuration','/" CONST_INFO_NTOP_HTML "',null,null],\n"
+-		  "	  ['<img src=\"/bug.png\">','Report a Problem','/" CONST_PROBLEMRPT_HTML "',null,null],\n"
+-		  "	],\n"
++//		  "	[null,'About',null,null,null,\n"
++//		  "		[null,'What is ntop?','/" CONST_ABTNTOP_HTML "',null,null],\n"
++//		  "		[null,'ntop blog','http://www.ntop.org/blog/',null,null],\n"
++//		  "		[null,'Credits','/" CONST_CREDITS_HTML "',null,null],\n"
++//		  "		[null,'Make a Donation', 'http://shop.ntop.org/',null,null],\n"
++//
++//
++//		  "  [null,'ntop World',null,null,null,\n"
++//		  "          [null,'ntop-based Solutions','http://www.ntop.org/solutions.html',null,null],\n"
++//		  "          [null,'nMon.net Products','http://www.nmon.net/products.html',null,null],\n"
++//		  "          ],\n"
++//
++//		  "  [null,'Online Documentation',null,null,null,\n"
++//		  "		[null,'Man Page','/" CONST_MAN_NTOP_HTML "',null,null],\n");
++          );
++//
++//#ifdef HAVE_PYTHON
++//  sendStringWOssi(
++//		  "             ['<img src=/icon_python.png>','Python ntop Engine',null,null,null,\n"
++//		  "		    [ null,'Python API','/docs/python/index.html', '_blank',null],\n"
++//		  "		    [ null,'Tutorial','http://www.ntop.org/blog/?p=112', '_blank',null],\n"
++//		  "             ],\n");
++//#endif
++
++    sendStringWOssi(
++//		  "		['<img src=\"/help.png\">','Help','/ntop" CONST_NTOP_HELP_HTML "',null,null],\n"
++//		  "		[null,'FAQ','/faq.html',null,null],\n"
++//		  "		['<img src=\"/Risk_high.gif\">','Risk Flags','/" CONST_NTOP_HELP_HTML "',null,null],\n"
++//		  "     ],\n"
++//		  "	  [null,'Show Configuration','/" CONST_INFO_NTOP_HTML "',null,null],\n"
++//		  "	  ['<img src=\"/bug.png\">','Report a Problem','/" CONST_PROBLEMRPT_HTML "',null,null],\n"
++//		  "	],\n"
+ 		  "	[null,'Summary',null,null,null,\n"
+ 		  "		[null,'Traffic','/" CONST_TRAFFIC_STATS_HTML "',null,null],\n"
+ 		  "		[null,'Hosts','/" CONST_HOSTS_INFO_HTML "',null,null],\n"
+@@ -810,7 +810,7 @@ static void ssiMenu_Head(void) {
+ static void ssiMenu_Body(void) {
+   sendStringWOssi(
+ 		  "<table border=\"0\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\">\n"
+-		  " <tr>\n"
++		  " <tr style=\"display: none\">\n"
+ 		  "  <td align=\"left\">\n"
+ 		  "   <table border=\"0\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\">\n"
+ 		  "    <tr>\n"
+@@ -1321,7 +1321,7 @@ void printHTMLtrailer(void) {
+     break;
+   }
+ 
+-  sendString("\n<br>&nbsp;<br><div id=\"bottom\"><div id=\"footer\">");
++  sendString("\n<br>&nbsp;<br><div id=\"bottom\" style=\"display: none\"><div id=\"footer\">");
+ 
+   safe_snprintf(__FILE__, __LINE__, buf, LEN_GENERAL_WORK_BUFFER, "&nbsp;<br>Report created on %s ",
+ 		ctime(&myGlobals.actTime));

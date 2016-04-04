@@ -1,0 +1,15 @@
+LDAP_URI	ldap://localhost
+LDAP_PROTOCOL_VERSION	3
+LDAP_BASEDN	dc=jeiksctga,dc=net
+LDAP_BINDDN	admin, dc=jeiksctga,dc=net
+LDAP_BINDPW	123456
+LDAP_TIMEOUT	5
+LDAP_MAIL	uid
+LDAP_HOMEDIR	homeDirectory
+LDAP_FULLNAME	cn
+LDAP_CRYPTPW	userPassword
+LDAP_DEREF	never
+LDAP_TLS	0
+LDAP_UID	uidnumber
+LDAP_GID	gidnumber
+                  

@@ -1,0 +1,91 @@
+=for header
+manpage:  SQUIDGUARD
+section:  1
+title:    SquidGuard documentation
+version:  Version 1.5
+datum:    2012-04-20
+
+=encoding utf8
+
+=head1 NAME
+
+squidGuard - Filter and redirector plugin for Squid and Squid3
+
+=head1 SYNOPSIS
+
+B<squidGuard> I<[-u]> I<[-C block>]> I<[-b]> I<[-t time]> I<[-c file]> I<[-d]> I<[-P]> I<[-v]> I<[-h]>
+
+=head1 DESCRIPTION
+
+B<squidGuard> is flexible and ultra fast filter, redirector 
+and access controller plugin for squid.  It lets you define multiple 
+access rules with different restrictions for different user groups on 
+a squid cache.  squidGuard uses squid's standard redirector interface. 
+
+=head1 OPTIONS
+
+=over 4
+
+=item B<-u>
+
+Update .db files from .diff files.
+
+=item B<-C> I<file>|all
+
+Create new .db files from urls/domain files, which are specified in "file".
+
+=item B<-b>
+
+Switch on progress bar when updating the blacklists.
+
+=item B<-t> I<time>
+
+Specify startup time in the format: yyyy-mm-ddTHH:MM:SS
+
+=item B<-c> I<file>
+
+Load alternate config file.
+
+=item B<-d>
+
+Send all errors to stderr.
+
+=item B<-P>
+
+Do not go into emergency mode when an error with blacklists is encountered.
+
+=item B<-v>
+
+Show version number.
+
+=item B<-h>
+
+Show the short help.
+
+=back
+
+=head1 COPYRIGHT and LICENSE
+
+Copyright (c) 1999 Tele Danmark InterNordia, Oslo, Norway
+
+Copyright (c) 2006-2011 Shalla Secure Services, Gauting, Germany
+
+This package is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License version 2 as
+published by the Free Software Foundation.
+
+On Debian systems, the complete text of the GNU General Public 
+License version 2 can be found in `/usr/share/common-licenses/GPL-2'.
+
+=head1 AUTHOR
+
+B<squidguard> was written by Pål Baltzersen and Lars Erik Håland.
+
+This manual page was written by Joachim Wiedorn <ad_debian at joonet.de>
+for the Debian project (and may be used by others).
+
+=head1 SEE ALSO
+
+B<update-squidguard>(1), B<squid>(8), B<sgclean>(1), B<hostbyname>(1)
+
+=cut

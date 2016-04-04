@@ -1,0 +1,30 @@
+<xml> 
+<div style="margin-left:30px;">
+    <label text="Nenhum Interface foi configuarda, defina um interface para adicionar filtros..." size="3"/>
+    <spacer height="50"/>
+    <simpleform id="cad_banda">
+        <label text="Controle de Banda." size="2" />
+        <dt>
+	  <dtr>
+	      <dth><radio text="MBytes" name="medida" id="medida" value="MBytes" /></dth>
+	      <dth><radio text="KBytes" name="medida" id="medida" value="KBytes" /></dth>
+	      <dth><textinput name="banda" id="banda" /></dth>
+	      <dth><tipicon text="Valor total de sua banda em MBytes ou em KBytes" icon='/dl/core/ui/stock/info.png' /></dth>
+	  </dtr>
+	  <dtr>
+	      <dth colspan="2"><label text="Interface com o link." size="2" /></dth>
+	      <dth><select name="interface" id="interface" ></select></dth>
+	      <dth><tipicon text="Defina qual interface o controle de banda será efetuado." icon='/dl/core/ui/stock/info.png' /></dth>
+	  </dtr>
+	  <dtr>
+	      <dth colspan="4"><div style="text-align:center;"><button id="cadastrar_banda" text="Cadastrar banda" action="cadastrar_banda" onclick="form" form="cad_banda" /></div>
+	      </dth>
+	  </dtr>
+        </dt>
+    </simpleform>
+    
+    <vcontainer id="error" name="error">
+    </vcontainer>
+
+</div>
+</xml>

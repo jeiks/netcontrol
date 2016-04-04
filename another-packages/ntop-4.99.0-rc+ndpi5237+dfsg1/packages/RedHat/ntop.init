@@ -1,0 +1,840 @@
+#!/bin/sh
+#
+# chkconfig: 2345 93 83
+#
+# description: This shell script takes care of starting and stopping ntop.
+
+#NOTE:  You most likely will have to fix this up to reflect your network.
+#       ntop will not run until:
+
+#           You have set the admin password - read docs/1STRUN.txt
+#           You have created /etc/ntop.conf with appropriate parameters.
+
+#  To identify an interface to ntop, use the following flags 
+#  in /etc/sysconfig/network-scripts/ifcfg-ethx
+
+#   NTOP="yes"      <--- means for ntop to use this interface
+#   NTOPCONFIG="yes"  <--- means for ntop to configure this interface
+
+# Note that if you give a -i parameter in either /etc/ntop.conf or
+# the command line, the scan is NOT performed.  
+
+# However, when it comes to the configuration step, with NTOPCONFIG="yes"
+# the interface is configured regardless of how the interface list was
+# specified.
+
+#
+#  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# 
+#  Copyright (C) 2003-2005 Burton M. Strauss III <burton@ntopsupport.com>
+# 
+#  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# 
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2 of the License, or
+#  (at your option) any later version.
+# 
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+# 
+#  You should have received a copy of the GNU General Public License
+#  along with this program; if not, write to the Free Software Foundation,
+#  Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+#
+
+# Thanks to Tim Malnati <tgm@cshore.com> for ideas and contributions 
+# to this script.
+
+# The short name, used everywhere...
+name=ntop
+
+####NORMALLY MODIFIED PARAMETERS#####
+
+# Modify this to always add something at the end of the parm list that
+# you don't want in /etc/ntop.conf.
+
+# This default tells ntop to run as a daemon (good thing, since this is
+# the daemon startup script.
+extra=" -d"
+
+# Why not force it below? This allows you to use the same /etc/ntop.conf 
+# file both from /etc/init.d/ntop and if you want to run ntop from the 
+# command line...
+
+# Want to log ntop stuff somewhere other than /var/log/messages?
+# Use this line:
+# extra=" -d --use-syslog=local3"
+
+# And add this to /etc/syslog.conf:
+#  # Save ntop
+#  local3.*		/var/log/ntop.log
+
+# Add this to /etc/logrotate.conf:
+# /var/log/ntop.log {
+#     weekly
+#     rotate 4
+#     notifempty
+#     # ntop doesn't handle SIGHUP properly
+#     copytruncate
+# }
+
+# For both of the additions, above, remember to remove the leading #!
+
+# Modify this to run multiple instances of ntop
+instance=""
+
+####END NORMALLY MODIFIED PARAMETERS#####
+
+####POTENTIALLY MODIFIED PARAMETERS#####
+
+# Modify this to change the location of the configuration file
+conf="/etc/${name}${instance}.conf"
+
+# Modify this if ntop is somewhere else or you want to run sntop, etc.
+prog="/usr/bin/ntop"
+
+# Modify to force INITD messages...
+ntopusesyslog="local3"
+
+# If you need to specify a LD_LIBRARY_PATH, use this:
+#ldlibpath="/xxxxx/lib/ntop/:/xxxxx/lib/ntop/plugins/:/xxxxx/lib/plugins/"
+
+####END POTENTIALLY MODIFIED PARAMETERS#####
+
+invoked=$0
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+
+# Source networking configuration.
+. /etc/sysconfig/network
+
+
+# Basic sanity checks...
+if ! [ -x $prog ]; then
+  echo ""
+  echo "ERROR -"
+  echo "        $prog not found!"
+  echo ""
+  echo "Aborting..."
+  echo ""
+  exit 1
+fi
+
+if [ ${NETWORKING} = "no" ]; then
+  echo ""
+  echo "ERROR -"
+  echo "        Networking is not up!"
+  echo ""
+  echo "Aborting..."
+  echo ""
+  exit 1
+fi
+
+if ! [ -f ${conf} ]; then
+  echo ""
+  echo "ERROR -"
+  echo "        Configuration file ${conf} does not exist!"
+  echo ""
+  echo "Aborting..."
+  echo ""
+  exit 1
+fi
+
+# Process /etc/init.d/ntop parameters ...
+debug="n"
+sudo=""
+
+if [ "x"${1} = "x--debug" ]; then
+    debug="y"
+    shift
+    echo "DEBUG: active"
+fi
+
+if [ "x"${1} = "x--sudo" ]; then
+    if [ "${debug}" = "y" ]; then echo "DEBUG: will invoke via sudo"; fi
+    sudo="sudo "
+    shift
+fi
+
+if [ "x"${1} = "x--debug" ]; then
+    debug="y"
+    shift
+    echo "DEBUG: active"
+fi
+
+# Process what will become the parm string so we have things we need...
+parmfile=`mktemp /tmp/${name}initparms.XXXXXX`
+if [ $? -ne 0 ]; then
+  echo ""
+  echo "ERROR -"
+  echo "        Unable to create temporary file in /tmp!"
+  echo ""
+  echo "Aborting..."
+  echo ""
+  exit 1
+fi
+if [ "${debug}" = "y" ]; then echo "DEBUG: parm file temp is ${parmfile}"; fi
+ 
+cmd=`echo \
+    @${conf} \
+    -i tbd \
+    $extra $@`
+
+echo ${cmd} | awk ' \
+BEGIN { eff=""; \
+        xvert["4"] = "ipv4"; \
+        xvert["6"] = "ipv6"; \
+        xvert["a"] = "access-log-path"; \
+        xvert["b"] = "disable-decoders"; \
+        xvert["c"] = "sticky-hosts"; \
+        xvert["d"] = "daemon"; \
+        xvert["e"] = "max-table-rows"; \
+        xvert["f"] = "traffic-dump-file"; \
+        xvert["g"] = "track-local-hosts"; \
+        xvert["h"] = "help"; \
+        xvert["i"] = "interface"; \
+        xvert["j"] = "create-other-packets"; \
+        xvert["l"] = "pcap-log"; \
+        xvert["m"] = "local-subnets"; \
+        xvert["n"] = "numeric-ip-addresses"; \
+        xvert["o"] = "no-mac"; \
+        xvert["k"] = "filter-expression-in-extra-frame"; \
+        xvert["p"] = "protocols"; \
+        xvert["q"] = "create-suspicious-packets"; \
+        xvert["r"] = "refresh-time"; \
+        xvert["s"] = "no-promiscuous"; \
+        xvert["t"] = "trace-level"; \
+        xvert["u"] = "user"; \
+        xvert["w"] = "http-server"; \
+        xvert["z"] = "disable-sessions"; \
+        xvert["B"] = "filter-expression"; \
+        xvert["D"] = "domain"; \
+        xvert["F"] = "flow-spec"; \
+        xvert["K"] = "debug"; \
+        xvert["M"] = "no-interface-merge"; \
+        xvert["N"] = "wwn-map"; \
+        xvert["O"] = "output-packet-path"; \
+        xvert["P"] = "db-file-path"; \
+        xvert["Q"] = "spool-file-path"; \
+        xvert["U"] = "mapper"; \
+        xvert["V"] = "version"; \
+        xvert["W"] = "https-server"; \
+} \
+ \
+{ for (i=1; i<=NF; i++) { \
+    if (substr($i, 1, 1) == "@") { \
+      filename=substr($i, 2); \
+      while (getline line < filename > 0) { \
+        if ((j = index(line, "#")) > 1) { eff = eff " " substr(line, 1, j-1) } \
+        else if (j != 1)                { eff = eff " " line } \
+      } \
+    } else { eff=eff " " $i } \
+} } \
+ \
+END { f=0; gsub(/[=`;\n\r\t]/, " ", eff); gsub(/ *$/, "", eff); \
+  while (length(eff) > 0) { \
+    gsub(/^ +/, "", eff); \
+    if ((i=index(eff, " ")) > 0) { option=substr(eff, 1, i-1); \
+                                   eff=substr(eff, i+1); gsub(/^ +/, "", eff) } \
+    else { option=eff; eff="" } \
+    gsub(/^\-*/, "", option); \
+    if (option in xvert) { option = xvert[option] } \
+    gsub(/[-\/\"]/, "", option); \
+    if (option !~ /^[a-zA-Z0-9]*$/) { option = "bogus" } \
+    options[f]=option; \
+    if (length(eff) > 0) { \
+      c=substr(eff, 1, 1); \
+      if (c == "\"") { i=index(substr(eff, 2), "\"") + 1; value[f]=substr(eff, 1, i); \
+                       eff=substr(eff, i+1) } \
+      else if (c != "-") { \
+        if ((i=index(eff, " ")) > 0) { value[f]=substr(eff, 1, i-1); eff=substr(eff, i+1) } \
+        else { value[f]=eff; eff="" } \
+      } else { value[f]="yes" } \
+    } else { value[f]="yes" } \
+    f++; \
+  } \
+  print "#!/bin/sh\n#"; \
+  for(i=0; i<f; i++) { gsub(/[$",]/, " ", value[i]); printf("ntop%s=\"%s\"\n", options[i], value[i]) } \
+}' > ${parmfile}
+
+. ${parmfile}
+
+if [ -f ${parmfile} ]; then
+  rm -f ${parmfile}
+fi
+
+if [ "${debug}" = "y" ]; then 
+  echo "DEBUG: ntop${instance} settings:"
+  set | grep ^ntop
+fi
+
+if [ ".${ntopusesyslog}" = "." ]; then
+  ntopusesyslog="info"
+  # force logging (this is /etc/init.d/ntop after all)
+  extra="${extra} --use-syslog"
+else
+  ntopusesyslog="${ntopusesyslog}.info"
+fi
+
+if [ "${debug}" = "y" ]; then echo "DEBUG: logging to ${ntopusesyslog}"; fi
+
+logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - *****$0 $@ running*****"
+logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD -      Program is ${prog}"
+if [ "${instance}." != "." ]; then
+  logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD -      Instance is ${instance}"
+fi
+logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD -      Configuration in ${conf}"
+
+# Now do checks on the ntop${instance} parameters...
+# ntopinterface="tbd"
+# ntopuser="ntop"
+# ntopdbfilepath="/usr/share/ntop"
+# ntophttpserver="3000"
+# ntoptracelevel="3"
+# ntoplocalsubnets="192.168.42.0/24 12.239.96.0/22 10.113.0.0/16"
+# ntopdisableinstantsessionpurge="yes"
+# ntoplogextra="2"
+# ntopdaemon="yes"
+# ntopusesyslog="local3"
+# ntopstart="yes"
+# ntopinterface="eth1"
+
+# Build list of interfaces, e.g  eth0 eth1 eth1:1
+# (Yeah, we'll have to convert that to eth0,eth1,eth1:1 later
+if [ ".${ntopinterface}" = ".tbd" ]; then
+
+    ntopinterface=""
+    iflist=`ip link show | \
+        awk '/^[0-9]*:\ eth/ { printf("%s ", substr($2, 1, length($2)-1)) }'`
+    logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - Scanning all interfaces $iflist"
+    if [ "${debug}" = "y" ]; then echo "DEBUG: Interface candidates are ${iflist}"; fi
+
+    for eth in $iflist; do
+
+       if ! LANG=C egrep -L "^[Nn][Tt][Oo][Pp]=['\"]?[Yy][Ee][Ss]['\"]?" \
+                /etc/sysconfig/network-scripts/ifcfg-$eth > /dev/null ; then
+            logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - $eth is not ntop=yes, skipping"
+            if [ "${debug}" = "y" ]; then echo "DEBUG: $eth not ntop=yes"; fi
+            continue
+       fi
+
+       ntopinterface="${ntopinterface} $eth"
+  
+       ip=`ip addr show $eth | \
+           awk '/inet/ { printf("%s", substr($2, 1, index($2, "/")-1)) }'`
+
+       if [ ".$ip" = "." ]; then
+           is="is unnumbered interface"
+       else
+           is="has IP address $ip"
+       fi
+       logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - $eth is ntop=yes, ${is}"
+       if [ "${debug}" = "y" ]; then echo "DEBUG: $eth ntop=yes, ${is}"; fi
+
+    done
+
+else
+    logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - Skipping interface scan - list in parms"
+fi
+
+if [ "x${ntopinterface}" = "x" ]; then
+  ntopinterface="none"
+fi
+
+logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - interfaces are ${ntopinterface}"
+if [ "${debug}" = "y" ]; then echo "DEBUG: Interfaces are ${ntopinterface}"; fi
+
+start_checks() {
+  # check password database exists
+  if ! [ -f "${ntopdbfilepath}/ntop_pw.db" ]; then
+      logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - FATALERROR - no password database"
+      echo ""
+      echo "ERROR -"
+      echo "        No password database!"
+      echo ""
+      echo "  See docs/1STRUN.txt file... try ${invoked} init"
+      echo ""
+      echo "Aborting..."
+      echo ""
+      exit 1
+  fi
+
+  # verify database path parameter
+  if [ ".${ntopdbfilepath}" = "." ]; then
+    logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - FATALERROR: Database path parameter is not set"
+    echo ""
+    echo "ERROR -"
+    echo "        Database path parameter is not set."
+    echo ""
+    echo "        Without access to the source, we don't know what CFG_DBFILE_DIR"
+    echo "        is set to (common values are /usr/var/ntop and /usr/local/var/ntop"
+    echo "        but it could be ANYTHING, based on ./configure --prefix=xxxxx)."
+    echo ""
+    echo "  Edit ${conf} and rerun ${invoked} init"
+    echo ""
+    echo "Aborting..."
+    echo ""
+    exit 1
+  fi
+
+  if ! [ -d "${ntopdbfilepath}" ]; then
+    logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - FATALERROR: Database path parameter ${ntopdbfilepath} invalid"
+    echo ""
+    echo "ERROR -"
+    echo "        Database path parameter ${ntopdbfilepath} invalid!"
+    echo ""
+    echo "  Create path or correct ${conf} and rerun ${invoked} init"
+    echo ""
+    echo "Aborting..."
+    echo ""
+    exit 1
+  fi 
+  
+  # verify temporary database path parameter
+  if [ ".${ntopspoolfilepath}" != "." ]; then
+    if ! [ -d "${ntopspoolfilepath}" ]; then
+      logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - FATALERROR: Spool database path parameter ${ntopspoolfilepath} invalid"
+      echo ""
+      echo "ERROR -"
+      echo "        Spool database path parameter ${ntopspoolfilepath} invalid!"
+      echo ""
+      echo "  Create path or correct ${conf} and rerun ${invoked} init"
+      echo ""
+      echo "Aborting..."
+      echo ""
+      exit 1
+    fi 
+  fi
+
+  # verify access log, if one...
+  if [ ".${ntopaccesslogpath}" != "." ]; then
+    alp=`dirname ${ntopaccesslogpath}`
+    if ! [ -d "${alp}" ]; then
+      logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - FATALERROR: Access log parameter ${ntopaccesslogpath} directory missing"
+      echo ""
+      echo "ERROR -"
+      echo "        Access log parameter ${ntopaccesslogpath} - directory missing!"
+      echo ""
+      echo "  Create path or correct ${conf} and rerun ${invoked} init"
+      echo ""
+      echo "Aborting..."
+      echo ""
+      exit 1
+    fi
+  fi
+
+  # verify output path, if one...
+  if [ ".${ntopoutputpacketpath}" != "." ]; then
+    if ! [ -d "${ntopoutputpacketpath}" ]; then
+      logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - FATALERROR: Output packet path ${ntopoutputpacketpath} directory missing"
+      echo ""
+      echo "ERROR -"
+      echo "        Access log parameter ${ntopoutputpacketpath} directory missing!"
+      echo ""
+      echo "  Create path or correct ${conf} and rerun ${invoked} init"
+      echo ""
+      echo "Aborting..."
+      echo ""
+      exit 1
+    fi 
+  fi
+}
+
+show_extra () {
+  logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - Given parameter(s) are: '$@'"
+  logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - Extra parameter(s) are: '$extra'"
+  if [ "${debug}" = "y" ]; then echo "DEBUG: Given parameter(s) are: '$@'";
+                                echo "DEBUG: Extra parameter(s) are: '$extra'"; fi
+}
+
+config_interfaces () {
+  logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - Configuring interfaces"
+  if [ "${debug}" = "y" ]; then echo "DEBUG: Configuring interfaces"; fi
+  if=""
+  for eth in ${ntopinterface}; do
+      if [ ".${if}" = "." ]; then
+          if="${eth}"
+      else
+          if="${if},${eth}"
+      fi
+
+       if ! LANG=C egrep -L "^[Nn][Tt][Oo][Pp][Cc].*=['\"]?[Yy][Ee][Ss]['\"]?" \
+                /etc/sysconfig/network-scripts/ifcfg-$eth > /dev/null ; then
+            logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - $eth is not ntopconfigure=yes, skipping"
+            continue
+       fi
+
+      logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - Configuring $eth"
+      if [ "${debug}" = "y" ]; then echo "DEBUG: Configuring $eth"; fi
+
+      ifup=`$sudo /sbin/ip addr show $eth | grep 'UP'`
+      ip=`$sudo /sbin/ip addr show $eth | \
+          awk '/inet/ { printf("%s", substr($2, 1, index($2, "/")-1)) }'`
+
+      $sudo /sbin/ip link set $eth promisc on 2> /dev/null
+      rc=$?
+      if [ ${rc} = 255 ]; then
+          $sudo /sbin/ifconfig $eth promisc 2> /dev/null
+      fi
+      $sudo /sbin/ip link set $eth up
+
+      $sudo /sbin/ip addr show $eth | logger -p ${ntopusesyslog} -t ${name}${instance}
+      if [ "${debug}" = "y" ]; then $sudo /sbin/ip addr show $eth; fi
+
+  done
+  logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - Interfaces are configured"
+  if [ "${debug}" = "y" ]; then echo "DEBUG: Interfaces are configured"; fi
+}
+
+show_starting () {
+  echo -n $"Starting ${name}${instance}: "
+  echo
+
+  logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - Starting: ${cmd}"
+  if [ "${debug}" = "y" ]; then echo "DEBUG: Starting: ${cmd}"; fi
+}
+
+gdb () {
+  # start debug 
+
+  shift
+
+  start_checks
+  show_extra
+  config_interfaces
+
+  if [ ".${ldlibpath}" != "." ]; then
+    export LD_LIBRARY_PATH="${ldlibpath}"
+  fi
+
+  echo "set args @${conf} -i ${if} $@ --instance DEBUG -K" > /tmp/gdbcmd
+  echo "show args" >>/tmp/gdbcmd
+
+  /usr/bin/gdb ${prog} -x /tmp/gdbcmd
+
+}
+
+start () {
+  # start daemon
+
+  shift
+
+  start_checks
+  show_extra
+  config_interfaces
+
+  cmd=`echo $prog \
+               @${conf} \
+               -i $if \
+               $extra $@`
+
+  if [ ".${instance}" != "." ]; then
+    cmd="${cmd} --instance ${instance}"
+  fi
+
+  show_starting
+
+  if [ ".${ldlibpath}" != "." ]; then
+    export LD_LIBRARY_PATH="${ldlibpath}"
+  fi
+  daemon ${cmd}
+  RETVAL=$?
+
+  [ $RETVAL = 0 ] && touch /var/lock/subsys/${name}${instance}
+  return $RETVAL
+}
+
+stop () {
+  # stop daemon
+
+  RETVAL=1
+  echo -n $"Stopping ${name}${instance}: "
+  logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - Stopping: ${name}${instance}"
+
+  if [ -d "${ntopdbfilepath}" ] && 
+     [ -f "${ntopdbfilepath}/ntop.pid" ]; then
+    pid=`cat ${ntopdbfilepath}/ntop.pid`
+    ps ${pid} > /dev/null 2> /dev/null
+    rc=$?
+    if [ $rc = 0 ]; then
+      logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - Sending SIGTERM to ${pid}"
+      if [ "${debug}" = "y" ]; then echo "Sending SIGTERM to ${pid}"; fi
+      kill -s SIGTERM ${pid}
+      RETVAL=$?
+      rm -f ${ntopdbfilepath}/ntop.pid
+    else 
+      logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - Unable to find process ${pid} ... will kill by name"
+      if [ "${debug}" = "y" ]; then echo "Unable to find process ${pid} ... will kill by name"; fi
+    fi
+  else
+
+    logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - Unable to find ${ntopdbfilepath}/ntop.pid file ... will kill by name"
+    if [ "${debug}" = "y" ]; then echo "Unable to find ${ntopdbfilepath}/ntop.pid file ... will kill by name"; fi
+
+  fi
+
+  echo 
+
+  if [ $RETVAL != 0 ]; then
+    pids=`ps axf | grep '\/usr\/bin\/ntop' | awk '{ printf(" %s", $1) }; END { print "" }'`
+    if [ "${pids}" != " " ]; then
+      logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - Sending SIGTERM to ${prog}...${pids}"
+      if [ "${debug}" = "y" ]; then echo "Sending SIGTERM to ${prog}...${pids}"; fi
+      kill -INT ${pids}
+      RETVAL=$?
+    fi
+  fi
+
+  if [ $RETVAL = 0 ]; then
+
+      rm -f /var/lock/subsys/${name}
+
+      logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - Unconfiguring interfaces"
+      if [ "${debug}" = "y" ]; then echo "DEBUG: Unconfiguring interfaces"; fi
+
+      for eth in ${ntopinterface}; do
+          if ! LANG=C egrep -L "^[Nn][Tt][Oo][Pp][Cc].*=['\"]?[Yy][Ee][Ss]['\"]?" \
+                   /etc/sysconfig/network-scripts/ifcfg-$eth > /dev/null ; then
+              logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - $eth is not ntopconfigure=yes, skipping"
+              if [ "${debug}" = "y" ]; then echo "DEBUG: $eth is not ntopconfigure=yes"; fi
+              continue
+          fi
+
+          logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - Unconfiguring $eth"
+          if [ "${debug}" = "y" ]; then echo "DEBUG: Unconfiguring $eth"; fi
+    
+          $sudo /sbin/ip link set $eth down
+          $sudo /sbin/ip link set $eth promisc off 2>/dev/null
+          rc=$?
+          if [ ${rc} = 255 ]; then
+              $sudo /sbin/ifconfig $eth -promisc
+          fi
+    
+          $sudo /sbin/ip addr show $eth | logger -p ${ntopusesyslog} -t ${name}${instance}
+          if [ "${debug}" = "y" ]; then $sudo /sbin/ip addr show $eth; fi
+    
+      done
+
+      logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - Interfaces are unconfigured"
+      if [ "${debug}" = "y" ]; then echo "DEBUG: Interfaces are unconfigured"; fi
+  fi
+
+  return $RETVAL
+}
+
+restart () {
+  echo $"In restart, parameters are $@"
+  stop
+  start $@
+}
+
+valgrind () {
+
+  shift
+
+  logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - valgrind request...checking"
+  if [ "${debug}" = "y" ]; then echo "DEBUG: Checking for valgrind"; fi
+
+  valgrind=`slocate -r 'bin\/valgrind$'`
+  rc=$?
+  if [ ${rc} != 0 ]; then
+      logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - valgrind not found, aborting"
+      echo ""
+      echo ""
+      echo "ERROR: Unable to find valgrind (rc=${rc})"
+      echo ""
+      echo "Aborting..."
+      exit 1
+  fi
+
+  logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - Found valgrind: ${valgrind}"
+  if [ "${debug}" = "y" ]; then echo "DEBUG: Found valgrind: ${valgrind}"; fi
+
+  echo $"Stopping..."
+  stop
+  echo $"Running under valgrind, parameters are $@"
+  valgrind="${valgrind} --verbose"
+  valgrind="${valgrind} --suppressions=/usr/share/ntop/valgrind.supp"
+  valgrind="${valgrind} --logfile=/tmp/valgrind.log"
+  valgrind="${valgrind} --leak-check=yes"
+  valgrind="${valgrind} --leak-resolution=high"
+#  valgrind="${valgrind} --show-reachable=yes"
+  valgrind="${valgrind} --track-fds=yes"
+  valgrind="${valgrind} --trace-children=yes"
+  valgrind="${valgrind} --num-callers=6"
+  valgrind="${valgrind} --gen-suppressions=yes"
+  valgrind="${valgrind} --sanity-level=0"
+
+  prog="${valgrind} ${prog}"
+
+  start_checks
+  show_extra
+  config_interfaces
+
+  cmd=`echo $prog -i $if \
+               @${conf} \
+               $extra $@`
+
+  if [ "${debug}" = "y" ]; then echo "DEBUG: cmd pre-strip  '${cmd}'"; fi
+  cmd=`echo ${cmd} | awk '{ gsub(/  *-d/, "", $0); print $0}'`
+  cmd=`echo ${cmd} | awk '{ gsub(/  *-L/, "", $0); print $0}'`
+  cmd=`echo ${cmd} | awk '{ gsub(/  *--use-syslog=[a-zA-Z0-9]*/, "", $0); print $0}'`
+  if [ "${debug}" = "y" ]; then echo "DEBUG: cmd post-strip '${cmd}'"; fi
+
+  show_starting
+  echo "${cmd}"
+
+  ${cmd}
+}
+
+init() {
+  echo ""
+  echo ""
+
+  # check password database exists
+  if [ -d "${ntopdbfilepath}" ] && 
+     [ -f "${ntopdbfilepath}/ntop_pw.db" ]; then
+    logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - ERROR - password database exists"
+    echo ""
+    echo "ERROR -"
+    echo "        password database exists!"
+    echo ""
+    echo "  You probably did not want to init again, did you?"
+    echo ""
+    echo "Aborting..."
+    echo ""
+    exit 1
+  fi
+
+  if [ ".${ntopuser}" = "." ]; then
+    echo ""
+    echo "WARNING -"
+    echo "        Execution user not set, can't do permissions"
+    echo ""
+    echo "Skipping..."
+    echo ""
+    exit 0
+  fi
+
+  echo "Creating directories and/or setting permissions..."
+
+  quiet="-f"; verbose="";
+  if [ "${debug}" = "y" ]; then quiet=""; verbose="--verbose"; fi
+
+  # The base directory...
+  if [ "${debug}" = "y" ]; then echo "DEBUG: Create set ownership/permissions for ${ntopdbfilepath}"; fi
+  if [ ! -d ${ntopdbfilepath} ]; then
+      mkdir --parents --mode=0711 ${verbose} ${ntopdbfilepath}
+      logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - Created ${ntopdbfilepath}"
+  fi
+  chown -R ${quiet} ${ntopuser}: ${ntopdbfilepath}
+  chmod ${quiet} 0711 ${ntopdbfilepath}
+  logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - Ownership/permissions set for ${ntopdbfilepath}"
+
+  # rrd within that
+  if [ "${debug}" = "y" ]; then echo "DEBUG: Create set ownership/permissions for ${ntopdbfilepath}/rrd"; fi
+  if [ ! -d ${ntopdbfilepath}/rrd ]; then
+      logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - Created ${ntopdbfilepath}/rrd"
+      mkdir --parents --mode=0755 ${verbose} ${ntopdbfilepath}/rrd
+  fi
+  chmod ${quiet} 0755 ${ntopdbfilepath}/rrd
+  chown -R ${quiet} ${ntopuser}: ${ntopdbfilepath}/rrd
+  logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - Ownership/permissions set for ${ntopdbfilepath}/rrd"
+
+  # temporary database path parameter, if one
+  if [ ".${ntopspoolfilepath}" != "." ]; then
+    if [ "${debug}" = "y" ]; then echo "DEBUG: Create set ownership/permissions for ${ntopspoolfilepath}"; fi
+    if ! [ -d "${ntopspoolfilepath}" ]; then
+      mkdir --parents --mode=0711 ${verbose} ${ntopspoolfilepath}
+      logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - Created ${ntopspoolfilepath}"
+      chown -R ${quiet} ${ntopuser}: ${ntopspoolfilepath}
+      logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - Ownership/permissions set for ${ntopspoolfilepath}"
+    fi
+  fi
+ 
+  # access log, if one...
+  if [ ".${ntopaccesslogpath}" != "." ]; then
+    alp=`dirname ${ntopaccesslogpath}`
+    if [ "${debug}" = "y" ]; then echo "DEBUG: Create set ownership/permissions for ${alp}"; fi
+    if ! [ -d "${alp}" ]; then
+      mkdir --parents --mode=0711 ${verbose} ${alp}
+      logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - Created ${ntopaccesslogpath}"
+      chown -R ${quiet} ${ntopuser}: ${alp}
+      logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - Ownership/permissions set for ${ntopaccesslogpath}"
+    fi
+  fi
+
+  # output path, if one...
+  if [ ".${ntopoutputpacketpath}" != "." ]; then
+    if [ "${debug}" = "y" ]; then echo "DEBUG: Create set ownership/permissions for ${ntopoutputpacketpath}"; fi
+    if ! [ -d "${ntopoutputpacketpath}" ]; then
+      mkdir --parents --mode=0711 ${verbose} ${ntopoutputpacketpath}
+      logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - Created ${ntopoutputpacketpath}"
+      chown -R ${quiet} ${ntopuser}: ${ntopoutputpacketpath}
+      logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - Ownership/permissions set for ${ntopoutputpacketpath}"
+    fi
+  fi
+
+  echo ""
+  echo "Running ${prog} to set password - please respond"
+  echo ""
+  $prog --set-admin-password --db-file-path ${ntopdbfilepath}
+  echo ""
+
+  # Fixup the created files for more security.
+  chmod 0600 ${ntopdbfilepath}/ntop_pw.db
+  chmod 0600 ${ntopdbfilepath}/prefsCache.db
+  chown -R ${quiet} ${ntopuser}: ${ntopdbfilepath}/*.db
+  logger -p ${ntopusesyslog} -t ${name}${instance} -- "INITD - Ownership/permissions set for ${ntopdbfilepath}/*.db"
+
+  echo ""
+  echo "Done... ready for ${invoked} start"
+  echo ""
+}
+
+case "$1" in
+  init)
+    init $@
+  ;;
+
+  startdebug)
+    start $@ " -K "
+  ;;
+
+  gdb)
+    gdb $@
+  ;;
+
+  start)
+    start $@
+  ;;
+
+  stop)
+    stop
+  ;;
+
+  restart)
+    restart $@
+  ;;
+
+  condrestart)
+    [ -f /var/lock/subsys/ntop ] && restart || :
+  ;;
+
+  valgrind)
+    valgrind $@
+  ;;
+
+  status)
+    status ntop 
+  ;;
+  *)
+    echo $"Usage: $0 {init|start|stop|restart|condrestart|status}"
+    exit 1
+esac
+
+exit $RETVAL

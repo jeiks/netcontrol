@@ -1,0 +1,155 @@
+# Czech translation of ntop debconf messages.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the ntop package.
+# Miroslav Kure <kurem@debian.cz>, 2008, 2011
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ntop\n"
+"Report-Msgid-Bugs-To: ntop@packages.debian.org\n"
+"POT-Creation-Date: 2011-01-26 00:15-0800\n"
+"PO-Revision-Date: 2011-02-09 18:38+0100\n"
+"Last-Translator: Miroslav Kure <kurem@debian.cz>\n"
+"Language-Team: Czech <debian-l10n-czech@lists.debian.org>\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: string
+#. Description
+#: ../ntop.templates:1001
+msgid "User for the ntop process to run as:"
+msgstr "Uživatel, pod kterým má ntop běžet:"
+
+#. Type: string
+#. Description
+#: ../ntop.templates:1001
+msgid ""
+"Please choose the login that should be used to execute the ntop process. The "
+"use of the root user is not allowed."
+msgstr ""
+"Vyberte přihlášení, pod kterým se má ntop spouštět. Není možné použít "
+"uživatele root."
+
+#. Type: string
+#. Description
+#: ../ntop.templates:1001
+msgid ""
+"The account will be created if it does not already exist, but if you leave "
+"it blank, no login will be created and ntop will not run until manually "
+"configured."
+msgstr ""
+"Pokud zadaný uživatel ještě neexistuje, bude vytvořen. Jestliže ponecháte "
+"prázdné, uživatel se nevytvoří a než ho nastavíte, odmítne ntop pracovat."
+
+#. Type: string
+#. Description
+#: ../ntop.templates:2001
+msgid "Interfaces for ntop to listen on:"
+msgstr "Rozhraní, na kterých má ntop poslouchat:"
+
+#. Type: string
+#. Description
+#: ../ntop.templates:2001
+msgid ""
+"Please enter a comma-separated list of interfaces that ntop should listen on."
+msgstr ""
+"Zadejte prosím mezerami oddělený seznam rozhraní, na kterých má ntop "
+"naslouchat."
+
+#. Type: password
+#. Description
+#: ../ntop.templates:3001
+msgid "Administrator password:"
+msgstr "Správcovské heslo:"
+
+#. Type: password
+#. Description
+#: ../ntop.templates:3001
+msgid ""
+"Please choose a password to be used for the privileged user \"admin\" in "
+"ntop's web interface."
+msgstr ""
+"Zvolte si heslo, které bude používat uživatel „admin“ ve webovém rozhraní "
+"ntopu."
+
+#. Type: password
+#. Description
+#: ../ntop.templates:4001
+msgid "Re-enter password to verify:"
+msgstr "Znovu zadejte heslo pro ověření:"
+
+#. Type: password
+#. Description
+#: ../ntop.templates:4001
+msgid ""
+"Please enter the same password again to verify that you have typed it "
+"correctly."
+msgstr ""
+"Pro ověření, že jste heslo napsali správně, ho prosím zadejte ještě jednou."
+
+#. Type: error
+#. Description
+#: ../ntop.templates:5001
+msgid "Empty password"
+msgstr "Prázdné heslo"
+
+#. Type: error
+#. Description
+#: ../ntop.templates:5001
+msgid ""
+"You entered an empty password, which is not allowed. Please choose a non-"
+"empty password."
+msgstr ""
+"Zadali jste prázdné heslo, což není povoleno. Zadejte prosím neprázdné "
+"heslo."
+
+#. Type: error
+#. Description
+#: ../ntop.templates:6001
+msgid "Password input error"
+msgstr "Chyba zadávání hesla"
+
+#. Type: error
+#. Description
+#: ../ntop.templates:6001
+msgid "The two passwords you entered were not the same. Please try again."
+msgstr "Zadaná hesla nesouhlasí. Zkuste to prosím znovu."
+
+#. Type: boolean
+#. Description
+#: ../ntop.templates:7001
+msgid "Set a new administrator password?"
+msgstr "Nastavit nové správcovské heslo?"
+
+#. Type: boolean
+#. Description
+#: ../ntop.templates:7001
+msgid ""
+"A password for ntop's administrative web interface has already been set."
+msgstr ""
+"Heslo pro správcovský přístup na webové rozhraní ntopu již bylo nastaveno."
+
+#. Type: boolean
+#. Description
+#: ../ntop.templates:7001
+msgid "Please choose whether you want to change that password."
+msgstr "Rozhodněte se, zda toto heslo chcete změnit."
+
+#~ msgid ""
+#~ "The selected user will be created if not already available. Don't choose "
+#~ "root, it is not recommended and will be discarded anyway."
+#~ msgstr ""
+#~ "Pokud zadaný uživatel neexistuje, bude vytvořen. Nezadávejte uživatele "
+#~ "root, protože to není dobrý nápad, který stejně bude ignorován."
+
+#~ msgid ""
+#~ "If you select an empty string no user will be created on the system and "
+#~ "you will need to do that configuration yourself."
+#~ msgstr ""
+#~ "Ponecháte-li prázdné, žádný uživatel se v systému nevytvoří a budete "
+#~ "muset tuto část nastavení provést sami."
+
+#~ msgid "Which is the name of the user to run the ntop daemon as ?"
+#~ msgstr "Pod kterým uživatelem se má daemon ntop spouštět?"

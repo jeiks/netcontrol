@@ -1,0 +1,35 @@
+<xml>
+    <toolbar>
+        <button id="addUser"  text="Adicionar usuário" icon="/dl/core/ui/stock/add.png" />
+        <button id="addGroup" text="Adicionar grupo"   icon="/dl/core/ui/stock/add.png" />
+    </toolbar>
+
+    <label  text="Usuários e grupos de domínio (LDAP)" size="5" />
+    <spacer height="10" />
+    <div style="text-align: center">
+	<label  text="Configure aqui os usuários que efetuarão o acesso ao servidor e às máquinas da rede" size="3" />
+    </div>
+
+    <pad id="main">
+        <hcontainer width="600" height="100%">
+            <scrollcontainer width="400" height="100%">
+            <dt id="userList" width="100%">
+                <dtr header="True">
+                    <dth> <label text="Usuários" /> </dth>
+                    <dth> <label text="Nomes" />    </dth>
+                    <dth width="1" />
+                </dtr>
+            </dt>
+            </scrollcontainer>
+            <spacer width="50" />
+            <scrollcontainer width="200" height="100%">
+            <dt id="groupList" width="100%">
+                <dtr header="True">
+                    <dth> <label text="Grupos" /> </dth>
+                    <dth width="1" />
+                </dtr>
+            </dt>
+            </scrollcontainer>
+        </hcontainer>
+    </pad>
+</xml>

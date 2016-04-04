@@ -1,0 +1,181 @@
+<xml>
+
+    <label text="LDAP Server" size="5" />
+
+    <vcontainer id="boxMessage">
+        <spacer height="50" /> 
+        <hcontainer>
+            <spacer width="40" />
+            <vcontainer>
+                <label text="Foi encontrada a seguinte instalação LDAP nesse servidor:"      size="3" />
+                <spacer height="10" />
+                <label text="" size="2" id="bmDomainW" name="bmDomainW" />
+                <label text="" size="2" id="bmDomain"  name="bmDomain"   />
+                <label text="" size="2" id="bmDN"      name="bmDN"       />
+                <spacer height="40" />
+                <label text="Se você deseja APAGAR toda a base atual e criar uma NOVA base," size="3" />
+                <label text="clique no botão 'Criar nova base LDAP' ."       size="3" />
+            </vcontainer>
+        </hcontainer>
+        <spacer height="20" />
+        <hcontainer>
+            <spacer width="40" />
+            <button id="createNewLdap" text="Criar nova base LDAP" />
+        </hcontainer>
+    </vcontainer>
+
+    <vcontainer id="boxLDAPCreated">
+        <spacer height="50" /> 
+        <hcontainer>
+            <spacer width="40" />
+            <vcontainer>
+                <label text="Sua nova base LDAP acabou de ser criada!" size="3" />
+                <label text="Recarrege esse módulo para verificar seu funcionamento"       size="3" />
+            </vcontainer>
+        </hcontainer>
+        <spacer height="20" />
+    </vcontainer>
+
+
+    <pad id="main">
+      <simpleform name="formNewLdap" id="formNewLdap">
+        <vcontainer>
+            <spacer height="10" />
+            <label text="Complete todos os campos abaixo para criar uma nova base para o LDAP." />
+            <label text="Em caso de dúvidas, posicione o mouse sobre o balão de informação de cada campo." />
+            <spacer height="20" />
+        </vcontainer>
+
+        <dt id="listNewLdap" width="100%">
+            <dtr header="True">
+                <dth>
+                    <label text="Organização" />
+                </dth>
+                <dth>
+                    <textinput name="organization" id="organization" />
+                </dth>
+                <dth>
+                    <tipicon text="A organização é o nome de sua empresa. Ex: Flux Softwares" icon='/dl/core/ui/stock/info.png' />
+                </dth>
+	    </dtr>
+            <dtr header="True">
+                <dth>
+                    <label text="Grupo de Trabalho" />
+                </dth>
+                <dth>
+                    <textinput name="workgroup" id="workgroup" />
+                </dth>
+                <dth>
+                    <tipicon text="É o grupo de trabalho de sua empresa. Ex: WORKGROUP" icon='/dl/core/ui/stock/info.png' />
+                </dth>
+            </dtr>
+
+            <dtr>
+                <dth>
+                    <label text="Domínio" />
+                </dth>
+                <dth>
+                    <textinput name="domain" id="domain" />
+                </dth>
+                <dth>
+                    <tipicon text="O domínio é o site que sua empresa possui. Se for local, você também pode criar um próprio. Porém, o DNS de sua rede deve respondê-lo corretamente. Ex: fluxsoftwares.com" icon='/dl/core/ui/stock/info.png' />
+                </dth>
+           </dtr>
+           <dtr>
+                <dth>
+                    <label text="Cidade" />
+                </dth>
+                <dth>
+                    <textinput name="locality" id="locality" />
+                </dth>
+                <dth>
+                    <tipicon text="Cidade que este servidor se encontra." icon='/dl/core/ui/stock/info.png' />
+                </dth> 
+            </dtr>
+            <dtr>
+                <dth>
+                    <label text="Estado" />
+                </dth>
+                <dth>
+                    <textinput name="state" id="state" />
+                </dth>
+                <dth>
+                    <tipicon text="Estado do país que este servidor se encontra." icon='/dl/core/ui/stock/info.png' />
+                </dth> 
+            </dtr>
+            <dtr>
+                <dth>
+                    <label text="País" />
+                </dth>
+                <dth>
+                    <textinput name="country" id="country" />
+                </dth>
+                <dth>
+                    <tipicon text="País que este servidor se encontra." icon='/dl/core/ui/stock/info.png' />
+                </dth> 
+            </dtr>
+            <dtr>
+                <dth>
+                    <label text="E-mail do responsável" />
+                </dth>
+                <dth>
+                    <textinput name="email" id="email" />
+                </dth>
+                <dth>
+                    <tipicon text="É o e-mail do responsável por este servidor." icon='/dl/core/ui/stock/info.png' />
+                </dth>
+            </dtr>
+            <dtr>
+                <dth>
+                    <label text="Expiração do certificado (dias)" />
+                </dth>
+                <dth>
+                    <textinput name="expiration_days" id="expiration_days" value="99999" />
+                </dth>
+                <dth>
+                    <tipicon text="É o tempo em dias que seu certificado será válido." icon='/dl/core/ui/stock/info.png' />
+                </dth>
+            </dtr>
+            <dtr>
+                <dth>
+                    <label text="Número de Série" />
+                </dth>
+                <dth>
+                    <textinput name="serial" id="serial" value="0007" />
+                </dth>
+                <dth>
+                    <tipicon text="É um número para identificar a série de seus certificados." icon='/dl/core/ui/stock/info.png' />
+                </dth>
+            </dtr>
+            <dtr>
+                <dth>
+                    <label text="Senha" />
+                </dth>
+                <dth>
+                    <textinput name="passwd1" id="passwd1" password="True" />
+                </dth>
+                <dth>
+                    <tipicon text="Digite a senha para o administrador LDAP do seu servidor." icon='/dl/core/ui/stock/info.png' />
+                </dth>
+            </dtr>
+            <dtr>
+                <dth>
+                    <label text="Confirmação de senha" />
+                </dth>
+                <dth>
+                    <textinput name="passwd2" id="passwd2" password="True" />
+                </dth>
+                <dth>
+                    <tipicon text="Você deve digitar a mesma senha digitada no campo anterior." icon='/dl/core/ui/stock/info.png' />
+                </dth>
+            </dtr>
+        </dt>
+        <button onclick="form" form="formNewLdap" action="newLdap" text="Criar nova base LDAP" />
+        <button onclick="form" form="formNewLdap" action="cancelNewLdap" text="Cancelar" id='cancelNewLDAP' />
+      </simpleform>
+      <vcontainer>
+          <spacer height='10' />
+          <label text='' id='msgBoxNewLdap' bold="True" />
+      </vcontainer>
+    </pad>
+</xml>

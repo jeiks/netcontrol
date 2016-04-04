@@ -1,0 +1,64 @@
+=for header
+manpage:  UPDATE-SQUIDGUARD
+section:  1
+title:    SquidGuard documentation
+version:  Version 1.5
+datum:    2012-04-15
+
+=encoding utf8
+
+=head1 NAME
+
+update-squidguard - Update script for SquidGuard.
+
+=head1 SYNOPSIS
+
+B<update-squidguard>
+
+=head1 DESCRIPTION
+
+This script performs a database rebuild for any blacklists listed in
+the default Squidguard config file `/etc/squid/squidGuard.conf'.
+After rebuilding the databases it will reload Squid / Squid3 so that 
+it will make use of the updated lists.
+
+=head1 OPTIONS
+
+=over 4
+
+=item B<-v | --verbose>
+
+Show some more information and switch on progress bar when updating database.
+
+=item B<-c | --checkdb>
+
+Check Berkeley DB version and rebuild full database only if Berkeley DB version
+have changed. This option should be used after upgrade of squidguard to reduce
+wasteful wait time.
+
+=back
+
+=head1 COPYRIGHT and LICENSE
+
+Copyright (C) 2003 Ivan E. Moore II, 2010-2012 Joachim Wiedorn
+
+This script is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License version 2 as
+published by the Free Software Foundation.
+
+On Debian systems, the complete text of the GNU General Public
+License version 2 can be found in `/usr/share/common-licenses/GPL-2'.
+
+=head1 AUTHOR
+
+B<update-squidguard> was written by Ivan E. Moore II and updated 
+by Joachim Wiedorn.
+
+This manual page was written by Joachim Wiedorn <ad_debian at joonet.de>
+for the Debian project (and may be used by others).
+
+=head1 SEE ALSO
+
+B<squidGuard>(1), B<squid>(1), B<sgclean>(1), B<hostbyname>(1)
+
+=cut

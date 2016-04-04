@@ -1,0 +1,30 @@
+<xml>
+    <toolbar id="path">
+        <button id="paste" text="Paste here" icon="/dl/core/ui/stock/paste.png" />
+        <button id="newfld" text="New folder" icon="/dl/fm/newfolder.png" />
+        <button id="close" text="Close tab" icon="/dl/core/ui/stock/dialog-cancel.png" />
+    </toolbar>
+
+    <spacer height="10" />
+
+    <simpleform id="files">
+    <dt id="list" width="765">
+        <dtr header="True">
+            <dth />
+            <dth width="40%">
+                <label text="Name" />
+            </dth>
+            <dth width="12%">
+                <label text="Size" />
+            </dth>
+            <dth width="15%">
+                <label text="Owner" />
+            </dth>
+            <dth>
+                <label text="Access" />
+            </dth>
+            <dth width="1" />
+        </dtr>
+    </dt>
+    </simpleform>
+</xml>

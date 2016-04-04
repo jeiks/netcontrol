@@ -1,0 +1,19 @@
+This directory contains the raw files (except for the ones copied
+from the normal cvs such as 1STRUN.txt) used to build the rpms
+posted at SourceForge.
+
+
+
+
+For reference the rpms are normally built on tigger, which is
+a RedHat 9 machine, using the buildmeister userid.
+
+tigger is kept pretty much upto date on various packages.
+
+-----Burton (March 2004)
+
+
+For 3.1 these were built on a VirtualPC2004 machine (Zebra not Tigger).
+
+-----Burton (Jan 2005)
+

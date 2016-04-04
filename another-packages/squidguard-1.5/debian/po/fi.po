@@ -1,0 +1,39 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: squidguard\n"
+"Report-Msgid-Bugs-To: squidguard@packages.debian.org\n"
+"POT-Creation-Date: 2008-03-27 08:29+0100\n"
+"PO-Revision-Date: 2008-03-30 20:40+0200\n"
+"Last-Translator: Esko Arajärvi <edu@iki.fi>\n"
+"Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Finnish\n"
+"X-Poedit-Country: FINLAND\n"
+
+#. Type: boolean
+#. Description
+#: ../squidguard.templates:1001
+msgid "Rebuild Squidguard blacklist database during postinst?"
+msgstr ""
+"Tulisiko Squidguardin mustien listojen tietokanta rakentaa uudelleen "
+"asennuksen jälkeen?"
+
+#. Type: boolean
+#. Description
+#: ../squidguard.templates:1001
+msgid ""
+"Rebuilding the blacklist databases is time consuming and under some "
+"circumstances could cause problems.  With the breakout of individual "
+"blacklist section packages the time it takes for each package to rebuild "
+"will be extensive.  Also it may not be desireable to rebuild these databases "
+"on production servers.  You can manually perform a rebuild by running /usr/"
+"sbin/update-squidguard."
+msgstr ""
+"Mustien listojen tietokannan rakentaminen uudelleen on aikaa vievää ja "
+"saattaa joissain tilanteissa aiheuttaa ongelmia. Yksittäisten mustan listan "
+"osapakettien irtauduttua kunkin paketin rakentaminen uudelleen kestää kauan. "
+"Paketteja ei myöskään välttämättä haluta rakentaa uudelleen "
+"tuotantopalvelimilla. Uudelleenrakennus voidaan tehdä käsin ajamalla /usr/"
+"sbin/update-squidguard. "

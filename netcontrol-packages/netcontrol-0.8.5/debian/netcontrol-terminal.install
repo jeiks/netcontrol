@@ -1,0 +1,7 @@
+plugins/terminal/config.py	var/lib/netcontrol/plugins/terminal/
+plugins/terminal/files	var/lib/netcontrol/plugins/terminal/
+plugins/terminal/__init__.py	var/lib/netcontrol/plugins/terminal/
+plugins/terminal/layout	var/lib/netcontrol/plugins/terminal/
+plugins/terminal/main.py	var/lib/netcontrol/plugins/terminal/
+plugins/terminal/pyte	var/lib/netcontrol/plugins/terminal/
+plugins/terminal/widgets	var/lib/netcontrol/plugins/terminal/

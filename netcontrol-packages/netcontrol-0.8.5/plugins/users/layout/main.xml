@@ -1,0 +1,102 @@
+<xml>
+    <toolbar>
+        <button id="adduser" text="Adicionar usuário" icon="/dl/core/ui/stock/add.png" />
+        <button id="addgrp" text="Adicionar grupo" icon="/dl/core/ui/stock/add.png" />
+    </toolbar>
+
+    <pad>
+    <tabcontrol id="tabs" active="0">
+        <tabheader pid="tabs" text="Usuários" id="0"/>
+        <tabheader pid="tabs" text="Grupos" id="1"/>
+
+            <tabbody pid="tabs" id="0">
+                <dt id="userlist" width="100%">
+                    <dtr header="True">
+                        <dth width="1" />
+                        <dth>
+                            <label text="Login" />
+                        </dth>
+                        <dth>
+                            <label text="UID" />
+                        </dth>
+                        <dth>
+                            <label text="Diretório Pessoal" />
+                        </dth>
+                        <dth>
+                            <label text="Shell" />
+                        </dth>
+                        <dth width="1" />
+                    </dtr>
+                </dt>
+            </tabbody>
+
+            <tabbody pid="tabs" id="1">
+                <dt id="grouplist">
+                    <dtr header="True" width="100%">
+                        <dth width="1" />
+                        <dth>
+                            <label text="Nome" />
+                        </dth>
+                        <dth>
+                            <label text="GID" />
+                        </dth>
+                        <dth>
+                            <label text="Usuários" />
+                        </dth>
+                        <dth width="1" />
+                    </dtr>
+                </dt>
+            </tabbody>
+    </tabcontrol>
+
+    <dialogbox id="dlgEditUser" hidecancel="True">
+        <formline text="Login">
+            <editable id="elogin" />
+        </formline>
+        <formline text="Senha">
+            <editable id="epassword" value="Click to change" />
+        </formline>
+        <formline text="UID">
+            <editable id="euid" />
+        </formline>
+        <formline text="GID">
+            <editable id="egid" />
+        </formline>
+        <formline text="Diretório pessoal">
+            <editable id="ehome" />
+        </formline>
+        <formline text="Shell">
+            <editable id="eshell" />
+        </formline>
+        <formline text="Grupos">
+            <label id="lblugroups" />
+            <br/>
+            <button text="Adicionar" id="chaddtogroup" />
+            <button text="Remover" id="chdelfromgroup" />
+        </formline>
+        <formline>
+            <button id="deluser" design="danger" text="Apagar usuário" />
+        </formline>
+    </dialogbox>
+
+    <dialogbox id="dlgEditGroup">
+        <formline text="Nome">
+            <editable id="ename" />
+        </formline>
+        <formline text="GID">
+            <editable id="eggid" />
+        </formline>
+        <formline text="Nome">
+            <editable id="ename" />
+        </formline>
+        <formline>
+            <button id="delgroup" design="danger" text="Apagar Grupo" />
+        </formline>
+        <formline text="Usuários">
+            <label id="lblgusers" />
+        </formline>
+    </dialogbox>
+
+    <inputbox id="dlgEdit" />
+    </pad>
+</xml>

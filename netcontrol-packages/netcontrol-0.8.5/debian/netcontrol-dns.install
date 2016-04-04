@@ -1,0 +1,6 @@
+plugins/dns/api.py	var/lib/netcontrol/plugins/dns/
+plugins/dns/dns_resolvconf.py	var/lib/netcontrol/plugins/dns/
+plugins/dns/files	var/lib/netcontrol/plugins/dns/
+plugins/dns/__init__.py	var/lib/netcontrol/plugins/dns/
+plugins/dns/layout	var/lib/netcontrol/plugins/dns/
+plugins/dns/main.py	var/lib/netcontrol/plugins/dns/

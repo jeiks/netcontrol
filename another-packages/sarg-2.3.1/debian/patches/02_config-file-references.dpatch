@@ -1,0 +1,72 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 02_config-file-references.dpatch by Luigi Gangitano <luigi@debian.org>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: No description.
+
+@DPATCH@
+diff -urNad sarg~/sarg-php/sarg-block-it.php sarg/sarg-php/sarg-block-it.php
+--- sarg~/sarg-php/sarg-block-it.php	2010-01-11 16:53:16.000000000 +0100
++++ sarg/sarg-php/sarg-block-it.php	2010-01-11 16:56:42.000000000 +0100
+@@ -25,7 +25,7 @@
+  *
+  */
+ 
+-$filename = "/usr/local/squid/etc/block.txt";
++$filename = "/etc/squid/block.txt";
+ 
+ $url = $_GET['url'];
+ $url = $url."\n";
+diff -urNad sarg~/sarg-php/sarg-squidguard-block.php sarg/sarg-php/sarg-squidguard-block.php
+--- sarg~/sarg-php/sarg-squidguard-block.php	2010-01-11 16:53:59.000000000 +0100
++++ sarg/sarg-php/sarg-squidguard-block.php	2010-01-11 16:57:45.000000000 +0100
+@@ -26,8 +26,8 @@
+  */
+ 
+ // Change to squidGuard and sarg config file paths
+-$SargConf = "/usr/local/sarg/sarg.conf";
+-$squidGuardConf = "/usr/local/squidGuard/squidGuard.conf";
++$SargConf = "/etc/squid/sarg.conf";
++$squidGuardConf = "/etc/squidguard/squidGuard.conf";
+ 
+ global $SargConf;
+ global $dbhome;
+@@ -37,7 +37,6 @@
+ include_once("style.php");
+ 
+ $url = $_GET['url'];
+-$squidGuard_conf = '/usr/local/squidGuard/squidGuard.conf';
+ 
+ function parse_config($line,$clave) {
+    if (preg_match("/dbhome/i", $line)) {
+diff -urNad sarg~/sarg.1 sarg/sarg.1
+--- sarg~/sarg.1	2010-01-11 16:52:37.000000000 +0100
++++ sarg/sarg.1	2010-01-11 16:56:16.000000000 +0100
+@@ -134,11 +134,11 @@
+ .B \-split
+ Split the log file by date in \fB-d\fP parameter.
+ .SH FILES
+-.BR /usr/local/sarg/sarg.conf
++.BR /etc/squid/sarg.conf
+ .br
+ .B /var/log/squid/access.log
+ .br
+-.B /usr/local/squidGuard/logs/squidGuard.log
++.B /var/log/squid/squidGuard.log
+ .SH SEE ALSO
+ squid(8)
+ .SH AUTHOR
+diff -urNad sarg~/user_limit_block sarg/user_limit_block
+--- sarg~/user_limit_block	2010-01-11 16:51:31.000000000 +0100
++++ sarg/user_limit_block	2010-01-11 16:55:30.000000000 +0100
+@@ -24,8 +24,8 @@
+ #
+ #
+ 
+-conf="/usr/local/sarg/sarg.conf"
+-squid_password_file="/usr/local/squid/etc/passwd"
++conf="/etc/squid/sarg.conf"
++squid_password_file="/etc/squid/passwd"
+ tmp="/tmp/sarg_limit.$$"
+ 
+ limit_file=`grep "per_user_limit" $conf|grep -v "#"|awk '{print $2}'`

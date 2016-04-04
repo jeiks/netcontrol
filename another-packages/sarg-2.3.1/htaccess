@@ -1,0 +1,6 @@
+AuthUserFile /usr/local/sarg/passwd
+AuthName "SARG, Squid Analysis Report Generator"
+AuthType Basic
+<Limit GET POST>
+require user admin %u
+</LIMIT>

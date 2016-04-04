@@ -1,0 +1,8 @@
+plugins/ltsp/backend.py	var/lib/netcontrol/plugins/ltsp/
+plugins/ltsp/execute.py	var/lib/netcontrol/plugins/ltsp/
+plugins/ltsp/files	var/lib/netcontrol/plugins/ltsp/
+plugins/ltsp/__init__.py	var/lib/netcontrol/plugins/ltsp/
+plugins/ltsp/layout	var/lib/netcontrol/plugins/ltsp/
+plugins/ltsp/ltsp	var/lib/netcontrol/plugins/ltsp/
+plugins/ltsp/ltsp.conf	var/lib/netcontrol/plugins/ltsp/
+plugins/ltsp/main.py	var/lib/netcontrol/plugins/ltsp/

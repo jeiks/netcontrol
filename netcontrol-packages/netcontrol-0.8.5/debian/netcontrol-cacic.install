@@ -1,0 +1,9 @@
+plugins/cacic/cacicColeta.py	var/lib/netcontrol/plugins/cacic/
+plugins/cacic/files	var/lib/netcontrol/plugins/cacic/
+plugins/cacic/gerenteCacic	var/lib/netcontrol/plugins/cacic/
+plugins/cacic/__init__.py	var/lib/netcontrol/plugins/cacic/
+plugins/cacic/installCacic.py	var/lib/netcontrol/plugins/cacic/
+plugins/cacic/layout	var/lib/netcontrol/plugins/cacic/
+plugins/cacic/main.py	var/lib/netcontrol/plugins/cacic/
+plugins/cacic/pycacic	var/lib/netcontrol/plugins/cacic/
+plugins/cacic/servidor_cacic	var/lib/netcontrol/plugins/cacic/

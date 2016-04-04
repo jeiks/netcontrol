@@ -1,0 +1,11 @@
+python-netcontrolldap (1.0-2) unstable; urgency=low
+
+  * fixed to works with Windows seven
+
+ -- Jacson RC Silva <jeiks@sistemaprolinux.com.br>  Tue, 18 Dec 2012 10:42:17 -0200
+
+python-netcontrolldap (1.0-1) unstable; urgency=low
+
+  * initial release
+
+ -- Jacson RC Silva <jacsonrcsilva@gmail.com>  Wed, 11 Jul 2012 10:56:08 -0300

@@ -1,0 +1,100 @@
+#! /bin/sh
+#
+# Copyright 2001,2002 by Dennis Schoen <ds@teuto.net>
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public
+# License along with this program; if not, write to the Free
+# Software Foundation, Inc., 59 Temple Place, Suite 330, Boston,
+# MA  02111-1307  USA.
+
+set -e
+
+# Source debconf library
+. /usr/share/debconf/confmodule
+
+# Get ntop user
+
+db_get ntop/user
+USER=$RET
+INITCFG=/var/lib/ntop/init.cfg
+db_get ntop/interfaces
+INTERFACES=$RET
+logdir=/var/log/ntop
+libdir=/var/lib/ntop
+
+# Create the log dir
+if ! [ -d "$logdir" ]; then
+    mkdir -p "$logdir"
+fi
+
+# avoid logrotate errors if the ntop package is removed without even starting
+# ntop (see bug #602890)
+touch $logdir/access.log
+
+chown -f root:root "$libdir"
+chown -f root:root "$libdir"/*.db || true
+chown -f root:root "$libdir"/*.cfg || true
+chmod 770 "$libdir"
+
+chgrp -Rf adm "$logdir"
+chmod 2750 "$logdir"
+
+
+if [ -n "$USER" ] ; then
+    # Creating ntop group if he isn't already there
+    if ! grep -q ^"$USER": /etc/passwd; then
+	echo Adding system user: "$USER".
+	adduser --system --group --home /var/lib/ntop --no-create-home --quiet "$USER"
+    fi
+
+    if ! grep -q ^"$USER": /etc/group; then
+        # some older versions of the ntop package did not create the ntop group
+	echo Adding system group: "$USER".
+	addgroup --system "$USER"
+        usermod -g "$USER" "$USER"
+    fi
+
+    # make status dir owned by user
+    if grep -q ^"$USER": /etc/passwd; then
+        # $libdir contains the init.cfg and password file, should not be writable by the ntop user,
+        # but we need the ntop user to be able to create directories inside there
+        chown -f root:$USER "$libdir"
+        # set sticky bit (rwxrwx--T) so only root can remove/rename the init.cfg file
+        chmod -f +t "$libdir"
+	chown -Rf "$USER" "$logdir"
+    fi
+fi
+
+echo USER=\"$USER\" > "$INITCFG"
+echo INTERFACES=\"$INTERFACES\" >> "$INITCFG"
+
+db_get ntop/admin_password
+if [ -n "$RET" ]; then
+    adminpass="$RET"
+    db_set ntop/admin_password ""
+    db_set ntop/admin_password_again ""
+    db_fset ntop/admin_password seen false
+    db_fset ntop/admin_password_again seen false
+    db_reset ntop/password_reset
+    db_fset ntop/password_reset seen false
+    rm -f /var/lib/ntop/ntop_pw.db
+    ntop --set-admin-password="$adminpass"
+elif ! [ -f /var/lib/ntop/ntop_pw.db ]; then
+    adminpass=$(dd if=/dev/urandom bs=1 count=32 2>/dev/null | md5sum | cut -c 1-16)
+    ntop --set-admin-password="$adminpass"
+
+fi
+
+db_stop
+
+#DEBHELPER#

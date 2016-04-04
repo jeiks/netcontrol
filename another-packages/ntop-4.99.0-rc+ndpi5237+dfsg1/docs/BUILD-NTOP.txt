@@ -1,0 +1,218 @@
+
+Quick Instructions
+==================
+
+1. Get and install mandatory packages/tools
+
+      These instructions assume your system is already provided with
+      the normal source compile tools.  Most are gnu packages, available 
+      through http://www.gnu.org or your favorite prebuilt package source.
+
+      Using their RedHat package names, these are:
+
+         - glibc, glibc-devel, gcc, cpp
+         - Some version of awk
+         - libtool (1.4+)
+               Note that there are reports of success with libtool 1.3.x under
+               FreeBSD so the script allows this.
+         - m4
+         - autoconf (2.53+)
+         - automake (1.6+)
+
+         - gdbm, gdbm-devel
+         - libpcap (http://www.tcpdump.org)
+         - librrdtool
+
+1b. Optional packages
+
+         - openssl, openssl-devel (http://www.openssl.org)
+         - zlib, zlib-devel
+
+2. Build ntop
+
+   - cd ntop
+   - ./autogen.sh
+   - make
+   - make install
+
+2.1. Cleanup older versions.
+    During make install, ntop may report a couple of things...
+
+    |  Cleanup of old database files...
+    |
+    |        ...Deleting /usr/share/ntop/addressQueue.db
+    |        ...Deleting /usr/share/ntop/dnsCache.db
+
+    This is normal - since installing a new version could alter the formats,
+    we just wipe them.  ntop will happily recreate these next time and store
+    data in them.
+
+
+    |NOTE: ntop can show traffic by AS (Autonomous System) Number
+    |
+    |      Because this feature consumes a number of MB of memory,
+    |      the datafile is not installed by default.
+    |
+    |      Which, if there is no file - from this or a previous
+    |      install - effectively disables the ASN feature.
+    |
+    |      To install the AS data, type:
+    |
+    |# make install-data-as
+
+    Means pretty much what it says - ntop doesn't install the files
+    by default to conserve memory.  The file wasn't found, so you are
+    being told how to install it.
+
+
+    |  There appear to be old shared library files on your system.
+    |  You may wish to delete these if you are no longer using the
+    |  older versions.
+    |
+    |  To see the list of files, run
+    |
+    |# make listlibclean
+    |
+    |  To delete them (you will have a chance to abort before the
+    |  actual delete):
+    |
+    |# make libclean
+
+    Again, means what it says.  ntop uses the ntop version number in the
+    name of the various .so files (e.g. libntop-3.0pre2.so).  After installing
+    the new version, ntop found other versions (e.g. libntop-3.0pre1.so).  If 
+    you aren't still using that old version (tough since make install overlaid
+    /usr/bin/ntop), this is how to see what files make install things are bad
+    and how to delete them.
+
+
+2.2 Build a static ntop
+
+    Sometimes you want to build ntop statically so that both shared libraries
+    and plugins are included in the main program. In order to do that you need
+    to:
+
+    - cd ntop
+    - ./autogen.sh --enable-static-plugins
+    - make sntop
+
+    The final binary is called sntop (static ntop).
+
+
+3. Run ntop (See 1STRUN.txt)
+
+   - /usr/local/bin/ntop -A -u userid -P directory
+
+          where  userid is the *nix userid you've created - with minimal
+                 permissions - to run ntop
+                 directory is the directory path where ntop will store
+                 it's databases
+
+   - /usr/local/bin/ntop -u userid -P directory ...other parameters...
+
+Compile problems
+================
+
+      First off, READ the output from ./autogen.sh - many issues and
+      problems are reported there.  If you ignore this and blythly try
+      to run make, well, things might be broken.
+
+      The most common problem is an inability to find critical libraries
+      such as libpcap, libpng, etc.
+
+      The problem is that across the universe of *nix systems, libraries
+      get installed in many different locations, making the Makefile
+      incredibly complex.
+
+      Starting with 2.2, ntop no longer goes to extreme lengths to find
+      the .h and lib files.  2.2.1 continues this evolution, to the extent
+      that if a header or library isn't in the standard locations, you
+      MUST tell ntop where to find it. 
+
+      3.0 adds the common /usr/local directories (e.g. /usr/local/include
+      and /usr/local/lib) to the places ntop looks by default.
+
+      (Note that standard locations differ across systems and may not
+       include the common installation location for packages on a particular
+       system, such as /opt - consult the OS documentation!)
+
+      You have two choices...
+
+      1. explicitly tell ./autogen.sh where to find them via a series of
+      --with-xxxx-root=dir parameters.
+
+          Note that if you give both --with-xxxx-lib and --with-xxxx-include,
+          the --with-xxxx-root is ignored.  If you give --with-xxxx-root=xyzzy,
+          it is equivalent to giving --with-xxxx-lib=xyzzy/lib and
+          --with-xxxx-include=xyzzy/include.
+
+      2. Use the LDFLAGS and CPPFLAGS variables, e.g.:
+
+          $ export CPPFLAGS="-lm"
+          $ export LDFLAGS="-L/opt/lib"
+          $ ./autogen.sh ...
+          $ make
+
+         which adds /opt/lib to the loader path and libm (math library
+         in some flavors of *nix) to the list of libraries.
+
+Notes
+=====
+
+   ntop 3.3 (3.2.2+ development)
+
+      Any parameters specified on ./autogen.sh which are not recognized
+      are passed to the generated ./configure:
+
+          $ ./autogen.sh --help
+
+          Starting ntop automatic configuration system v0.2.0
+
+            Please be patient, there is a lot to do...
+
+          This script should help you to configure 'ntop'
+
+          Usage: autogen.sh [OPTION]...
+
+          -h, --help            display this message and exit
+          -v, --version         print version information and exit
+          -d, --debug           enable verbose shell tracing
+          -p, --purge           purge all files which are not part of the source package
+              --noconfig        skip the ./configure execution
+
+          Any unrecognized options will be passed to ./configure, e.g.:
+
+           ./autogen.sh --prefix=/usr
+
+          becomes
+
+           ./configure --prefix=/usr
+
+     To see the parameters which are available on ./configure, you must first
+     create it, by running  ./autogen.sh with the --noconfig option, then run
+     ./configure --help.
+
+   ntop 2.2.1+
+
+      A frozen version of rrd is in the myrrd subdirectory and used
+      by ntop.
+
+      gdchart has been replaced entirely by code in graph.c
+
+      Graphics are no longer optional.
+
+      We no longer include static versions of the helper libraries
+      (gd, libpng and libz).  Instead we use the installed versions,
+      hence the 'increase' in the # of required packages.  
+
+
+----------------------------------------
+Luca Deri <deri@ntop.org> - January 2001
+Updated - June 2002
+Updated - October 2002 (new ./configure scripts)
+Updated - January 2003 (automake 1.6+ vs. 1.5+)
+Updated - July 2003 (2.2.1+ changes)
+Updated - March 2004 (3.0 final changes)
+Updated - May 2006 (replace ./configure with ./autogen.sh)
+Updated - April 2008
+Updated - July 2010

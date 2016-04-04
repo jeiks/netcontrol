@@ -1,0 +1,899 @@
+/*! \file util.c
+\brief Various useful functions.
+*/
+
+
+
+
+
+/*! \var static char mtab1[12][4];
+The list of the months.
+*/
+
+
+
+
+/*! \fn void getword_start(struct getwordstruct *gwarea, char *line)
+Initialize the getword buffer with the given text line.
+
+\param gwarea The getword buffer to initialize.
+\param line The text line to use in the getword buffer.
+*/
+
+
+
+
+
+/*! \fn void getword_restart(struct getwordstruct *gwarea)
+Restart the getword buffer from the beginning.
+
+\param gwarea The getword buffer to reset.
+*/
+
+
+
+
+
+/*! \fn int getword(char *word, int limit, struct getwordstruct *gwarea, char stop)
+
+Extract one "word" from the text line and remove it from the text line. The word's boundary is defined
+by the \a stop character. If multiple stop characters are found after the word, only the first one is
+removed. Therfore, passing the line buffer again to the function will remove the next word in a column
+like manner.
+
+\param word The buffer to store the extracted word.
+\param limit The size of the buffer. If the stop character isn't found before that limit is reached,
+the function displays an error message and returns an error code.
+\param gwarea The getword buffer initialized by getword_start().
+\param stop The character indicating the end of the word.
+
+\retval 0 The word is extracted.
+\retval -1 The stop character was not found before the limit is reached.
+
+*/
+
+
+
+
+
+/*! \fn int getword_limit(char *word, int limit, struct getwordstruct *gwarea, char stop)
+Extract one word with a maximum size and skip any supernumerary bytes until the stop bytes is
+found.
+
+\param word The buffer to store the extracted word.
+\param limit The size of the buffer.
+\param gwarea The getword buffer initialized by getword_start().
+\param stop The character indicating the end of the word.
+
+\retval 0 The word is extracted.
+*/
+
+
+
+
+
+/*! \fn int getword_multisep(char *word, int limit, struct getwordstruct *gwarea, char stop)
+
+Extract one "word" from the text line and remove it from the text line. The word's boundary is defined
+by the \a stop character. All the stop characters following the word are removed too. Therefore, passing
+the line buffer again to the function will remove words even if they are separated by multiple stop
+characters.
+
+\param word The buffer to store the extracted word.
+\param limit The size of the buffer. If the stop character isn't found before that limit is reached,
+the function displays an error message and returns an error code.
+\param gwarea The getword buffer initialized by getword_start().
+\param stop The character indicating the end of the word.
+
+\retval 0 The word is extracted.
+\retval -1 The stop character was not found before the limit is reached.
+
+*/
+
+
+
+
+/*! \fn int getword_skip(int limit, struct getwordstruct *gwarea, char stop)
+Skip one "word" from the text line and remove it from the text line. The word's boundary is defined
+by the \a stop character.
+
+\param limit The maximum number of characters to skip. If the stop character isn't found before that limit is reached,
+the function displays an error message and returns an error code.
+\param gwarea The getword buffer initialized by getword_start().
+\param stop The character indicating the end of the word.
+
+\retval 0 The word is skipped.
+\retval -1 The stop character was not found before the limit is reached.
+*/
+
+
+
+
+
+/*! \fn int getword_atoll(long long int *number, struct getwordstruct *gwarea, char stop)
+Extract one number from the text line.
+
+\param number Where the store the extracted number.
+\param gwarea The getword buffer initialized by getword_start().
+\param stop The character indicating the end of the word.
+
+\retval 0 The number is extracted.
+\retval -1 The stop character was not found after the number.
+*/
+
+
+
+
+/*! \fn int getword_ptr(char *orig_line,char **word, struct getwordstruct *gwarea, char stop)
+Return a pointer to a null terminated string starting at the current position and ending
+and the stop character.
+
+\param orig_line The line that is being parsed.
+\param word A pointer to set to the beginning of the string.
+\param gwarea The getword buffer initialized by getword_start().
+\param stop The character indicating the end of the word.
+
+\retval 0 The word is skipped.
+\retval -1 Invalid \a orig_line passed to the function.
+*/
+
+
+
+
+/*! \fn long long int my_atoll (const char *nptr)
+
+Convert a string into a long long.
+
+\param nptr The string containing the number to convert.
+
+\return The number found in the string or zero if no number was found.
+
+*/
+
+
+
+
+
+/*! \fn static int is_absolute(const char *path)
+
+Tell if the path is absolute. On Unix, a path is absolute if it starts with a /.
+
+On Windows, we also check if the path starts with "x:" where x can be any letter.
+
+\param path The path to check.
+
+\retval 1 The path is absolute.
+\retval 0 The path is relative.
+*/
+
+
+
+
+
+/*! \fn void my_mkdir(const char *name)
+
+Create the directory and all the non existing parent directories.
+
+\param name The absolute directory to create.
+
+*/
+
+
+
+
+
+/*! \fn void my_lltoa(unsigned long long int n, char *s, int ssize, int len)
+
+Format a long long into a string.
+
+\param n The number to format.
+\param s The buffer to write the number.
+\param ssize The size of the output buffer.
+\param len The minimum number of digits to format in the output. If the formatted
+number is less than this length, it is padded with zeros.
+
+*/
+
+
+
+
+
+/*! \fn int builddia(int day, int month, int year)
+
+Return a numerical value made of the date.
+
+\param day The day of the date.
+\param month The number of the month starting from 1.
+\param year The year.
+
+\return The date in an integer format computed as year*10000+month*100+day.
+*/
+
+
+
+
+
+/*! \fn void buildymd(const char *dia, const char *mes, const char *ano, char *wdata)
+Convert the date into a machine format YYYYMMDD.
+
+\param dia The day.
+\param mes The name of the month as spelled in ::mtab1. If the month is invalid, the output date
+is set to month 13.
+\param ano The year.
+\param wdata The buffer to format the date.
+*/
+
+
+
+
+
+/*! \fn int conv_month(int char *month)
+Convert the month's name into its two digits numerical equivalent.
+
+\param month The name of the month as spelled in ::mtab1.
+
+\return The month number on starting from one. If the month name is not in ::mtab1,
+13 is returned.
+*/
+
+
+
+
+
+/*! \fn const char *conv_month_name(int month)
+Convert a month number into a name.
+
+\param month The number of the month in the range 1 to 12.
+
+\return The name of the month from ::mtab1 unless the month number is not between 1 and 12
+in which case, the number is returned encoded on 3 characters. If the number is
+invalid, the returned string is static and will be reused by any subsequent call to this
+function with an invalid month number.
+*/
+
+
+
+
+
+/*! \fn void name_month(char *month,int month_len)
+Get the name of the month according to the language file selected by the user.
+
+\param month The number of the month. It is replaced by the month's name if the number is between
+1 and 12 or by the name of December if the number is invalid.
+\param month_len The size of the \a month buffer.
+
+*/
+
+
+
+
+
+/*! \fn void debuga(const char *msg,...)
+Write a debug message to stderr. The message is prefixed by "SARG:" to identify its origin.
+
+\param msg The printf like message to format.
+\param ... The arguments to format in the message.
+
+*/
+
+
+
+
+
+/*! \fn void debugaz(const char *head, const char *msg)
+Write a debug message to stderr with the value of a parameter. The message is prefixed by "SARG: (util)".
+
+\param head The name of the parameter.
+\param msg The value of the parameter.
+*/
+
+
+
+
+
+/*! \fn char *fixnum(long long int value, int n)
+Rewrite a number to make it more readable. The number may be written
+with the suffix K, M, G or T depending on its magnitude or the digits
+are grouped by three and separated by a dot or a comma.
+
+\param value The number to format.
+\param n If the number is abreviated and this parameter is true then append
+the suffix K, M, G or T if necessary. If it is zero, the number is shortened
+but no suffix is written.
+
+\return A static buffer containing the formatted number. It is overwritten on the next
+call of this function.
+
+*/
+
+
+
+
+
+/*! \def MAXLEN_FIXNUM
+The size of the buffer to format a number in fixnum().
+*/
+
+
+
+
+
+/*! \fn char *fixnum2(long long int value, int n)
+Format a number by grouping the digits by three and separating the groups by
+a dot or a comma.
+*/
+
+
+
+
+/*! \def MAXLEN_FIXNUM2
+The size of the buffer to format a number in fixnum2().
+*/
+
+
+
+
+
+/*! \fn void buildhref(char * href)
+Replace the path given as argument by the first part of a HTML tag to link to the given
+directory (the A tag). More precisely, the argument is replaced by <a href=" followed by the given \a href.
+
+\param href The directory to replace by a HTML A tag with the open HREF to it.
+
+*/
+
+
+
+
+
+/*! \fn char *buildtime(long long int elap)
+Write the elapsed time given in milliseconds as a string in the format HH:MM:SS.
+
+\param elap The elapsed time in milliseconds.
+
+\return A static buffer with the formatted time. It is valid until the function is called again.
+*/
+
+
+
+
+
+/*! \fn void obtdate(const char *dirname, const char *name, char *data)
+Get the date stored in the <tt>sarg-date</tt> file of a directory with the connection data.
+
+\param dirname The directory to look for the connection directory.
+\param name The name of the directory whose <tt>sarg-date</tt> file must be read.
+\param data The buffer to store the content of the file. It must be more than 80
+bytes long.
+*/
+
+
+
+
+
+/*! \fn void formatdate(char *date,int date_size,int year,int month,int day,int hour,int minute,int second,int dst)
+Format a date to display it in the report.
+
+\param date The buffer to write the formatted date into.
+\param date_size The size of the buffer.
+\param year The absolute year to format. It must be greater than 1900.
+\param month The month to format. It must be between 1 and 12.
+\param day The day to format starting from 1.
+\param hour The hour to format.
+\param minute The minute to format.
+\param second The second to format.
+\param dst A positive number if the daylight saving is active, zero if it is not active and a negative number if it is unknown.
+*/
+
+
+
+
+
+/*! \fn void computedate(int year,int month,int day,struct tm *t);
+Fill a tm structure with the data of the date.
+
+\param year The full year with century.
+\param month The number of the month starting from one.
+\param day The day of the date.
+\param t The buffer to fill with the date.
+*/
+
+
+
+
+
+/*! \fn int obtuser(const char *dirname, const char *name)
+Get the number of entries stored in a report data directory. The number is read from
+the <tt>sarg-users</tt> file of the report data's directory.
+
+\param dirname The directory containing the reports.
+\param name The name of the report directory whose <tt>sarg-users</tt> file must be read.
+
+\return The number of entries in the report or zero if the file doesn't exists.
+*/
+
+
+
+
+
+/*! \fn void obttotal(const char *dirname, const char *name, char *tbytes, int nuser, char *media)
+Count the total size transfered in a report directory and compute the average number of bytes
+per entry.
+
+\param dirname The directory containing the reports.
+\param name The name of the report directory whose <tt>sarg-general</tt> file must be read.
+\param tbytes A buffer to store the total number of bytes from this report.
+\param nuser The number of entries in the report directory.
+\param media A buffer to store the average number of bytes per entry.
+*/
+
+
+
+
+
+/*! \fn int getperiod_fromsarglog(const char *arqtt,struct periodstruct *period)
+Initialize the period with the content of the first line of a sarg log.
+
+\param arqtt The text at the first line of a sarg log file.
+\param period The period to initialize.
+*/
+
+
+
+
+
+/*! \fn void getperiod_fromrange(struct periodstruct *period,int dfrom,int duntil)
+Fill the period with the specified range.
+
+\param period The period to change.
+\param dfrom The start date in the form year*10000+month*100+day.
+\param duntil The end date in the form year*10000+month*100+day.
+*/
+
+
+
+
+
+/*! \fn int getperiod_buildtext(struct periodstruct *period)
+Build the text to display as the date range of the report.
+
+\param period The object whose text must be contructed.
+
+\retval 0 No error.
+\retval -1 Resulting text too long for buffer.
+*/
+
+
+
+
+
+/*! \fn static void copy_images(void)
+Copy the images (in fact all the files) from the directory ::IMAGEDIR into the output directory
+whose name is in ::outdir.
+*/
+
+
+
+
+
+/*! \fn void vrfydir(const char *per1, const char *addr, const char *site, const char *us, const char *form)
+Create a directory to generate a report for the specified connection data and populate it with the a <tt>sarg-date</tt> file
+containing the current date.
+
+The function also create an <tt>images</tt> directory in \a dir and copy all the files from the <tt>SYSCONFDIR/images</tt> into
+that directory.
+
+\param per1 The date range in the form: YYYYMMMDD-YYYYMMMDD or DDMMMYYYY-DDMMMYYYY depending on the value of
+::DateFormat.
+\param addr The ip address or host name to which the report is limited. If the string is empty, all the addresses are accepted.
+\param site The destination site to which the report is limited. If the string is empty, all the sites are accepted.
+\param us The user to whom the report is limited. It is an empty string if all the users are accepted.
+\param form The email address to which the report is sent. It is currently unused.
+
+*/
+
+
+
+
+
+/*! \fn void strip_latin(char *line)
+Remove any HTML entity from the line. A HTML entity starts with an ampersand and end at the next
+semicolon.
+
+\param line The text whose html entities are to be removed.
+*/
+
+
+
+
+
+/*! \fn void zdate(char *ftime,int ftimesize, const char *DateFormat)
+Format the current date and time according to the date format.
+
+\param ftime The buffer to format the date.
+\param ftimesize The size of the buffer to store the date
+\param DateFormat The format of the date. It can be:
+  \arg u to format as mmm/dd/YYYY HH:MM
+  \arg e to format as dd/mmm/YYYY HH:MM
+  \arg w to format as WW-HH-MM where WW is the week number in the range 00 to 53.
+*/
+
+
+
+
+
+/*! \fn char *fixtime(long int elap)
+Format a "time" into a size or a time formatted as HH:MM:SS.
+
+\param elap The "time" to format in milliseconds if it is a time and into bytes if it is a size.
+
+\return The formatted time.
+
+\bug If the elapsed time is less than 1000ms, the time is formated with the milliseconds as the seconds.
+
+\todo Review this function and documentation based on the calls made to it and the arguments passed by the callers.
+*/
+
+
+
+
+
+/*! \fn void date_from(char *date, int *dfrom, int *duntil)
+Split a date range into a date from and a date until. If the date range
+is not a range but just a single date, it is duplicated to make a range out
+of it.
+
+\param date The date range to split in the form <tt>from-until</tt>. If it is a single date,
+it is transformed into a range like <tt>date-date</tt>. Each date is in the form DD/MM/YYYY.
+\param dfrom A variable to write the start date in the form YYYY*10000+MM*100+DD.
+\param duntil A variable to write the end date in the form YYYY*10000+MM*100+DD.
+*/
+
+
+
+
+
+/*! \fn char *strlow(char *string)
+Convert a string to all lowercases.
+
+\param string The string to convert.
+
+\return A pointer to the string passed as argument.
+*/
+
+
+
+
+
+/*! \fn char *strup(char *string)
+Convert a string to all uppercases.
+
+\param string The string to convert.
+
+\return A pointer to the string passed as argument.
+*/
+
+
+
+
+
+/*! \fn void removetmp(const char *outdir)
+Purge the file <tt>sarg-general</tt> from all the lines but the total.
+
+\param outdir The output directory to purge.
+*/
+
+
+
+
+
+/*! \fn void load_excludecodes(const char *ExcludeCodes)
+Load the list of the HTTP codes to exclude from the report. There must be one code per line.
+Any trailing space is removed and there is no provision for comments.
+
+\param ExcludeCodes The name of the file to load.
+
+This function allocate the memory to store the codes and it must be freed by a call to
+free_excludecodes().
+*/
+
+
+
+
+
+/*! \fn void free_excludecodes(void)
+Free the memory allocated by load_excludecodes().
+*/
+
+
+
+
+/*! \fn int vercode(const char *code)
+Check if the code is contained in the exclusion list loaded by load_excludecodes().
+
+\param code The HTTP code to test.
+
+\retval 1 The code is excluded.
+\retval 0 The code is not excluded.
+*/
+
+
+
+
+
+/*! \fn void fixnone(char *str)
+Find if the string is the word none and clear the string if it matches. The function
+tolerates the trailing spaces and tabulations.
+
+\param str The text to test for the word "none".
+*/
+
+
+
+
+
+/*! \fn void fixendofline(char *str)
+Remove the control codes and spaces at the end of the line. That is, it remove any ASCII
+code less than or equal to 0x20.
+
+\param str The string to truncate.
+*/
+
+
+
+
+/*! \fn int testvaliduserchar(const char *user)
+Tell if the user string contains any invalid character in a user name. The list
+of the invalid characters is defined by ::UserInvalidChar.
+
+\param user The user name to test.
+
+\retval 1 The string contains at least one invalid character.
+\retval 0 The string is valid.
+*/
+
+
+
+
+
+/*! \fn int compar( const void *a, const void *b )
+Compare two integers for bsearch.
+
+\param a A pointer to the first integer.
+\param b A pointer to the second integer.
+
+\retval 1 If a > b.
+\retval 0 If a == b.
+\retval -1 If a < b.
+*/
+
+
+
+
+
+/*! \fn int getnumlist( char *buf, numlist *list, const int len, const int maxvalue )
+Get a comma separated list of numbers and split them into separate values taking into account
+that no value may be greater than a maximum. If a value is in fact a range, it is expended.
+
+Any duplicate value is removed.
+
+\param buf The string with the list of numbers.
+\param list Where to store the numbers.
+\param len The size of the list.
+\param maxvalue The maximum value allowed in the list.
+
+\retval 0 No error.
+\retval -1 Error detected.
+*/
+
+
+
+
+
+/*! \fn void show_info(FILE *fp_ou)
+Write the HTML formatted message to indicate the version of sarg that produced
+the report and when the report was generated.
+
+\param fp_ou The HTML file to which the identification block must be appended.
+*/
+
+
+
+
+
+/*! \fn void show_sarg(FILE *fp_ou, int depth)
+Write the header of the report to tell that it was generated by sarg.
+
+\param fp_ou The handle of the HTML file.
+\param depth How deep is the page in the directory tree. It is used to prepend the images directory name
+with as many .. as necessary. If the page is at the same level as the image directory, the depth is zero.
+*/
+
+
+
+
+
+/*! \fn char *get_size(const char *path, const char *file)
+Get the size, in human readable form and kibibytes, of the content of a directory.
+
+\param path The path containing the directory to scan.
+\param file The last part of the path to the directory to scan.
+
+\return The size of the path.
+*/
+
+
+
+
+/*! \fn void write_html_head(FILE *fp_ou, const char *page_title)
+Write the header of the HTML document. The DTD corresponds to a
+transitional HTML version 4.01. The title of the document is taken from
+the global variable ::Title.
+
+\param fp_ou The file to which the HTML header is written.
+\param title The title of the page.
+*/
+
+
+
+
+
+/*! \fn void write_html_header(FILE *fp_ou, int depth, const char *title)
+Write the HTML header of a HTML report file including the sarg logo and
+the beginning of the header of the report.
+
+The header of the report must be closed by a call to close_html_header().
+
+\param fp_ou The file to which the HTML header is written.
+\param depth How deep is the page in the directory tree. The depth is passed to show_sarg().
+\param title The title of the page.
+*/
+
+
+
+
+
+/*! \fn void close_html_header(FILE *fp_ou)
+Close the header opened by write_html_header().
+
+\param fp_ou The file to which the HTML header is written.
+*/
+
+
+
+
+
+/*! \fn void url_hostname(const char *url,char *hostname,int hostsize)
+Extract the host name from the URL.
+
+\param url The url whose host name must be extracted.
+\param hostname The buffer to store the host name.
+\param hostsize The size of the host name buffer.
+
+\note The function is stupid at this time. It just searches for the first slash
+in the URL and truncates the URL there. It doesn't take the protocol into account
+nor the port number nor any user or password information.
+*/
+
+
+
+
+
+/*! \fn void url_module(const char *url, char *w2)
+Copy at most 254 bytes from the end of the URL or stops at the first /.
+
+\param url The URL to parse.
+\param w2 A buffer to store the copied portion of the URL. The buffer must
+be at least 255 characters long.
+*/
+
+
+
+
+
+/*! \fn void url_to_file(const char *url,char *file,int filesize)
+Mangle an URL to produce a part that can be included in a file.
+
+\param url The URL to mangle.
+\param file The buffer to write the mangled URL.
+\param filesize The size of the buffer.
+*/
+
+
+
+
+
+/*! \fn int write_html_trailer(FILE *fp_ou)
+End the HTML file by closing the centered table that was opened by write_html_header(), writting
+the informations of show_info() and closing the body and html tag. After this function returns, the
+HTML file is complete and nothing should be written to it.
+
+\param fp_ou The HTML file to close. The file handle is not closed but you should not write anything
+to the file after this function returns.
+
+\retval 0 No error.
+\retval -1 Write error.
+*/
+
+
+
+
+
+/*! \fn void version(void)
+Display the current version of sarg and terminate the program.
+*/
+
+
+
+
+
+/*! \fn char *get_param_value(const char *param,char *line)
+Get the value of a parameter formatted in the string as "param value"
+without the quotes.
+
+If the parameter name matches \a param, then the value following the parameter
+is returned. If it doesn't match, the function return NULL.
+
+The function is suitable to parse configuration files because it will ignore
+comments (anything but spaces and tabulations put before the parameter will make
+it unrecognized by this function)
+
+\param param The parameter name that must be found at the beginning of the line
+with possible spaces or tabulations before.
+\param line The text line to search for the parameter and it's value.
+
+\return The beginning of the value after the equal sign and with the possible
+spaces or tabulations removed. If the line doesn't start with the parameter name,
+the function returns NULL.
+
+*/
+
+
+
+
+
+/*! \fn void write_logo_image(FILE *fp_ou)
+Write a link of the logo of the organisation that generate the report in the HTML file. The logo
+is written in a centered table.
+
+\param fp_ou The handle of the HTML file being written.
+*/
+
+
+
+
+
+/*! \fn void output_html_string(FILE *fp_ou,const char *str,int maxlen)
+Write a string in a file and replace the problematic ASCII characters by their equivalent HTML entities.
+
+\param fp_ou The handle of the output file.
+\param str The string to output.
+\param maxlen The maximum number of bytes to write from the string. Set to zero to have no limit.
+
+If the string is longer than the requested length, only the requested number of bytes are output and
+the string is truncated and ended by &hellip;.
+*/
+
+
+
+
+
+/*! \fn void output_html_url(FILE *fp_ou,const char *url)
+Write an URL into the file and replace any & by &amp;.
+
+\param fp_ou The handle of the output file.
+\param url The URL to output.
+*/
+
+
+
+
+
+/*! \fn void unlinkdir(const char *dir,int contentonly)
+Delete a directory and its content.
+
+\param dir The name of the directory to delete.
+\param contentonly \c True to delete only the content of the directory and leave the directory
+itself in place. If set to \c zero, the directory is removed too.
+*/
+

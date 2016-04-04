@@ -1,0 +1,15 @@
+<xml>
+    <dialogbox id="dlgConfigure">
+        <label text="Configure os valores máximos:" size="2" />
+        <br />
+        <label id="max" />
+        <br />
+        <hcontainer>
+            <label text="Bom - " />
+            <textinput name="lim_susp" id="limit_susp" size="5" />
+            <label text=" - Suspeito - " />
+            <textinput name="lim_dang" id="limit_dang" size="5" />
+            <label text=" - Perigoso" />
+        </hcontainer>
+    </dialogbox>
+</xml>

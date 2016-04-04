@@ -1,0 +1,69 @@
+Package:     squidguard
+Subject:     Update links in documentation files
+Author:      Joachim Wiedorn <ad_debian at joonet.de>
+Forwarded:   no
+Last-Update: 2012-04-13
+
+Use current links in doc/configure.txt and doc/extended.txt.
+---
+
+diff -urN s01/doc/configure.txt s04/doc/configure.txt
+--- s01/doc/configure.txt	2007-11-16 17:58:32.000000000 +0100
++++ s04/doc/configure.txt	2012-04-13 23:39:20.828436270 +0200
+@@ -131,13 +131,13 @@
+ 
+ References
+ 
+-   1. http://squidguard.shalla.de/index.html
+-   2. http://squidguard.shalla.de/Doc/index.html
+-   3. http://squidguard.shalla.de/download.html
+-   4. http://squidguard.shalla.de/blacklists.html
+-   5. http://squidguard.shalla.de/addsoft.html
+-   6. http://squidguard.shalla.de/Doc/install.html
+-   7. http://squidguard.shalla.de/Doc/configure.html
+-   8. http://squidguard.shalla.de/Doc/extended.html
+-   9. http://squidguard.shalla.de/Doc/known_issues.html
+-  10. http://squidguard.shalla.de/Doc/extended.html
++   1. http://www.squidguard.org/index.html
++   2. http://www.squidguard.org/Doc/index.html
++   3. http://www.squidguard.org/download.html
++   4. http://www.squidguard.org/blacklists.html
++   5. http://www.squidguard.org/addsoft.html
++   6. http://www.squidguard.org/Doc/install.html
++   7. http://www.squidguard.org/Doc/configure.html
++   8. http://www.squidguard.org/Doc/extended.html
++   9. http://www.squidguard.org/Doc/known_issues.html
++  10. http://www.squidguard.org/Doc/extended.html
+diff -urN s01/doc/extended.txt s04/doc/extended.txt
+--- s01/doc/extended.txt	2007-11-16 17:58:32.000000000 +0100
++++ s04/doc/extended.txt	2012-04-13 23:39:20.828436270 +0200
+@@ -120,16 +120,16 @@
+ 
+ References
+ 
+-   1. http://squidguard.shalla.de/index.html
+-   2. http://squidguard.shalla.de/Doc/index.html
+-   3. http://squidguard.shalla.de/download.html
+-   4. http://squidguard.shalla.de/blacklists.html
+-   5. http://squidguard.shalla.de/addsoft.html
+-   6. http://squidguard.shalla.de/Doc/install.html
+-   7. http://squidguard.shalla.de/Doc/configure.html
+-   8. http://squidguard.shalla.de/Doc/extended.html
+-   9. http://squidguard.shalla.de/Doc/known_issues.html
+-  10. http://squidguard.shalla.de/Doc/extended.html#notIP
+-  11. http://squidguard.shalla.de/Doc/extended.html#times
+-  12. http://squidguard.shalla.de/Doc/extended.html#sourceIP
+-  13. http://squidguard.shalla.de/Doc/extended.html#blocklog
++   1. http://www.squidguard.org/index.html
++   2. http://www.squidguard.org/Doc/index.html
++   3. http://www.squidguard.org/download.html
++   4. http://www.squidguard.org/blacklists.html
++   5. http://www.squidguard.org/addsoft.html
++   6. http://www.squidguard.org/Doc/install.html
++   7. http://www.squidguard.org/Doc/configure.html
++   8. http://www.squidguard.org/Doc/extended.html
++   9. http://www.squidguard.org/Doc/known_issues.html
++  10. http://www.squidguard.org/Doc/extended.html#notIP
++  11. http://www.squidguard.org/Doc/extended.html#times
++  12. http://www.squidguard.org/Doc/extended.html#sourceIP
++  13. http://www.squidguard.org/Doc/extended.html#blocklog

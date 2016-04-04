@@ -1,0 +1,84 @@
+<xml>
+    <toolbar>
+        <button id="add" text="Adicionar Zona" icon="/dl/core/ui/stock/add.png" />
+        <button id="restart" text="Aplicar alterações" icon="/dl/core/ui/stock/service-restart.png" />
+    </toolbar>
+ 
+    <label text="Zonas" size="5" />
+ 
+    <pad id="main">
+        <tabcontrol id="tabs" active="0">
+
+        <tabheader pid="tabs" text="Lista de Zonas" id="0"/>
+        <tabheader pid="tabs" text="Editar Zonas"   id="1"/>
+
+            <tabbody pid="tabs" id="0">
+                <dt id="listzones" width="100%">
+                    <dtr header="True">
+                        <dth> <label text="Nome" /> </dth>
+                        <dth> <label text="Tipo" /> </dth>
+                        <dth> <label text="Arquivo DB" /> </dth>
+                        <dth width="1" />
+                    </dtr>
+                </dt>
+            </tabbody>
+
+            <tabbody pid="tabs" id="1">
+                <label id="labelZonas" text="Zonas:" size="5" />
+                <simpleform id="frmEditZone" name="frmEditZone">
+                    <select id="selectZones" name="selectZones">
+                    </select>
+                </simpleform>
+                <simpleform id="frmEditDB" name="frmEditDB">
+                    <div id="divEditZone">
+                    </div>
+                </simpleform>
+            </tabbody>
+        </tabcontrol>
+
+    <dialogbox id="dlgEditZone" width="100%">
+        <formline text="Nome da Zona">
+            <textinput id="name" name="name" />
+        </formline>
+        <formline text="Tipo">
+            <!-- <textinput id="type" name="type" /> -->
+            <selectinput id="type" name="type">
+                <selectoption text="master" value="master" />
+                <selectoption text="slave"  value="slave"  />
+            </selectinput>
+        </formline>
+        <formline text="Arquivo DB">
+            <textinput id="file" name="file" value="/etc/bind/localzones/db." />
+        </formline>
+    </dialogbox>
+
+    <dialogbox id="dlgEditSOA" width="100%">
+        <formline text="Novo valor:">
+            <textinput id="SOAValue" name="SOAValue" />
+        </formline>
+    </dialogbox>
+
+    <dialogbox id="dlgEditDirective" width="100%">
+        <formline text="Novo valor:">
+            <textinput id="DirectiveValue" name="DirectiveValue" />
+        </formline>
+    </dialogbox>
+
+    <dialogbox id="dlgRestartBind">
+        <vcontainer>
+            <label text="Status:" />
+            <vcontainer name="bindCmd" id="bindCmd">
+            </vcontainer>
+        </vcontainer>
+    </dialogbox>
+
+    <dialogbox id="dlgAddRecord" width="100%">
+        <formline id="textTypeRecord" text="Tipo de Registro">
+            <selectinput id="typeRecord" name="typeRecord">
+                    <!-- Selects serao adicionados aqui -->
+            </selectinput>
+        </formline>
+    </dialogbox>
+
+    </pad>
+</xml>

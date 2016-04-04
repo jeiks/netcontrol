@@ -1,0 +1,80 @@
+#!/bin/bash
+### BEGIN INIT INFO
+# Provides:          netcontrol-backup
+# Required-Start:
+# Required-Stop:     
+# Should-Start:      glibc hwclock
+# Default-Start:     S
+# Default-Stop:      
+# Short-Description: NetControl restore backup
+# Description:       NetControl restore backup
+### END INIT INFO
+
+# Author: Jacson RC Silva <jacsonrcsilva@gmail.com>
+#
+
+PATH=/sbin:/usr/sbin:/bin:/usr/bin
+DESC="NetControl Backup"
+NAME=netcontrol
+SCRIPTNAME=/etc/init.d/$NAME
+
+. /lib/init/vars.sh
+
+. /lib/lsb/init-functions
+
+do_start()
+{
+    CONF_FILE=/etc/netcontrol-backup
+    if [ ! -f "$CONF_FILE" ];then
+        exit 0
+    fi
+    ARQ=$(cat "$CONF_FILE")
+
+    if [ -z "$ARQ" ];then
+        exit 0
+    fi
+
+    if [ ! -f "$ARQ" ];then
+        exit 0
+    fi
+
+    tar tf "$ARQ" || exit 0
+
+    rm -rf /etc.OLD || true
+    rm -rf /var/lib/ldap.OLD || true
+    mv /etc /etc.OLD || true
+    mv /var/lib/ldap /var/lib/ldap.OLD || true
+
+    tar xvf "$ARQ" -C /
+    if [ ! -d /etc ];then
+        mv /etc.OLD /etc
+    fi
+    if [ ! -d /var/lib/ldap ];then
+        mv /var/lib/ldap.OLD /var/lib/ldap
+    fi
+
+    uidGid=$(grep openldap /etc/passwd | cut -d: -f3,4)
+    if [ -n "$uidGid" ];then
+        chown -R $uidGid /var/lib/ldap
+    fi
+
+    echo > /etc/netcontrol-backup
+    reboot
+}
+
+case "$1" in
+  start)
+	[ "$VERBOSE" != no ] && log_daemon_msg "Starting $DESC" "$NAME"
+	do_start
+	case "$?" in
+		0|1) [ "$VERBOSE" != no ] && log_end_msg 0 ;;
+		2) [ "$VERBOSE" != no ] && log_end_msg 1 ;;
+	esac
+	;;
+  *)
+	echo "Usage: $SCRIPTNAME {start}" >&2
+	exit 0
+	;;
+esac
+
+:

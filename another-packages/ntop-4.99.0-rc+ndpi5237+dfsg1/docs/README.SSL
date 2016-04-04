@@ -1,0 +1,13 @@
+How to create your own SSL certificate
+--------------------------------------
+
+1) Get OpenSSL from http://www.openssl.org
+
+2) Compile and install OpenSSL
+
+3) make ntop-cert.pem
+
+4) You certificate is now stored in ntop-cert.pem
+
+-----
+Luca Deri <deri@ntop.org> - December 2001

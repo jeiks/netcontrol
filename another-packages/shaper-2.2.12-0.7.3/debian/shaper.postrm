@@ -1,0 +1,17 @@
+#! /bin/sh -e
+
+#DEBHELPER#
+
+if [ "$1" = purge ]; then
+    if [ -d /etc/shaper ]; then
+	rmdir --ignore-fail-on-non-empty /etc/shaper
+    fi
+
+    # Clean up the cache.
+    rm -f /var/cache/shaper/cbq.init
+    if [ -d /var/cache/shaper ]; then
+	rmdir --ignore-fail-on-non-empty /var/cache/shaper
+    fi
+fi
+
+exit 0

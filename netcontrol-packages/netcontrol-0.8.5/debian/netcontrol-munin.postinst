@@ -1,0 +1,24 @@
+#!/bin/bash
+# postinst script for netcontrol
+
+set -e
+
+case "$1" in
+    configure)
+        netcontrol-pkg upgrade
+        sed -i 's;Allow from.*;Allow from all;' /etc/apache2/conf.d/munin || true
+        /etc/init.d/apache2 force-reload || true
+	    /etc/init.d/netcontrol restart   || true
+    ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
+        echo
+    ;;
+
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+
+exit 0

@@ -1,0 +1,89 @@
+<xml> 
+<div style="margin-left:30px;">
+    <toolbar>
+	<button text="Apagar configurações" id="apagar_conf" name="apagar_conf"/>
+	<tipicon text="Apagar todas as configurações feitas." icon='/dl/core/ui/stock/info.png' />
+    </toolbar>
+    <spacer height="10" />
+    <simpleform id="cad_banda">
+        <label text="Controle de Banda configurado para." size="2" />
+        <dt>
+	  <dtr>
+	      <dth><radio text="MBytes" name="medida" id="medida" value="MBytes" /></dth>
+	      <dth><radio text="KBytes" name="medida" id="medida" value="KBytes" /></dth>
+	      <dth><textinput name="banda" id="banda" /></dth>
+	      <dth id="tipo_medida" name="tipo_medida"></dth>
+	  </dtr>
+	  <dtr>
+	      <dth colspan="2"><label text="Interface com o link." size="2" /></dth>
+	      <dth><select name="interface" id="interface" ></select></dth>
+	      <dth><tipicon text="Defina qual interface o controle de banda será efetuado." icon='/dl/core/ui/stock/info.png' /></dth>
+	  </dtr>
+	  <dtr>
+	      <dth colspan="4"><div style="text-align:center;"><button id="cadastrar_banda" text="Redefinir configuração" action="cadastrar_banda" onclick="form" form="cad_banda" /></div>
+	      </dth>
+	  </dtr>
+        </dt>
+    </simpleform>
+    <spacer height="10" />
+    <simpleform id="cad_ip">
+        <label text="Cadastrar um novo IP." size="2" />
+        <dt>
+            <dtr>
+	      <dth><label text="IP" size="2"/></dth>
+	      <dth><textinput name="ip" id="ip" /></dth>
+	      <dth><tipicon text="IP do computador a ser adicionado a banda" icon='/dl/core/ui/stock/info.png' /></dth>
+            </dtr>
+            <dtr>
+	      <dth><label text="Mascara do IP" size="2"/></dth>
+	      <dth><select name="mascara" id="mascara" ></select></dth>
+	      <dth><tipicon text="Defina a mascara do IP" icon='/dl/core/ui/stock/info.png' /></dth>
+            </dtr>
+            <dtr>
+	      <dth>
+		<label text="Banda" size="2"/>
+		  <dt>
+		    <dtr>
+		      <dth><radio text="MBytes" name="medida_pc" id="medida_pc" value="Mbits" /></dth><dth><radio text="KBytes" name="medida" id="medida" value="Kbits"/></dth>
+		    </dtr>
+		  </dt>
+	      </dth>
+	      <dth><textinput name="banda_pc" id="banda_pc" /></dth>
+	      <dth><tipicon text="Quantidade de Banda" icon='/dl/core/ui/stock/info.png' /></dth>
+            </dtr>
+            <dtr>
+	      <dth><label text="Identificação do computador" size="2"/></dth>
+	      <dth><textinput name="id_pc" id="id_pc" /></dth>
+	      <dth><tipicon text="Identificação para o computador" icon='/dl/core/ui/stock/info.png' /></dth>
+            </dtr>
+            <dtr>
+                <dth colspan="3">
+                    <div style="text-align:center;"><button id="cadastrar_ip" text="Cadastrar IP" action="cadastrar_ip" onclick="form" form="cad_ip" /></div>
+                </dth>
+            </dtr>
+        </dt>
+        <vcontainer id="error" name="error">
+	</vcontainer>
+    </simpleform>
+    <spacer height="10" />
+    <simpleform id="lista_de_ips">
+    <label text="IPs com banda definida." size="2"/>
+        <dt id="list">
+            <dtr header="True">
+                <dth>
+                    <label text="IP" />
+                </dth>
+                <dth>
+                    <label text="Banda" />
+                </dth>
+                <dth>
+                    <label text="Nome do Computador" />
+                </dth>
+                <dth>
+                    <tipicon text="Atenção se você clicar nesse botão todos os filtros serão apagados !!!" id="apagar_filtros" name="apagar_filtros" icon='/dl/core/ui/stock/delete.png'/>
+                </dth>
+            </dtr>
+        </dt>
+        </simpleform>
+</div>
+</xml>

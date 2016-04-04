@@ -1,0 +1,7 @@
+plugins/munin/client.py	var/lib/netcontrol/plugins/munin/
+plugins/munin/config.py	var/lib/netcontrol/plugins/munin/
+plugins/munin/files	var/lib/netcontrol/plugins/munin/
+plugins/munin/__init__.py	var/lib/netcontrol/plugins/munin/
+plugins/munin/layout	var/lib/netcontrol/plugins/munin/
+plugins/munin/main.py	var/lib/netcontrol/plugins/munin/
+plugins/munin/widget.py	var/lib/netcontrol/plugins/munin/

@@ -1,0 +1,122 @@
+###############################################################################
+#           ______  ___    ___   ___  _____      ____   __   ____             #
+#           |  _  \ \  \  /  / /  __| |    \    / ___| |  | /  __|            #
+#           | |_/  | \  \/  / / /     | |\ \   | /     |  | |  /              #
+#           |  ___/   \   /  | |  _  |   _  \  | |   _ |  | | |  _            #
+#           |  |      /  /   | \_/ | |  | \  \ |  \_/ ||  | | \_/ |           #
+#           |__|     /__/    \____/ |__|   \__\ \____/ |__|  \____/           #
+#                                                                             #
+#                                                       versão 2.4            #
+#                                                                             #
+###############################################################################
+
+
+ 1. SOBRE
+ 
+ CACIC: Primeiro Software Público do Governo Federal, resultado do Consórcio de 
+ Cooperação entre a SLTI - Secretaria de Logística Tecnologia da Informação, do 
+ Ministério do Planejamento, Orçamento e Gestão - MPOG e a DATAPREV - Empresa de 
+ Tecnologia e Informações da Previdência Social, desenvolvido pelo Escritório 
+ Regional da DATAPREV no Espírito Santo.
+
+ O Cacic é capaz de fornecer um diagnóstico preciso do parque computacional e 
+ disponibilizar informações como o número de equipamentos e sua distribuição nos mais 
+ diversos órgãos, os tipos de softwares utilizados e licenciados, configurações de 
+ hardware, entre outras. Também pode fornecer informações patrimoniais e a localização 
+ física dos equipamentos, ampliando o controle do parque computacional e a segurança 
+ na rede.
+ 
+ 	fonte: http://www.softwarepublico.gov.br/ver-comunidade?community_id=3585
+ 
+ 
+ 
+  2. GERANDO OS PACOTES
+ 
+    Com gerador de pacotes criado (ver passo anterior) basta extrai-lo em 
+    qualquer diretório e executar o arquivo "mkpackage.sh" (como super usuário),
+    que está dentro do diretório "pycacic", e depois preencher os dados 
+    solicitados (é necessário ter instalado na máquina o Python 2.3 ou 
+    superior - http://www.python.org/download/).
+    
+       + Endereço do  Servidor : endereço do host aonde está o gerente web, 
+                                 incluindo o protocolo (http:// ou https://).
+                                 *ex*: 
+                                    http://meu_servidor/
+                                    http://192.168.0.254/
+    OBS: O ip NÃO pode ser da interface loopback(127.0.0.1 ou localhost), nesse caso utilize o IP de LAN da máquina.
+    
+        
+    Após confirmar os dados acima, outra confirmação é requisita sobre a
+    invocação automática, ou não, do coletor de patrimônio (mapacacic).
+    Habilitando então o menu para a escolha dos pacotes no qual deseja 
+    gera-los.
+    
+       1 - Pacote .deb
+             Usado para distribuíções Debian e/ou outras baseadas nela.
+             É necessário possuir instalado o "dpkg".
+             
+       2 - Pacote .rpm
+             Usado para distribuições com tal suporte, como por exemplo:
+             Red Hat, CentOS, Fedora, etc.
+             É necessário possuir instalado o "rpmbuild" (geralmente pacote rpm).
+             
+       3 - Pacote genérico .tgz
+             Usado para distribuições que não possuem suporte aos tipos 
+             de pacotes acima (deb, rpm). Instalação genérica, funcional
+             em todas as distribuíções.
+             
+       4 - Pacote de Update (.tgz)
+             É o pacote que deve ser disponibilizado para update pelo 
+             gerente web para os agentes (pycacic).
+       
+       5 - Fecha o programa.
+       
+    
+    
+ 3. INSTALAÇÃO
+   
+       1 - Pacote .deb
+             Pode ser instalado tanto pela interface gráfica quanto por 
+             linha de comando (terminal):
+                 + Interface Gráfica
+                        Basta dar dois cliques no ícone do pacote e seguir 
+                        as orientações do seu gerenciador de pacotes.
+                 
+                 + Linha de Comando
+                        Estando no mesmo diretório do pacote executar o 
+                        seguinte comando (como root ou sudo): "dpkg -i <nome_do_pacote.deb>"
+             
+       2 - Pacote .rpm
+             Pode ser instalado tanto pela interface gráfica quanto por 
+             linha de comando (terminal).:
+                 + Interface Gráfica
+                        Basta dar dois cliques no ícone do pacote e seguir 
+                        as orientações do seu gerenciador de pacotes.
+                 
+                 + Linha de Comando
+                        Estando no mesmo diretório do pacote executar o 
+                        seguinte comando (como root ou sudo): "rpm -ivh <nome_do_pacote.rpm>".
+                          
+       3 - Pacote genérico .tgz
+             Com o pacote gerado, basta extrai-lo em qualquer diretório
+             e executar (como root ou sudo) o arquivo pycacic.install (./pycacic.install). 
+    
+ 4. EQUIPE
+  
+ A equipe de desenvolvimento do PyCacic é composta pelos funcionários e estagiários
+ da DATAPREV (Empresa de Processamento de Dados da Previdência Social - Unidade 
+ Regional do Espírito Santo). Sendo os integrantes:
+ 
+ 	ANDERSON ARARIPE PETERLE
+ 	ANDERSON ROBERTO PEREIRA
+	JORGE ANTONIO MACEDO DE MELLO
+	LEONARDO POPIK BASTOS
+	ROGERIO ALENCAR LINO FILHO
+	SYLVIO ROBERTO COUTINHO DA SILVA
+	ULYSSES RANGEL RIBEIRO 
+ 
+ Contando também com a participação e contribuíção da Comunidade do Cacic no Portal 
+ do Software Público Brasileiro:
+ 
+ 	http://www.softwarepublico.gov.br/ver-comunidade?community_id=3585
+ 

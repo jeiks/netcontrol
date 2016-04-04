@@ -1,0 +1,4 @@
+<dialogbox id="resposta_sshd">
+        <vcontainer id="resposta" name="resposta">
+        </vcontainer>
+</dialogbox>

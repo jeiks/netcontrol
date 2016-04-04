@@ -1,0 +1,5 @@
+plugins/notepad/config.py	var/lib/netcontrol/plugins/notepad/
+plugins/notepad/files	var/lib/netcontrol/plugins/notepad/
+plugins/notepad/__init__.py	var/lib/netcontrol/plugins/notepad/
+plugins/notepad/layout	var/lib/netcontrol/plugins/notepad/
+plugins/notepad/main.py	var/lib/netcontrol/plugins/notepad/

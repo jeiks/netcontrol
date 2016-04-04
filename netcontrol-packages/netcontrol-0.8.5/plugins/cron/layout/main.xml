@@ -1,0 +1,201 @@
+<xml>
+    <toolbar>
+        <hcontainer>
+            <button id="add_task" text="Adicionar tarefa" icon="/dl/cron/add-task.png" />
+            <button id="add_oth" text="Adicionar non-task" icon="/dl/core/ui/stock/add.png" />
+            <div style="padding: 0 5px">
+            <simpleform id="frmUser">
+                <hcontainer spacing="5">
+                    <select id="users_select" name="users_select" />
+                    <button id="change_user" text="Alterar usuário" action="OK" form="frmUser" onclick="form"/>
+                </hcontainer>
+            </simpleform>
+            </div>
+        </hcontainer>
+    </toolbar>
+
+    <label id="title" text="Tarefas agendadas" size="5" />
+
+    <pad>
+        <tabcontrol id="tabs">
+                <tabheader pid="tabs" text="Tarefas" id="0" active="True" />
+                <tabheader pid="tabs" text="Non-task" id="1"/>
+                <tabbody pid="tabs" id="0" active="True">
+                    <dt id="table_task" width="100%">
+                        <dtr header="True">
+                            <dth>
+                                <label text="Minutos" />
+                            </dth>
+                            <dth>
+                                <label text="Horas" />
+                            </dth>
+                            <dth>
+                                <label text="Dias" />
+                            </dth>
+                            <dth>
+                                <label text="Meses" />
+                            </dth>
+                            <dth>
+                                <label text="Dia da Semana" />
+                            </dth>
+                            <dth>
+                                <label text="Comando" />
+                            </dth>
+                            <dth width="1" />
+                        </dtr>
+                    </dt>
+                </tabbody>
+
+                <tabbody pid="tabs" id="1">
+                    <dt id="table_other" width="100%"> 
+                        <dtr header="True">
+                            <dth>
+                                <label text="String" />
+                            </dth>
+                            <dth width="1" />
+                        </dtr>
+                    </dt>
+                </tabbody>
+        </tabcontrol>
+
+        <dialogbox id="dlgEditTask" hideok="True" hidecancel="True" title='Edit task'>
+            <tabcontrol id="tabsEdit" active="0">
+                    <tabheader pid="tabsEdit" text="Regular" id="11" active="True" />
+                    <tabheader pid="tabsEdit" text="Advanced" id="12"/>
+                    <tabheader pid="tabsEdit" text="Special" id="13"/>
+                    <tabbody pid="tabsEdit" id="11" active="True">
+                        <tabcontrol id="tabsRegular">
+                                <tabheader pid="tabsRegular" text="De minuto a minuto" id="15" active="True" />
+                                <tabheader pid="tabsRegular" text="De hora em hora" id="16"/>
+                                <tabheader pid="tabsRegular" text="Diariamente" id="17"/>
+                                <tabheader pid="tabsRegular" text="Semanalmente" id="18"/>
+                                <tabheader pid="tabsRegular" text="Mensalmente" id="19"/>
+                                <tabbody pid="tabsRegular" id="15" active="True">
+                                    <formbox id="frmTempMinutes">
+                                        <formline text="Intervalo (minutos)">
+                                            <textinput name="minutes" design="mini" />
+                                        </formline>
+                                        <formline text="Commando">
+                                            <textinput name="command" design="xlarge" />
+                                        </formline>
+                                    </formbox>
+                                </tabbody>
+
+                                <tabbody pid="tabsRegular" id="16">
+                                    <formbox id="frmTempHours">
+                                        <formline text="Intervalo (horas)">
+                                            <textinput name="hours" design="mini" />
+                                        </formline>
+                                        <formline text="Iniciar no minuto">
+                                            <select id="minute_select_h" name="minute_select_h" class="mini" />
+                                        </formline>
+                                        <formline text="Commando">
+                                            <textinput name="command" design="xlarge" />
+                                        </formline>
+                                    </formbox>
+                                </tabbody>
+
+                                <tabbody pid="tabsRegular" id="17">
+                                    <formbox id="frmTempDays">
+                                        <formline text="Intervalo (dias)">
+                                            <textinput name="days" design="mini" />
+                                        </formline>
+                                        <formline text="Iniciar às">
+                                            <select id="hour_select_d" name="hour_select_d" class="mini" />
+                                            <label text=":" />
+                                            <select id="minute_select_d" name="minute_select_d" class="mini" />
+                                        </formline>
+                                        <formline text="Commando">
+                                            <textinput name="command" design="xlarge" />
+                                        </formline>
+                                    </formbox>
+                                </tabbody>
+
+                                <tabbody pid="tabsRegular" id="18">
+                                    <formbox id="frmTempWeek">
+                                        <formline text="Dia da semana">
+                                            <select id="weekday_select" name="weekday_select" />
+                                        </formline>
+                                        <formline text="Iniciar às">
+                                            <select id="hour_select_w" name="hour_select_w" class="mini" />
+                                            <label text=":" />
+                                            <select id="minute_select_w" name="minute_select_w" class="mini" />
+                                        </formline>
+                                        <formline text="Commando">
+                                            <textinput name="command" design="xlarge" />
+                                        </formline>
+                                    </formbox>
+                                </tabbody>
+                                <tabbody pid="tabsRegular" id="19">
+                                    <formbox id="frmTempMonths">
+                                        <formline text="Intervalo (meses)">
+                                            <textinput name="months" design="mini" />
+                                        </formline>
+                                        <formline text="Iniciar às">
+                                            <select id="hour_select_m" name="hour_select_m" class="mini" />
+                                            <label text=":" />
+                                            <select id="minute_select_m" name="minute_select_m" class="mini" />
+                                        </formline>
+                                        <formline text="Dia">
+                                            <select id="day_select" name="day_select" class="mini" />
+                                            <label text=" " />
+                                        </formline>
+                                        <formline text="Commando">
+                                            <textinput name="command" design="xlarge" />
+                                        </formline>
+                                    </formbox>
+                                </tabbody>
+                        </tabcontrol>
+                    </tabbody>
+
+                    <tabbody pid="tabsEdit" id="12">
+                        <formbox id="frmAdvanced">
+                            <formline text="Minutos">
+                                <textinput id="m" name="m" />
+                            </formline>
+                            <formline text="Horas">
+                                <textinput id="h" name="h" />
+                            </formline>
+                            <formline text="Dias do mês">
+                                <textinput id="dom" name="dom" />
+                            </formline>
+                            <formline text="Meses">
+                                <textinput id="mon" name="mon" />
+                            </formline>
+                            <formline text="Dias da Semana">
+                                <textinput id="dow" name="dow" />
+                            </formline>
+                            <formline text="Commando">
+                                <textinput id="a_command" name="a_command" />
+                            </formline>
+                        </formbox>
+                    </tabbody>
+
+                   <tabbody pid="tabsEdit" id="13">
+                       <formbox id="frmSpecial">
+                            <formline text="Executar">
+                                        <radio value='reboot' text='Ao reiniciar' id='rreboot' name='special' />
+                                        <radio value='hourly' text='De hora em hora' id='rhourly' name='special' />
+                                        <radio value='daily' text='Diariamente' id='rdaily' name='special' />
+                                        <radio value='weekly' text='Semanalmente' id='rweekly' name='special' />
+                                        <radio value='monthly' text='Mensalmente' id='rmonthly' name='special' />
+                                        <radio value='yearly' text='Anualmente' id='ryearly' name='special' />
+                            </formline>
+                            <formline text="Commando">
+                                <textinput id="s_command" name="s_command" />
+                            </formline>
+                       </formbox>
+                    </tabbody>
+            </tabcontrol>
+
+        </dialogbox>
+
+
+        <dialogbox id="dlgEditOther" title='Editar non-task'>
+            <vcontainer>
+                <label text="Editar string"/>
+                <textinput id="other_str" name="other_str" />
+            </vcontainer>
+        </dialogbox>
+    </pad>
+</xml>

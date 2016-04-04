@@ -1,0 +1,43 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: sarg-squidGuard 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-02-10 09:30-0300\n"
+"PO-Revision-Date: 2005-02-10 09:30-0300\n"
+"Last-Translator: Jacques Grillot <Jacques.Grillot@grouperdi.com>\n"
+"Language-Team: French\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: sarg-squidguard-block2.php:10
+msgid "Could not open the file"
+msgstr "Ne peut pas ouvrir le fichier"
+
+#: sarg-squidguard-block2.php:19
+msgid "Write error"
+msgstr "Erreur d'ecriture"
+
+#: sarg-squidguard-block2.php:23
+msgid "Done!"
+msgstr "Fait!"
+
+#: sarg-squidguard-block2.php:27
+msgid "Return"
+msgstr "revenir"
+
+#: sarg-squidguard-block2.php:30
+msgid " to Sarg."
+msgstr " a Sarg"
+
+#: sarg-squidguard-block.php:29
+msgid "Sarg-SquidGuard - URL Blocking"
+msgstr "Sarg-SquidGuard - Blocage d'URL"
+
+#: sarg-squidguard-block.php:33
+msgid "Choose the rule set where"
+msgstr "Choisissez la regle qui"
+
+#: sarg-squidguard-block.php:36
+msgid "will by added"
+msgstr "sera ajoutee"

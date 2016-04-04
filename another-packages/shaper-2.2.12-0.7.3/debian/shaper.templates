@@ -1,0 +1,15 @@
+Template: shaper/kernel-modules
+Type: error
+_Description: shaper needs some kernel modules
+ In order to use the programs in this package, you need the shaper,
+ sch_cbq, sch_tbf, sch_sfq, sch_prio, cls_fw, cls_u32, and cls_route kernel
+ modules. Some of these (${missing}) can't be seen on your system currently.
+ There are several possibilities. You may have compiled them into your kernel
+ statically (as opposed to building them as modules), in which case you may
+ discard this message. If, however, they aren't available at all (either as
+ modules or as compiled-in drivers), you will need to either recompile your
+ kernel or use a different kernel-image package. Please read
+ /usr/share/doc/shaper/README.Debian for more details.
+ .
+ Once again, if you have these features compiled directly into your kernel,
+ then please ignore this note.

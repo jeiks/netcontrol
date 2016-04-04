@@ -1,0 +1,19 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+FLAGS := CFLAGS=" -g -O2 " CXXFLAGS=" -g -O2 " FFLAGS=" -g -O2 "
+
+%:
+	dh $@
+
+override_dh_auto_configure: 
+	dh_auto_configure -- --with-db=/usr $(FLAGS) \
+		--with-ldap=yes --with-ldap-lib=/usr/lib \
+		--with-sg-config=/etc/squidguard/squidGuard.conf \
+		--with-sg-logdir=/var/log/squidguard \
+		--with-sg-dbhome=/var/lib/squidguard/db
+
+override_dh_install: 
+	dh_install
+	chmod a+x debian/squidguard/usr/lib/squidguard/*
+

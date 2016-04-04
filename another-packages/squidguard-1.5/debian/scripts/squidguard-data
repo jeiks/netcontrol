@@ -1,0 +1,65 @@
+#!/bin/sh
+#
+#       squidguard-data  -  script for updating database for SquidGuard
+#
+#       Copyright 2011-2012 Joachim Wiedorn <ad_debian at joonet.de>
+#       
+#       This program is free software; you can redistribute it and/or modify
+#       it under the terms of the GNU General Public License version 2 as
+#       published by the Free Software Foundation.
+#       
+#       This program is distributed in the hope that it will be useful,
+#       but WITHOUT ANY WARRANTY; without even the implied warranty of
+#       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#       GNU General Public License for more details.
+#       
+#       You should have received a copy of the GNU General Public License
+#       along with this program; if not, write to the Free Software
+#       Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+#       MA 02110-1301, USA.
+
+set -e
+LANG=C
+
+LIST=shallalist
+SUF=.tar.gz
+AKT=${LIST}${SUF}
+OLD=${LIST}_old${SUF}
+
+LINK=http://www.shallalist.de/Downloads
+
+BASE=/var/lib/squidguard
+DATA=${BASE}/db
+ZIP=${BASE}/zip
+test -d ${DATA} || mkdir -p ${DATA}
+test -d ${ZIP} || mkdir -p ${ZIP}
+
+cd ${ZIP}
+
+if test -e ${AKT}; then mv ${AKT} ${OLD}; fi
+
+echo "Download new database ($LIST) ..."
+if wget --timeout=120 --no-check-certificate ${LINK}/${AKT}
+then
+    echo "Download done."
+
+    if test -f ${ZIP}/${AKT}; then
+        echo -n "Update database ($LIST) ..."
+        tar -xzf ${ZIP}/${AKT}  -C ${DATA}
+        chown -R proxy:proxy ${DATA}
+        chmod -R 2750 ${DATA}
+        echo " done."
+    fi
+else
+    if test -e ${AKT}; then rm -f ${AKT}; fi
+    if test -e ${OLD}; then mv ${OLD} ${AKT}; fi
+    echo "Download failed - new database ($LIST) not found!"
+    echo "Abort!"
+    exit 1
+fi
+
+echo; echo
+
+# finally start update of Berkeley DB
+update-squidguard
+

@@ -1,0 +1,11 @@
+<xml>
+    <pad id="main">
+        <div style="text-align: center">
+            <h2>Utilização da Rede</h2>
+        </div>
+        <br/>
+        <div id="content" style="text-align: center">
+            <button id="showNtop" name="showNtop" icon="/dl/core/ui/stock/info.png" text="Abrir informações da rede" />
+        </div>
+    </pad>
+</xml>

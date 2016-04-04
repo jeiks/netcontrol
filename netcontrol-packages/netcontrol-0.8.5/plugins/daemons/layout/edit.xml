@@ -1,0 +1,59 @@
+<xml>
+    <dialogbox id="dlgEdit">
+
+    <tabcontrol id="tabs">
+        <tabheader pid="tabs" text="Geral" id="0" active="True" />
+        <tabheader pid="tabs" text="Saída" id="1"/>
+        <tabheader pid="tabs" text="Respawn" id="2"/>
+
+        <tabbody pid="tabs" id="0" active="True">
+            <formline text="Nome">
+                <textinput name="name" id="name" />
+            </formline>
+            <formline text="Comando" help="Somente caminhos absolutos">
+                <textinput name="command" id="command" />
+            </formline>
+            <formline text="Usuário">
+                <textinput name="user" id="user" />
+            </formline>
+            <formline text="Umask">
+                <textinput name="umask" id="umask" />
+            </formline>
+            <formline text="Chroot">
+                <textinput name="chroot" id="chroot" />
+            </formline>
+            <formline text="Diretório de trabalho">
+                <textinput name="chdir" id="chdir" />
+            </formline>
+        </tabbody>
+
+        <tabbody pid="tabs" id="1">
+            <formline text="Log de saída">
+                <textinput name="output" id="output" />
+            </formline>
+            <formline text="Log Stdout">
+                <textinput name="stdout" id="stdout" />
+            </formline>
+            <formline text="Log Stderr">
+                <textinput name="stderr" id="stderr" />
+            </formline>
+        </tabbody>
+
+        <tabbody pid="tabs" id="2">
+            <formline text="Respawn">
+                <checkbox text="Habilitar" name="respawn" id="respawn" />
+            </formline>
+            <formline text="Contador">
+                <textinput name="attempts" id="attempts" />
+            </formline>
+            <formline text="Deplay">
+                <textinput name="delay" id="delay" />
+            </formline>
+            <formline text="Limite">
+                <textinput name="limit" id="limit" />
+            </formline>
+        </tabbody>
+
+    </tabcontrol>
+    </dialogbox>
+</xml>

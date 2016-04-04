@@ -1,0 +1,27 @@
+shaper for Debian
+-----------------
+
+For instructions on how to use /etc/init.d/shaper, please read
+/usr/share/doc/shaper/README.shaper.gz
+
+The Linux Traffic Shaper is supported by kernels 2.0.36 and later in the 2.0
+series, and of course any kernels in the 2.2 series and above.
+
+The shaper package installs an init script which sets up CBQ (class-based
+queueing) based on configuration files in /etc/shaper. This is done using the
+tools in the iproute package. They require a kernel in the 2.2 series or
+later, with the following options compiled into the kernel or available as
+modules:
+
+  CONFIG_NET_SCH_CBQ
+  CONFIG_NET_SCH_TBF
+  CONFIG_NET_SCH_SFQ
+  CONFIG_NET_SCH_PRIO
+  CONFIG_NET_CLS_FW
+  CONFIG_NET_CLS_U32
+  CONFIG_NET_CLS_ROUTE4
+
+Also see the documentation in the iproute package for the basic kernel
+support needed to use the iproute tools at all.
+
+ -- Colin Watson <cjwatson@debian.org>  Sat, 13 Jul 2002 16:05:00 +0100

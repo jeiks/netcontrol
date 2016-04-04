@@ -1,0 +1,182 @@
+# ntop translation to spanish
+# Copyright (C) 2004 Software in the Public Interest
+# This file is distributed under the same license as the ntop package.
+#
+# Changes:
+# - Initial translation
+#       Rudy Godoy <rudy@kernel-panik.org>, 2006
+#       Ricardo Fraile <rikr@esdebian.org>, 2011
+#
+#
+#  Traductores, si no conoce el formato PO, merece la pena leer la
+#  documentación de gettext, especialmente las secciones dedicadas a este
+#  formato, por ejemplo ejecutando:
+#         info -n '(gettext)PO Files'
+#         info -n '(gettext)Header Entry'
+#
+# Equipo de traducción al español, por favor lean antes de traducir
+# los siguientes documentos:
+#
+# - El proyecto de traducción de Debian al español
+#   http://www.debian.org/intl/spanish/coordinacion
+#   especialmente las notas de traducción en
+#   http://www.debian.org/intl/spanish/notas
+#
+# - La guía de traducción de po's de debconf:
+#   /usr/share/doc/po-debconf/README-trans
+#   o http://www.debian.org/intl/l10n/po-debconf/README-trans
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ntop 3.2\n"
+"Report-Msgid-Bugs-To: ntop@packages.debian.org\n"
+"POT-Creation-Date: 2011-01-26 00:15-0800\n"
+"PO-Revision-Date: 2011-02-01 09:35+0100\n"
+"Last-Translator: Rudy Godoy <rudy@kernel-panik.org>\n"
+"Language-Team: Debian l10n Spanish Team <debian-l10n-spanish@lists.debian>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: string
+#. Description
+#: ../ntop.templates:1001
+msgid "User for the ntop process to run as:"
+msgstr "Usuario con el que se ejecutará ntop:"
+
+#. Type: string
+#. Description
+#: ../ntop.templates:1001
+msgid ""
+"Please choose the login that should be used to execute the ntop process. The "
+"use of the root user is not allowed."
+msgstr ""
+"Por favor, escoja el usuario con el que se ejecutará el proceso de ntop. "
+"Elusuario «root» no está permitido."
+
+#. Type: string
+#. Description
+#: ../ntop.templates:1001
+msgid ""
+"The account will be created if it does not already exist, but if you leave "
+"it blank, no login will be created and ntop will not run until manually "
+"configured."
+msgstr ""
+"La cuenta se creará si no existe, pero si la deja en blanco,no se crear�"
+"� ninguna cuenta y ntop no se ejecutará hasta que no seconfigure "
+"manualmente."
+
+#. Type: string
+#. Description
+#: ../ntop.templates:2001
+msgid "Interfaces for ntop to listen on:"
+msgstr "Interfaces en las que escuchará ntop:"
+
+#. Type: string
+#. Description
+#: ../ntop.templates:2001
+msgid ""
+"Please enter a comma-separated list of interfaces that ntop should listen on."
+msgstr ""
+"Por favor introduzca la lista de las interfaces, separada por comas, en las "
+"que debe escuchar ntop."
+
+#. Type: password
+#. Description
+#: ../ntop.templates:3001
+msgid "Administrator password:"
+msgstr "Contraseña del administrador:"
+
+#. Type: password
+#. Description
+#: ../ntop.templates:3001
+msgid ""
+"Please choose a password to be used for the privileged user \"admin\" in "
+"ntop's web interface."
+msgstr ""
+"Por favor, escoja una contraseña para el usuario privilegiado «admin» en "
+"la intefaz web de ntop."
+
+#. Type: password
+#. Description
+#: ../ntop.templates:4001
+msgid "Re-enter password to verify:"
+msgstr "Vuelva a introducir la contraseña para comprobarla:"
+
+#. Type: password
+#. Description
+#: ../ntop.templates:4001
+msgid ""
+"Please enter the same password again to verify that you have typed it "
+"correctly."
+msgstr ""
+"Por favor, introduzca la misma contraseña nuevamente para comprobar que la "
+"ha introducido correctamente."
+
+#. Type: error
+#. Description
+#: ../ntop.templates:5001
+msgid "Empty password"
+msgstr "Contraseña vacía"
+
+#. Type: error
+#. Description
+#: ../ntop.templates:5001
+msgid ""
+"You entered an empty password, which is not allowed. Please choose a non-"
+"empty password."
+msgstr ""
+"Ha introducido una contraseña vacía y no está permitido. Por favor, "
+"escojauna contraseña con contenido."
+
+#. Type: error
+#. Description
+#: ../ntop.templates:6001
+msgid "Password input error"
+msgstr "Error en la introducción de la contraseña"
+
+#. Type: error
+#. Description
+#: ../ntop.templates:6001
+msgid "The two passwords you entered were not the same. Please try again."
+msgstr ""
+"Las dos contraseñas introducidas no son las mismas. Por favor, inténtelo "
+"de nuevo."
+
+#. Type: boolean
+#. Description
+#: ../ntop.templates:7001
+msgid "Set a new administrator password?"
+msgstr "¿Desea establecer una nueva contraseña para el administrador?"
+
+#. Type: boolean
+#. Description
+#: ../ntop.templates:7001
+msgid ""
+"A password for ntop's administrative web interface has already been set."
+msgstr "La contraseña para la interfaz administrativa de ntop se ha definido."
+
+#. Type: boolean
+#. Description
+#: ../ntop.templates:7001
+msgid "Please choose whether you want to change that password."
+msgstr "Por favor, escoja si quiere cambiar la contraseña."
+
+#~ msgid ""
+#~ "The selected user will be created if not already available. Don't choose "
+#~ "root, it is not recommended and will be discarded anyway."
+#~ msgstr ""
+#~ "Se crearÃ¡ el usuario si no existe. No introduzca root, no se aconseja, "
+#~ "y si lo hace se descartarÃ¡ en cualquier caso."
+
+#~ msgid ""
+#~ "If you select an empty string no user will be created on the system and "
+#~ "you will need to do that configuration yourself."
+#~ msgstr ""
+#~ "No se crearÃ¡ ningÃºn usuario en el sistema si no introduce nada aquÃ­, "
+#~ "por lo que usted tendrÃ¡ que hacer la configuraciÃ³n necesaria."
+
+#~ msgid "Which is the name of the user to run the ntop daemon as ?"
+#~ msgstr "Â¿CuÃ¡l es el usuario que debe ejecutar el demonio ntop?"

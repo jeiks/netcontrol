@@ -1,0 +1,70 @@
+# Vietnamese translation for shaper.
+# Copyright © 2005 Free Software Foundation, Inc.
+# Clytie Siddall <clytie@riverland.net.au>, 2005.
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: shaper 2.2.12-0.7.3-1\n"
+"Report-Msgid-Bugs-To: dbharris@debian.org\n"
+"POT-Creation-Date: 2006-10-24 14:19+0200\n"
+"PO-Revision-Date: 2005-07-14 21:14+0930\n"
+"Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
+"Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"X-Generator: LocFactoryEditor 1.2.2\n"
+
+#. Type: note
+#. Description
+#: ../shaper.templates:3
+msgid "shaper needs some kernel modules"
+msgstr "shaper cần một số mô-đun hạt nhân"
+
+#. Type: note
+#. Description
+#: ../shaper.templates:3
+msgid ""
+"In order to use the programs in this package, you need the shaper, sch_cbq, "
+"sch_tbf, sch_sfq, sch_prio, cls_fw, cls_u32, and cls_route kernel modules. "
+"Some of these (${missing}) can't be seen on your system currently. There are "
+"several possibilities. You may have compiled them into your kernel "
+"statically (as opposed to building them as modules), in which case you may "
+"discard this message. If, however, they aren't available at all (either as "
+"modules or as compiled-in drivers), you will need to either recompile your "
+"kernel or use a different kernel-image package. Please read /usr/share/doc/"
+"shaper/README.Debian for more details."
+msgstr ""
+"Để sử dụng những chương trình trong gói tin này, bạn cần cài đặt những mô-"
+"đun hạt nhân:\n"
+" • shaper\n"
+" • sch_cbq\n"
+" • sch_tbf\n"
+" • sch_sfq\n"
+" • sch_prio\n"
+" • cls_fw\n"
+" • cls_u32\n"
+" • cls_route\n"
+"\n"
+"Trong hệ thống bạn hiện thời không có một số mô-đun này (${missing}). Có vài "
+"lý do có thể.\n"
+"\n"
+"Có lẽ bạn đã biên dịch những mô-đun này một cách tĩnh (như trái ngược với "
+"xây dụng chúng là mô-đun): trong trường hợp này bạn có thể bỏ thông điệp "
+"này.\n"
+"\n"
+"Tuy nhiên, nếu không có những mô-đun này trong hệ thống bạn (hoặc mô-đun "
+"hoặc trình điều khiển có sẵn) thì bạn sẽ cần phải hoặc biên dịch lại hạt "
+"nhân hoặc sử dụng một gói tin ảnh hạt nhân khác. Hãy đọc tập tin Đọc đi «/"
+"usr/share/doc/shaper/README.Debian» để tìm chi tiết."
+
+#. Type: note
+#. Description
+#: ../shaper.templates:3
+msgid ""
+"Once again, if you have these features compiled directly into your kernel, "
+"then please ignore this note."
+msgstr ""
+"Như nói trên, nếu bạn đã biên dịch những tính năng này một cách trực tiếp "
+"vào hạt nhân thì có thể bỏ qua thông điệp này."

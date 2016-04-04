@@ -1,0 +1,34 @@
+<xml>
+    <dialogbox id="dlgInfo" hidecancel="True">
+        <formline text="Nome">
+            <label id="name" />
+        </formline>
+        <formline text="Comando">
+            <label id="cmd" />
+        </formline>
+        <formline text="UID">
+            <label id="uid" />
+        </formline>
+        <formline text="GID">
+            <label id="gid" />
+        </formline>
+        <formline text="Tempo de CPU">
+            <label id="times" />
+        </formline>
+        <formline id="parentRow" text="Pai">
+            <label id="parent" />
+            <button id="parentinfo" text="Info" />
+        </formline>
+
+        <hcontainer>
+            <button text="Suspender" id="suspend" />
+            <button text="Retomar" id="resume" />
+
+            <simpleform id="frmKill">
+                <select id="sigs" name="signal" />
+                <button onclick="form" form="frmKill" action="OK" text="Matar" />
+            </simpleform>
+        </hcontainer>
+
+    </dialogbox>
+</xml>

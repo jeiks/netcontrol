@@ -1,0 +1,69 @@
+#
+#    Translators, if you are not familiar with the PO format, gettext
+#    documentation is worth reading, especially sections dedicated to
+#    this format, e.g. by running:
+#         info -n '(gettext)PO Files'
+#         info -n '(gettext)Header Entry'
+#
+#    Some information specific to po-debconf are available at
+#            /usr/share/doc/po-debconf/README-trans
+#         or http://www.debian.org/intl/l10n/po-debconf/README-trans
+#
+#    Developers do not need to manually edit POT or PO files.
+#
+# Initial translation by Thomas Morin <Thomas.Morin@maisel-gw.enst-bretagne.fr>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: shaper 2.2.12-0.7-3\n"
+"Report-Msgid-Bugs-To: dbharris@debian.org\n"
+"POT-Creation-Date: 2006-10-24 14:19+0200\n"
+"PO-Revision-Date: 2003-09-09 22:58+0100\n"
+"Last-Translator: Christian Perrier <bubulle@debian.org>\n"
+"Language-Team: French <debian-l10n-french@lists.debian.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: note
+#. Description
+#: ../shaper.templates:3
+msgid "shaper needs some kernel modules"
+msgstr "Shaper a besoin de certains modules du noyau"
+
+#. Type: note
+#. Description
+#: ../shaper.templates:3
+msgid ""
+"In order to use the programs in this package, you need the shaper, sch_cbq, "
+"sch_tbf, sch_sfq, sch_prio, cls_fw, cls_u32, and cls_route kernel modules. "
+"Some of these (${missing}) can't be seen on your system currently. There are "
+"several possibilities. You may have compiled them into your kernel "
+"statically (as opposed to building them as modules), in which case you may "
+"discard this message. If, however, they aren't available at all (either as "
+"modules or as compiled-in drivers), you will need to either recompile your "
+"kernel or use a different kernel-image package. Please read /usr/share/doc/"
+"shaper/README.Debian for more details."
+msgstr ""
+"Pour utiliser les programmes de ce paquet, vous devez avoir accès aux "
+"modules du noyau suivants : shaper, sch_cbq, sch_tbf, sch_sfq, sch_prio, "
+"cls_fw, cls_u32, et cls_route. Certains d'entre eux (${missing}) ne sont pas "
+"disponibles pour le moment sur votre système. Plusieurs explications sont "
+"possibles pour cela :\n"
+" - ils sont peut-être compilés statiquement (et non sous forme de\n"
+"   modules) dans le noyau que vous utilisez, auquel cas vous pouvez\n"
+"   ignorer ce message ;\n"
+" - ils sont peut-être réellement manquants et vous devrez alors\n"
+"   recompiler le noyau ou utiliser un autre paquet « kernel-package ».\n"
+"Veuillez consulter le fichier /usr/share/doc/shaper/README.Debian pour "
+"obtenir des informations détaillées."
+
+#. Type: note
+#. Description
+#: ../shaper.templates:3
+msgid ""
+"Once again, if you have these features compiled directly into your kernel, "
+"then please ignore this note."
+msgstr ""
+"Notez bien que si ces fonctionnalités sont directement compilées dans le "
+"noyau que vous utilisez, vous pouvez ignorer cet avertissement."

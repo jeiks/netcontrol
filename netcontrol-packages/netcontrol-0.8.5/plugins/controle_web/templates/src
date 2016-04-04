@@ -1,0 +1,4 @@
+src [[NAME]] {
+         ldapusersearch  ldap://localhost/cn=[[GROUP]],ou=Groups,[[BINDDN]]?memberUid?sub?(&(objectclass=posixGroup)(memberUid=%s))
+}
+

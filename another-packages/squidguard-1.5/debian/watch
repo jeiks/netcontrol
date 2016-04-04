@@ -1,0 +1,3 @@
+# watch control file for uscan for the squidguard package
+version=3
+http://squidguard.org/Downloads/squidGuard-(\d.+)\.tar\.gz

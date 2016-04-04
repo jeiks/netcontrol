@@ -1,0 +1,716 @@
+sarg (2.3.1-3netcontrol1) unstable; urgency=low
+
+  * to netcontrol
+
+ -- Jacson RC Silva <jacsonrcsilva@gmail.com>  Wed, 12 Sep 2012 15:08:22 -0300
+
+sarg (2.3.1-2) unstable; urgency=low
+
+  * debian/{patches/03_build-with-gcc44,rules}
+    - Removed configure.in patch, replaced with LDFLAG in debian/rules,
+      thanks to Andrea Gasparini
+
+ -- Luigi Gangitano <luigi@debian.org>  Sat, 19 Feb 2011 17:48:24 +0100
+
+sarg (2.3.1-1) unstable; urgency=low
+
+  * New upstream release
+
+  * debian/sarg-reports
+    - Fix date interval for daily/weekly/monthly (Closes: #592705)
+
+  * debian/preinst
+    - Remove old language files (Closes: #606778)
+    - Fix moving output files on upgrade
+
+  * debian/patches/03_build-with-gcc44
+    - Added libm check to configure.in to comply with gcc-4.4 linker chages
+
+  * debian/control
+    - Bumped Standard-Version to 3.9.1 (no change needed)
+
+ -- Luigi Gangitano <luigi@debian.org>  Fri, 18 Feb 2011 19:59:33 +0100
+
+sarg (2.3-1) unstable; urgency=low
+
+  * New upstream release
+
+  * debian/rules
+    - Removed references to now non existent language dir
+
+  * debian/control
+    - Added build dependency on libldap2-dev
+    - Bumped Standard-Version to 3.8.4 (no change needed)
+
+  * debian/sarg.conf
+    - Updated to match new upstream config file
+
+  * debian/preinst
+    - Fix moving old data files
+
+ -- Luigi Gangitano <luigi@debian.org>  Sat, 26 Jun 2010 00:49:09 +0200
+
+sarg (2.2.7.1-2) unstable; urgency=low
+
+  * debian/{preinst,postinst}
+    - Move configuration files preserving user changes (Closes: #566402)
+    - Do not move duplicate fonts
+    - Remove fonts marked as configuration files
+
+ -- Luigi Gangitano <luigi@debian.org>  Sun, 28 Mar 2010 01:33:48 +0100
+
+sarg (2.2.7.1-1) unstable; urgency=low
+
+  * New upstream release
+
+  * debian/sarg.conf
+    - Updated default configuration file to match upstream changes.
+    - Removed invalid config directive (Closes: #568009)
+
+  * debian/README.source
+    - Added simple dpatch-referring REAMDE.source
+
+  * debian/{rules,control}
+    - Remove duplicate font files and depend on ttf-dejavu-core | ttf-freefont
+      (Closes: #567329)
+
+ -- Luigi Gangitano <luigi@debian.org>  Tue, 16 Feb 2010 11:07:18 +0100
+
+sarg (2.2.7-1) UNRELEASED; urgency=low
+
+  * New upstream release
+    - Fixes sarg.hosts exclusion for subdomains (Closes: #408577)
+
+  * debian/patches/01_makefile-install-path
+    - Removed patch integrated upstream
+
+  * debian/rules
+    - Use --enable-sargphp instead of --enable-htmldir
+
+ -- Luigi Gangitano <luigi@debian.org>  Mon, 08 Feb 2010 08:00:10 +0100
+
+sarg (2.2.6-1) unstable; urgency=low
+
+  * New upstream release
+    - Fixes issues in getword loop detection (Closes: #522284)
+    - Removed patches integrated upstream
+    - Fixes usertab parsing for IPv6 address (Closes: #504749)
+    - Fixes typo in dansguardian_log.c (Closes: #540438)
+    - Fixes error parsing squidGuard logs (Closes: #486895)
+
+  * debian/sarg-reports.conf
+    - Fixed typo (Closes: #517356)
+
+  * debian/control
+    - Added Build-Dep options on libgd2-xpm-dev (Closes: #540121)
+    - Added Dependency on ${misc:Depends}
+    - Added dependency on dpatch
+    - Bumped Standard-Version to 3.8.3
+
+  * debian/compat
+    - Upgraded debhelper compatibility to level 6
+
+  * debian/rules
+    - Removed unnecessary upgrade of autoconf files
+    - Added dpatch rules
+    - Fixed configuration options and paths
+
+  * debian/patches/01_makefile-install-path
+    - Fixed build-time installation paths
+
+  * debian/patches/02_config-file-references
+    - Fixed references to configuration files
+
+  * debian/squid.conf
+    - Sinced with upstream changes
+
+  * debian/{postrm,preinst,sarg.conf,sarg-reports,rules,dirs,sarg-reports.conf}
+    - Moved configuration files to /etc/sarg and data directory to /var/lib/sarg
+      (Closes: #553554, #502273)
+
+ -- Luigi Gangitano <luigi@debian.org>  Mon, 11 Jan 2010 15:07:10 +0100
+
+sarg (2.2.5-2) unstable; urgency=low
+
+  * debian/watch
+    - Use SF redirector and make lintian happy
+
+  * debian/{rules,compat}
+    - Move DH_COMPAT to debian/compat and make lintian happy
+
+  * debian/rules
+    - Change make clean invocation and make lintian happier
+    - Added support for DEB_BUILD_OPTIONS
+    - Move documentation files from sarg-php to doc directory
+    - Remove hidden file from /etc/squid/languages
+
+  * debian/control
+    - Removed dependency on bash, now essential
+    - Bumped Standard-Version to 3.8.0
+
+  * debian/postinst
+    - Make postint fail on error
+
+  * debian/copyright
+    - Added copyright notice
+    - Updated maintainer reference
+
+  * debian/sarg-reports.1
+    - Added man page, thanks to Juan Angulo Moreno (Closes: #481889)
+
+  * debian/patches/show_read_statistics.patch
+    - Added patch from Vladimir Lettiev fixing segfault with
+      show_read_statistics set to no. (Closes: #444845, # 370811)
+
+  * debian/patches/totger_patches.patch
+    - Added patch from Thomas Bliesener fixing several buffer overflows
+      (Closes: #470791)
+
+  * debian/patches/opensuse_1_getword_boundary_limit.patch
+    - Added patch from OpenSUSE to avoid segfaults in getword() calls
+
+  * debian/patches/opensuse_2_enlarge_report_buffers.patch
+    - Added patch from OpenSUSE to avoid overflow in report buffers
+
+  * debian/patches/opensuse_3_too_small_font_buffer.patch
+    - Added patch from OpenSUSE to avoid overflow in font buffer
+
+  * debian/patches/opensuse_4_enlarge_log_buffer.patch
+    - Added patch from OpenSUSE to avoid overflow in log buffer
+
+  * debian/patches/opensuse_5_limit_sprintf.patch
+    - Added patch from OpenSUSE to avoid segfaults in sprintf() calls
+
+  * debian/patches/opensuse_6_limit_useragent_sprintf.patch
+    - Added patch from OpenSUSE to avoid segfaults in sprintf() calls
+
+  * debian/patches/opensuse_7_year_assertion.patch
+    - Added patch from OpenSUSE to avoid assertion in year parsing
+
+ -- Luigi Gangitano <luigi@debian.org>  Sat, 10 Jan 2009 18:14:18 +0100
+
+sarg (2.2.5-1) unstable; urgency=high
+
+  * Urgency high due to security fixes
+  
+  * New upstream release
+    - Fixes script insertion in user-agent report
+
+  * debian/{sarg-reports,control}
+    - Make sarg-reports a bash script and depend on bash. This works
+      around bashishms in sarg-reports. (Closes: #465353)
+
+ -- Luigi Gangitano <luigi@debian.org>  Wed, 05 Mar 2008 00:34:29 +0100
+
+sarg (2.2.4-1) UNRELEASED; urgency=low
+
+  * New upstream release
+    - Fixes security issue when parsing useragent.log
+
+ -- Luigi Gangitano <luigi@debian.org>  Mon, 03 Mar 2008 12:39:26 +0100
+
+sarg (2.2.3.1-3) UNRELEASED; urgency=low
+
+  * debian/control
+    - Upgraded dependecies to apache2 and libapache2-mod-php5
+
+ -- Luigi Gangitano <luigi@debian.org>  Fri,  4 Sep 2007 21:17:51 +0200
+
+sarg (2.2.3.1-2) unstable; urgency=low
+
+  * debian/sarg-reports.conf
+    - Changed default image to sarg.png (Closes: #365664)
+
+  * debian/sarg-reports
+    - Fixed bashism (Closes: #423497)
+
+  * debian/{sarg-reports,README.Debian}
+    - Fixed typos (Closes: #430356)
+
+  * user_limit_block
+    - Fixed wrong references to configuration files (Closes: #401520)
+
+ -- Luigi Gangitano <luigi@debian.org>  Mon, 29 Jun 2007 20:50:16 +0200
+
+sarg (2.2.3.1-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Luigi Gangitano <luigi@debian.org>  Mon, 09 Apr 2007 11:15:09 +0200
+
+sarg (2.2.2-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Luigi Gangitano <luigi@debian.org>  Thu, 31 Aug 2006 18:03:25 +0200
+
+sarg (2.2.1-2) unstable; urgency=low
+
+  * debian/rules
+    - removed bashish (Closes: #373244)
+
+  * debian/control
+    - Bumped Standard-Version to 3.7.2 (no change required)
+
+ -- Luigi Gangitano <luigi@debian.org>  Wed, 14 Jun 2006 14:30:16 +0200
+
+sarg (2.2.1-1) unstable; urgency=low
+
+  * New upstream release
+    - Fixes various segfaults (Closes: #362310)
+
+  * debian/sarg-reports.cron.{weekly,monthly}
+    - Fixed typo (Closes: #365336)
+
+ -- Luigi Gangitano <luigi@debian.org>  Fri,  9 Jun 2006 17:10:26 +0200
+
+sarg (2.1-4) unstable; urgency=low
+
+  * debian/control
+    - Removed parentheses from Suggests: line (Closes: #356404)
+
+ -- Luigi Gangitano <luigi@debian.org>  Sun, 19 Mar 2006 00:51:24 +0100
+
+sarg (2.1-3) unstable; urgency=low
+
+  * debian/sarg-reports
+    - Switched to Ugo Viti's script for crontab execution (daily, weekly,
+      montly) (Closes: #332391, #162974)
+    - Removed old sarg-maint.sh from /etc (Closes: #326214)
+    - Updated NEWS.Debian accordingly
+
+ -- Luigi Gangitano <luigi@debian.org>  Tue, 20 Dec 2005 20:19:29 +0100
+
+sarg (2.1-2) unstable; urgency=low
+
+  * debian/control
+    - Changed build-depends to libgd2-noxpm-dev, since libgd2-dev is not in
+      debian anymore. (Closes: #343919, #307999)
+
+ -- Luigi Gangitano <luigi@debian.org>  Tue, 20 Dec 2005 16:25:09 +0100
+
+sarg (2.1-1) unstable; urgency=low
+
+  * New upstream release
+
+  * debian/postinst
+    - Added token for debhelper
+
+  * debian/copyright
+    - Updated FSF address
+
+  * debian/control
+    - Bumped Standards-Version to 3.6.1. No change needed.
+
+  * debian/rules
+    - Bumped DH_COMPAT to 4
+
+ -- Luigi Gangitano <luigi@debian.org>  Thu,  1 Dec 2005 20:29:54 +0100
+
+sarg (2.0.9-1) unstable; urgency=low
+
+  * New upstream release
+    - Fixes call to sort without quotes (Closes: #317901)
+
+  * debian/rules
+    - Moved license and README files for the attache font to
+      /usr/share/doc/sarg
+
+  * debian/postinst
+    - Check for presence of /etc/squid/fonts/{license,README} and remove
+
+ -- Luigi Gangitano <luigi@debian.org>  Tue,  9 Aug 2005 16:18:36 +0200
+
+sarg (2.0.8-2) unstable; urgency=low
+
+  * sarg.1
+    - Fixed reference to configuration and log files
+      (Closes: #319058)
+
+ -- Luigi Gangitano <luigi@debian.org>  Wed, 20 Jul 2005 00:47:24 +0200
+
+sarg (2.0.8-1) unstable; urgency=low
+
+  * New upstream release
+
+  * debian/postinst
+    - Added postinst file
+    - Check for presence of /etc/squid/fonts/Verdana.TTF and remove
+      The font file is non-free
+
+ -- Luigi Gangitano <luigi@debian.org>  Thu,  9 Jun 2005 18:16:02 +0200
+
+sarg (2.0.7-1) unstable; urgency=medium
+
+  * New upstream release
+
+  * Urgency medium because segfault fixes in this (and previous) version
+    should go in Sarge
+  
+  * debian/squid.conf
+    - Sinced with upstream changes (addition of dansguardian configuration
+      and ntlm username format)
+
+ -- Luigi Gangitano <luigi@debian.org>  Tue,  3 May 2005 09:14:44 +0200
+
+sarg (2.0.6-2) unstable; urgency=low
+
+  * language/Turkish
+    - applied sarg-turkish.patch fixing syntax errors
+      (Closes: #279636)
+
+ -- Luigi Gangitano <luigi@debian.org>  Tue, 26 Apr 2005 12:24:23 +0200
+
+sarg (2.0.6-1) unstable; urgency=low
+
+  * New upstream release
+
+  * languages/French
+    - removed sarg-french.patch that have been superceeded upstream
+
+ -- Luigi Gangitano <luigi@debian.org>  Sun, 24 Apr 2005 01:52:18 +0200
+
+sarg (2.0.5-2) unstable; urgency=low
+
+  * debian/watch
+    - Added watch file
+
+ -- Luigi Gangitano <luigi@debian.org>  Wed, 23 Mar 2005 15:33:35 +0100
+
+sarg (2.0.5-1) unstable; urgency=low
+
+  * New upstream release
+    - Should fix some random segfaults
+
+ -- Luigi Gangitano <luigi@debian.org>  Wed, 23 Mar 2005 14:55:05 +0100
+
+sarg (2.0.4-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Luigi Gangitano <luigi@debian.org>  Thu, 24 Feb 2005 17:36:51 +0100
+
+sarg (2.0.3-1) unstable; urgency=low
+
+  * New upstream release
+
+  * debian/patches/sarg-2.0.2-version.patch
+    - Removed upstream patch that has been integrated
+
+  * debian/control
+    - converted description synopsis to lower case
+
+ -- Luigi Gangitano <luigi@debian.org>  Thu,  3 Feb 2005 22:53:56 +0100
+
+sarg (2.0.2-1) unstable; urgency=low
+
+  * New upstream release
+
+  * debian/patches/sarg-2.0.2-version.patch
+    - Added upstream patch to fix wrong result in -v option
+
+ -- Luigi Gangitano <luigi@debian.org>  Wed, 24 Nov 2004 00:06:53 +0100
+
+sarg (2.0.1-1) unstable; urgency=low
+
+  * New upstream release
+
+  * debian/rules
+    - Moved autoconf update in build to shrink diff file
+
+  * debian/control
+    - Added libgd2-dev dependency
+    - Added suggestion to squidguard and libapache-mod-php4
+
+ -- Luigi Gangitano <luigi@debian.org>  Tue,  5 Oct 2004 10:30:28 +0200
+
+sarg (1.4.r1-3) unstable; urgency=low
+
+  * sarg.1
+    - Fixed duplicated manpage (Closes: #246745)
+  
+  * debian/control
+    - Bumped Standard-Version to 3.6.1 (no change needed)
+    - Fixed depends on virtual package httpd (suggested apache)
+
+ -- Luigi Gangitano <luigi@debian.org>  Sat,  1 May 2004 23:13:51 +0200
+
+sarg (1.4.r1-2) unstable; urgency=low
+
+  * index.c
+    - Applied sarg-index-patch from upstream
+  * debian/control
+    - Bumped Standard-Version to 3.5.10 (no change needed)
+
+ -- Luigi Gangitano <luigi@debian.org>  Wed,  9 Jul 2003 20:14:39 +0200
+
+sarg (1.4.r1-1) unstable; urgency=low
+
+  * New upstream release
+  * README
+    - updated from upstream site
+    - removed duplicate text (closes: #192269)
+  * languages/French
+    - applied sarg-french.patch (closes: #189125)
+  * languages/Polish
+    - applied sarg-polish.patch (closes: #189178)
+
+ -- Luigi Gangitano <luigi@debian.org>  Mon, 12 May 2003 17:06:45 +0200
+
+sarg (1.4.patch3-1) unstable; urgency=low
+
+  * New upstream release
+  
+ -- Luigi Gangitano <luigi@debian.org>  Sun, 13 Apr 2003 21:01:00 +0200
+
+sarg (1.4.patch1-1) unstable; urgency=low
+
+  * New upstream release
+  * Bumped Standard-Version to 3.5.9
+  
+ -- Luigi Gangitano <luigi@debian.org>  Sun, 20 Mar 2003 19:11:00 +0100
+
+sarg (1.3-PRE1-2) unstable; urgency=low
+
+  * Copy config.guess/config.sub from autotools-dev (closes: #168577)
+  * Debian Policy updated to 3.5.7.1
+
+ -- Luigi Gangitano <luigi@debian.org>  Sun, 10 Nov 2002 22:57:54 +0100
+
+sarg (1.3-PRE1-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Luigi Gangitano <luigi@debian.org>  Thu, 17 Oct 2002 20:31:02 +0200
+
+sarg (1.2.2-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Luigi Gangitano <gangitano@lugroma3.org>  Wed,  5 Jun 2002 01:50:52 +0200
+
+sarg (1.2.1-6) unstable; urgency=low
+
+  * Fixed missing reference to the author
+  * Deleted empty file in /etc/squid/languages
+  * Added manpage for SARG(1)
+
+ -- Luigi Gangitano <gangitano@lugroma3.org>  Sun, 28 Apr 2002 22:46:54 +0200
+
+sarg (1.2.1-5) unstable; urgency=low
+
+  * Brought back from the morgue. (new maintainer)
+  * debian/sarg.conf: applied patch from 133903 (closes: #133903)
+  * Bug 110610 was fixed but not closed (closes: #110610)
+
+ -- Frederic Peters <fpeters@debian.org>  Thu, 25 Apr 2002 10:19:11 +0200
+
+sarg (1.2.1-4) unstable; urgency=low
+
+  * Change maintainer
+
+ -- Ivan E. Moore II <rkrusty@debian.org>  Wed, 06 Mar 2001 18:12:00 -0700
+
+sarg (1.2.1-3) unstable; urgency=low
+
+  * Fix sarg-maint (Closes: #136445)
+
+ -- Ivan E. Moore II <rkrusty@debian.org>  Sat, 02 Mar 2001 09:01:00 -0700
+
+sarg (1.2.1-2) unstable; urgency=low
+
+  * Fix sarg-maint (Closes: #128706)
+  * Fix sarg.conf as well
+  * Nobody ITA'd it so I'll just close that and keep the package (Closes: #127703)
+
+ -- Ivan E. Moore II <rkrusty@debian.org>  Sun, 17 Feb 2001 18:13:00 -0700
+
+sarg (1.2.1-1) unstable; urgency=low
+
+  * New upstream version (Closes: #122497)
+
+ -- Ivan E. Moore II <rkrusty@debian.org>  Wed, 05 Dec 2001 09:58:00 -0700
+
+sarg (1.2.0-0beta2-4) unstable; urgency=low
+
+  * Build cleanup
+  * Lintian cleanup
+
+ -- Ivan E. Moore II <rkrusty@debian.org>  Sun, 02 Nov 2001 22:43:00 -0700
+
+sarg (1.2.0-0beta2-3) unstable; urgency=low
+
+  * Fix spelling errors (Closes: #108991)
+
+ -- Ivan E. Moore II <rkrusty@debian.org>  Fri, 07 Sep 2001 16:36:00 -0700
+
+sarg (1.2.0-0beta2-2) unstable; urgency=low
+ 
+  * Provide undocumented manpage link (Closes: #110081)
+  * Lintian cleanup
+ 
+ -- Ivan E. Moore II <rkrusty@debian.org>  Sun, 26 Aug 2001 00:28:00 -0700
+
+sarg (1.2.0-0beta2-1) unstable; urgency=low
+ 
+  * New upstream beta
+ 
+ -- Ivan E. Moore II <rkrusty@debian.org>  Thu, 05 Jul 2001 09:22:00 -0700
+
+sarg (1.2.0-0beta1-1) unstable; urgency=low
+ 
+  * New upstream beta
+ 
+ -- Ivan E. Moore II <rkrusty@debian.org>  Thu, 07 Jun 2001 00:43:00 -0700
+
+sarg (1.1.1-4) unstable; urgency=low
+ 
+  * Fix link (Closes: #98690)
+ 
+ -- Ivan E. Moore II <rkrusty@debian.org>  Fri, 25 May 2001 08:32:00 -0700
+
+sarg (1.1.1-3) unstable; urgency=low
+ 
+  * Update Standards version
+  * Update Build-Depends
+  * Remove old hacks which debhelper now handles
+  * Change Recommends to Suggests (Closes: #97468)
+ 
+ -- Ivan E. Moore II <rkrusty@debian.org>  Mon, 14 May 2001 12:09:00 -0700
+
+sarg (1.1.1-2) unstable; urgency=low
+ 
+  * Removing cron bits and creating a maint script that logrotate can call
+ 
+ -- Ivan E. Moore II <rkrusty@debian.org>  Sun, 08 Apr 2001 22:00:00 -0700
+
+sarg (1.1.1-1) unstable; urgency=low
+ 
+  * New upstream version
+ 
+ -- Ivan E. Moore II <rkrusty@debian.org>  Mon, 02 Apr 2001 18:07:00 -0700
+
+sarg (1.1-3) unstable; urgency=low
+ 
+  * Fix config setting for exclude_codes (Closes: #91833)
+ 
+ -- Ivan E. Moore II <rkrusty@debian.org>  Mon, 26 Mar 2001 17:15:00 -0700
+
+sarg (1.1-2.0.1) unstable; urgency=low
+ 
+  * Build against older glibc
+ 
+ -- Ivan E. Moore II <rkrusty@debian.org>  Mon, 26 Mar 2001 13:42:00 -0700
+
+sarg (1.1-2) unstable; urgency=low
+ 
+  * Fix config file loading (Closes: #91511)
+ 
+ -- Ivan E. Moore II <rkrusty@debian.org>  Mon, 26 Mar 2001 09:11:00 -0700
+
+sarg (1.1-1) unstable; urgency=low
+ 
+  * New upstream version
+ 
+ -- Ivan E. Moore II <rkrusty@debian.org>  Fri, 23 Mar 2001 05:25:00 -0700
+
+sarg (1.0-1) unstable; urgency=low
+ 
+  * New upstream version and name...grrr
+ 
+ -- Ivan E. Moore II <rkrusty@debian.org>  Sat, 10 Mar 2001 13:54:00 -0700
+
+sqmgrlog (3.0.1-1) unstable; urgency=low
+ 
+  * New upstream version
+ 
+ -- Ivan E. Moore II <rkrusty@debian.org>  Mon, 05 Mar 2001 23:32:00 -0700
+
+sqmgrlog (3.0-1) unstable; urgency=low
+ 
+  * New upstream version
+ 
+ -- Ivan E. Moore II <rkrusty@debian.org>  Fri, 09 Feb 2001 02:12:00 -0700
+
+sqmgrlog (2.12-2) unstable; urgency=low
+ 
+  * Fixing cron scripts for proper environments
+ 
+ -- Ivan E. Moore II <rkrusty@debian.org>  Sat, 27 Jan 2001 21:44:00 -0700
+
+sqmgrlog (2.12-1) unstable; urgency=low
+ 
+  * New upstream version
+ 
+ -- Ivan E. Moore II <rkrusty@debian.org>  Thu, 09 Nov 2000 13:22:00 -0700
+
+sqmgrlog (2.11-2) unstable; urgency=low
+
+  * More build-depends work
+  * Build on new libc6
+
+ -- Ivan E. Moore II <rkrusty@debian.org>  Tue, 26 Sep 2000 22:00:00 -0700
+
+sqmgrlog (2.11-1.0) unstable; urgency=low
+
+  * Changing depends for httpd and squid to recommends
+
+ -- Ivan E. Moore II <rkrusty@debian.org>  Sat, 12 Aug 2000 05:30:00 -0700
+
+sqmgrlog (2.11-0) unstable; urgency=low
+
+  * New upstream version
+
+ -- Ivan E. Moore II <rkrusty@debian.org>  Sun, 16 Jul 2000 05:00:00 -0700
+
+sqmgrlog (2.10-0) unstable; urgency=low
+
+  * New upstream version
+  * Fixing problem with cron scripts (Closes: #65623)
+
+ -- Ivan E. Moore II <rkrusty@debian.org>  Wed, 21 Jun 2000 18:00:00 -0700
+
+sqmgrlog (2.9.9-2.0) unstable; urgency=low
+ 
+  * Fixing conf file problems (Closes: #60190)
+  * Fixing stderr output errors and cron jobs (Closes: #60239)
+ 
+ -- Ivan E. Moore II <rkrusty@debian.org>  Sat, 20 May 2000 14:15:00 -0700
+
+sqmgrlog (2.9.9-1.2) unstable; urgency=low
+ 
+  * More build cleanup
+  * Adding in build-depends
+
+ -- Ivan E. Moore II <rkrusty@debian.org>  Mon, 15 May 2000 02:45:00 -0700
+
+sqmgrlog (2.9.9-1.1) unstable; urgency=low
+
+  * Added a pointer to /usr/share/common-licenses in the copyright file
+
+ -- Ivan E. Moore II <rkrusty@debian.org>  Tue, 25 Apr 2000 20:30:00 -0700
+
+sqmgrlog (2.9.9-1) unstable; urgency=low
+
+  * New upstream version
+
+ -- Ivan E. Moore II <rkrusty@debian.org>  Wed, 15 Mar 2000 02:00:00 -0700
+
+sqmgrlog (2.9.8-3) unstable; urgency=low
+ 
+  * Applying topsites patch
+ 
+ -- Ivan E. Moore II <rkrusty@debian.org>  Fri, 10 Mar 2000 18:30:00 -0700
+
+sqmgrlog (2.9.8-2) unstable; urgency=low
+ 
+  * Fixing daily cron to pull yesterdays report and not the same day
+  * Same as above for the weekly reports
+ 
+ -- Ivan E. Moore II <rkrusty@debian.org>  Fri, 10 Mar 2000 00:10:00 -0700
+
+sqmgrlog (2.9.8-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Ivan E. Moore II <rkrusty@debian.org>  Tue,  7 Mar 2000 21:37:57 -0700

@@ -1,0 +1,249 @@
+<center>
+<input type="hidden" id="refreshed" value="no">
+<script type="text/javascript" src="/json2.js"></script>
+
+<script type="text/javascript" src="/rrdAlarmConfig.js">
+</script>
+<script type="text/javascript">
+  var rows=[];	
+% for row in configRows:
+	rows.push([${row[0]}, '${row[1]}', '${row[2]}', '${row[3]}', '${row[4]}', '${row[5]}', '${row[6]}', '${row[7]}','${row[8]}' , '${row[9]}' ]);
+% endfor	
+
+	
+   	rrdAlarmConfig.setIdTBody('body');//where the rows will be appended
+   
+	rrdAlarmConfig.setRows(rows);
+<%doc>
+	var optDirs=[];
+% for dir in rrdDirs:	
+	optDirs.push(OPTION({value: "${dir}"},"${dir}"));
+% endfor
+	var dirList=SELECT({id: 'rrdDir'}, optDirs);
+</%doc>
+
+	var checkBack=function(){
+		//workaroud for the problem of the back browser and ajax
+		//on coming back reload the page
+			var e=getElement('refreshed');
+			if (e.value==='no'){
+				e.value='yes';
+			}else{
+				e.value='no';
+				location.reload();
+			}
+	};
+	
+	var startAlarmCheck=function(){
+		var loc=window.location.href.substring(0, window.location.href.lastIndexOf('/')+1)
+		window.location.assign(loc+"start.py?configFile="+getElement('configFile').value);
+	};
+<%doc>
+	var stateC=false;
+	var toggleCombo=function(){
+		
+		if (optDirs.length <= 0) {
+			return;
+		}
+		var rrdFileTd=getElement('rrdFileTd');
+		if (stateC) {
+			rrdFileTd.removeChild(rrdFileTd.lastChild);
+			rrdFileTd.removeChild(rrdFileTd.lastChild);
+			stateC = false;
+		}
+		else {
+		
+			rrdFileTd.appendChild(BR(null, {}));
+			rrdFileTd.appendChild(dirList);
+			stateC = true;
+		}
+	};
+</%doc>
+
+	backKeyPress=null;
+	backKeyDown=null;
+	
+	/*activate/disable autocomplete feature on rrdFile field*/
+	var toggleAutoComplete=function(){
+		var rrdField=getElement('rrdFile');
+		if (backKeyPress && backKeyDown) {
+			
+			
+			rrdField.onkeypress = backKeyPress;
+			rrdField.onkeyup = backKeyDown;
+			
+			backKeyPress=null;
+			backKeyDown=null;
+			rrdField.onkeyup('32');
+			
+			getElement('infoI').innerHTML="AutoComplete On. Type * to expand.";
+			if(rrdField.value.lenght >0){
+				
+				bns.getSuggestions(rrdField.value);
+			}
+		}
+		else {
+			backKeyPress=rrdField.onkeypress ;
+			backKeyDown=rrdField.onkeyup;
+			
+			rrdField.onkeypress = null;
+			rrdField.onkeyup = null;
+			getElement('infoI').innerHTML="";	
+		}
+	};
+	
+	/*used to clear the input of the parameter field and remove the errors*/
+	var clearInput=function(){
+		var tmp =getElement('actionParameter');
+		if (tmp) {
+			tmp.value = '';
+			//tmp.className=tmp.className.replace('error', '');
+			rrdAlarmConfig.removeError(tmp);
+		}
+	};
+	
+	
+	var removeStartingDots=function(input){
+		
+		return input.replace(/\.(?!rrd)/g, "");
+		
+	};
+	addLoadEvent(checkBack);
+   	addLoadEvent(rrdAlarmConfig.initpage);
+</script>
+<form action="">
+<table border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td>
+<table border="1" cellpadding="5" cellspacing="0" >
+
+<tr onMouseOver="this.bgColor = '#EDF3FE'" onMouseOut ="this.bgColor = '#FFFFFF'" id="trToChange" title="The current rrdAlarmConfigurator File. Click to Edit!">
+	<th bgcolor="#f3f3f3" align="left">Configuration File</th>
+	<td id="nameFile" style="padding:0;padding-left:5px;">${tempFilePath}<input type="text" name="configFile" id="configFile" size="20" style="margin:0em;border-collapse:collapse;border-style:none;border-color:transparent;" value="${nameFileConfig}" />
+	 <IMG SRC="/edit.gif" valign="middle"> &nbsp;</td>
+</tr>
+<tr onMouseOver="this.bgColor = '#EDF3FE'" onMouseOut ="this.bgColor = '#FFFFFF'" title="The path where the RRD files will be searched">
+	<th bgcolor="#f3f3f3" align="left">RRD files path</th>
+	<td >${pathRRDFiles}</td>
+	</tr>
+</table>
+</td>
+<td>
+	<table border="0" cellpadding="5" cellspacing="0">
+	<tr>
+	<td>
+	<input title="Load the current Configuration File" type="submit" id="submit" value="Load" onmouseup="rrdAlarmConfig.restoreText" style="visibility: hidden;" >
+	</td>
+	</tr>
+	<tr>
+	<td>&nbsp;</td>
+	</tr>
+	</table>
+</td>
+</tr>
+</table>
+</form>
+	<p>Each table row represents a threshold that is periodically checked by the rrdAlarm script.
+	<br>Changes applied to the table must be saved in order to be persistent!</p>
+    	<form id="formConfigurator" name="formConfigurator"  action="" onsubmit="return false;">
+         <table cellspacing="0" cellpadding="5" border="1" id="configuration">
+            <thead>
+                <tr>
+                    <th nowrap="nowrap" bgcolor="#f3f3f3" align="center" title="Click to reIndex this column">
+                        <a href="javascript:rrdAlarmConfig.normalizeTable();">ID</a>
+                    </th>
+					<th nowrap="nowrap" bgcolor="#f3f3f3" align="center">
+                        RRD File Path</th>
+                    <th bgcolor="#f3f3f3" align="center">
+                        Threshold<br>Type
+                    </th>
+                    <th nowrap="nowrap" bgcolor="#f3f3f3" align="center">
+                        Value
+                    </th>
+                    <th bgcolor="#f3f3f3" align="center">
+                        Num.<br>Repetitions
+                    </th>
+                    <th nowrap="nowrap" bgcolor="#f3f3f3" align="center">
+                        Start Time
+                    </th>
+                    <th nowrap="nowrap" bgcolor="#f3f3f3" align="center">
+                        End Time
+                    </th>
+                    <th nowrap="nowrap" bgcolor="#f3f3f3" align="center">
+                        Action To Perform
+                    </th>
+                    <th nowrap="nowrap" bgcolor="#f3f3f3" align="center" title="Time Before Next Action (sec)">
+                        Time Before<br>Next Action (sec)  </th>
+                </tr>
+            </thead>
+            <tbody id="body">
+                
+            </tbody>
+			
+			<tfoot id="foot" bgcolor="#f3f3f3">
+                    <tr>
+                        <td align="right" valign="top" id="uniqueId" style="text-align:right; padding-top:1em;" >
+                            &nbsp;
+                        </td>
+						<td align="left" valign="top" id="rrdFileTd" nowrap="nowrap">
+                            <input type="text" name="rrdFile" id="rrdFile" size=24 autocomplete="off"/><a href="javascript: toggleAutoComplete();"  onmousedown="getElement('lens').src='/graph_zoomDOWN.gif'" onmouseup="getElement('lens').src='/graph_zoomUP.gif'"><img id="lens" border="0" src="/graph_zoomUP.gif"/></a>
+							<div id="infoI" ></div>
+                        </td>
+                        <td align="left" valign="top">
+                            <select name="typeThreshold" id="typeThreshold" style="text-align:center; display:table-cell; width:5.5em;">
+                                <option value="above">above</option>
+                                <option value="below">below</option>
+                            </select>
+                        </td>
+                        <td align="right" valign="top">
+                            <input type="text" name="valueThreshold" id="valueThreshold" size=8 style="text-align:right;"/>
+                        </td>
+                        <td align="right" valign="top">
+                            <input type="text" name="numberRepetition" id="numberRepetition" size=5 style="display:table-cell; text-align:right;" value="0" />
+                        </td>
+                        <td align="right" valign="top" nowrap="nowrap">
+                            <input type="text" name="startTime" id="startTime" size=6 style="text-align:right;"/>
+							<br>Es. now-3h
+                        </td>
+                        <td align="right" valign="top" nowrap="nowrap">
+                            <input type="text" name="endTime" id="endTime" size=6 style="text-align:right;"/>
+							<br>Es. now
+                        </td>
+                        <td align="left" valign="top">
+                        	<select name="actionToPerform" id="actionToPerform" style="display:table-cell; width:100%;" onchange="clearInput();">
+                                % for script in listScripts:
+								<option value="${script|h}">${script|h}</option>
+								% endfor
+                            </select><br>
+                            <input type="text" name="actionParameter" id="actionParameter" style="display:table-cell;width:100%;" />
+                        </td>
+                        <td align="right" valign="top">
+                            <input type="text" name="timeBeforeNext" id="timeBeforeNext" style="display:table-cell;width:100%;text-align:right;" value="0" />
+                        </td>
+                    </tr>
+        	<tr><td colspan=9 align="center">
+        		<table border="0" cellspacing="0" cellpadding="2">
+	  <tr>
+        <td><input type="button" id="update" value="Update" disabled="true"></td>
+        <td><input type="button" id="clear" value="Reset"></td>
+        <td><input type="button" id="addRow" value="Add Row"></td>
+		<td><input type="button" id="removeRow" value="Remove Row" disabled="true"></td>
+      </tr>
+    </table>
+	    </td>
+	</tr>
+	</tfoot>
+        </table>
+		</form>
+		
+		<p><input title="Save the current configuration on disk" type="button" id="save" value="Save Config" onmouseup="rrdAlarmConfig.sendData();" onmousedown="getElement('result').innerHTML='';"> 
+		&nbsp;[ <a HREF='javascript: startAlarmCheck();'>Check Thresholds Now</a> ]</p>
+		<p><div id="result"></div>&nbsp;</p>
+				<p>Do you need any <a href="./config.py?help=true" >help</a>?</p>
+
+</center>
+
+<script type="text/javascript">
+	var options2 = {script: function(input){return "config.py?pathRRDS="+removeStartingDots(input);},json:true,timeout:10000,cache:false,callback: function (obj) { getElement('rrdFile').value =obj.value; }};
+	var rrdas_json = new bsn.AutoSuggest("rrdFile", options2);
+	toggleAutoComplete();</script>

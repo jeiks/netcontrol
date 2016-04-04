@@ -1,0 +1,443 @@
+squidguard (1.5-1netcontrol1) unstable; urgency=low
+
+  * to flux
+
+ -- Jacson RC Silva <jacsonrcsilva@gmail.com>  Tue, 10 Jul 2012 15:10:30 -0300
+
+squidguard (1.5-1) unstable; urgency=low
+
+  * New upstream release.
+  * Add option for BDB check in update-squidguard.
+  * Add BDB check in postinst script.
+  * Add info about BDB check in README.Debian.
+  * Update manpage of update-squidguard.
+  * Delete default database directory in postrm script. (Closes: #668716)
+  * Split documentation in 'doc' and 'html' in -doc package.
+
+  * Use always /etc/squidguard directory for config file.
+  * Store example config as /etc/squidguard/squidguard.conf.default.
+  * Check for database files and update paths in update-squidguard.
+  * Do not override existing config file while upgrading package.
+  * Update of postinst and postrm scripts.
+  * Add hints in the files NEWS and README.Debian.
+  * Update all manual pages made for Debian.
+  * Add example for destination configuration: dest-snippet.txt.
+
+  * Add script to fetch new database: squidguard-data.
+  * Add script to add filter to squid/squid3: add-sg-to-squid.
+  * Add script to delete filter from squid/squid3: del-sg-from-squid.
+
+ -- Joachim Wiedorn <ad_debian@joonet.de>  Mon, 23 Apr 2012 01:05:01 +0200
+
+squidguard (1.4-6) unstable; urgency=low
+
+  * Fix chmod error in update-squidguard.
+  * Add verbose option to update-squidguard.
+  * Update manpage of update-squidguard.
+
+ -- Joachim Wiedorn <ad_debian@joonet.de>  Thu, 12 Apr 2012 21:44:07 +0200
+
+squidguard (1.4-5) unstable; urgency=low
+
+  [ Joachim Wiedorn ]
+  * debian/control:
+    - Move to debhelper (>= 8) and compat level 8.
+    - Simplify build dependencies to libldap2-dev and libdb-dev.
+    - Bump Standards-Version to 3.9.3 (no changes).
+    - Remove dependency in -doc package (thanks to piuparts).
+  * Fix minor typo in debian/copyright and updating.
+  * Fix: missing content after % sign (sgDiv.c.in). (Closes: #639358)
+  * Fix: enable hardened build flags. (Closes: #656028)
+  * Use /var/log/squidguard for logging. (Closes: #629294)
+  * Update script update-squidguard.
+  * Save BDB version of .db files in /var/lib/squidguard/dbversion.
+  * debian/postrm: update; purge all log files, too. (Closes: #658206)
+  * debian/postinst: update; check new log directory for use.
+  * Add some hints into NEWS file.
+  
+  [ Christian Perrier ]
+  * Add DM-Upload-Approved field. Joachim obviously does good work
+    maintaining this package.
+
+ -- Joachim Wiedorn <ad_debian@joonet.de>  Mon, 09 Apr 2012 00:10:25 +0200
+
+squidguard (1.4-4) unstable; urgency=low
+
+  * Add new patch to use Berkeley DB 5.x as well as 4.x. (Closes: #621376)
+
+ -- Joachim Wiedorn <ad_debian@joonet.de>  Tue, 31 May 2011 20:15:26 +0200
+
+squidguard (1.4-3) unstable; urgency=low
+
+  * samples:
+    - Update adding variables in sample.conf.in.
+    - Convert all sample files to UTF-8.
+  * Update of debian/squidGuard.conf.   (Closes: #415306)
+  * Update of debian/copyright.
+  * Add support for use with OpenLDAP (thanks to J.A. Medina).
+  * Optimize script debian/update-squidguard.
+  * debian/control:
+    - Update dependencies to libdb4.8. (see #621376) (Closes: #628279)
+    - Bump Standards-Version to 3.9.2 (no changes).
+    - Update Vcs links to new server anonscm.debian.org.
+    - Update dependency of squidguard to squid3 | squid.
+
+ -- Joachim Wiedorn <ad_debian@joonet.de>  Sun, 29 May 2011 20:55:35 +0200
+
+squidguard (1.4-2) unstable; urgency=low
+
+  * debian/copyright:
+    - reorganize format (see DEP-5).
+    - add special copyright and license for some files.
+  * Fix for IA64: move setuserinfo() to sg.y.in.
+  * Add danish debconf translation. (Closes: #586954)
+
+ -- Joachim Wiedorn <ad_debian@joonet.de>  Fri, 25 Jun 2010 17:42:24 +0200
+
+squidguard (1.4-1) unstable; urgency=medium
+
+  * New upstream release. (Closes: #372709, #491673, #535158)
+  * New Debian maintainer. (Closes: #576169)
+  * Bump DH compatibility level to V7.
+  * debian/control:
+    - Set debhelper version to >= 7.0.15.
+    - Bump Standards-Version to 3.8.4.
+    - Add build dependency libdb4.7-dev. (Closes: #548489)
+    - Remove suggestion to chastity-list. (Closes: #514636)
+    - Add Vcs Git and Browser URLs.
+    - Add Upstream homepage URL.
+  * Move to source format 3.0 (quilt).
+  * Update path in debian/watch.
+  * Update and formatting debian/copyright.
+  * Update 'update-squidguard' for use with Squid3. (Closes: #541602)
+  * debian/README.Debian:
+    - Update hints about Squid / Squid3 configuration. (Closes: #403875)
+    - Remove old hint to chastity-list.
+    - Update and refine some information and use headlines.
+  * debian/patches:
+    - Patch for use of $DESTDIR in Makefile.
+    - Security: Patch for buffer overflow in sgLog.c (Fixes: CVS-2009-3700).
+    - Security: Patch for buffer overflow in sgDiv.c (Fixes: CVS-2009-3826).
+    - Patch for update links in documentation.
+  * Add debian/postrm for removing etc/default/squidguard. (Closes: #385093)
+  * Add 'set -e' in debian/postinst.
+  * Remove unusable and old manpages in debian directory.
+  * Add new (rewritten) manual pages.
+  * Some changes in package configuration files.
+  * Split package: add config for squidguard-doc package.
+  * Use simple DH-syntax for debian/rules.
+  * Set debhelper version to >= 7.0.50.
+
+ -- Joachim Wiedorn <ad_debian@joonet.de>  Wed, 02 Jun 2010 22:18:45 +0200
+
+squidguard (1.2.0-9) unstable; urgency=high
+
+  * Non-maintainer upload for security issues.
+  * Security: fix buffer overflow in sgLog.c.
+    Fixes: CVE-2009-3700.
+  * Security: fix buffer overflow in sgDiv.c.
+    Fixes: CVE-2009-3826.
+  * Closes: #553319 (two security issues described above).
+  * Setting maintained to QA.    
+  
+ -- Sebastien Delafond <seb@debian.org>  Fri, 30 Apr 2010 12:52:19 +0200
+
+squidguard (1.2.0-8.4) unstable; urgency=low
+
+  * Non-maintainer upload to fix pending l10n issues.
+  * Debconf translations:
+    - Russian. Closes: #476907
+    - Turkish. Closes: #491747
+    - Basque. Closes: #491866
+
+ -- Christian Perrier <bubulle@debian.org>  Tue, 15 Jul 2008 23:19:16 +0200
+
+squidguard (1.2.0-8.3) unstable; urgency=low
+
+  * Non-maintainer upload to fix pending l10n issues.
+  * Debconf translations:
+    - Spanish. Closes: #415038, #414356
+    - Dutch. Closes: #420928
+    - Finnish. Closes: #473448
+    - Galician. Closes: #473504
+  * Also depend on squid3 as squidguard is reported to work with it
+    Closes: #445458
+  * Switch to db4.6. Closes: #442673
+  * Remove debconf note about obsolete transition to db4.3
+  * [Lintian] Switch debian/copyright to UTF-8
+
+ -- Christian Perrier <bubulle@debian.org>  Mon, 31 Mar 2008 08:41:53 +0200
+
+squidguard (1.2.0-8.2) unstable; urgency=low
+
+  * Non-maintainer upload to fix pending translation issues
+  * Debconf templates translations:
+    - Portuguese. Closes: #388965
+
+ -- Christian Perrier <bubulle@debian.org>  Thu,  1 Feb 2007 21:15:37 +0100
+
+squidguard (1.2.0-8.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * debian/control: Remove the unneccesary Build-Depends on automake.
+
+ -- Eric Dorland <eric@debian.org>  Sat,  2 Sep 2006 01:21:22 -0400
+
+squidguard (1.2.0-8) unstable; urgency=low
+
+  * New maintainer (closes: #321598).
+
+ -- Víctor Pérez Pereira <vperez@debianvenezuela.org>  Wed, 22 Feb 2006 13:29:23 -0400
+
+squidguard (1.2.0-7) unstable; urgency=low
+
+  * QA upload.
+  * Use `Depends: debconf | debconf-2.0' to allow for cdebconf.
+    Closes: #332103.
+  * debian/po/pt.po: Add translation by Luis de Matos.  Closes: #338078.
+  * debian/po/sv.po: Add translation by Daniel Nylander.  Closes: #330555.
+  * debian/rules:
+    - Use dh_install.
+    - Drop dh_undocumented.
+    - dh_fixperms now adds executable bits to /usr/bin/* on its own.
+  * debian/copyright: Update upstream URL.
+  * debian/watch: Add.
+
+ -- Matej Vela <vela@debian.org>  Thu, 24 Nov 2005 12:42:55 +0100
+
+squidguard (1.2.0-6) unstable; urgency=low
+
+  * QA Upload
+  * Add translation of the debconf templates:
+    - German (thanks to Erik Schanze, closes: #280040)
+    - Vietnamese (thanks to Clytie Siddall, closes: #318707)
+    - Czech (thanks to Miroslav Kure, closes: #295243)
+    - Japanese (thanks to Hideki Yamane, closes: #234076)
+  * Use DB4.3 (Closes: #293185)
+  * Bump Standards-Version (no changes needed)
+  * Make time part in timespace declarations optional (Closes #312433)
+  * Remove some cruft from debian-diff
+
+ -- Stefan Fritsch <sf@sfritsch.de>  Wed, 17 Aug 2005 22:23:56 +0200
+
+squidguard (1.2.0-5) unstable; urgency=low
+
+  * PO Debconf patch applied (Closes: #201796)
+  * French translation added (Closes: #202331)
+
+ -- Ivan E. Moore II <rkrusty@debian.org>  Wed, 27 Aug 2003 21:57:00 -0700
+
+squidguard (1.2.0-4) unstable; urgency=low
+
+  * Build with db4.1.  
+  * Add debconf note for this since it will break if all databases being
+    used are not rebuilt.
+  * create a update-squidguard script to handle updates better and make
+    it easier for admins to perform updates.
+
+ -- Ivan E. Moore II <rkrusty@debian.org>  Thu, 23 Jan 2003 18:02:00 -0700
+
+squidguard (1.2.0-3) unstable; urgency=low
+
+  * Fix Maintainer in debian/control
+  * Update Standards Version
+  * Add in configure support for db4.1.  We'll switch once it's packaged.
+
+ -- Ivan E. Moore II <rkrusty@debian.org>  Wed, 08 Jan 2003 00:38:00 -0700
+
+squidguard (1.2.0-2) unstable; urgency=low
+
+  * Adpoting package again.  (Closes: #127704)
+  * Fix some lintian errors
+
+ -- Ivan E. Moore II <rkrusty@debian.org>  Fri, 13 dec 2002 05:27:00 -0700
+
+squidguard (1.2.0-1) unstable; urgency=low
+
+  * QA upload.
+  * Allow room for null terminator when loading diffs to .db files (thanks,
+    Aleksey I Zavilohin; closes: #139238).
+
+ -- Colin Watson <cjwatson@debian.org>  Fri, 29 Mar 2002 03:40:52 +0000
+
+squidguard (1.2.0-0) unstable; urgency=low
+
+  * New upstream version
+  * Changing maintainer to Debian QA
+
+ -- Ivan E. Moore II <rkrusty@debian.org>  Wed, 06 Mar 2002 00:49:00 -0700
+
+squidguard (1.1.9-20010614-6) unstable; urgency=low
+
+  * Change notation from squidguard-blacklists to chastity-list
+  * Fix postinst bits.  
+    Reload squid after db update
+    Actually pay attention to .diff files
+    do a -C all then a -u as the combination of the 2 hoses sometimes
+  * Remove debconf bits since we really don't need it anymore
+  * Provide man pages
+
+ -- Ivan E. Moore II <rkrusty@debian.org>  Fri, 14 Dec 2001 02:22:00 -0700
+
+squidguard (1.1.9-20010614-5) unstable; urgency=low
+
+  * Off-by-one malloc bug fix (Closes: #121146)
+  * Lintian cleanup as well
+
+ -- Ivan E. Moore II <rkrusty@debian.org>  Sun, 25 Nov 2001 19:02:00 -0700
+
+squidguard (1.1.9-20010614-4) unstable; urgency=low
+
+  * pt_BR translations (Closes: #115612)
+
+ -- Ivan E. Moore II <rkrusty@debian.org>  Fri, 26 Oct 2001 12:16:00 -0700
+
+squidguard (1.1.9-20010614-3) unstable; urgency=low
+
+  * russian template (Closes: #114304)
+
+ -- Ivan E. Moore II <rkrusty@debian.org>  Wed, 03 Oct 2001 16:17:00 -0700
+
+squidguard (1.1.9-20010614-2) unstable; urgency=low
+
+  * Change Recommends to Suggests (Closes: #112990)
+
+ -- Ivan E. Moore II <rkrusty@debian.org>  Mon, 01 Oct 2001 14:15:00 -0700
+
+squidguard (1.1.9-20010614-1) unstable; urgency=low
+ 
+  * New upstream version
+ 
+ -- Ivan E. Moore II <rkrusty@debian.org>  Mon, 18 Jun 2001 22:00:00 -0700
+
+squidguard (1.1.9-20010601-2) unstable; urgency=low
+ 
+  * I'm puzzled how this was overlooked... (Closes: #100044)
+ 
+ -- Ivan E. Moore II <rkrusty@debian.org>  Thu, 07 Jun 2001 23:00:00 -0700
+
+squidguard (1.1.9-20010601-1) unstable; urgency=low
+ 
+  * New upstream version
+ 
+ -- Ivan E. Moore II <rkrusty@debian.org>  Thu, 07 Jun 2001 00:30:00 -0700
+
+squidguard (1.1.9-20010511-1) unstable; urgency=low
+ 
+  * New upstream version
+ 
+ -- Ivan E. Moore II <rkrusty@debian.org>  Sun, 13 May 2001 05:57:00 -0700
+
+squidguard (1.1.9-20010302-4) unstable; urgency=low
+ 
+  * Add german template (Closes: #96086)
+  * Update build-depends
+ 
+ -- Ivan E. Moore II <rkrusty@debian.org>  Thu, 03 May 2001 00:29:00 -0700
+
+squidguard (1.1.9-20010302-3) unstable; urgency=low
+ 
+  * Update Build-Depends
+  * Move to DB3 (Closes: #95794)
+  * Add debconf warnings about new db format
+  * Add bits in postinst to make sure file and directory permissions are set
+    properly and then rebuild squidGuard db files to make sure we are using
+    the proper db format.
+ 
+ -- Ivan E. Moore II <rkrusty@debian.org>  Mon, 30 Apr 2001 02:18:00 -0700
+
+squidguard (1.1.9-20010302-2) unstable; urgency=low
+ 
+  * Make emergency mode block traffic instead of allow it.
+  * Update Standards Version
+  * Fix a few other Build-Depends
+  * Change Suggests to Recommends for blacklists package
+  * Remove lynx build-dependency
+ 
+ -- Ivan E. Moore II <rkrusty@debian.org>  Tue, 17 Apr 2001 01:40:00 -0700
+
+squidguard (1.1.9-20010302-1) unstable; urgency=low
+ 
+  * New upstream development version
+  * Removing old undocumented links
+  * Adding in lintian overrides
+ 
+ -- Ivan E. Moore II <rkrusty@debian.org>  Sat, 10 Mar 2001 01:20:00 -0700
+
+squidguard (1.1.5-1) unstable; urgency=low
+ 
+  * More Build-Depends work
+  * Updating Standards version
+  * Moving blacklist examples to external package
+ 
+ -- Ivan E. Moore II <rkrusty@debian.org>  Sun, 28 Jan 2001 04:23:00 -0700
+
+squidguard (1.1.5-0.20000604.1) unstable; urgency=low
+ 
+  * Fixing up docs (Closes: #75950)
+ 
+ -- Ivan E. Moore II <rkrusty@debian.org>  Sun, 05 Nov 2000 22:00:00 -0700
+
+squidguard (1.1.5-0.20000604.0) unstable; urgency=low
+ 
+  * New upstream snapshot version
+ 
+ -- Ivan E. Moore II <rkrusty@debian.org>  Sat, 14 Oct 2000 23:00:00 -0700
+
+squidguard (1.1.4-7) unstable; urgency=low
+
+  * More build-depend work
+  * Build on new libc6 
+
+ -- Ivan E. Moore II <rkrusty@debian.org>  Tue, 26 Sep 2000 22:00:00 -0700
+
+squidguard (1.1.4-6.1) unstable; urgency=low
+
+  * Minor build-depends fixes (Closes: #64997)
+
+ -- Ivan E. Moore II <rkrusty@debian.org>  Wed, 21 Jun 2000 18:00:00 -0700
+
+squidguard (1.1.4-6) unstable; urgency=low
+ 
+  * Adding in build-depends
+  * moving example db's into /usr/share/doc/squidguard/examples/db
+  * moving squidGuardRobot into /usr/share/doc/squidguard/examples
+ 
+ -- Ivan E. Moore II <rkrusty@debian.org>  Mon, 15 May 2000 03:00:00 -0700
+
+squidguard (1.1.4-5) unstable; urgency=low
+
+  * Rebuilding using potato's libdb2 package
+
+ -- Ivan E. Moore II <rkrusty@debian.org>  Fri, 12 May 2000 01:30:00 -0700
+
+squidguard (1.1.4-4) unstable; urgency=low
+ 
+  * Putting in a pointer to /usr/share/common-licenses/GPL in the copyright
+    file
+ 
+ -- Ivan E. Moore II <rkrusty@debian.org>  Sun, 16 Mar 2000 23:30:00 -0700
+
+squidguard (1.1.4-3) unstable; urgency=low
+
+  * Moving db files to /var/lib/squidguard/db
+
+ -- Ivan E. Moore II <rkrusty@debian.org>  Wed, 15 Mar 2000 01:30:00 -0700
+
+squidguard (1.1.4-2) unstable; urgency=low
+ 
+  * Building against new bdb2 libraries
+ 
+ -- Ivan E. Moore II <rkrusty@debian.org>  Thu,  9 Mar 2000 23:30:00 -0700
+
+squidguard (1.1.4-1) unstable; urgency=low
+ 
+  * New upstream version
+ 
+ -- Ivan E. Moore II <rkrusty@debian.org>  Thu,  9 Mar 2000 02:30:00 -0700
+
+squidguard (1.1.3-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Ivan E. Moore II <rkrusty@debian.org>  Tue,  7 Mar 2000 12:22:47 -0700

@@ -1,0 +1,35 @@
+#!/bin/bash
+# postinst script for netcontrol
+
+set -e
+
+case "$1" in
+    configure)
+        DEFAULT_DIR=/var/lib/netcontrol/plugins/helpdesk/sql
+	    SQLDB=$DEFAULT_DIR/redmine_netcontrol.sql
+	    SQLIMPA=$DEFAULT_DIR/limpa_db.sql
+	    /usr/bin/mysql --defaults-file=/etc/mysql/debian.cnf < SQLIMPA
+	    /usr/bin/mysql --defaults-file=/etc/mysql/debian.cnf < SQLDB
+	    ln -s /usr/share/redmine/public /var/www/helpdesk
+	    chown -R www-data:www-data /var/www/helpdesk
+	    echo "RailsBaseURI" /helpdesk > /etc/apache2/sites-avalable/helpdesk
+	    a2ensite helpdesk || true
+	    /etc/init.d/apache2 restart || true
+
+        netcontrol-pkg upgrade
+	    /etc/init.d/netcontrol restart || true
+    ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
+        rm -f /etc/apache2/sites-available/helpdesk /var/www/helpdesk
+        a2dissite helpdesk || true
+        /etc/init.d/apache2 restart || true
+    ;;
+
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+
+exit 0

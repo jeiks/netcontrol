@@ -1,0 +1,69 @@
+<html class="auth-html">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>NetControl</title>
+    <link rel="shortcut icon" href="/dl/core/ui/favicon.png" />
+    <headstylesheets/>
+    <link rel="stylesheet/less" href="/core/styles.less" />
+    <headscripts/>
+    <!-- <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css' /> -->
+    <link rel="shortcut icon" href="/dl/core/ui/favicon.png" />
+</head>
+
+<body id="main" class="auth-body">
+    <div>
+        <div class="modal fade" id="auth-dialog" style="display:none">
+            <form id="form" action="/auth-redirect" method="POST">
+                <div class="modal-header">
+                    <h3>Autenticação</h3>
+                </div>
+                <div class="modal-content">
+                    <br/>
+                    <input type="hidden" id="challenge" />
+                    <div class="clearfix">
+                        <hlabel for="username" text="Nome do Usuário" />
+                        <div class="input">
+                            <input type="text" id="username" name="username" placeholder="Nome do Usuário" />
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        <hlabel for="password" text="Senha" />
+                        <div class="input">
+                            <input type="password" id="password" name="password" placeholder="Senha" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer" style="background: #eee url('/dl/core/ui/alert.png') repeat-x">
+                    <input type="submit" class="ui-el-button" id="login" value="Acessar NetControl" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+<script>
+Netcontrol.UI.showAsModal('auth-dialog');
+$('#username').focus()
+$('#form').submit(function (e) {
+    e.preventDefault();
+    var h = Sha1.hash($('#password').val());
+    var r = Sha1.hash($('#challenge').val() + h);
+    $.ajax({
+        url: '/auth',
+        type: 'POST',
+        data: {
+            username: $('#username').val(),
+            response: r
+        },
+        success: function () {
+            Netcontrol.UI.hideModal('auth-dialog');
+            $('#form').unbind('submit');
+            $('#password').val('');
+            $('#login').click();
+        }
+    });
+});
+</script>
+
+</body>
+
+</html>

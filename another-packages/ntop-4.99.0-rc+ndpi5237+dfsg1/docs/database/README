@@ -1,0 +1,13 @@
+
+NTOP DATABASE SUPPORT
+---------------------
+
+ntop allows network traffic information to be stored in a MySQL database for further processing. This applies *only* to NetFlow flows. 
+
+Supposing that you compiled ntop with mysql support, you can configure flow DB export via ntop: plugins->netflow plugin -> configure
+
+
+Have fun!
+
+----------
+Luca Deri <deri@ntop.org>, June 2008.

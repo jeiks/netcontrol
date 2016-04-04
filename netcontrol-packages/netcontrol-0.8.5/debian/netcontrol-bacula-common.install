@@ -1,0 +1,3 @@
+plugins/bacula_common/api.py	var/lib/netcontrol/plugins/bacula_common/
+plugins/bacula_common/files	var/lib/netcontrol/plugins/bacula_common/
+plugins/bacula_common/__init__.py	var/lib/netcontrol/plugins/bacula_common/

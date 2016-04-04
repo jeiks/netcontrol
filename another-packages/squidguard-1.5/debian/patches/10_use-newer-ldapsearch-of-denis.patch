@@ -1,0 +1,49 @@
+Package:     squidguard
+Subject:     use newer ldapsearch (thanks to Denis Bonnenfant)
+Author:      Joachim Wiedorn <ad_debian@joonet.de>
+Origin:      upstream
+Forwarded:   no
+Last-Update: 2012-04-13
+
+This patch use better technique of OpenLDAP search.
+---
+
+diff -urN s09/src/sg.l s10/src/sg.l
+--- s09/src/sg.l	2011-10-01 20:49:00.000000000 +0200
++++ s10/src/sg.l	2012-04-14 00:04:01.428436305 +0200
+@@ -76,6 +76,7 @@
+ 
+ 
+ %x REDIRECT_STATE
++%x LDAPURI_STATE
+ %x EXEC_STATE
+ %x STRING_STATE
+ 
+@@ -116,13 +117,11 @@
+ 	return USERQUERY;
+ 	}
+ ldapusersearch {
+-       /* use the REDIRECT_STATE logic, since it handles URLs nicely */
+-       /* BEGIN REDIRECT_STATE; */
++       BEGIN LDAPURI_STATE; 
+        return LDAPUSERSEARCH;
+        }
+ ldapipsearch {
+-       /* use the REDIRECT_STATE logic, since it handles URLs nicely */
+-       BEGIN REDIRECT_STATE;
++       BEGIN LDAPURI_STATE;
+        return LDAPIPSEARCH;
+        }
+ execuserlist {
+@@ -164,6 +163,11 @@
+ <REDIRECT_STATE>\n        {lineno++;}
+ <REDIRECT_STATE>.         {return yytext[0];}
+ 
++<LDAPURI_STATE>[a-zA-Z3\/][a-zA-Z0-9/_\*\-\.\,\(\)\/\:\%\+\?=&~!]*  { yylval.string = yytext ; BEGIN 0; return WORD;}
++<LDAPURI_STATE>[ \t]+     ;
++<LDAPURI_STATE>\n        {lineno++;}
++<LDAPURI_STATE>.         {return yytext[0];}
++
+ <EXEC_STATE>[^\n]* { yylval.string = yytext; BEGIN 0; return EXECCMD; }
+ <EXEC_STATE>\n     {lineno++;}
+ 

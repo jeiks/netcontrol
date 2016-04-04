@@ -1,0 +1,50 @@
+=for header
+manpage:  SGCLEAN
+section:  1
+title:    SquidGuard documentation
+version:  Version 1.5
+datum:    2012-04-20
+
+=encoding utf8
+
+=head1 NAME
+
+sgclean - Removing redundant entries in blacklists
+
+=head1 SYNOPSIS
+
+B<sgclean> I<configfile>
+
+=head1 DESCRIPTION
+
+B<sgclean> removes redundant entries in domain files and urls files.
+
+B<sgclean> always need explicit the `configfile' i.e. 
+`/etc/squidguard/squidGuard.conf'.
+
+Although B<sgclean> makes a backup of the old files, it's always a 
+good idea to make your own backup before running the program.
+
+=head1 COPYRIGHT and LICENSE
+
+Copyright (C) 1999 Lars Erik Håland
+
+This script is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License version 2 as
+published by the Free Software Foundation.
+
+On Debian systems, the complete text of the GNU General Public
+License version 2 can be found in `/usr/share/common-licenses/GPL-2'.
+
+=head1 AUTHOR
+
+B<sgclean> was written by Lars Erik Håland.
+
+This manual page was written by Joachim Wiedorn <ad_debian at joonet.de>
+for the Debian project (and may be used by others).
+
+=head1 SEE ALSO
+
+B<squidGuard>(1), B<update-squidguard>(1)
+
+=cut

@@ -1,0 +1,70 @@
+This package was first debianized by Ivan E. Moore II <rkrusty@debian.org> on
+Tue,  7 Mar 2000 21:37:57 -0700.
+
+The current maintainer is Luigi Gangitano <luigi@debian.org>
+
+It was downloaded from  http://web.onda.com.br/orso/index.html
+
+Authors: 
+
+Pedro L Orso <orso@onda.com.br>
+
+Alp <support@x5.net>
+Andreas Piesk <a.piesk@gmx.net>
+Andrew <andrew@extrim.ru>
+Andrew Barnes <a.barnes@kaldor.com.au>
+Carlos Canau <canau@ionia.EUnet.pt>
+Carlos Santillana <carlos@los-fresnos-cons.k12.tx.us>
+Csaba Kabai <ckabai@icnpharm.com>
+Dima I. Allaverdov <allav@ur.rags.ru>
+Eugeny Kuzakov <CoreDumped@CoreDumped.null.ru>
+Evren Yurtesen <yurtesen@ispro.net.tr>
+Evren Yurtesen <yurtesen@ispro.net.tr>
+Hanni Daniel <daniel.haenni@softlab.ch>
+Ilya V. Komarov <mur@mur.lynx.ru>
+Jose Luiz <jluiz@projesom.com.br>
+Lee Shakespeare <lee@webfoundry.co.uk>
+Leonardo A. D'Angelo <ldangelo@san-cayetano.com>
+Manon Goo <manon@manon.de>
+Matteo Colombo <matteo@calcol.it>
+Maxim Berlin <mak@unesco.mitht.rssi.ru>
+Palamarchuk Eugen <eugen@cit.od.ukrtel.net>
+Patrick Darden <darden@server2.armc.org>
+Rick_Barzilli@xircom.com
+Ryan Roehrich <ryanscott@mindless.com>
+Steve Chan <Steve.Chan@lucasfilm.com>
+Tony Lorimes <alorimes@csc.com>
+Wayne Bastow <wbastow@ccahs.health.nsw.gov.au>
+drdivano@mail.axon.ru
+Seth Mos <stimpy@stimpy.multiweb.nl>
+Carlo Marcelo Arenas Belon <carenas@chasqui.lared.net.pe>
+Milos Prudek <prudek@nembv.cz>
+Pavel Jezek <Pavel.Jezek@i.cz>
+Kenneth Ingham <ingham@i-pi.com>
+Schlosser, Carsten ECOFIS <c.schlosser@ecofis.de>
+Andrew Katkov <askat@crimea.net>
+Andy Parfenov <andy@nursat.net>
+Bernd Kossmann <bko@shd.de>
+Ivan Minchev <vanko@uni-svishtov.bg>
+Olivier Rousselot <olivier.rousselot@ssti.fr>
+
+Copyright:
+
+    This program is Copyright (C) 1998 by Pedro Lineu Orso.
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301,
+	USA.
+
+    You can find a full copy of the GPL in /usr/share/common-licenses/GPL

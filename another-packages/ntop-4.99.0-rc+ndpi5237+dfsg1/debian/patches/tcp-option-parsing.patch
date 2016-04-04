@@ -1,0 +1,16 @@
+Description: Fix computation of beginning of TCP options.
+Author: Ludovico Cavedon <cavedon@debian.org>
+
+Index: ntop/ip.c
+===================================================================
+--- ntop.orig/ip.c	2012-03-06 23:31:55.000000000 -0800
++++ ntop/ip.c	2012-03-06 23:40:27.943380375 -0800
+@@ -736,7 +736,7 @@
+ 	int ttl;
+ 	char WSS[3] = { 0 }, _MSS[5] = { 0 };
+ 	struct tcphdr *tcp = (struct tcphdr*)(bp+hlen);
+-	u_char *tcp_opt = (u_char *)(bp + hlen + 1);
++	u_char *tcp_opt = (u_char *)(tcp + 1);
+         u_char *tcp_data = (u_char *)(bp + hlen + tp.th_off * 4);
+ 
+ 	if(tcp->th_flags & TH_SYN) {   /* only SYN or SYN-2ACK packets */

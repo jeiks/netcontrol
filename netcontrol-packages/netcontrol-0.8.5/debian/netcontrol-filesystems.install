@@ -1,0 +1,5 @@
+plugins/filesystems/backend.py	var/lib/netcontrol/plugins/filesystems/
+plugins/filesystems/files	var/lib/netcontrol/plugins/filesystems/
+plugins/filesystems/__init__.py	var/lib/netcontrol/plugins/filesystems/
+plugins/filesystems/layout	var/lib/netcontrol/plugins/filesystems/
+plugins/filesystems/main.py	var/lib/netcontrol/plugins/filesystems/

@@ -1,0 +1,117 @@
+Description: fix typos and syntax errors in ntop.8 manpage.
+Author: A. Costa <agcosta@gis.net>, Ola Lundqvist <opal@debian.org>,
+ Jordan Metzmeier <jordan@linuxgen.com>, Ludovico Cavedon <cavedon@debian.org>
+Index: ntop/ntop.8
+===================================================================
+--- ntop.orig/ntop.8	2012-02-25 19:26:19.000000000 -0800
++++ ntop/ntop.8	2012-02-26 11:01:20.992719416 -0800
+@@ -146,10 +146,10 @@
+ given: --trace-level 2 --trace-level 3 will run as --trace-level 3.
+  
+ Beginning with
+-.b ntop
++.B ntop
+ 3.1, many command-line options may also be set via the web browser interface.  These changes 
+ take effect on the next run of
+-.b ntop
++.B ntop
+ and on each subsequent run until changed.
+ 
+ 
+@@ -324,7 +324,7 @@
+ .B ntop
+ by the -f | --traffic-dump-file parameter.  The dump is made after processing any
+ filter expression (
+-.b ntop
++.B ntop
+ never even sees filtered packets).
+ 
+ The output file will be named 
+@@ -477,7 +477,7 @@
+ 
+ .It2 -s --no-promiscuous
+ Use this parameter to prevent 
+-.b ntop
++.B ntop
+ from setting the interface(s) into promiscuous mode.
+ 
+ An interface in promiscuous mode will accept ALL Ethernet frames, regardless of
+@@ -742,7 +742,7 @@
+ merges the data collected from all of the interfaces (NICs) it is monitoring into a
+ single set of counters. 
+ 
+-If you have a simple network, say a small LAN with a connection to the internet, 
++If you have a simple network, say a small LAN with a connection to the Internet,
+ merging data is good as it gives you a better picture of the whole network.
+ For larger, more complex networks, this may not be desirable.
+ You may also have other reasons for wishing to monitor each interface separately,
+@@ -866,7 +866,7 @@
+ stores extra information about the locks and unlocks of the protective mutexes it uses. Since
+ .B ntop
+ uses fine-grained locking, this information is updated frequently.  On some OSes, the system
+-calls used to collect this informatio (getpid() and gettimeofday()) are expensive.  This option
++calls used to collect this information (getpid() and gettimeofday()) are expensive.  This option
+ disables the extra information.  It should have no processing impact on
+ .B ntop
+  - however should
+@@ -902,7 +902,7 @@
+ 
+ If present, a file of the form <instance>_ntop_logo.gif will be used instead of the normal
+ ntop_logo.gif.  This is tested for ONLY once, at the beginning of the
+-.b ntop
++.B ntop
+ run.  The EXACT word(s) of the --instance flag are used, without testing if they make a 
+ proper file name.  If - for any reason - the file is not found, an informational message 
+ is logged and the normal logo file is used.  To construct your own logo, make it a 300x40
+@@ -913,7 +913,7 @@
+ uses the dladdr() function.  The original Solaris routine had a bug, replicated in
+ FreeBSD (and possibly other places) where it uses the ARGV[0] value - which might be
+ erroneous - instead of the actual file name.  If the 'running from' value looks bogus but
+-the 'libaries in' value looks ok, go with the libarary.
++the 'libraries in' value looks OK, go with the library.
+ 
+ .It --no-fc 
+ 
+@@ -929,7 +929,7 @@
+ P3P is a W3C recommendation - http://www.w3.org/TR/P3P/ - for specifying
+ personal information a site collects and what it does with the information.
+ These parameters allow 
+-.b ntop
++.B ntop
+ to return P3P information.  We do not supply samples.
+ 
+ .It --pcap_setnonblock
+@@ -943,12 +943,12 @@
+ This option sets the non-blocking 
+ option (assuming it's available in the version of libpcap that is installed).
+ 
+-While this works around the problem (by turing an interupt driven process into 
+-a poll), it also MAY signifcantly increases the cpu usage of
++While this works around the problem (by turning an interrupt driven process into 
++a poll), it also MAY significantly increase the CPU usage of
+ .B ntop.
+ Although it does not actually interfere with other work, seeing
+ .B ntop
+-use 80-90% or more of the cpu is not uncommon - don't say we didn't warn you.
++use 80-90% or more of the CPU is not uncommon - don't say we didn't warn you.
+ 
+ .B THIS OPTION IS OFFICIALLY UNSUPPORTED
+ and used at your own risk.  Read the docs/FAQ write-up.
+@@ -972,7 +972,7 @@
+ .It --ssl-watchdog 
+ 
+ Enable a watchdog for 
+-.b ntop 
++.B ntop
+ webserver hangs. These usually happen when connecting with older browsers. The user 
+ gets nothing back and other users can't connect. Internally, packet processing continues
+ but there is no way to access the data through the web server or shutdown ntop cleanly. 
+@@ -1202,7 +1202,7 @@
+ which flags are being used.
+ 
+ The libpcap, gdbm, openssl and zlib versions come from the strings returned by the various
+-inquiry functions (if they're availabe).
++inquiry functions (if they're available).
+ 
+ Here's a sample log record:
+ 

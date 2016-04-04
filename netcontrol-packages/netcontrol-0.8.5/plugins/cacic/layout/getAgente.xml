@@ -1,0 +1,39 @@
+<dialogbox id="getAgenteEstacao">    
+    <simpleform id="getAgenteEstacao">
+      <dt>
+        <dtr>
+          <dth>
+            <label text="IP - Servidor"/>
+          </dth>
+          <dth>
+            <textinput id="server" name="server"/>
+          </dth>
+          <dth>
+            <tipicon icon="/dl/core/ui/stock/info.png" text="IP para aonde o clinte ira mandar informações." id="teste" />
+          </dth>
+        </dtr>        
+        <dtr>
+          <dth>
+          <label text="Sistema Operacional"/>
+          </dth>
+          <dth><div style="text-align:center">
+            <hcontainer>
+                <vcontainer>
+                  <radio text=" Windows" value="windows" id="arq" name="arq"/><img src="/dl/cacic/windows.png" />
+                </vcontainer>
+                <spacer width="30" />
+                <vcontainer>
+                  <radio text=" Linux" value="linux" id="arq" name="arq"/><img src="/dl/cacic/linux.png"  />
+                </vcontainer>
+
+            </hcontainer>
+            </div>
+          </dth>
+          <dth>
+            <tipicon icon="/dl/core/ui/stock/info.png" text="Selecione para qual plataforma está estação irá rodar" id="teste" />
+          </dth>
+        </dtr>
+      </dt>
+    </simpleform>
+
+</dialogbox>

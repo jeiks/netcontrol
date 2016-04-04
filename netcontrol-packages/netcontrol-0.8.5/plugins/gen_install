@@ -1,0 +1,5 @@
+#!/bin/bash
+
+for i in $(ls -1 --color=no);do
+    ls -1 $i | xargs -i{} echo -e "plugins/$i/{}\tvar/lib/netcontrol/plugins/$i/" > ../debian/"netcontrol-${i//_/-}.install"
+done 

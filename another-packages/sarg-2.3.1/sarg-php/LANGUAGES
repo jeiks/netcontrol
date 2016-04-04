@@ -1,0 +1,16 @@
+This PHP modules is under i18n. 
+Available languages:
+
+	English			Pedro Orso <pedro.orso@gmail.com>
+	Brazilian_Portuguese	Pedro Orso <pedro.orso@gmail.com>
+	French			Jacques GRILLOT <Jacques.Grillot@grouperdi.com>
+	Russian             	Michael Stepanenko <mistic@ecolines.ru>
+
+Thank you, my friends.
+
+If you want to traslate, follow this steps:
+
+1. edit translation.this file
+2. translate every msgid sentence in msgstr tag
+3. send to fmarchal@users.sourceforge.net to implement
+   * plase send your name and email address.

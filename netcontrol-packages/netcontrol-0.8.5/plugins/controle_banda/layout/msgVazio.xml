@@ -1,0 +1,6 @@
+<xml>
+  <div style="text-align:center;">
+    <spacer width='1024' height='70' /> 
+    <label size="3" bold="True"  text="Nenhum filtro foi encontrado..." /> 
+ </div>
+</xml>

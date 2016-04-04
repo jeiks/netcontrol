@@ -1,0 +1,49 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: sarg-squidGuard 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-08-12 11:14-0300\n"
+"PO-Revision-Date: 2004-08-12 11:14-0300\n"
+"Last-Translator: Pedro Lineu Orso <pedro.orso@gmail.com>\n"
+"Language-Team: Brazilian_Portuguese\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: sarg-squidguard-block2.php:10
+msgid "Could not open the file"
+msgstr "N&atilde;o pode abrir o arquivo"
+
+#: sarg-squidguard-block2.php:19
+msgid "Write error"
+msgstr "Erro na escrita do arquivo"
+
+#: sarg-squidguard-block2.php:23
+msgid "Done!"
+msgstr "Feito!"
+
+#: sarg-squidguard-block2.php:27
+msgid "Return"
+msgstr "Retorna"
+
+#: sarg-squidguard-block2.php:30
+msgid " to Sarg."
+msgstr "ao Sarg"
+
+#: sarg-squidguard-block.php:29
+msgid "Sarg-SquidGuard - URL Blocking"
+msgstr "Sarg-SquidGuard - Bloqueio de URL"
+
+#: sarg-squidguard-block.php:33
+msgid "Choose the rule set where"
+msgstr "Escolha uma regra onde a URL"
+
+#: sarg-squidguard-block.php:36
+msgid "will by added"
+msgstr "ser&aacute; incluida"

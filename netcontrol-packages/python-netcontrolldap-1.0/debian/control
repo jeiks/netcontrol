@@ -1,0 +1,16 @@
+Source: python-netcontrolldap
+Section: python
+Priority: extra
+Maintainer: Jacson RC Silva <jeiks@sistemaprolinux.com.br>
+Build-Depends: cdbs, debhelper (>= 7.0.50~), python-central, python (>= 2.6)
+XB-Python-Version: >= 2.6
+Standards-Version: 3.8.4
+
+Package: python-netcontrolldap
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, slapd, samba, winbind, nslcd, nfs-kernel-server
+Description: openLDAP and SAM Manager
+ This module contains python structures that can be used to create a new
+ openLDAP with SAM instalation.
+ .
+ Also has tools to manage users, groups and machines.

@@ -1,0 +1,120 @@
+Sarg is a Squid Analysis Report Generator that allow you to view "where" your users
+are going to on the Internet.
+Sarg generates reports in html, with many fields, like: users, IP Addresses, bytes, sites and times.
+
+Source: http://sourceforge.net/projects/sarg/
+
+
+Installation
+------------
+
+1. run ./configure
+
+   Useful configure options:
+     --prefix - The root directory of the installation
+               default: /usr/local
+
+     --bindir - where sarg binary will be saved
+               default: /usr/local/bin
+
+     --sysconfdir - where the configuration directory is
+               default: /usr/local/etc
+
+     --mandir - where the sarg man page will be saved
+               default: /usr/local/share/man
+
+     --enable-sargphp - where to install sarg-php (--disable-sargphp don't install sarg-php)
+               default: /var/www/html
+
+     --enable-fontdir - where to find the fonts for the reports (--diable-fontdir don't install the fonts)
+               default: /usr/local/share/sarg/fonts
+
+     --enable-imagedir - where sarg take the images to include in the reports
+               default: /usr/local/share/sarg/images
+
+     --enable-extraprotection - compile sarg with extra GCC options for increased security
+               default: use standard compilation warnings and no protection
+
+   For a complete list of all the options, run ./configure --help.
+
+3. make
+
+4. make install
+
+5. Go to /usr/local/sarg (or file entered with --sysconfdir on configure)
+   and change sarg.conf as you need.
+
+6. Notes about sarg:
+
+   Date/Time report:
+         Every minute that a request is logged your time is incremented by the smaller
+         of 1 minute or the total time for the requests.
+
+Usage: sarg -h
+
+
+Translations
+------------
+
+As of March 14th, 2010 (sarg 2.3), the translations have been ported to gettext. This makes it easier
+to translate all the messages (the number of translated messages went from 144 to 448). Therefore, the
+old language files are obsolete. The old translated message have been converted automatically to
+gettext but due to the changes made to the strings in the program after the automatic conversion,
+it is likely that the old messages are, at best, meaningless.
+
+Translations are handled at http://translationproject.org/domain/sarg.html. If your language is
+not yet supported or the current translation is obsolete, please check with the team working
+on your language at the Translation Project to be sure nobody is assigned to sarg. If necessary,
+contact the coordinator of that team to join the team and be assigned to sarg.
+
+If no po file exists for you language, download the latest sarg.pot on this page
+http://translationproject.org/domain/sarg.html and rename it as YourLanguageCode.po. See
+http://www.gnu.org/software/gettext/manual/gettext.html#Language-Codes for the list of the
+valid languages codes.
+
+Translate YourLanguageCode.po (see http://www.gnu.org/software/gettext/manual/gettext.html for more informations).
+
+Submit the translated po file to robot@translationproject.org. You must be a member of the team
+working on the language for which you are submitting the po file or the robot will reject
+your file. It is not necessary to fill the disclaimer to translate sarg.
+
+
+Special thanks to:
+Matteo Colombo <matteo@calcol.it> 			- Italian language
+Palamarchuk Eugen <eugen@cit.od.ukrtel.net> 		- Russian language
+Csaba Kabai <ckabai@icnpharm.com>			- Hungarian language
+Evren Yurtesen <yurtesen@ispro.net.tr>          	- Turkish language
+Andreas Piek <a.piesk@gmx.net>				- German language
+Fred Pacquier <fredp@dial.oleane.com>			- French language
+Leonardo A. D'Angelo <ldangelo@san-cayetano.com>	- Spanish language
+Seth Mos <stimpy@stimpy.multiweb.nl>			- Dutch language
+Milos Prudek <prudek@nembv.cz>                          - Czech language
+Dima I. Allaverdov <allav@ur.rags.ru>                   - Russian_windows1251 language
+V Gatut Harijiso <gatut@student.unpar.ac.id>		- Indonesian language
+Ivan Minchev <vanko@uni-svishtov.bg>			- Bulgarian_windows1251 language
+Akira Kitamura <click@anet.ne.jp>			- Japanese language
+Radovan Drobnjakovic <admin.rts@rts.co.yu>		- Serbian language
+Pieter Kooistra <pkooistra@hr.nl>			- Dutch language fix
+Andrew Okhmat <andy@crgu.com>			        - Russian Koi8 language fixed
+Nikolai V. Ivanyushin <koko@infocenter.bryansk.ru>	- Russian and Bulgarian language fix
+Juris Valdovskis <juris@auce.lv>			- Latvian language
+Jordan Kanev <dancho@globcom.net>			- Bulgarian language fix
+Wszebor Boksa <Wszebor_Boksa@koncept.pl>		- Polish language
+Adi Cretu <adi@usv.ro>					- Romanian language
+Roman Vynar <rvynar@icqmail.com>			- Ukrainian_windows1251 language
+Andreu Sanchez <tanis@lleida.com>			- Catalan language
+Antonis Maglaras <vegos@magla.gr>			- Greek language
+Dusan Woletz <Dusan.WOLETZ@orange.sk>			- Slovak Language
+Jose Luis Hernandez <jhdz@simbiotica.net>		- Spanish language fix
+Theo kastermans <t.kastermans@zandvoort.nl>		- Dutch language fix
+Alex Deiter <tiamat@komi.mts.ru>			- Russian UTF-8 language
+Josef Karliak <karliak@ajetaci.cz>			- Czech UTF-8
+Igor Ageikin <iageikin@lipen.elektra.ru>		- Russian UTF-8 fix
+
+
+Suggestions or remarks
+----------------------
+
+Any suggests or comments may be posted on the forum
+http://sourceforge.net/projects/sarg/forums/forum/363374 or sent to Frederic Marchal
+(fmarchal@users.sourceforge.net)

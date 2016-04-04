@@ -1,0 +1,8 @@
+plugins/controle_banda/backend.py	var/lib/netcontrol/plugins/controle_banda/
+plugins/controle_banda/conf	var/lib/netcontrol/plugins/controle_banda/
+plugins/controle_banda/ControleBanda.py	var/lib/netcontrol/plugins/controle_banda/
+plugins/controle_banda/exec_bash.py	var/lib/netcontrol/plugins/controle_banda/
+plugins/controle_banda/files	var/lib/netcontrol/plugins/controle_banda/
+plugins/controle_banda/__init__.py	var/lib/netcontrol/plugins/controle_banda/
+plugins/controle_banda/layout	var/lib/netcontrol/plugins/controle_banda/
+plugins/controle_banda/main.py	var/lib/netcontrol/plugins/controle_banda/

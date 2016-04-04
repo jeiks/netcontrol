@@ -1,0 +1,1065 @@
+ntop (3:4.99.0-rc+ndpi5237+dfsg1-2) unstable; urgency=low
+
+  * removed: header, bottom and About
+
+ -- Jacson RC Silva <jacsonrcsilva@gmail.com>  Fri, 14 Sep 2012 15:35:42 -0300
+
+ntop (3:4.99.0-rc+ndpi5237+dfsg1-1) unstable; urgency=low
+
+  * Imported Upstream version 4.99+rc and nDPI r5237.
+  * Update Dutch debconf template transation by Jeroen Schot
+    <schot@A-Eskwadraat.nl> (Closes: #650750).
+  * Update Galician debconf translation by Anxo Outeiral (Closes: #626699).
+  * Add Polish debconf translation by Michał Kułach (Closes: #660884).
+  * Remove non-free Highcharts JS API from upstream tarball, document it in
+    debian/NEWS, and suggest ntop-graphs package.
+  * Remove commands to stop ntop in prerm script, as they are already added by
+    debhelper.
+  * Use "none" as default interface if no previous configuration exist.
+  * Remove check for existing interaces during config.
+  * Fix init script failure in some cases (Closes: #649639).
+  * Add build dependency on groff for documentation generation
+    (Closes: #633956).
+  * Update watch file for upstream "-rc" suffix.
+  * Refresh patches.
+  * Add do-not-require-svn.patch to remove unneeded dependecy on svn.
+  * Update reduce-autogen-purged-files.patch so nDPI is not be removed on
+    cleanup.
+  * Removed no longer needed dependency on mochikit.
+  * Update Standards-Version to 3.9.3.
+  * Add separate package for debug symbols.
+  * Update copyright for new upstream version.
+  * Add l7_major_proto-fix.patch and tcp-option-parsing.patch to fix crashes.
+  * Build-Depends on libpng-dev to allow linpng transitions (Closes: #662447).
+  * Prevent the init script to exit with an error if one of the configured
+    interaces is not available (Closes: #662212, LP: #402215).
+  * Add /sbin path to invocation of start-stop-daemon (Closes: #350693).
+  * Add status command to init script (Closes: #513779, LP: #323717).
+  * Refresh & fix patches.
+  * Add LSB description to init script.
+  * Re-enable DNS resolution.
+
+ -- Ludovico Cavedon <cavedon@debian.org>  Mon, 19 Mar 2012 23:56:18 -0700
+
+ntop (3:4.1.0+dfsg1-1) unstable; urgency=low
+
+  * New upstream version (Closes: #520266, LP: #365145, LP: #777801).
+  * Add kfreebsd-ftbfs.patch by Christoph Egger to fix FTBS under kFreeBSD
+    (Closes: #636389).
+  * Update Brazilian debconf messages translation by Eder L. Marques
+    (Closes: #629113).
+  * Update po files.
+
+ -- Ludovico Cavedon <cavedon@debian.org>  Sat, 20 Aug 2011 20:14:58 -0700
+
+ntop (3:4.0.3+dfsg1-4) unstable; urgency=low
+
+  * Avoid adduser warnings during postinst (Closes: #338648).
+  * Update Finnish debconf template transation by Esko Arajärvi
+    (Closes: #614652).
+  * Update Slovak debconf template translation by Slavko (Closes: #622109).
+  * /etc/default/init: do dot reference debconf settings and add description
+    for user editable variables (Closes: #498308).
+  * Redirect output messages to syslog (Closes: #391366).
+  * Create empty access.log in postinst (Closes: #602890).
+  * Use lsb helper functions for output in init script. Let start-stop-daemon
+    handle detection of running daemon.
+  * Depend on libjpeg-dev instead of libjpeg62-dev (Closes: #635485).
+  * Update Standards-Version to 3.9.2.
+
+ -- Ludovico Cavedon <cavedon@debian.org>  Sun, 31 Jul 2011 21:39:04 -0700
+
+ntop (3:4.0.3+dfsg1-3) unstable; urgency=low
+
+  [ Ludovico Cavedon ]
+  * Fix typo in debconf template.
+  * Update po files.
+  * Add/update debconf template transation:
+    - Basque by Iñaki Larrañaga Murgoitio (Closes: #611164)
+    - Danish by Joe Hansen (Closes: #611204)
+    - Portuguese by Ricardo Silva (Closes: #611225)
+    - Norwegian Nynorsk by Yngve Spjeld Landro
+    - Swedish by Martin Bagge (Closes: #611186)
+    - Slovak debconf template translation by Slavko (Closes: #611310)
+    - Czech translation Miroslav Kure (Closes: #612635).
+    - Italian.
+  * Update hostaname-in-man-description.patch, being less vague about
+    URL of ntop web interface (Closes: #466507).
+  * Add netflow-plugin-links.patch: fix links in NetFlow plugin
+    description (Closes: #530334).
+  * Add ability to disable ntop from /etc/default/ntop (Closes:
+    #531380).
+  * Make sure the ntop group exists in the postinst (Closes: #613033).
+  * Move adduser from Pre-depend to depend.
+
+  [ Daniel Baumann ]
+  * Adding French debconf translations from Steve Petruzzello
+    <dlist@bluewin.ch> (Closes: #611715).
+  * Running debconf-update on po files.
+  * Removing useless whitespaces from EOL and EOF.
+  * Updating to debhelper version 8.
+  * Adding updated German debconf translations from
+    Helge Kreutzmann <debian@helgefjell.de> (Closes: #611986).
+  * Adding updated Russian debconf translations from
+    Yuri Kozlov <yuray@komyakino.ru> (Closes: #611973).
+  * Adding updated Spanish debconf translations from
+    Ricardo Fraile <rikr@esdebian.org> (Closes: #611881).
+
+ -- Ludovico Cavedon <cavedon@debian.org>  Mon, 14 Feb 2011 13:10:19 -0800
+
+ntop (3:4.0.3+dfsg1-2) unstable; urgency=low
+
+  [ Ludovico Cavedon ]
+  * Rename maintainer scripts including the package name.
+  * Remove misplaced ru.po file.
+  * Add Vcs-* headers.
+  * Do not call netstat, but read interface list from /proc (Closes: #607637).
+  * Use "set -e" in maintainer scripts (see lintian warning
+    maintainer-script-without-set-e).
+  * Fix bug in check_interfaces() config function.
+  * ntop.default: avoid prerm failure if package has never been fully
+    configured.
+  * Prevent config script failure if password is not asked (Closes: #607580).
+  * Cleanup postrm script, thanks to J.M.Roth (Closes: #568626):
+    - do not delete user (might be shared)
+    - no need to remove /etc/ntop
+    - wrap db_purge in a debconf availability check
+    - re-indent
+  * Add hostname-in-man-description.patch by A. Costa in order to add
+    hostname:port in the description section of the man page
+    (Closes: #466506).
+  * Remove init.cfg from source package, as it is generated by postinst.
+  * Handle interface "none", merged patch from Jason Healy (Closes: #520319).
+  * Add dependency on net-tools, needed by the init script.
+  * Make sure /var/log/ntop is not world readable and set group to adm. Thanks
+    to J.M.Roth (Closes: #568641).
+  * Set random password admin password if no password have ever been set
+    and it is not possible to ask the user (LP: #355127).
+  * Suggest geoip-database-contrib and add symlinks to its files.
+    Explained in README.Debian.
+  * Fix permissions in /var/lib/ntop (LP: #138682). Set sticky bit on
+    /var/lib/ntop, so ntop user cannot change init.cfg, but can create
+    subdirectories.
+  * Disable DNS resolution as it makes ntop unstable.
+  * Fix detection of not-active interfaces in ntop.init (LP: #231024).
+  * Update po files.
+
+  [ Jordan Metzmeier ]
+  * Set password in postinst instead of config (Closes: #609070)
+  * Add prompt to reset password if it is already set.
+  * Update debconf template thanks to reviews by Christian Perrier and
+    Justin B Rye.
+
+  [ Daniel Baumann ]
+  * Correct chown calls in ntop.postinst to not fail upon initial installation
+    when the respective files are not yet present on the system.
+
+ -- Ludovico Cavedon <cavedon@debian.org>  Tue, 25 Jan 2011 23:39:56 -0800
+
+ntop (3:4.0.3+dfsg1-1) unstable; urgency=low
+
+  [ Jordan Metzmeier ]
+  * New upstream release (Closes: #522042)
+  * Move data files to /usr/share/ntop (Closes: #595450).
+  * Package architecture independent data in a separate ntop-data package.
+  * Use debhelper 7.
+  * Update Standards-Version to 3.9.1.
+  * Depend on python-mako.
+  * Do not include ntop.txt in binary packages as it is a copy of the man
+    page.
+  * Do not include NEWS, as it is outdated.
+  * Switch to package source version 3.0 (quilt).
+  * Add password creation to debconf
+  * Changed init script to fix localization problems (thanks to Alejandro
+    Varas <alej0varas@gmail.com>, LP: #257466)
+  * Remove manual update-rc.d calls from postrm and postinst. debhelper adds
+    this for us.
+  * Add pre-depends on adduser for postinst script.
+  * Fix errors in the manpages: fix-manpage-errors.patch.
+  * Added fixes for matching active interfaces.
+  * Added a watch file.
+
+  [ Ludovico Cavedon ]
+  * Remove direct changes to upstream tree, and move them into specific patch
+    files:
+    - fix-manpage-errors.patch: fix typos in ntop.8.
+    - dot-path.patch: fix path of /usr/bin/dot executable
+  * Add patches:
+    - reduce-autogen-purged-files.patch: prevent agutogen.sh from removing
+    too many files during cleanup.
+    - Add build-without-ntop-darwin.patch, to fix compilation without
+    ntop_darwin.c.
+  * No longer add faq.html, as it is not distributed in the upstream tarball.
+  * Use ${source:Version} in control file. Have ntop-data recommend
+    ntop.
+  * Rename dirs to ntop.dirs and keep only empty directories that need
+    to be created.
+  * Remove var/lib from ntop.install file, as it is empty (keeping it in
+    ntop.dirs).
+  * Update po files.
+  * Breaks and Replaces instead of Conflitcs for ntop-data.
+  * Use a longer package description.
+  * Remove useless configure options from debian/rules.
+  * Move private shared libraries libraries in /usr/lib/ntop.
+  * Add change-plugin-dir.patch for adjusting plugin directory.
+  * Remove development files.
+  * Use system library for MochiKit.js.
+  * Rewrite DEP5 copyright file.
+  * Repackage upstream tarball in order to remove non-DFSG-compliant code. Add
+    get-orig-source.sh script and get-orig-source target in debian/rules.
+  * Add explanation to README.Debian why geolocation is no longer working.
+  * Add avoid-copy-maxmind-db.patch to prevent copying of Geo*.dat
+    files.
+  * Remove old unused patches.
+
+ -- Ludovico Cavedon <cavedon@debian.org>  Wed, 15 Dec 2010 20:06:19 +0100
+
+ntop (3:3.3-15) unstable; urgency=low
+
+  * New maintainers (Closes: #586410).
+  * Compile without SSL support, due to license issues (thanks to Alexander
+    Reichle-Schmehl for the patch, Closes: #595446).
+
+ -- Ludovico Cavedon <cavedon@debian.org>  Mon, 25 Oct 2010 16:45:31 -0700
+
+ntop (3:3.3-14) unstable; urgency=low
+
+  * Logcheck will now ignore packet truncated warnings. Closes: #585525.
+
+ -- Ola Lundqvist <opal@debian.org>  Sat, 12 Jun 2010 12:55:26 +0200
+
+ntop (3:3.3-13) unstable; urgency=high
+
+  * Rebuilt to make sure that ntop libraries are referenced correctly.
+    Closes: #549102. Ntop can not be installed when building.
+
+ -- Ola Lundqvist <opal@debian.org>  Mon, 05 Oct 2009 21:18:50 +0200
+
+ntop (3:3.3-12) unstable; urgency=low
+
+  * Correction for CVE-2009-2732. Closes: #543312.
+  * Brazilian translation added. Closes: #501754.
+  * Russian translation added. Closes: #534779.
+  * Added autogen.sh -p to the clean target to make sure that the
+    build works fine. Closes: #527757.
+
+ -- Ola Lundqvist <opal@debian.org>  Sun, 27 Sep 2009 09:20:27 +0200
+
+ntop (3:3.3-11) unstable; urgency=low
+
+  * Correction of Polish translation encoding, closes: #479490. Thanks
+    to Christian Perrier <bubulle@debian.org> for the help.
+
+ -- Ola Lundqvist <opal@debian.org>  Sun, 15 Jun 2008 14:38:28 +0200
+
+ntop (3:3.3-10) unstable; urgency=low
+
+  * Added --disable-snmp to the autogen line in order to make sure that
+    it builds properly even with libsnmp-dev installed. This is a
+    workaround. The goal is to enable snmp support when this build
+    problem has been fixed. Closes: #482764.
+    Thanks to Sebastian Harl <sh@tokkee.org> for the suggested fix.
+
+ -- Ola Lundqvist <opal@debian.org>  Mon, 26 May 2008 20:40:46 +0200
+
+ntop (3:3.3-9) unstable; urgency=low
+
+  * Added Russian debconf translation, closes: #479780. Thanks to Yuri
+    Kozlov <kozlov.y@gmail.com>.
+  * Correction of pt.po file, closes: #479490. Thanks to Christian
+    Perrier <bubulle@debian.org>.
+  * Added Czech debconf translation, closes: #480304. Thanks to Miroslav
+    Kure <kurem@upcase.inf.upol.cz>.
+
+ -- Ola Lundqvist <opal@debian.org>  Sun, 11 May 2008 14:24:57 +0200
+
+ntop (3:3.3-8) unstable; urgency=low
+
+  * Correction of language translation encodings, closes: #479225.
+    Thanks to Christian Perrier <bubulle@debian.org> for the fix.
+
+ -- Ola Lundqvist <opal@debian.org>  Sat,  3 May 2008 21:36:37 +0200
+
+ntop (3:3.3-7) unstable; urgency=low
+
+  * Added [INTL:eu] ntop debconf templates Basque translation, closes:
+    #478660. Thanks to Piarres Beobide <pi+debian@beobide.net> for the
+    translation.
+
+ -- Ola Lundqvist <opal@debian.org>  Wed, 30 Apr 2008 18:10:57 +0200
+
+ntop (3:3.3-6) unstable; urgency=low
+
+  [Ola Lundqvist <opal@debian.org>]
+  * Updated description of the package, closes: #466508.
+  * Dot path corrected, closes: #449503.
+  [Christian Perrier <bubulle@debian.org>]
+  * Upload to fix pending l10n issues.
+  * Fix typos and errors in the man page. Thanks to A. Costa
+    for the patch. Closes: #466505
+  * Debconf translations:
+    - Portuguese. Closes: #414836
+    - Finnish. Closes: #476981
+    - Galician. Closes: #476982
+  * [Lintian] Set debhelper compatibility level in debian/compat
+  * [Lintian] No longer ignore errors by make in the clean target
+  * [Lintian] Add copyright information to debian/copyright
+
+ -- Ola Lundqvist <opal@debian.org>  Wed, 30 Apr 2008 07:55:38 +0200
+
+ntop (3:3.3-5) unstable; urgency=low
+
+  * Changed init script to use valid options.
+  * Added export LANG=C as a workaround for #471862. Closes: #471862.
+
+ -- Ola Lundqvist <opal@debian.org>  Tue, 25 Mar 2008 21:56:48 +0100
+
+ntop (3:3.3-4) unstable; urgency=medium
+
+  * Incorporated changes for #417013, similar to version 3:3.2-10.1 by
+    Mario Iseli <admin@marioiseli.com> NMU. Closes: #417013.
+
+ -- Ola Lundqvist <opal@debian.org>  Tue, 18 Mar 2008 21:06:55 +0100
+
+ntop (3:3.3-3) unstable; urgency=low
+
+  * Upload to unstable.
+    Closes: #463984, #428276, #420633, #420633, #368680,
+    #462406, #399581, #369554, #374703, #460225, #415035, #449505.
+
+ -- Ola Lundqvist <opal@debian.org>  Tue, 18 Mar 2008 20:53:50 +0100
+
+ntop (3:3.3-2) experimental; urgency=low
+
+  * Added librrd2-dev to depends list, closes: #463984.
+
+ -- Ola Lundqvist <opal@debian.org>  Mon,  4 Feb 2008 18:26:38 +0100
+
+ntop (3:3.3-1) experimental; urgency=low
+
+  * New upstream release, closes: #428276, #420633.
+    Requires libpcap0.8-dev or later to build.
+    This version have improved load and crash handling,
+    closes: #420633, #368680, #462406.
+    Updated rpath handling, closes: #399581.
+  * Removed --skip-version-check from init script as that do not work in
+    version 3.3.
+  * Make sure that empty /usr/lib/plugins is not installed, closes: #369554.
+  * Now ldconfig is run in postinst and postrm.
+  * reload option now return error 3 to be LSB compliant, closes: #374703.
+  * Added LSB dependency in init script, closes: #460225. Thanks to
+    Petter Reinholdtsen for the fix.
+  * Correction of bin/dot path, closes: #415035.
+  * Suggests gsfonts package, closes: #449505.
+
+ -- Ola Lundqvist <opal@debian.org>  Fri,  7 Dec 2007 07:30:02 +0100
+
+ntop (3:3.2-11) experimental; urgency=low
+
+  * Correction of bin/dot path, closes: #415035.
+
+ -- Ola Lundqvist <opal@debian.org>  Tue, 27 Mar 2007 16:15:55 +0200
+
+ntop (3:3.2-10.1) unstable; urgency=medium
+
+  * Non-maintainer upload during BSP.
+  * Only "source" /usr/share/debconf/confmodule in postrm if it's available to
+    fix the purge procedure (Closes: #417013).
+
+ -- Mario Iseli <admin@marioiseli.com>  Fri, 18 May 2007 19:31:49 +0200
+
+ntop (3:3.2-10) unstable; urgency=high
+
+  * Added Japanese debconf templates translation from Kobayashi Noritada
+    <nori1@dolphin.c.u-tokyo.ac.jp>, closes: #413004.
+
+ -- Ola Lundqvist <opal@debian.org>  Sun,  4 Mar 2007 09:41:19 +0100
+
+ntop (3:3.2-9) unstable; urgency=medium
+
+  * Correction of SIGSEGV problem with netflows on vlan interfaces,
+    closes: #412568.
+
+ -- Ola Lundqvist <opal@debian.org>  Mon, 26 Feb 2007 20:15:24 +0100
+
+ntop (3:3.2-8) unstable; urgency=low
+
+  * Added Spanish debconf translation from Rudy Godoy
+    <rudy@kernel-panik.org>, closes: #404245.
+
+ -- Ola Lundqvist <opal@debian.org>  Sat, 23 Dec 2006 21:09:16 +0100
+
+ntop (3:3.2-7) unstable; urgency=low
+
+  * Added a german translation, closes: #396105. Thanks to Helge
+    Kreutzmann <debian@helgefjell.de> for the translation.
+
+ -- Ola Lundqvist <opal@debian.org>  Mon, 30 Oct 2006 07:55:38 +0100
+
+ntop (3:3.2-6) unstable; urgency=low
+
+  * Added binary-indep target to debian/rules file, closes: #395721.
+  * Updated to standards version 3.7.2.
+  * Added build dependency on po-debconf.
+
+ -- Ola Lundqvist <opal@debian.org>  Sat, 28 Oct 2006 10:07:10 +0200
+
+ntop (3:3.2-5) unstable; urgency=low
+
+  * Corrected so that sslv3 is enabled, thanks to Martin Hamrle
+    <hamrle@post.cz>, closes: #383246.
+  * Now invoke-rc.d is used for all init.d calls, closes: #367764.
+  * Added nl debconf translation, thanks to Esther Hanko
+    <ehanko@xs4all.nl>, closes: #375083.
+  * Added it debconf translation, thanks to Luca Monducci
+    <luca.mo@tiscali.it>, closes: #366442.
+
+ -- Ola Lundqvist <opal@debian.org>  Wed, 16 Aug 2006 07:35:58 +0200
+
+ntop (3:3.2-4) unstable; urgency=low
+
+  * Corrected logrotate line to use group adm instead of ntop,
+    closes: #357559.
+  * Suggests graphviz, closes: #360094.
+
+ -- Ola Lundqvist <opal@debian.org>  Sat,  1 Apr 2006 12:34:09 +0200
+
+ntop (3:3.2-3) unstable; urgency=low
+
+  * Patch for log rotation, closes: #357559. Thanks to 'F.A.G. Luteijn'
+    <f.a.g.luteijn@knoware.nl>.
+
+ -- Ola Lundqvist <opal@debian.org>  Sat, 18 Mar 2006 19:07:49 +0100
+
+ntop (3:3.2-2) unstable; urgency=low
+
+  * Applied patches from "Javier Fernandez-Sanguino Pena"
+    <jfs@computer.org> with init script and config improvements,
+    closes: #355756, #355760.
+
+ -- Ola Lundqvist <opal@debian.org>  Sat, 11 Mar 2006 17:40:32 +0100
+
+ntop (3:3.2-1) unstable; urgency=low
+
+  * New upstream release.
+    Closes: #307722.
+    Lot of work has been made on memory management. The rest is probably
+    nothing you can do something about, closes: #288006, #311129, #319516.
+  * Added some language translations:
+    - French by Sylvain Archenault <sylvain.archenault@laposte.net>,
+      closes: #331455.
+    - Swedish by Daniel Nylander <yeager@lidkoping.net>,
+      closes: #332965.
+    - Czech by Miroslav Kure <kurem@upcase.inf.upol.cz>,
+      closes: #333983.
+  * Updated standards version to 3.6.2.
+  * Now all config files are updateable (not in gz format), closes: #238500.
+
+ -- Ola Lundqvist <opal@debian.org>  Sun, 23 Oct 2005 00:16:58 +0200
+
+ntop (2:3.2rc1-3) unstable; urgency=low
+
+  * Applied patch from Kurt Roeckx <kurt@roeckx.be> to make ntop build
+    properly on some more architectures, closes: #332775.
+  * Added /etc/ntop/protocol.list to the init script, closes: #332581.
+
+ -- Ola Lundqvist <opal@debian.org>  Sat,  8 Oct 2005 19:05:18 +0200
+
+ntop (2:3.2rc1-2) unstable; urgency=low
+
+  * Changed build dependency from librrd0-dev to librrd2-dev,
+    closes: #330517.
+  * Updated init script for better log dir handling, closes: #312069.
+  * Changed to new postal address for FSF in debian/copyright.
+  * Added dependency on adduser as it use it in postinst script.
+  * Fixed bashism in debian/config file.
+
+ -- Ola Lundqvist <opal@debian.org>  Sun,  2 Oct 2005 21:51:44 +0200
+
+ntop (2:3.2rc1-1) unstable; urgency=low
+
+  * New upstream release, closes: #301698, #317237.
+  * Added an alternative dependency on debconf-2.0.
+  * Applied patch from Lucas Wall <lwall@debian.org> to make it use po
+    debconf, closes: #295846.
+
+ -- Ola Lundqvist <opal@debian.org>  Mon, 26 Sep 2005 22:21:54 +0200
+
+ntop (2:3.0-5) unstable; urgency=low
+
+  * Updated README.Debian file so users will understand what to do at
+    install, closes: #291794, #287802.
+  * Updated ntop init script to give better output.
+  * Also changed log directory from /var/lib/ntop to /var/log/ntop,
+    closes: #252352.
+  * Quoted the interface list to allow whitespace, closes: #267248.
+  * Added a couple of logcheck ignores, closes: #269321, #269319.
+
+ -- Ola Lundqvist <opal@debian.org>  Sun, 30 Jan 2005 21:59:13 +0100
+
+ntop (2:3.0-4) unstable; urgency=low
+
+  * Fixed dependency problem with libgd2-xpm by build depending on
+    libgd2-noxpm-dev instead, closes: #273870, #291701.
+
+ -- Ola Lundqvist <opal@debian.org>  Mon,  4 Oct 2004 20:42:15 +0200
+
+ntop (2:3.0-3) unstable; urgency=low
+
+  * Fixed (now) broken build dependencies, closes: #264468.
+
+ -- Ola Lundqvist <opal@debian.org>  Mon,  9 Aug 2004 13:05:57 +0200
+
+ntop (2:3.0-2) unstable; urgency=low
+
+  * Added --skip-version-check to default init script, closes: #252353.
+  * Removed emacs variables from bottom of this changelog.
+  * Updated standards version to 3.6.1.
+  * Added not about how to set the admin password at installation to
+    the README.Debian file, closes: #259727.
+  * Removed read access from the /var/lib/ntop directory at upgrade.
+    Closes: #261907.
+  * Converted changelog to UTF-8.
+  * Changed to DH_COMPAT=4 in rules file.
+  * Fixed so that doc files is not executable.
+
+ -- Ola Lundqvist <opal@debian.org>  Fri,  6 Aug 2004 21:37:54 +0200
+
+ntop (2:3.0-1) unstable; urgency=low
+
+  * New upstream version, closes: #221100.
+  * This question has been removed in last upload, closes: #226920.
+
+ -- Ola Lundqvist <opal@debian.org>  Mon, 17 May 2004 11:15:44 +0200
+
+ntop (1:3.0rc1-1) unstable; urgency=low
+
+  * New upstream release.
+  * It is a lot more stable,
+    closes: #136627, #160766, #163291, #168944, #123003, #230673.
+  * New version of libtool in upstream assumed,
+    closes: #201926.
+  * Reguilding, closes: #216022.
+  * Removed gdchart from the source.
+  * Added --enable-i18n and --enable-sslv3 to configure line.
+  * Changed so it ignores sigpipes, closes: #223034.
+  * Removed most debconf questions, closes: #193306.
+  * Moved debconf file to /var/lib/ntop
+  * Updated README.Debian file.
+  * Changed so that /var/lib/ntop and /var/log/ntop will be owned
+    by the ntop user (in order to let it run as it should).
+  * Removed automatic include of protocols.lst file. Defaults will be
+    used instead.
+  * No longer install files in /etc/ntop as executable, closes: #238500.
+  * Now AS numbers is included in the package so it can be used for
+    monitoring.
+
+ -- Ola Lundqvist <opal@debian.org>  Fri, 19 Mar 2004 21:26:01 +0100
+
+ntop (1:2.2c-1) unstable; urgency=low
+
+  * New upstream version, closes: #214910.
+
+ -- Ola Lundqvist <opal@debian.org>  Sat, 11 Oct 2003 12:27:56 +0200
+
+ntop (2.2.0-6) unstable; urgency=low
+
+  * Fixed getopt issue inspired by a patch from Javier Fernández-Sanguino
+    Peña <jfs@computer.org>, closes: #212380.
+
+ -- Ola Lundqvist <opal@debian.org>  Mon, 29 Sep 2003 19:07:46 +0200
+
+ntop (2.2.0-5) unstable; urgency=low
+
+  * Fixed SSL option, closes: #196747.
+  * Rebuilt using other gdbm lib, closes: #196104.
+
+ -- Ola Lundqvist <opal@debian.org>  Tue, 10 Jun 2003 20:18:58 +0200
+
+ntop (2.2.0-4) unstable; urgency=low
+
+  * Fixed build depends, closes: #194337, #194500.
+
+ -- Ola Lundqvist <opal@debian.org>  Mon,  2 Jun 2003 15:26:09 +0200
+
+ntop (2.2.0-3) unstable; urgency=low
+
+  * New maintainer.
+  * Fixed prerm script, closes: #190820, #161303.
+  * Now fixes so that it do not require $SSLPORT, closes: #193266.
+
+ -- Ola Lundqvist <opal@debian.org>  Thu, 22 May 2003 09:58:03 +0200
+
+ntop (2.2.0-2) unstable; urgency=low
+
+  * fixed logrotate script so we don't use reload
+
+ -- Dennis Schoen <dennis@debian.org>  Tue, 13 May 2003 09:36:21 +0200
+
+ntop (2.2.0-1) unstable; urgency=low
+
+  * new upstream version
+  * supports rrdtool
+  * build without intop - it's no longer supported
+  * for a complete log of changes see /usr/share/doc/ntop/changelog.gz
+
+ -- Dennis Schoen <dennis@debian.org>  Tue,  15 Apr 2003 11:46:18 +0000
+
+ntop (2.1.2-5) unstable; urgency=low
+
+  * build without optimise CFLAGS :-(
+    (Closes: #162160)
+
+ -- Dennis Schoen <dennis@debian.org>  Tue, 24 Sep 2002 13:53:52 +0200
+
+ntop (2.1.2-4) unstable; urgency=low
+
+  * build against libpng3
+
+ -- Dennis Schoen <dennis@debian.org>  Fri, 20 Sep 2002 15:34:34 +0200
+
+ntop (2.1.2-3) unstable; urgency=low
+
+  * fix bug with config, where list of interfaces
+    was not actually written to config file.
+    (Closes: #160851)
+  * updated Standards-Version
+  * fixed bug with admins's reset and shutdown confirmation
+  * build against correct libpng (Closes: #161630)
+
+ -- Dennis Schoen <dennis@debian.org>  Thu, 19 Sep 2002 12:11:56 +0200
+
+ntop (2.1.2-2) unstable; urgency=low
+
+  * build i386 without optimised CFLAGS (Closes: #159270)
+  * updated Standards-Version
+  * enlarged buffer of hostname variable (fixes HTML Rendering)
+  * added fix that allows ntop to purge hosts without IP Address
+    (MAC addresses only)
+
+ -- Dennis Schoen <dennis@debian.org>  Mon,  2 Sep 2002 13:47:09 +0200
+
+ntop (2.1.2-1) unstable; urgency=low
+
+  * build against new libpcap0.7 (Closes: #156177)
+  * fixed build error with newer libtool versions
+  * added checks for incomplete DNS results
+  * fix case where a double HTTP header was send
+
+ -- Dennis Schoen <dennis@debian.org>  Mon, 26 Aug 2002 13:33:04 +0200
+
+ntop (2.1.2-0) unstable; urgency=low
+
+  * new upstream version
+
+ -- Dennis Schoen <dennis@debian.org>  Fri,  2 Aug 2002 08:59:51 +0200
+
+ntop (2.1.0-3) unstable; urgency=low
+
+  * fixed calls to autogen.sh
+
+ -- Dennis Schoen <dennis@debian.org>  Sat, 13 Jul 2002 14:50:58 +0200
+
+ntop (2.1.0-2) unstable; urgency=low
+
+  * aargh! fixed build depends on automake
+
+ -- Dennis Schoen <dennis@debian.org>  Fri, 12 Jul 2002 11:25:20 +0200
+
+ntop (2.1.0-1) unstable; urgency=low
+
+  * new upstream version
+  * fixed build depends (depend on automake < 1.6)
+  * this version should fix some of the memory usage problems.
+  * initial admin password can now be specified (Closes: #146553)
+  * removed ntop rules stuff which is no longer supported upstream
+  * fixed typo in manpage. (Closes: #146445)
+  * ntop now listens on 127.0.0.1:3000 per default (Closes: #146572)
+  * trigger 404 error if we can't generate a page (Closes: #142970)
+  * fixed URL encoding bug (Closes: #149102)
+  * fixed "IP Subnet Traffic Matrix" (Closes: #140337)
+  * compiled with mysql support
+
+ -- Dennis Schoen <dennis@debian.org>  Thu, 11 Jun 2002 14:01:21 +0200
+
+ntop (2.0.0-15) unstable; urgency=low
+
+  * removed some options from the protocols.list file
+    because they're provide by ntop itself.
+  * ntop will not start as a daemon when debconf is set
+    to 'critical'. Changed the default to false. (Closes: #145516)
+
+ -- Dennis Schoen <dennis@cobolt.net>  Tue,  7 May 2002 16:54:03 +0200
+
+ntop (2.0.0-14) unstable; urgency=low
+
+  * split reload and restart in init.d script in different
+    function blocks, reload won't restart ntop, if not already
+    running.
+    (Closes: #142372)
+
+ -- Dennis Schoen <dennis@cobolt.net>  Fri, 12 Apr 2002 11:38:47 +0200
+
+ntop (2.0.0-13) unstable; urgency=low
+
+  * mark /etc/logrotate.d/ntop as conffile
+  * fixes ownership of /var/{lib/log}/ntop
+  * removed config.status file from source
+  * remove user only if we created him
+    (Closes: #142342)
+
+ -- Dennis Schoen <dennis@cobolt.net>  Thu, 11 Apr 2002 15:04:29 +0200
+
+ntop (2.0.0-12) unstable; urgency=low
+
+  * Added -O option for log directory.
+  * Added ignore files for logcheck so logcheck do not generate so much
+    data in the sent mail. Ignoring uninteresting events.
+  * Moved the default location for the access log to /var/log/ntop.
+  * Added logrotate files for the logging. This means that statistics
+    will be restarted every week.
+  * all changes above made by Ola Lundqvist <opal@debian.org>
+    (Closes: #139386)
+  * added ability to choose traceLevel (-t option)
+    (Closes: #140920)
+
+ -- Dennis Schoen <dennis@debian.org>  Tue,  2 Apr 2002 17:02:57 +0200
+
+ntop (2.0.0-11) unstable; urgency=low
+
+  * fixed chown bug
+    (Closes: #139326)
+
+ -- Dennis Schoen <dennis@debian.org>  Mon, 26 Mar 2002 15:26:25 +0100
+
+ntop (2.0.0-10) unstable; urgency=low
+
+  * fixed call to dh_installmanpages
+    (Closes: #139283, #139295)
+
+ -- Dennis Schoen <dennis@cobolt.net>  Mon, 21 Mar 2002 10:30:07 +0100
+
+ntop (2.0.0-9) unstable; urgency=low
+
+  * fixed user delete stuff in postrm
+    (Closes: #139128)
+  * fixed permissions on /var/lib/ntop
+    (Closes: #139136)
+
+ -- Dennis Schoen <dennis@cobolt.net>  Mon, 20 Mar 2002 10:02:22 +0100
+
+ntop (2.0.0-8) unstable; urgency=low
+
+  * fixed postrm stuff
+    huge thanks to "Mark Robinson" <mark.robinson@paradise.net.nz>
+    for his help debugging this one.
+    (Closes: #132532, #129688)
+
+ -- Dennis Schoen <dennis@cobolt.net>  Mon, 11 Mar 2002 13:31:12 +0100
+
+ntop (2.0.0-7) unstable; urgency=low
+
+  * init script can now be used to start ntop
+    even if we decided not to start ntop on boot
+    (Closes: #135960)
+
+ -- Dennis Schoen <dennis@cobolt.net>  Thu,  7 Mar 2002 10:26:28 +0100
+
+ntop (2.0.0-6) unstable; urgency=low
+
+  * fixed "tr" call in debconf config file
+    thanks to Jean Charles Delepine <delepine@nnx.com>
+    (Closes: #137184)
+
+ -- Dennis Schoen <dennis@cobolt.net>  Thu,  7 Mar 2002 09:58:10 +0100
+
+ntop (2.0.0-5) unstable; urgency=high
+
+  * preserve local changes on /etc/ntop/init.cfg
+    (Closes: #137068)
+
+ -- Dennis Schoen <dennis@cobolt.net>  Wed,  6 Mar 2002 13:23:48 +0100
+
+ntop (2.0.0-4) unstable; urgency=high
+
+  * fixes Remotely exploitable format string vulnerability
+    in util.c
+
+ -- Dennis Schoen <dennis@cobolt.net>  Tue,  5 Mar 2002 10:06:24 +0100
+
+ntop (2.0.0-3) unstable; urgency=low
+
+  * added ntop-rules manpage (Closes: #133206)
+  * implemented /etc/ntop/rules file (Closes: #133207)
+
+ -- Dennis Schoen <dennis@cobolt.net>  Fri, 22 Feb 2002 09:34:26 +0100
+
+ntop (2.0.0-2.1) unstable; urgency=high
+
+  * Non-maintainer upload
+  * Fix RC bug to try to get ntop back into woody
+  * Run 'make distclean' from debian/rules to clean up after the
+    build (Closes: #133183)
+
+ -- Matt Zimmerman <mdz@debian.org>  Thu, 21 Feb 2002 23:34:40 -0500
+
+ntop (2.0.0-2) unstable; urgency=low
+
+  * updated config.{guess/sub} (Closes: #131059)
+
+ -- Dennis Schoen <dennis@cobolt.net>  Mon, 28 Jan 2002 14:19:49 +0100
+
+ntop (2.0.0-1) unstable; urgency=low
+
+  * modified init script to prevent zombie processes on
+    restart
+  * upgraded config.{guess/sub} (Closes: #103343)
+  * added support for /etc/ntop/protocols.list
+    Closes: #120819
+  * added ability to save state of hosts (Closes: #120821)
+  * link gdchart library against debian libgd2-dev package
+  * compiled gdchart library with "-fPIC" -> hopefully fixes
+    build errors on hppa
+  * fixed spelling error (Closes: #125192)
+  * remove ntop user on purge (Closes: #120710)
+  * declared datatype for "GDCPIE_other_threshold" in gdchart
+    library as "signed char" to fix errors on systems where
+    char is *not* signed per default (powerpc/s390/arm)
+  * new upstream release
+
+ -- Dennis Schoen <dennis@debian.org>  Fri, 23 Nov 2001 10:37:56 +0100
+
+ntop (2.0beta3-4) unstable; urgency=low
+
+  * updated config.{guess/sub} in gdchart sub-directory
+    Closes: #116158
+
+ -- Dennis Schoen <dennis@debian.org>  Mon, 19 Nov 2001 14:38:40 +0100
+
+ntop (2.0beta3-3) unstable; urgency=low
+
+  * added Build-Depends on libwrap0-dev (Closes: #117604)
+
+ -- Dennis Schoen <dennis@debian.org>  Tue, 30 Oct 2001 10:04:32 +0100
+
+ntop (2.0beta3-2) unstable; urgency=low
+
+  * patched to use new config.guess & config.sub
+    (Closes: #116158)
+  * added Build-Depends on libtool (Closes: #116165)
+
+ -- Dennis Schoen <dennis@debian.org>  Fri, 19 Oct 2001 10:35:16 +0200
+
+ntop (2.0beta3-1) unstable; urgency=low
+
+  * CVS snapshot
+  * Changed IP Protocols label to TCP/UDP Protocols
+    where appropriated (Closes: #115348)
+  * provides new command line interface intop.
+    (Closes: #53744)
+  * provides init script (Closes: #81085)
+  * no longer uses javascript (Closes: #43382)
+  * compiled with no optimization (Closes: #45831)
+
+ -- Dennis Schoen <dennis@debian.org>  Fri, 19 Oct 2001 10:35:06 +0200
+
+ntop (1.3.1.cvs20001025-2) unstable; urgency=low
+
+  * new maintainer upload
+  * please see README.Debian for the future of ntop
+
+ -- Dennis Schoen <dennis@debian.org>  Wed, 26 Sep 2001 19:59:21 +0200
+
+ntop (1.3.1.cvs20001025-1.1) unstable; urgency=low
+  * Non-maintainer upload.
+  * Run libtoolize to get support for new architectures.  Closes: #103343
+
+ -- LaMont Jones <lamont@debian.org>  Mon,  9 Jul 2001 21:39:34 -0600
+
+ntop (1.3.1.cvs20001025-1) unstable; urgency=low
+
+  * New upstream CVS snapshot
+  * fixes local root compromise, previous versions (>=1.2a7-11)
+    of the package are NOT affected by the bug
+  * no declaration of inet_aton(), should build on archs regardless
+    of pre- or post-2.1.94-1 glibc (glibc changed inet_aton inet -> in_addr_t)
+    fixed upstream (Closes: #75461)
+
+ -- Oliver M. Bolzer <oliver@debian.org>  Sun, 29 Oct 2000 11:42:11 +0100
+
+ntop (1.3.1.cvs20000929-1) unstable; urgency=low
+
+  * new maintainer
+  * new upstream from CVS
+  * basically repackaged the whole thing due to upstream architecture changes
+  * it is now possible  to drop root privileges using -u and restrict
+    access using /etc/hosts.{allow,deny}, ALWAYS DO THIS
+  * clean target now removes config.cache and friends (Closes: #70543)
+  * ntop databases are now put in /var/lib/ntop (Closes: #66767, #54508)
+
+ -- Oliver M. Bolzer <oliver@debian.org>  Mon,  4 Sep 2000 11:01:35 +0000
+
+ntop (1.2a7-11) stable unstable; urgency=high
+
+  * GRAVE security hole, install immediatly!
+  * Ntop, when run in web mode, as root (this is typical use), can be
+    remotely exploited to gain root access. Disabled web mode. Preinst now
+    kills all ntop processes running in web mode.
+  * This is also exploitable if ntop is made suid/sgid -- allows local
+    users to obtain root. Ntop is not shipped this way, but suigregister
+    could be used by the admin to make it suid. The preinst now removes all
+    such bits, and suidregister can no longer control the program's
+    permissions. Also added a README.Debian about this.
+  * Reference: http://lwn.net/2000/0824/a/fb-ntop.php3
+  * Recommendation: Ntop currently has no maintainer in debian, and seems
+    to be full of security holes. After a reasonable period to allow
+    current installations to be updated to this version, it is my opinion
+    it should be removed from unstable.
+  * Closes: #69842.
+
+ -- Joey Hess <joeyh@debian.org>  Mon,  4 Sep 2000 11:01:26 +0000
+
+ntop (1.2a7-10) frozen unstable; urgency=HIGH
+
+  * GRAVE security hole, install immediatly!
+  * Ntop in web mode could be used to read any file on the system. Fixed
+    by backporting fix from 1.2a10. Closes: #68418
+  * Also, the postinst detects upgrades from a version earlier than this,
+    checks to see if ntop is running with -w as a parameter, and kills
+    all such processes.
+
+ -- Joey Hess <joeyh@debian.org>  Wed,  2 Aug 2000 11:33:16 -0700
+
+ntop (1.2a7-9) unstable; urgency=low
+
+  * Orphaned the package.
+
+ -- Joey Hess <joeyh@debian.org>  Mon, 31 Jul 2000 17:35:28 -0700
+
+ntop (1.2a7-8) unstable; urgency=low
+
+  * Applied patch from Ricardo Kustner <ricardo at rixhq.nu> to fix image
+    display problems. (Makes output 8-bit clean.) Closes: #60251, #58241
+
+ -- Joey Hess <joeyh@debian.org>  Mon,  3 Apr 2000 14:32:12 -0700
+
+ntop (1.2a7-7) unstable; urgency=low
+
+  * Updated config.* for the ARM port. Closes: #59052
+  * Added autoconf to build deps, and corrected ncurses-dev build dep.
+    Closes: #58228
+
+ -- Joey Hess <joeyh@debian.org>  Thu,  2 Mar 2000 13:41:09 -0800
+
+ntop (1.2a7-6) frozen unstable; urgency=HIGH
+
+  * Fixed remote exploits.
+
+ -- Joey Hess <joeyh@debian.org>  Sat, 12 Feb 2000 15:31:00 -0800
+
+ntop (1.2a7-5) unstable; urgency=low
+
+  * Modified to build using libwrap, Closes: #53518
+
+ -- Joey Hess <joeyh@debian.org>  Tue,  4 Jan 2000 15:41:07 -0800
+
+ntop (1.2a7-4) unstable; urgency=low
+
+  * Build-depends on queso and lsof so it will configure to use them.
+    Closes: #53127
+
+ -- Joey Hess <joeyh@debian.org>  Mon, 20 Dec 1999 12:18:52 -0800
+
+ntop (1.2a7-3) unstable; urgency=low
+
+  * Fixed plugins.
+
+ -- Joey Hess <joeyh@debian.org>  Fri, 17 Dec 1999 10:21:20 -0800
+
+ntop (1.2a7-2) unstable; urgency=low
+
+  * Build deps.
+
+ -- Joey Hess <joeyh@debian.org>  Sat,  4 Dec 1999 14:21:12 -0800
+
+ntop (1.2a7-1) unstable; urgency=low
+
+  * New upstream version.
+  * Closes: #48202, which has been fixed already.
+
+ -- Joey Hess <joeyh@debian.org>  Mon, 22 Nov 1999 13:01:44 -0800
+
+ntop (1.2a5-5) unstable; urgency=low
+
+  * Check local directory last for static html, so it doesn't load up the
+    wrong thing by accident.
+
+ -- Joey Hess <joeyh@debian.org>  Tue, 16 Nov 1999 13:50:35 -0800
+
+ntop (1.2a5-4) unstable; urgency=low
+
+  * Fixed half of #48202 by fixing the broken gif problem again.
+
+ -- Joey Hess <joeyh@debian.org>  Sat, 13 Nov 1999 20:18:57 -0800
+
+ntop (1.2a5-3) unstable; urgency=low
+
+  * Corrected mkdir build problem. Closes: #46664
+
+ -- Joey Hess <joeyh@debian.org>  Tue,  5 Oct 1999 12:38:37 -0700
+
+ntop (1.2a5-2) unstable; urgency=low
+
+  * Removed install-stamp, which can cause problems.
+
+ -- Joey Hess <joeyh@debian.org>  Thu, 30 Sep 1999 13:15:06 -0700
+
+ntop (1.2a5-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Joey Hess <joeyh@debian.org>  Fri, 10 Sep 1999 20:45:36 -0700
+
+ntop (1.2a4-4) unstable; urgency=low
+
+  * FHS
+
+ -- Joey Hess <joeyh@debian.org>  Mon,  6 Sep 1999 14:53:55 -0700
+
+ntop (1.2a4-3) unstable; urgency=low
+
+  * Hm, it looks like a rm -f ... #* ... was commenting out the part of the
+    Makefile that was supposed to delete config.cache. Fixed that.
+
+ -- Joey Hess <joeyh@debian.org>  Sat, 28 Aug 1999 00:09:30 -0700
+
+ntop (1.2a4-2) unstable; urgency=low
+
+  * A config.cache in the sources was causing problems to porters. Since
+    it's in the upstream source, I cannot remove it from the package. But I
+    _can_ force make distclean to be called by the build target, and now I
+    do. Closes: #43434
+  * Also hard-wired in the location of lsof and queso in debian/rules.
+
+ -- Joey Hess <joeyh@debian.org>  Fri, 27 Aug 1999 21:52:09 -0700
+
+ntop (1.2a4-1) unstable; urgency=low
+
+  * New upstream release that fixes Domain Stats segfault, Closes: #43101.
+  * Depends on queso, Closes: #43099.
+  * Fixed broken gif problem by editing http.c to look in /usr/doc/ntop/html
+    for html stuff.
+
+ -- Joey Hess <joeyh@debian.org>  Tue, 17 Aug 1999 10:49:04 -0700
+
+ntop (1.2a2-2) unstable; urgency=low
+
+  * Use Apps/Net, not Network. <blush> (Closes: #42246, #42257)
+
+ -- Joey Hess <joeyh@debian.org>  Mon,  2 Aug 1999 10:42:05 -0700
+
+ntop (1.2a2-1) unstable; urgency=low
+
+  * First release now that the license is cleared up.
+
+ -- Joey Hess <joeyh@debian.org>  Fri, 16 Jul 1999 09:33:12 -0700

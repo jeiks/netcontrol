@@ -1,0 +1,50 @@
+<xml>
+    <toolbar>
+        <button id="del_serv" text="Desinstalar servidor Cacic" icon="/dl/core/ui/stock/delete.png" />
+        <button id="getAgente" text="Baixar Agente" icon="/dl/cacic/down.png" />
+    </toolbar>
+    <pad>
+    <vcontainer>
+        <hcontainer spacing="20">
+            <scrollcontainer id="tree" width="230" height="500" />
+            <hcontainer  width="500" height="500" >
+            <simpleform id="conf_agentes" >
+            <center><label text="Configuração das Estações" size="3"/></center>
+            <br/>
+            <dt width="100%" height="100%">
+              <dtr>
+                <dth><label text="Senha da estação" size="3"/><tipicon id="passwd" name="passwd" icon='/dl/core/ui/stock/info.png' /></dth>
+                <dth><textinput id="senha" name="senha" password="true"/></dth>
+                <dth><tipicon text="Senhas para acesso das estações" icon='/dl/core/ui/stock/info.png' /></dth>
+              </dtr>
+              
+              <dtr>
+                <dth><label text="Inicio da coleta" /> </dth>
+                <dth>
+                  <select name="inicia_coleta" id="inicia_coleta" ></select>
+                </dth>
+                <dth><tipicon text="Seleciona quanto tempo a coleta irá iniciar." icon='/dl/core/ui/stock/info.png' /></dth>
+              </dtr>              
+              
+              <dtr>
+                <dth><label text="Intervalo de Coletas" /> </dth>
+                <dth>
+                  <select name="intervalo_coleta" id="intervalo_coleta" ></select>
+                </dth>
+                <dth><tipicon text="Quanto tempo de intervalo para coleta das estações." icon='/dl/core/ui/stock/info.png' /></dth>
+              </dtr>              
+              
+              <dtr>
+                <dth colspan="2" ><center><button id="salvar" name="salvar" text="Salvar" action="salvar_confs" icon="/dl/core/ui/stock/save.png" form="conf_agentes" onclick="form"/></center></dth>
+                <dth><tipicon text="Salvar as configurações relizadas das estações ou resetar as configrações padrões." icon='/dl/core/ui/stock/info.png' /></dth>
+              </dtr>
+              
+            </dt>
+            </simpleform>
+            </hcontainer>
+        </hcontainer>
+    </vcontainer>
+    <vcontainer id="imprimePC" name="imprimePC">
+    </vcontainer>
+    </pad>
+</xml>

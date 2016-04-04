@@ -1,0 +1,32 @@
+Package:     squidguard
+Subject:     missing content after percent sign
+Author:      Andrew Robert Nicols <andrew.nicols@luns.net.uk>
+Origin:      upstream
+Bug-Debian:  http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=639358
+Forwarded:   no
+Last-Update: 2012-04-13
+
+When using a rewrite rule in squidGuard, if the URL contains a %20 (and
+potentially other encodings), anything after the final % character is not
+included in the URL.
+As an example: http://www.example.com/?query=example%20query%20string
+Would be rewritten as http://www.example.com/?query=example%20query%
+(with any regular expression changes which would normally be applied by
+your rewrite rule).
+---
+
+diff -urN s08/src/sgDiv.c.in s09/src/sgDiv.c.in
+--- s08/src/sgDiv.c.in	2012-04-02 23:59:42.853166827 +0200
++++ s09/src/sgDiv.c.in	2012-04-03 00:02:21.333167569 +0200
+@@ -757,8 +757,10 @@
+   }
+   if(buf[0] == '\0')
+     q = redirect;
+-  else 
++  else {
++    strncat(buf, q, p - q);
+     q = buf;
++  }
+   return q;
+ }
+ 

@@ -1,0 +1,20 @@
+/*!\file decomp.c
+\brief Handle compressed log files.
+*/
+
+/*! \fn FILE *decomp(const char *arq, bool *pipe)
+Open the log file. If it is compressed, uncompress it through a pipe.
+
+Log files compressed with gzip, bzip2 or compress are uncompressed with zcat or bzcat.
+
+If the log file does not exist, the process terminates with an error message.
+
+\param arq The log file to process.
+\param pipe A variable set to \c true if the log file is opened through a pipe or set to \c false if the file is open directly.
+
+\date 2009-09-24 - F Marchal\n
+This function used to uncompress .Z files in place using uncompress but that required a write access to the log directory, could conflict with logrotate and could leave the log file uncompressed if sarg crashed. According to the documentation, zcat is capable of uncompressing .Z files so it is now used.
+
+\date 2010-05-10 - F Marchal\n
+The function doesn't use a temporary file any more and read the compressed file through a pipe.
+*/

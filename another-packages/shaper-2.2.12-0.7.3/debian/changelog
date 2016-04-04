@@ -1,0 +1,231 @@
+shaper (2.2.12-0.7.3-3flux1) unstable; urgency=low
+
+  * to flux
+
+ -- Jacson RC Silva <jeiks@sistemaprolinux.com.br>  Tue, 18 Dec 2012 11:48:36 -0200
+
+shaper (2.2.12-0.7.3-2.2) unstable; urgency=low
+
+  * Non-maintainer upload to fix pending l10n issues.
+  * Turn the debconf note into an error type. Closes: #388958
+  * Debconf translations:
+    - Portuguese. Closes: #395812
+    - Turn all translations into UTF-8
+  * Add a basic LSB header to the init script
+
+ -- Christian Perrier <bubulle@debian.org>  Sat, 24 Feb 2007 10:34:32 +0100
+
+shaper (2.2.12-0.7.3-2.1) unstable; urgency=low
+
+  * Non-maintainer upload to fix longstanding l10n issues
+  * Convert changelog to UTF-8
+  * Debconf translation updates:
+    - Vietnamese added. Closes: #318262
+    - German updated. Closes: #280995
+    - Czech added. Closes: #295085
+    - Swedish updated. Closes: #331359
+    - Italian added. Closes: #345530
+    - Fix warnings of msgfmt in the files es.po, pt_BR.po, ru.po
+
+ -- Tobias Toedter <t.toedter@gmx.net>  Tue, 24 Oct 2006 14:26:33 +0200
+
+shaper (2.2.12-0.7.3-2) unstable; urgency=low
+
+  * Modify last changelog entry (2.2.12-0.7.3-1) to remove erroneous
+    "unreleased" tag.
+  * Add '| debconf-2.0' to shaper Depends: to avoid blocking cdebconf
+  * Update debian/copyright to note that Red Hat no longer maintains it
+
+ -- David B. Harris <dbharris@debian.org>  Mon, 22 May 2006 12:21:14 -0400
+
+shaper (2.2.12-0.7.3-1) unstable; urgency=low
+
+  * New upstream release of cbq.init (/etc/init.d/shaper)
+  * Change Maintainer: email address from my private address to
+    dbharris@debian.org
+  * Incorporate new pt_BR.po debconf translation. (Closes: #228239)
+  * debian/po/ru.po: Fix missing msgid line (thanks Tollef and Joshua Kwan)
+
+ -- David B. Harris <dbharris@debian.org>  Fri, 27 Feb 2004 03:48:16 -0500
+
+shaper (2.2.12-0.7.1-2) unstable; urgency=low
+
+  * /etc/init.d/shaper (cbq.init): Change 'exit 1' to 'exit 0' for the case
+    where there are no configuration files, apparently a fair number of people
+    don't have any.
+    (Closes: #210725, #213401)
+  * Only attempt to load modules if /proc/modules exists (ie: if the kernel is
+    modular). (Closes: #212473)
+  * Update translations:
+    + ru.po (Closes: #219266)
+    + fr.po (Closes: #211638)
+
+ -- David B Harris <david@eelf.ddts.net>  Sat, 13 Sep 2003 11:33:12 -0400
+
+shaper (2.2.12-0.7.1-1) unstable; urgency=low
+
+  * New upstream release of cbq.init ("shaper" package)
+  * cbq.init:
+    + Check for existence of configuration files before we attempt to load
+      modules that may not be needed (Closes: #163816)
+    + Add support for /etc/default/shaper to allow overriding some basic
+      variables (Closes: #197060)
+  * debian/shapecfg.8: Refer to /usr/share/doc/shapecfg instead of
+    /usr/share/doc/shaper (Closes: #202850)
+  * Clarify descriptions and debian/copyright, with respect to what "shaper"
+    actually is, and where it comes from (thank a bunch, Joey Hess :)
+  * Switch to po-debconf (thanks to the translation guys for the patch :)
+    (Closes: #202548)
+  * Update to Standards-Version 3.6.1.0, with minor adjustments in
+    DEB_BUILD_OPTS handling
+
+ -- David B Harris <david@eelf.ddts.net>  Sun, 31 Aug 2003 22:02:32 -0400
+
+shaper (2.2.12-0.7-3) unstable; urgency=low
+
+  * Make cron.d script check for the existence of /etc/shaper before
+    running (Closes: #156270)
+
+ -- David B Harris <david@eelf.ddts.net>  Sat, 22 Feb 2003 04:41:12 -0500
+
+shaper (2.2.12-0.7-2) unstable; urgency=low
+
+  * Adopting package (Closes: #155925)
+  * Split package into shapecfg and shaper (Closes: #150656)
+
+ -- David B Harris <eelf@sympatico.ca>  Wed, 21 Aug 2002 05:10:13 -0400
+
+shaper (2.2.12-0.7-1) unstable; urgency=low
+
+  * New upstream source for cbq.init (closes: #150655). Forward-ported my
+    patches.
+  * iproute commands calculated from the contents of /etc/shaper are now
+    cached. Add postinst and postrm fragments to remove the new cache at
+    appropriate times.
+  * Add Spanish debconf translation (thanks, Carlos Valdivia Yagüe;
+    closes: #151517).
+  * Update URLs in copyright file.
+  * The cls_fw and cls_route modules are now needed too. Update debconf
+    templates (I've taken the liberty of updating translations as best I
+    can), and force the question to be re-asked if necessary.
+
+ -- Colin Watson <cjwatson@debian.org>  Sat, 13 Jul 2002 16:23:46 +0100
+
+shaper (2.2.12-0.6.2-5) unstable; urgency=low
+
+  * Add Russian debconf translation (thanks, Ilgiz Kalmetev;
+    closes: #136934).
+
+ -- Colin Watson <cjwatson@debian.org>  Tue,  5 Mar 2002 19:42:20 +0000
+
+shaper (2.2.12-0.6.2-4) unstable; urgency=low
+
+  * Depend on debconf (>= 0.5), because I'm using the seen flag.
+
+ -- Colin Watson <cjwatson@debian.org>  Wed, 19 Dec 2001 19:53:56 +0000
+
+shaper (2.2.12-0.6.2-3) unstable; urgency=low
+
+  * Update to policy version 3.5.6.
+  * Add Brazilian Portuguese debconf translation (thanks, Andre Luis Lopes;
+    closes: #108549).
+  * Split debconf templates into one file per language.
+  * Reorder kernel modules in the debian/config check so that they match the
+    template.
+
+ -- Colin Watson <cjwatson@debian.org>  Sat, 25 Aug 2001 14:50:25 +0100
+
+shaper (2.2.12-0.6.2-2) unstable; urgency=low
+
+  * Aargh, my work machine showed me the kernel-modules note twice. I should
+    just know to be careful with seen ... what I really want to know is "has
+    the question been asked since upgrading to at least 2.2.12-0.6.2-1?". So
+    implement that with FGET and FSET.
+  * Remove debian/conffiles, as I'm using debhelper 3 and so had duplicates.
+
+ -- Colin Watson <cjwatson@debian.org>  Thu, 21 Jun 2001 12:00:20 +0100
+
+shaper (2.2.12-0.6.2-1) unstable; urgency=low
+
+  * New upstream source for cbq.init (closes: #101310, #101311). The package
+    versioning now includes the init script's version number.
+  * Reapply my patches manually, removing some unnecessary ones.
+  * README.cbq is now automatically generated from the comments at the top
+    of the init script.
+  * Add tcio7.ps.gz from the cbq.init FTP site.
+  * sch_sfq and sch_prio are now needed as well. Update README.Debian and
+    the debconf question shaper/kernel-modules, and force the question to be
+    asked again when upgrading from earlier than this version.
+
+ -- Colin Watson <cjwatson@debian.org>  Tue, 19 Jun 2001 22:48:37 +0100
+
+shaper (2.2.12-4) unstable; urgency=low
+
+  * New maintainer address. Thanks to Tony Mancill for his sponsorship until
+    now.
+  * Update to policy version 3.5.2.
+  * Move to debhelper v3.
+
+ -- Colin Watson <cjwatson@debian.org>  Wed, 11 Apr 2001 14:33:20 +0100
+
+shaper (2.2.12-3) unstable; urgency=low
+
+  * Standards-Version: 3.5.0: no changes required.
+  * Added translations of debconf templates:
+    - French (thanks to Thomas Morin, closes: #83806).
+    - German (thanks to Jörg Rieger, closes: #83929).
+    - Swedish (thanks to André Dahlqvist, closes: #83679).
+
+ -- Colin Watson <cjw44@flatline.org.uk>  Tue, 30 Jan 2001 09:33:11 +0000
+
+shaper (2.2.12-2) unstable; urgency=low
+
+  * Upload sponsored by Tony Mancill, as with 2.2.12-1.
+  * modprobe writes errors to stderr (duh), not stdout. Quieten that warning
+    and clean up another about /etc/shaper not being configured - a debconf
+    interface to that should follow eventually. Also add a debconf note if
+    the required modules aren't available (closes: #81327).
+  * modutils isn't an essential package, just Priority: required. Add a test
+    for modprobe's existence to the init script.
+  * Depend on debconf.
+
+ -- Colin Watson <cjw44@flatline.org.uk>  Tue,  9 Jan 2001 12:54:11 +0000
+
+shaper (2.2.12-1) unstable; urgency=low
+
+  * New maintainer (closes: #80929).
+  * New upstream source from Red Hat 7.0 (manufactured .orig.tar.gz from
+    .src.rpm).
+  * Standards-Version: 3.2.1:
+    - Converted to debhelper, getting FHS updates for free.
+    - Build dependencies.
+    - Support DEB_BUILD_OPTIONS.
+  * debian/copyright:
+    - Added pointer to GPL.
+    - Updated download information.
+  * Fixed errors in man page (closes: #52713, #69932).
+  * Use upstream's new init script for setting up CBQ (class-based queueing)
+    traffic shaping according to configuration files in /etc/shaper.
+    Modified it somewhat for Debian policy and to allow the relevant bits of
+    the kernel to be non-modular.
+  * Added crontab entry to allow time-dependent rules in the above.
+  * Depend on iproute for CBQ userspace tools. Since iproute is extra,
+    downgraded shaper to extra to match.
+  * Updated debian/control and README.Debian.
+
+ -- Colin Watson <cjw44@flatline.org.uk>  Tue,  2 Jan 2001 02:40:29 +0000
+
+shaper (0.15-2) unstable; urgency=low
+
+  * Use Mandrake Sourcecode
+  * Update Readme to be applicable for current kernel releases out there.
+  * fixes #36391,#36437,#37806 and hopefully #37806
+  * Build on 2.2.X kernel
+
+ -- Christoph Lameter <christoph@lameter.com>  Thu, 22 Jul 1999 12:07:56 -0700
+
+shaper (0.15-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Christoph Lameter <chris@lameter.com>  Thu, 22 Jul 1999 12:07:38 -0700

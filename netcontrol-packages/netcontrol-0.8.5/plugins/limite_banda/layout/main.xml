@@ -1,0 +1,68 @@
+<xml>
+    <vcontainer id="main" width="99%" height="80%">
+		<center>
+		<simpleform id="defServerNet">
+		<dt>
+			<dtr>
+				<dth>Escolha o servidor de internet</dth>
+				<dth><select name="interface" id="interface" ></select></dth>
+			</dtr>
+			<dtr>
+				<dth>Total de banda</dth>
+				<dth><textinput id="total_banda" name="total_banda"/></dth>
+			</dtr>
+			<dtr >
+				<dth colspan="2"><center><button text="Salvar" icon="/dl/core/ui/stock/save.png" id="salvar_servidor" action="defineServidor" onclick="form" form="defServerNet" /></center></dth>
+			</dtr>
+		</dt>
+		</simpleform>
+		</center>
+		<center>
+			<toolbar>
+				<button text="Aplicar Configurações" icon="/dl/core/ui/stock/save.png" id="aplicarConfigs" />
+				<button text="Adicionar Regra" icon="/dl/core/ui/stock/add.png" id="addRegra" />
+				<button text="Apagar todas as regras" icon="/dl/core/ui/stock/delete.png" id="delAllConfigs" />
+			</toolbar>
+		</center>
+		<center><label text="Redes consfiguradas" size="3"></label></center>
+		<spacer height="10"/>
+        <scrollcontainer width="100%" height="300" id="imprimeRedes" >
+			<dt id="lista_de_redes" width="100%" >
+				<dtr>
+					<dth><center><label text="Nome da rede" /></center></dth>
+					<dth><center><label text="Rede/IP" /></center></dth>
+					<dth><center><label text="Prioridade da regra" /></center></dth>
+					<dth><center><label text="Velocidade de banda" /></center></dth>
+					<dth><center><label text="Banda para Download" /></center></dth>
+					<dth><center><label text="Liberar banda excedida" /></center></dth>
+					<dth><center><label text="Usar banda excedida" /></center></dth>
+					<dth><center>
+						<!--<tipicon id="adicionarRede" name="adicionarRede" text="Adicionar rede" icon="/dl/core/ui/stock/add.png" />
+						 <tipicon id="excluirRedes" name="excluirRedes" text="Excluir todas as redes configuradas" icon="/dl/core/ui/stock/delete.png" /> -->
+						</center>
+					</dth>
+				</dtr>
+			</dt>
+        </scrollcontainer>
+        <spacer height="10"/>
+        <center><label text="Máquinas/IPs consfigurados" size="3"></label></center>
+        <scrollcontainer width="100%" height="300" id="imprimeMaq">
+			<dt id="lista_de_pcs" width="100%" >
+				<dtr>
+					<dth><center><label text="Nome da rede" /></center></dth>
+					<dth><center><label text="Rede/IP" /></center></dth>
+					<dth><center><label text="Prioridade da regra" /></center></dth>
+					<dth><center><label text="Velocidade de banda" /></center></dth>
+					<dth><center><label text="Banda para Download" /></center></dth>
+					<dth><center><label text="Liberar banda excedida" /></center></dth>
+					<dth><center><label text="Usar banda excedida" /></center></dth>
+					<dth><center>
+						<!--<tipicon id="adicionarMaquina" name="adicionarMaquina" text="Adicionar Máquina" icon="/dl/core/ui/stock/add.png" />
+						 <tipicon id="excluiMaquinas" name="excluiMaquinas" text="Excluir todas as máquinas configuradas" icon="/dl/core/ui/stock/delete.png" /> -->
+						</center>
+					</dth>
+				</dtr>
+			</dt>
+        </scrollcontainer>
+    </vcontainer>
+</xml>

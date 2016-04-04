@@ -1,0 +1,11 @@
+extern void ntop_perl_sendString(char *str);
+extern void ntop_perl_send_http_header(int mime_type, char *title);
+extern void ntop_perl_send_html_footer();
+extern void ntop_perl_loadHost();
+extern void ntop_perl_loadHosts();
+extern void ntop_perl_getFirstHost(int actualDeviceId);
+extern void ntop_perl_getNextHost(int actualDeviceId);
+extern HostTraffic* ntop_perl_findHostByNumIP(HostAddr hostIpAddress, short vlanId, int actualDeviceId);
+extern HostTraffic* ntop_perl_findHostBySerial(HostSerial serial, int actualDeviceId);
+extern HostTraffic* ntop_perl_findHostByMAC(char* macAddr, short vlanId, int actualDeviceId);
+extern void ntop_perl_sendFile(char* fileName, int doNotUnlink);

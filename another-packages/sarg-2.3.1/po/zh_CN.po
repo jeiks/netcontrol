@@ -1,0 +1,2851 @@
+# Simplified Chinese translation for sarg.
+# Copyright (C) 2010 Free Software Foundation, Inc.
+# This file is distributed under the same license as the sarg package.
+# Zhixiang Ren <kurt998@gmail.com>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: sarg 2.3-pre3\n"
+"Report-Msgid-Bugs-To: fmarchal@users.sourceforge.net\n"
+"POT-Creation-Date: 2010-09-18 07:02+0200\n"
+"PO-Revision-Date: 2010-06-18 02:09+0800\n"
+"Last-Translator: zhixiang.ren <kurt998@gmail.com>\n"
+"Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=GB18030\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: auth.c:42
+#, c-format
+msgid "File name too long: %s/%s/.htaccess\n"
+msgstr "文件名过长: %s/%s/.htaccess\n"
+
+#: auth.c:46
+#, c-format
+msgid "(auth) Cannot open file: %s - %s\n"
+msgstr "(auth) 不能打开文件: %s - %s\n"
+
+#: auth.c:51
+#, c-format
+msgid "(auth) Cannot open template file: %s - %s\n"
+msgstr "(auth) 不能打开临时文件: %s - %s\n"
+
+#: authfail.c:77 dansguardian_log.c:139 email.c:125 html.c:414 lastlog.c:82
+#: log.c:1657 realtime.c:87 siteuser.c:66 smartfilter.c:72 sort.c:99
+#: sort.c:159 squidguard_log.c:380 topsites.c:77 topsites.c:170 topuser.c:162
+#: useragent.c:139 useragent.c:216 useragent.c:276
+#, c-format
+msgid "sort command return status %d\n"
+msgstr "排序命令返回状态 %d\n"
+
+#: authfail.c:78 authfail.c:83 dansguardian_log.c:140 email.c:126 html.c:415
+#: lastlog.c:83 log.c:1658 realtime.c:88 siteuser.c:67 siteuser.c:73
+#: smartfilter.c:73 smartfilter.c:78 sort.c:100 sort.c:160
+#: squidguard_log.c:381 topsites.c:78 topsites.c:84 topsites.c:171
+#: topsites.c:176 topuser.c:163 useragent.c:140 useragent.c:145
+#: useragent.c:217 useragent.c:222 useragent.c:277 useragent.c:282
+#, c-format
+msgid "sort command: %s\n"
+msgstr "排序命令: %s\n"
+
+#: authfail.c:82 authfail.c:89
+#, c-format
+msgid "(authfail) Cannot open file %s\n"
+msgstr "(authfail) 不能打开文件 %s\n"
+
+#: authfail.c:93 authfail.c:97 topuser.c:199
+msgid "Authentication Failures"
+msgstr "认证失败"
+
+#: authfail.c:95 dansguardian_report.c:74 denied.c:86 download.c:81
+#: grepday.c:559 siteuser.c:84 smartfilter.c:97 smartfilter.c:165
+#: squidguard_report.c:85 topsites.c:190 topuser.c:183
+#, c-format
+msgid "Period: %s"
+msgstr "区间: %s"
+
+#: authfail.c:101 dansguardian_report.c:80 denied.c:92 download.c:87
+#: email.c:168 realtime.c:294 smartfilter.c:106 smartfilter.c:173
+#: squidguard_report.c:91 topuser.c:218 useragent.c:170
+msgid "USERID"
+msgstr "用户ID"
+
+#: authfail.c:101 dansguardian_report.c:80 denied.c:92 download.c:87
+#: realtime.c:294 smartfilter.c:106 smartfilter.c:173 squidguard_report.c:91
+msgid "IP/NAME"
+msgstr "IP/姓名"
+
+#: authfail.c:101 dansguardian_report.c:80 denied.c:92 download.c:87
+#: realtime.c:294 report.c:291 report.c:293 smartfilter.c:106
+#: smartfilter.c:173 squidguard_report.c:91
+msgid "DATE/TIME"
+msgstr "日期/时间"
+
+#: authfail.c:101 dansguardian_report.c:80 denied.c:92 download.c:87
+#: html.c:243 realtime.c:294 report.c:293 siteuser.c:91 siteuser.c:93
+#: smartfilter.c:106 smartfilter.c:173 squidguard_report.c:91 topsites.c:198
+msgid "ACCESSED SITE"
+msgstr "访问站点"
+
+#: authfail.c:104 email.c:75 html.c:81 html.c:175 html.c:374 html.c:427
+#: siteuser.c:106 topsites.c:94 topsites.c:204
+#, c-format
+msgid "Not enough memory to read file %s\n"
+msgstr "没有足够的内存来读取文件 %s\n"
+
+#: authfail.c:111
+#, c-format
+msgid "There is a broken date in file %s\n"
+msgstr "有不完整的日期在文件 %s\n"
+
+#: authfail.c:115
+#, c-format
+msgid "There is a broken time in file %s\n"
+msgstr "有不完整的时间在文件中 %s\n"
+
+#: authfail.c:119
+#, c-format
+msgid "There is a broken user ID in file %s\n"
+msgstr "有不完整的用户ID在文件中 %s\n"
+
+#: authfail.c:123
+#, c-format
+msgid "There is a broken IP address in file %s\n"
+msgstr "有不完整的IP地址在文件中 %s\n"
+
+#: authfail.c:127 denied.c:107 download.c:102 html.c:197 html.c:277
+#, c-format
+msgid "There is a broken url in file %s\n"
+msgstr "有不完整的连接在文件中 %s\n"
+
+#: authfail.c:136 denied.c:116 download.c:111 siteuser.c:115 smartfilter.c:119
+#: squidguard_report.c:122 topuser.c:278
+#, c-format
+msgid "Unknown user ID %s in file %s\n"
+msgstr "未知的用户ID %s 在文件 %s\n"
+
+#: authfail.c:190 dansguardian_report.c:157 denied.c:175 download.c:166
+#: grepday.c:758 html.c:594 repday.c:227 siteuser.c:201
+#: squidguard_report.c:176 topsites.c:251 useragent.c:312
+#, c-format
+msgid "Write error in file %s\n"
+msgstr "在文件中有写入错误 %s\n"
+
+#: authfail.c:192 convlog.c:80 dansguardian_report.c:159 denied.c:177
+#: download.c:168 grepday.c:760 html.c:596 repday.c:229 report.c:525
+#: report.c:567 siteuser.c:203 splitlog.c:84 squidguard_report.c:178
+#: topsites.c:253 topuser.c:413 totday.c:134 totger.c:79 useragent.c:128
+#: useragent.c:267 useragent.c:314
+#, c-format
+msgid "Failed to close file %s - %s\n"
+msgstr "关闭文件时失败 %s - %s\n"
+
+#: convlog.c:46
+#, fuzzy, c-format
+msgid "(convlog) Cannot open log file %s - %s\n"
+msgstr "(log) 不能打开日志文件: %s - %s\n"
+
+#: convlog.c:51 splitlog.c:51
+#, fuzzy, c-format
+msgid "Not enough memory to read the log file %s\n"
+msgstr "没有足够的内存来读取日志文件\n"
+
+#: convlog.c:58
+#, c-format
+msgid "Maybe you have a broken record or garbage in file %s\n"
+msgstr "可能有不完整的纪录或者垃圾存在文件 %s\n"
+
+#: dansguardian_log.c:57
+#, c-format
+msgid "Cannot open DansGuardian config file: %s\n"
+msgstr "不能打开 DansGuardian 配置文件: %s\n"
+
+#: dansguardian_log.c:62 dansguardian_log.c:67 dansguardian_log.c:89
+#, c-format
+msgid "(dansguardian) Cannot open log file: %s\n"
+msgstr "(dansguardian) 不能打开日志文件: %s\n"
+
+#: dansguardian_log.c:78 dansguardian_log.c:101 dansguardian_log.c:110
+#: dansguardian_report.c:86 lastlog.c:108 log.c:919 log.c:924 log.c:930
+#: log.c:938 log.c:942 log.c:946 log.c:951 log.c:956 log.c:1052 log.c:1056
+#: log.c:1060 log.c:1064 log.c:1068 log.c:1072 log.c:1076 log.c:1080
+#: log.c:1084 log.c:1112 log.c:1119 log.c:1143 realtime.c:217 realtime.c:221
+#: realtime.c:225 realtime.c:229 realtime.c:238 squidguard_log.c:122
+#: squidguard_log.c:127 topsites.c:211 topsites.c:216 useragent.c:84
+#: useragent.c:107
+#, c-format
+msgid "Maybe you have a broken record or garbage in your %s file\n"
+msgstr "可能有不完整的纪录或者垃圾在你的 %s 文件中 \n"
+
+#: dansguardian_log.c:86
+#, c-format
+msgid "Reading DansGuardian log file: %s\n"
+msgstr "读取 DansGuardian 日志文件: %s\n"
+
+#: dansguardian_log.c:105 dansguardian_report.c:90 html.c:384 log.c:934
+#: log.c:1027 realtime.c:234
+#, c-format
+msgid "Maybe you have a broken url in your %s file\n"
+msgstr "可能你有不完整的连接在你的 %s 文件中\n"
+
+#: dansguardian_log.c:134 sort.c:92 squidguard_log.c:374 useragent.c:133
+#, c-format
+msgid "Sorting file: %s\n"
+msgstr "正在排序文件: %s\n"
+
+#: dansguardian_report.c:63 dansguardian_report.c:68
+#, c-format
+msgid "(dansguardian_report) Cannot open log file %s\n"
+msgstr "(dansguardian_report) 不能打开日志文件 %s\n"
+
+#: dansguardian_report.c:72 dansguardian_report.c:76 topuser.c:195
+msgid "DansGuardian"
+msgstr "DansGuardian"
+
+#: dansguardian_report.c:80
+msgid "CAUSE"
+msgstr "原因"
+
+#: dansguardian_report.c:94
+#, c-format
+msgid "Maybe you have a broken rule in your %s file\n"
+msgstr "可能你有不完整的规则在你的 %s 文件中\n"
+
+#: datafile.c:77 html.c:116 index.c:53 index.c:107 index.c:156 index.c:217
+#: index.c:319 indexonly.c:38 lastlog.c:57 report.c:109 sort.c:68 sort.c:128
+#, c-format
+msgid "Failed to open directory %s - %s\n"
+msgstr "打开文件夹时失败 %s - %s\n"
+
+#: datafile.c:96 report.c:139
+#, c-format
+msgid "Ignoring unknown user file %s\n"
+msgstr "跳过未知的用户文件 %s\n"
+
+#: datafile.c:108
+#, c-format
+msgid "(datafile) directory path too long: %s/%s\n"
+msgstr "(datafile) 文件夹路径太长: %s/%s\n"
+
+#: datafile.c:113 datafile.c:169
+#, c-format
+msgid "(datafile) Cannot open file %s\n"
+msgstr "(datafile) 不能打开日志文件 %s\n"
+
+#: datafile.c:118
+#, c-format
+msgid "Not enough memory to read the downloaded files.\n"
+msgstr "没有足够的内存去读取已下载文件. \n"
+
+#: datafile.c:130 denied.c:103 download.c:98 report.c:172 smartfilter.c:113
+#: totday.c:79
+#, c-format
+msgid "There is a broken record or garbage in file %s\n"
+msgstr "有不完整的纪录或垃圾在文件 %s\n"
+
+#: datafile.c:134
+#, c-format
+msgid "There is an invalid smart info in file %s\n"
+msgstr "有无效的智能信息在文件 %s\n"
+
+#: datafile.c:153 datafile.c:198 realtime.c:262 report.c:210 report.c:305
+#: report.c:335 siteuser.c:126 siteuser.c:177 topsites.c:108 topsites.c:127
+#, c-format
+msgid "Not enough memory to store the url\n"
+msgstr "没有足够的内存去存储连接\n"
+
+#: datafile.c:219
+#, c-format
+msgid "Datafile %s written successfully\n"
+msgstr "数据文件 %s 写入成功\n"
+
+#: decomp.c:36
+#, c-format
+msgid "File not found: %s\n"
+msgstr "未找到文件: %s\n"
+
+#: decomp.c:42 decomp.c:62
+#, c-format
+msgid "Decompressing log file \"%s\" with zcat\n"
+msgstr "解压缩日志文件 \"%s\" 使用zcat\n"
+
+#: decomp.c:44 decomp.c:54 decomp.c:64
+#, c-format
+msgid "decompression command too long for log file %s\n"
+msgstr "解压日志文件命令过长 %s\n"
+
+#: decomp.c:52
+#, c-format
+msgid "Decompressing log file \"%s\" with bzcat\n"
+msgstr "解压缩文件 \"%s\" 使用bzcat\n"
+
+#: denied.c:34
+#, c-format
+msgid "%d more denied access not shown here&hellip;"
+msgid_plural "%d more denied accesses not shown here&hellip;"
+msgstr[0] ""
+
+#: denied.c:75 denied.c:80
+#, c-format
+msgid "(denied) Cannot open log file %s\n"
+msgstr "(denied)不能打开日志文件 %s\n"
+
+#: denied.c:84 denied.c:88
+msgid "Denied"
+msgstr "声明"
+
+#: denied.c:95
+#, c-format
+msgid "Not enough memory to read the denied accesses\n"
+msgstr "没有足够的内存来读取阻止访问\n"
+
+#: denied.c:180
+#, fuzzy, c-format
+msgid "Failed to delete the file \"%s\" after processing it - %s\n"
+msgstr "删除文件失败 %s\n"
+
+#: download.c:70 download.c:75
+#, c-format
+msgid "(download) Cannot open log file %s\n"
+msgstr "(download) 不能打开日志文件 %s\n"
+
+#: download.c:79 download.c:83 topuser.c:197
+msgid "Downloads"
+msgstr "下载"
+
+#: download.c:90 report.c:162 topuser.c:239
+#, c-format
+msgid "Not enough memory to read the downloaded files\n"
+msgstr "没有足够的内存来读取下载文件\n"
+
+#: download.c:198
+#, c-format
+msgid "Download suffix list too long\n"
+msgstr "下载后缀列表过长\n"
+
+#: download.c:206
+#, c-format
+msgid "Too many download suffixes\n"
+msgstr "过多的下载后缀\n"
+
+#: email.c:55 email.c:61 email.c:67 email.c:133 email.c:144 email.c:150
+#: email.c:254
+#, c-format
+msgid "(email) Cannot open file %s\n"
+msgstr "(email)不能打开文件 %s\n"
+
+#: email.c:154 log.c:359
+msgid "Squid User Access Report"
+msgstr "Squid用户访问报告"
+
+#: email.c:158
+msgid "Decreasing Access (bytes)"
+msgstr "降低访问(bytes)"
+
+#: email.c:162 html.c:229 repday.c:128 report.c:282 useragent.c:162
+msgid "Period"
+msgstr "期间"
+
+#: email.c:166 siteuser.c:91 siteuser.c:93 topsites.c:198 topuser.c:214
+msgid "NUM"
+msgstr "数字"
+
+#: email.c:170 html.c:246 topsites.c:198 topuser.c:220
+msgid "CONNECT"
+msgstr "连接"
+
+#: email.c:172 grepday.c:737 html.c:248 html.c:250 index.c:416 repday.c:141
+#: siteuser.c:91 topsites.c:198 topuser.c:222 topuser.c:224
+msgid "BYTES"
+msgstr "字节"
+
+#: email.c:174 grepday.c:750 html.c:254 topuser.c:228
+msgid "ELAPSED TIME"
+msgstr "已使用时间"
+
+#: email.c:176 html.c:256 topuser.c:230
+msgid "MILLISEC"
+msgstr "毫秒"
+
+#: email.c:178 html.c:258 topsites.c:198 topuser.c:232
+msgid "TIME"
+msgstr "时间"
+
+#: email.c:188 useragent.c:192
+#, c-format
+msgid "There is an invalid user ID in file %s\n"
+msgstr "有一个不存在的用户ID在文件 %s\n"
+
+#: email.c:192
+#, c-format
+msgid "There is an invalid number of bytes in file %s\n"
+msgstr "有不存在的字节数在文件 %s\n"
+
+#: email.c:196
+#, c-format
+msgid "There is an invalid number of access in file %s\n"
+msgstr "有一个不存在的访问数在文件 %s\n"
+
+#: email.c:200
+#, c-format
+msgid "There is an invalid elapsed time in file %s\n"
+msgstr "有一个无效的时间值 %s\n"
+
+#: email.c:212 email.c:214 html.c:509 repday.c:146 repday.c:170 repday.c:189
+#: repday.c:213 topuser.c:348 useragent.c:291
+msgid "TOTAL"
+msgstr "总值"
+
+#: email.c:235 html.c:575 index.c:416 topuser.c:381
+msgid "AVERAGE"
+msgstr "平均值"
+
+#: email.c:261 html.c:240
+msgid "Report"
+msgstr "报告"
+
+#: email.c:264 index.c:544 log.c:1643
+#, c-format
+msgid "command return status %d\n"
+msgstr "命令返回状态 %d\n"
+
+#: email.c:265 index.c:545 log.c:1644
+#, c-format
+msgid "command: %s\n"
+msgstr "命令: %s\n"
+
+#: exclude.c:65
+#, c-format
+msgid "Not enough memory to store the exlcluded IP addresses\n"
+msgstr "没有足够的内存来存储被排除的IP地址\n"
+
+#: exclude.c:110 exclude.c:120
+#, c-format
+msgid "Not enough memory to store the excluded URLs\n"
+msgstr "没有足够的内存来存储被排除的连接\n"
+
+#: exclude.c:141
+#, c-format
+msgid "Cannot open exclude_hosts file: %s - %s\n"
+msgstr "不能打开exclude_hosts文件: %s-%s\n"
+
+#: exclude.c:145
+#, c-format
+msgid "Loading exclude host file from: %s\n"
+msgstr "载入拒绝主机文件从: %s\n"
+
+#: exclude.c:148 exclude.c:324
+#, c-format
+msgid "(gethexclude) Cannot open file %s - %s\n"
+msgstr "(gethexclude)不能打开文件 %s - %s\n"
+
+#: exclude.c:210
+#, c-format
+msgid "IPv6 addresses are not supported (found in %s)\n"
+msgstr "IPv6不被支持(found in %s)\n"
+
+#: exclude.c:321
+#, c-format
+msgid "Loading exclude file from: %s\n"
+msgstr "载入排除文件从: %s\n"
+
+#: exclude.c:329
+#, c-format
+msgid "Failed to move till the end of the excluded users file %s: %s\n"
+msgstr "在排除用户文件之前不能移动该文件 %s: %s\n"
+
+#: exclude.c:334 log.c:1713 util.c:1387
+#, c-format
+msgid "Cannot get the size of file %s\n"
+msgstr "不能得到文件的大小 %s\n"
+
+#: exclude.c:339
+#, c-format
+msgid "Failed to rewind the excluded users file %s: %s\n"
+msgstr "转向排除用户文件时失败 %s: %s\n"
+
+#: exclude.c:344
+#, c-format
+msgid "malloc error (%ld bytes required)\n"
+msgstr "内存也错误 (%ld bytes required)\n"
+
+#: getconf.c:203
+#, c-format
+msgid "The string value of parameter \"%s\" is too long\n"
+msgstr "参数的字符串值\"%s\" 太长\n"
+
+#: getconf.c:223
+#, c-format
+msgid "Missing double quote after parameter \"%s\"\n"
+msgstr "在参数之后缺少双引号\"%s\"\n"
+
+#: getconf.c:235
+#, c-format
+msgid ""
+"Missing double quote after parameter \"%s\" or value is more than %d bytes "
+"long\n"
+msgstr "在参数之后缺少双引号 \"%s\" 或者数值大于 %d 字节长\n"
+
+#: getconf.c:256
+#, c-format
+msgid "The first word of parameter \"%s\" is more than %d bytes long\n"
+msgstr "参数的第一个词 \"%s\" 大于 %d 字节长\n"
+
+#: getconf.c:260
+#, c-format
+msgid "Missing second word for parameter \"%s\"\n"
+msgstr "参数缺少第二个词 \"%s\"\n"
+
+#: getconf.c:270
+#, c-format
+msgid "The second word of parameter \"%s\" is more than %d bytes long\n"
+msgstr "第二个参数 \"%s\" 大于 %d 字节长\n"
+
+#: getconf.c:293
+#, c-format
+msgid "The integer value of parameter \"%s\" is invalid\n"
+msgstr "整数数值参数 \"%s\" 不存在\n"
+
+#: getconf.c:345
+#, c-format
+msgid "Unknown value \"%s\" for parameter \"%s\"\n"
+msgstr "不存在的数值 \"%s\" 参数 \"%s\"\n"
+
+#: getconf.c:349
+#, c-format
+msgid ""
+"Value \"%s\" conflicts with other selected values for parameter \"%s\"\n"
+msgstr "数值 \"%s\" 冲突与其它被选定的参数数值 \"%s\"\n"
+
+#: getconf.c:380
+#, fuzzy, c-format
+msgid "Unknown sort criterion \"%s\" for parameter \"%s\"\n"
+msgstr "不存在的数值 \"%s\" 参数 \"%s\"\n"
+
+#: getconf.c:395
+#, fuzzy, c-format
+msgid "Unknown sort order \"%s\" for parameter \"%s\"\n"
+msgstr "不存在的数值 \"%s\" 参数 \"%s\"\n"
+
+#: getconf.c:415
+#, c-format
+msgid "SARG: TAG: %s\n"
+msgstr "SARG: TAG: %s\n"
+
+#: getconf.c:462
+#, c-format
+msgid ""
+"Maybe you have a broken record or garbage in \"date_format\" parameter\n"
+msgstr "可能你有不完整的纪录或垃圾在 \"date_format\" 参数中\n"
+
+#: getconf.c:472
+#, c-format
+msgid "Error: Invalid syntax in hours tag!\n"
+msgstr "错误: 不存在的句法在小时标签中!\n"
+
+#: getconf.c:480
+#, c-format
+msgid "Error: Invalid syntax in weekdays tag!\n"
+msgstr "错误: 不存在的句法在在时间标签中!\n"
+
+#: getconf.c:493
+#, c-format
+msgid "Too many log files in configuration file\n"
+msgstr "在配置文件中存在过多的日志文件\n"
+
+#: getconf.c:505
+#, c-format
+msgid "Too many redirector log files in configuration file\n"
+msgstr "在配置文件中有多余的重定向日志文件\n"
+
+#: getconf.c:645 getconf.c:652
+#, c-format
+msgid "Template file name is too long in parameter \"AuthUserTemplateFile\"\n"
+msgstr "在参数中临时文件名过长\"AuthUserTemplateFile\"\n"
+
+#: getconf.c:673
+#, c-format
+msgid ""
+"squidguard_log_format is deprecated and has been replaced by "
+"redirector_log_format. Please update your configuration file.\n"
+msgstr ""
+"squidguard_log_format已失效，并且已经被 redirector_log_format 所替代，请更新"
+"您的配置文件。\n"
+
+#: getconf.c:682
+#, fuzzy, c-format
+msgid ""
+"redirector_ignore_date is deprecated and has been replaced by "
+"redirector_filter_out_date that does the action implied by its name as "
+"opposed to redirector_ignore_date. Please update your configuration file.\n"
+msgstr ""
+"squidguard_ignore_date 已失效，并且已经被redirector_ignore_date所替代。请更新"
+"您的配置文件。\n"
+
+#: getconf.c:687
+#, fuzzy, c-format
+msgid ""
+"squidguard_ignore_date is deprecated and has been replaced by "
+"redirector_filter_out_date that does the action implied by its name as "
+"opposed to squidguard_ignore_date. Please update your configuration file.\n"
+msgstr ""
+"squidguard_ignore_date 已失效，并且已经被redirector_ignore_date所替代。请更新"
+"您的配置文件。\n"
+
+#: getconf.c:694
+#, fuzzy, c-format
+msgid ""
+"dansguardian_ignore_date is deprecated and has been replaced by "
+"dansguardian_filter_out_date that does the action implied by its name as "
+"opposed to dansguardian_ignore_date. Please update your configuration file.\n"
+msgstr ""
+"squidguard_ignore_date 已失效，并且已经被redirector_ignore_date所替代。请更新"
+"您的配置文件。\n"
+
+#: getconf.c:737 getconf.c:742
+#, c-format
+msgid "The \"byte_cost\" parameter of the configuration file is invalid\n"
+msgstr "\"byte_cost\" 配置文件的参数不存在\n"
+
+#: getconf.c:749
+#, c-format
+msgid "SARG: Unknown option %s\n"
+msgstr "SARG: 未知的选项 %s\n"
+
+#: getconf.c:759
+#, c-format
+msgid "Loading configuration from %s\n"
+msgstr "载入配置从 %s\n"
+
+#: getconf.c:762
+#, c-format
+msgid "(getconf) Cannot open file %s\n"
+msgstr "(getconf) 不能打开文件 %s\n"
+
+#: grepday.c:144
+#, fuzzy, c-format
+msgid "realloc error (%<PRIu64> bytes required)\n"
+msgstr "重新分配错误 (%zu bytes required)\n"
+
+#: grepday.c:157
+#, c-format
+msgid "(grepday) iconv failed to convert string \"%s\" from %s to UTF-8 - %s\n"
+msgstr "(grepday) iconv转换字符串失败 \"%s\" 从 %s 到 UTF-8 - %s \n"
+
+#: grepday.c:170
+#, c-format
+msgid "libgd failed to calculate the bounding box of the text \"%s\": %s\n"
+msgstr "libgd 计算文本中的边界失败 \"%s\":%s\n"
+
+#: grepday.c:237
+#, c-format
+msgid "libgd failed to render the text \"%s\": %s\n"
+msgstr "libgb 提交文本时失败 \"%s\": %s\n"
+
+#: grepday.c:296
+#, fuzzy, c-format
+msgid "Minimum for Y scale of the graph is out of range: %<PRId64>\n"
+msgstr "视图的Y比例超出最小范围: %lld\n"
+
+#: grepday.c:300
+#, fuzzy, c-format
+msgid "Maximum for Y scale of the graph is out of range: %<PRId64>\n"
+msgstr "视图的Y比例超出最大范围: %lld\n"
+
+#: grepday.c:328
+#, c-format
+msgid "Unknown type %d for Y axis scale\n"
+msgstr "未知类型 %d 对于Y轴比例\n"
+
+#: grepday.c:489
+#, c-format
+msgid "Unknown color \"%s\" requested for the graph. Using orange instead\n"
+msgstr "未知的颜色 \"%s\" 对于该图形, 请使用橙色替代\n"
+
+#: grepday.c:557
+msgid "SARG, "
+msgstr "SARG,"
+
+#: grepday.c:561
+#, c-format
+msgid "User: %s"
+msgstr "用户: %s"
+
+#: grepday.c:617 grepday.c:719
+#, fuzzy, c-format
+msgid "user name too long for %s/%s/%s\n"
+msgstr "用户名过长 %s/%s.day\n"
+
+#: grepday.c:621 grepday.c:680
+#, c-format
+msgid "(grepday) Cannot open log file %s\n"
+msgstr "(grepday) 不能打开日志文件 %s\n"
+
+#: grepday.c:637
+#, c-format
+msgid "(grepday) Fontname %s not found\n"
+msgstr "(grepday) 字体名称 %s 找不到\n"
+
+#: grepday.c:644
+#, c-format
+msgid "(grepday) iconv cannot convert from %s to UTF-8 - %s\n"
+msgstr "(grepday) iconv 不能转换从 %s 到 UTF-8 - %s\n"
+
+#: grepday.c:668
+#, c-format
+msgid "user name too long for %s/%s.day\n"
+msgstr "用户名过长 %s/%s.day\n"
+
+#: grepday.c:690 repday.c:82 squidguard_report.c:100
+#, c-format
+msgid "Invalid date in file %s\n"
+msgstr "在文件中存在无效的日期 %s\n"
+
+#: grepday.c:696
+#, c-format
+msgid "Invalid entry in file %s\n"
+msgstr "在文件中存在无效输入 %s\n"
+
+#: grepday.c:702 repday.c:107 totday.c:98
+#, c-format
+msgid "Invalid number of bytes in file %s\n"
+msgstr "在文件中存在无效的数字字节 %s\n"
+
+#: grepday.c:709 repday.c:114 totday.c:105
+#, c-format
+msgid "Invalid elapsed time in file %s\n"
+msgstr "在文件中存在无效的时间段 %s\n"
+
+#: grepday.c:723
+#, fuzzy, c-format
+msgid "(grepday) Cannot open output file %s\n"
+msgstr "(grepday) 不能打开日志文件 %s\n"
+
+#: grepday.c:726
+#, fuzzy
+msgid "Graph report"
+msgstr "日报"
+
+#: grepday.c:733 grepday.c:746 index.c:252
+msgid "DAYS"
+msgstr "日"
+
+#: html.c:77
+#, c-format
+msgid "(html2) Cannot open file %s\n"
+msgstr "(html2) 不能打开日志文件 %s\n"
+
+#: html.c:100
+#, c-format
+msgid "(html11) Cannot open file %s\n"
+msgstr "(html11) 不能打开文件 %s\n"
+
+#: html.c:104
+#, c-format
+msgid "(html11) read error in %s\n"
+msgstr "(html11) 读取错误在 %s\n"
+
+#: html.c:136
+#, c-format
+msgid "Unknown user ID %s in directory %s\n"
+msgstr "未知的用户ID %s 在目录 %s\n"
+
+#: html.c:146
+#, c-format
+msgid "Destination directory too long: %s/%s\n"
+msgstr "目标目录过长: %s/%s\n"
+
+#: html.c:155
+#, c-format
+msgid "Input file name too long: %s/%s\n"
+msgstr "输入的名称过长: %s/%s\n"
+
+#: html.c:159
+#, c-format
+msgid "Output file name too long: %s/%s/%s.html\n"
+msgstr "输出文件名过长: %s/%s/%s.html\n"
+
+#: html.c:163
+#, c-format
+msgid "File name too long: %s/%s/denied_%s.html\n"
+msgstr "文件名过长: %s/%s/denied_%s.html\n"
+
+#: html.c:170
+#, c-format
+msgid "(html3) Cannot open file %s\n"
+msgstr "(html3) 不能打开文件 %s\n"
+
+#: html.c:187 html.c:269 topuser.c:254
+#, c-format
+msgid "There is a broken number of access in file %s\n"
+msgstr "有不完整的访问数字在文件 %s\n"
+
+#: html.c:192
+#, c-format
+msgid "There is a broken downloaded size in file %s\n"
+msgstr "有不完整的下载大小在文件 %s\n"
+
+#: html.c:201 html.c:281
+#, c-format
+msgid "There is a broken access code in file %s\n"
+msgstr "有不完整的访问代码在文件 %s\n"
+
+#: html.c:205 html.c:285 report.c:177
+#, c-format
+msgid "There is a broken elapsed time in file %s\n"
+msgstr "有不完整的时间在文件 %s\n"
+
+#: html.c:210
+#, c-format
+msgid "There is a broken in-cache volume in file %s\n"
+msgstr "有不完整的in-cache卷在文件 %s\n"
+
+#: html.c:215
+#, c-format
+msgid "There is a broken out-cache volume in file %s\n"
+msgstr "有不完整的out-cache卷在文件 %s\n"
+
+#: html.c:224
+#, c-format
+msgid "(html5) Cannot open file %s\n"
+msgstr "(html5) 不能打开文件 %s\n"
+
+#: html.c:228 html.c:234
+msgid "User report"
+msgstr "用户报告"
+
+#: html.c:230 repday.c:129 report.c:283 report.c:287 smartfilter.c:167
+msgid "User"
+msgstr "用户"
+
+#: html.c:232 report.c:285
+#, c-format
+msgid "Sort:&nbsp;%s, %s"
+msgstr ""
+
+#: html.c:240 smartfilter.c:58 smartfilter.c:99 topuser.c:200
+msgid "SmartFilter"
+msgstr "智能过滤"
+
+#: html.c:252 topuser.c:226
+msgid "IN-CACHE-OUT"
+msgstr "IN-CACHE-OUT"
+
+#: html.c:263
+#, c-format
+msgid "Making report: %s\n"
+msgstr "标记报告: %s\n"
+
+#: html.c:273 topuser.c:250 util.c:732
+#, c-format
+msgid "There is a broken number of bytes in file %s\n"
+msgstr "有不完整的字节数字在文件 %s\n"
+
+#: html.c:289
+#, c-format
+msgid "There is a broken in cache column in file %s\n"
+msgstr "中断在缓存列内在文件 %s\n"
+
+#: html.c:293
+#, c-format
+msgid "There is a broken out of cache column in file %s (%d)\n"
+msgstr "中断在缓存列外在文件 %s(%d)\n"
+
+#: html.c:307 topuser.c:296
+msgid "date/time report"
+msgstr "日期/时间 报告"
+
+#: html.c:351
+msgid "DENIED"
+msgstr "阻止"
+
+#: html.c:359
+#, c-format
+msgid "File name too long: %s/%s.ip\n"
+msgstr "文件名过长: %s/%s.ip\n"
+
+#: html.c:364
+#, c-format
+msgid "(html6) Cannot open file %s\n"
+msgstr "(html6)不能打开文件 %s\n"
+
+#: html.c:369
+#, c-format
+msgid "(html7) Cannot open file %s\n"
+msgstr "(html7) 不能打开文件 %s\n"
+
+#: html.c:380 html.c:433
+#, c-format
+msgid "Maybe you have a broken user IP in your %s file\n"
+msgstr "可能你有不完整的用户IP地址在你的 %s 文件中 \n"
+
+#: html.c:389 log.c:1207
+#, c-format
+msgid "Maybe you have a broken day in your %s file\n"
+msgstr "可能你有不完整的日期在你的 %s 文件中 \n"
+
+#: html.c:393 log.c:1166 log.c:1339
+#, c-format
+msgid "Maybe you have a broken time in your %s file\n"
+msgstr "可能你有不完整的时间在你的 %s 文件中\n"
+
+#: html.c:397 html.c:437
+#, c-format
+msgid "Maybe you have a broken size in your %s file\n"
+msgstr "可能你有不完整的大小在你的 %s 文件中\n"
+
+#: html.c:401 html.c:441 log.c:1001 log.c:1006
+#, c-format
+msgid "Maybe you have a broken elapsed time in your %s file\n"
+msgstr "可能你有不完整的过去时间在你的 %s 文件中\n"
+
+#: html.c:420
+#, c-format
+msgid "(html8) Cannot open file %s\n"
+msgstr "(html8) 不能打开文件 %s\n"
+
+#: html.c:539
+#, c-format
+msgid "(html9) Cannot open file %s\n"
+msgstr "(html9) 不能打开文件 %s\n"
+
+#: html.c:554
+#, c-format
+msgid "(html10) Cannot open file %s\n"
+msgstr "(html10) 不能打开文件 %s\n"
+
+#: html.c:561
+#, c-format
+msgid "User %s limit exceeded (%d MB). Added to file %s\n"
+msgstr "用户%s 超出限制 (%d MB). 增加到文件 %s\n"
+
+#: index.c:49
+#, c-format
+msgid "Making index.html\n"
+msgstr "标记 index.html\n"
+
+#: index.c:138 index.c:184 index.c:245
+#, c-format
+msgid "(index) Cannot open file %s - %s\n"
+msgstr "(index) 不能打开文件 %s - %s\n"
+
+#: index.c:141 index.c:413
+msgid "SARG report"
+msgid_plural "SARG reports"
+msgstr[0] "SARG 报告"
+
+#: index.c:144 index.c:191 index.c:252
+msgid "YEAR"
+msgstr "年"
+
+#: index.c:144
+msgid "SIZE"
+msgstr "大小"
+
+#: index.c:171
+#, c-format
+msgid ""
+"Too many month directories in %s\n"
+"Supernumerary entries are ignored\n"
+msgstr ""
+"太多月份文件夹在 %s\n"
+"多余的输入被忽略\n"
+
+#: index.c:187
+#, c-format
+msgid "SARG: report for %04d"
+msgid_plural "SARG: reports for %04d"
+msgstr[0] "SARG report %04d"
+
+#: index.c:191 index.c:252
+msgid "MONTH"
+msgstr "月份"
+
+#: index.c:232
+#, c-format
+msgid ""
+"Too many day directories in %s\n"
+"Supernumerary entries are ignored\n"
+msgstr ""
+"过多的日期文件夹在 %s\n"
+"多余输出被跳过\n"
+
+#: index.c:248
+#, c-format
+msgid "SARG: report for %04d/%02d"
+msgid_plural "SARG: reports for %04d/%02d"
+msgstr[0] "SARG 报告 %04d/%02d"
+
+#: index.c:269 index.c:275 index.c:282 index.c:428
+#, c-format
+msgid "Write error in the index %s\n"
+msgstr "写入错误的索引 %s\n"
+
+#: index.c:271 index.c:277 index.c:284 index.c:430
+#, c-format
+msgid "Failed to close the index file %s - %s\n"
+msgstr "离开索引文件时失败 %s - %s\n"
+
+#: index.c:330 index.c:391
+#, c-format
+msgid "not enough memory to sort the index\n"
+msgstr "没有足够的内存去排序索引\n"
+
+#: index.c:353
+#, c-format
+msgid "Maybe you have a broken week day in your %s%s/sarg-date file\n"
+msgstr "可能你有不完整的日期在你的 %s%s/sarg-date 文件中\n"
+
+#: index.c:357
+#, c-format
+msgid "Maybe you have a broken month in your %s%s/sarg-date file\n"
+msgstr "可能你有不完整的月份在你的 %s%s/sarg-date 文件中\n"
+
+#: index.c:361
+#, c-format
+msgid "Maybe you have a broken day in your %s%s/sarg-date file\n"
+msgstr "可能你有不完整的日期在你的 %s%s/sarg-date 文件中\n"
+
+#: index.c:365 index.c:375
+#, c-format
+msgid "Maybe you have a broken time in your %s%s/sarg-date file\n"
+msgstr "可能你有不完整的时间在你的 %s%s/sarg-date 文件中\n"
+
+#: index.c:370
+#, c-format
+msgid "Maybe you have a broken year in your %s%s/sarg-date file\n"
+msgstr "可能你有不完整的年份在你的 %s%s/sarg-date 文件中\n"
+
+#: index.c:383
+#, c-format
+msgid "Not enough memory to store the directory name \"%s\" in the index\n"
+msgstr "没有足够的内存来存储文件名在 \"%s\" 在索引中\n"
+
+#: index.c:410
+#, c-format
+msgid "(index) Cannot open file %s\n"
+msgstr "(index) 不能打开文件 %s\n"
+
+#: index.c:416
+msgid "FILE/PERIOD"
+msgstr "文件/周期"
+
+#: index.c:416
+msgid "CREATION DATE"
+msgstr "创建日期"
+
+#: index.c:416 siteuser.c:91 siteuser.c:93
+msgid "USERS"
+msgstr "用户"
+
+#: index.c:523 index.c:625
+#, c-format
+msgid "(index) rename error from \"%s\" to \"%s\" - %s\n"
+msgstr "(index)重命名错误从 \"%s\" 至 \"%s\" - %s\n"
+
+#: index.c:534
+#, c-format
+msgid "failed to create link \"%s\" to \"%s\" - %s\n"
+msgstr "创建连接失败 \"%s\" 至 \"%s\" - %s\n"
+
+#: indexonly.c:46
+#, c-format
+msgid "Name of the file to remove is too long: %s/%s\n"
+msgstr "移除的文件名过长: %s/%s\n"
+
+#: indexonly.c:50
+#, c-format
+msgid "Failed to remove the file %s\n"
+msgstr "移除文件失败 %s\n"
+
+#: ip2name.c:57
+#, c-format
+msgid ""
+"IP to name resolution (getnameinfo) on IP address %s failed with error %d - %"
+"s\n"
+msgstr "IP地址到名字的转换 (getnameinfo) 在IP地址 %s 发生错误失败  %d - %s\n"
+
+#: lastlog.c:52 lastlog.c:100
+#, c-format
+msgid "(lastlog) Cannot open temporary file %s\n"
+msgstr "(lastlog) 不能打开临时文件 %s\n"
+
+#: lastlog.c:66
+#, c-format
+msgid "Failed to get the creation time of %s\n"
+msgstr "获取文件创建时间时失败 %s\n"
+
+#: lastlog.c:113
+#, c-format
+msgid "Removing old report file %s\n"
+msgstr "移动旧的报告文件 %s\n"
+
+#: lastlog.c:115
+#, c-format
+msgid "Directory name too long: %s%s\n"
+msgstr "文件夹名称过长: %s%s\n"
+
+#: lastlog.c:125
+#, c-format
+msgid "Failed to delete the file %s\n"
+msgstr "删除文件失败 %s\n"
+
+#: log.c:397
+#, c-format
+msgid "Too many log files passed on command line with option -l.\n"
+msgstr "传入了过多的日志文件使用命令行参数 -l.\n"
+
+#: log.c:401
+#, c-format
+msgid "Log file name too long passed on command line with option -l: %s\n"
+msgstr "传入命令行参数 -l 的日志文件名过长: %s\n"
+
+#: log.c:410
+#, c-format
+msgid "Too many redirector logs passed on command line with option -L.\n"
+msgstr "传入命令行参数 -L的重定向日志文件过多.\n"
+
+#: log.c:414
+#, c-format
+msgid ""
+"Redirector log file name too long passed on command line with opton -L: %s\n"
+msgstr "传入命令行参数 -L 的重定向日志文件名过长: %s\n"
+
+#: log.c:449
+#, c-format
+msgid "The time range passed on the command line with option -t is invalid\n"
+msgstr "时间区间传入命令行参数 -t 不存在\n"
+
+#: log.c:454 log.c:459
+#, c-format
+msgid "Time period must be MM or MM:SS. Exit\n"
+msgstr "时间区间必须为 MM 或者 MM:SS.Exit\n"
+
+#: log.c:503
+#, fuzzy, c-format
+msgid "Too many log files passed on command line.\n"
+msgstr "传入了过多的日志文件使用命令行参数 -l.\n"
+
+#: log.c:507
+#, fuzzy, c-format
+msgid "Log file name too long passed on command line: %s\n"
+msgstr "传入命令行参数 -l 的日志文件名过长: %s\n"
+
+#: log.c:516
+#, c-format
+msgid "Init\n"
+msgstr "Init\n"
+
+#: log.c:520
+#, c-format
+msgid "Cannot open config file: %s - %s\n"
+msgstr "不能打开配置文件: %s -%s\n"
+
+#: log.c:614
+#, c-format
+msgid ""
+"The output directory \"%s\" must be outside of the temporary directory \"%s"
+"\"\n"
+msgstr ""
+
+#: log.c:645 log.c:676
+#, c-format
+msgid "Parameters:\n"
+msgstr "参数:\n"
+
+#: log.c:646 log.c:677
+#, c-format
+msgid "          Hostname or IP address (-a) = %s\n"
+msgstr "          主机名或者IP地址(-a) = %s\n"
+
+#: log.c:647 log.c:678
+#, c-format
+msgid "                   Useragent log (-b) = %s\n"
+msgstr "                   用户代理  日志w (-b) = %s\n"
+
+#: log.c:648 log.c:679
+#, c-format
+msgid "                    Exclude file (-c) = %s\n"
+msgstr "                    排除 文件 (-c) = %s\n"
+
+#: log.c:649 log.c:680
+#, c-format
+msgid "                 Date from-until (-d) = %s\n"
+msgstr "                 日期 从-至 (-d) = %s\n"
+
+#: log.c:650 log.c:681
+#, c-format
+msgid "   Email address to send reports (-e) = %s\n"
+msgstr "   邮件地址用来发送报告 (-e) = %s\n"
+
+#: log.c:651 log.c:682
+#, c-format
+msgid "                     Config file (-f) = %s\n"
+msgstr "                     配置文件 (-f) = %s\n"
+
+#: log.c:653 log.c:684
+#, c-format
+msgid "                     Date format (-g) = Europe (dd/mm/yyyy)\n"
+msgstr "                     日期格式 (-g) = 欧洲 (dd/mm/yyyy)\n"
+
+#: log.c:655 log.c:686
+#, c-format
+msgid "                     Date format (-g) = USA (mm/dd/yyyy)\n"
+msgstr "                     日期格式 (-g) = 美国 (mm/dd/yyyy)\n"
+
+#: log.c:657 log.c:688
+#, c-format
+msgid "                     Date format (-g) = Sites & Users (yyyy/ww)\n"
+msgstr "                     日期格式 (-g) = 站点 & 用户 (yyyy/ww)\n"
+
+#: log.c:658 log.c:689
+#, c-format
+msgid "                       IP report (-i) = %s\n"
+msgstr "                       IP报告 (-i) = %s\n"
+
+#: log.c:658 log.c:663 log.c:665 log.c:670 log.c:671 log.c:689 log.c:694
+#: log.c:696 log.c:701 log.c:702
+msgid "Yes"
+msgstr "是"
+
+#: log.c:658 log.c:663 log.c:665 log.c:670 log.c:671 log.c:689 log.c:694
+#: log.c:696 log.c:701 log.c:702
+msgid "No"
+msgstr "否"
+
+#: log.c:660 log.c:691
+#, c-format
+msgid "                       Input log (-l) = %s\n"
+msgstr "                       输入的日志 (-l) = %s\n"
+
+#: log.c:662 log.c:693
+#, c-format
+msgid "                  Redirector log (-L) = %s\n"
+msgstr "                  重定向日志  (-L) = %s\n"
+
+#: log.c:663 log.c:694
+#, c-format
+msgid "              Resolve IP Address (-n) = %s\n"
+msgstr "              转换IP地址 (-n) = %s\n"
+
+#: log.c:664 log.c:695
+#, c-format
+msgid "                      Output dir (-o) = %s\n"
+msgstr "                      输出目录 (-o) = %s\n"
+
+#: log.c:665 log.c:696
+#, c-format
+msgid "Use Ip Address instead of userid (-p) = %s\n"
+msgstr "使用IP地址替代用户ID (-p) = %s\n"
+
+#: log.c:666 log.c:697
+#, c-format
+msgid "                   Accessed site (-s) = %s\n"
+msgstr "                   访问站点 (-s) = %s\n"
+
+#: log.c:667 log.c:698
+#, c-format
+msgid "                            Time (-t) = %s\n"
+msgstr "                            时间 (-t) = %s\n"
+
+#: log.c:668 log.c:699
+#, c-format
+msgid "                            User (-u) = %s\n"
+msgstr "                            用户 (-u) = %s\n"
+
+#: log.c:669 log.c:700
+#, c-format
+msgid "                   Temporary dir (-w) = %s\n"
+msgstr "                   临时文件目录 (-w) = %s\n"
+
+#: log.c:670 log.c:701
+#, c-format
+msgid "                  Debug messages (-x) = %s\n"
+msgstr "                  纠错信息 (-x) = %s\n"
+
+#: log.c:671 log.c:702
+#, c-format
+msgid "                Process messages (-z) = %s\n"
+msgstr "                进程信息 (-z) = %s\n"
+
+#: log.c:703 log.c:707
+#, c-format
+msgid "sarg version: %s\n"
+msgstr "sarg 版本: %s\n"
+
+#: log.c:710
+#, c-format
+msgid "Sarg compiled to report warnings if the output is inconsistent\n"
+msgstr ""
+
+#: log.c:740
+#, c-format
+msgid "setrlimit error - %s\n"
+msgstr "setrlimit 错误 - %s\n"
+
+#: log.c:751
+#, c-format
+msgid "Not enough memory to read a log file\n"
+msgstr "没有足够的内存去读取一个日志文件\n"
+
+#: log.c:760 log.c:767
+#, c-format
+msgid "(log) Cannot open file: %s - %s\n"
+msgstr "(log) 不能打开日志文件: %s - %s\n"
+
+#: log.c:780
+#, c-format
+msgid "Reading access log file: from stdin\n"
+msgstr "读取访问日志文件: 从 stdin\n"
+
+#: log.c:786
+#, c-format
+msgid ""
+"Cannot get the modification time of input log file %s (%s). Processing it "
+"anyway\n"
+msgstr "不能得到输入日志文件的修改时间 %s (%s). 进程正在继续\n"
+
+#: log.c:790
+#, c-format
+msgid "Ignoring old log file %s\n"
+msgstr "忽略陈旧的日志文件 %s\n"
+
+#: log.c:797 log.c:865
+#, c-format
+msgid "(log) Cannot open log file: %s - %s\n"
+msgstr "(log) 不能打开日志文件: %s - %s\n"
+
+#: log.c:800
+#, c-format
+msgid "Reading access log file: %s\n"
+msgstr "读取访问日志文件: %s\n"
+
+#: log.c:828
+#, c-format
+msgid "SARG: Records in file: %lu, reading: %3.2f%%"
+msgstr "SARG: 纪录在文件: %lu, 读取: %3.2f%%"
+
+#: log.c:842
+#, c-format
+msgid "Log is from Microsoft ISA: %s\n"
+msgstr "日志来自微软ISA: %s\n"
+
+#: log.c:850
+#, c-format
+msgid "The name of the file is invalid: %s\n"
+msgstr "文件名不存在: %s\n"
+
+#: log.c:874
+#, c-format
+msgid "SARG: Records in file: %lu, reading: %3.2lf%%"
+msgstr "SARG: 纪录在文件: %lu, 读取: %3.2lf%%"
+
+#: log.c:890
+#, c-format
+msgid "Maybe you have a broken record or garbage in your exclusion string\n"
+msgstr "可能你有一个不完整的纪录或者垃圾在你的禁止字符串\n"
+
+#: log.c:911
+#, c-format
+msgid "Maybe you have a broken time in your access.log file\n"
+msgstr "可能你有一个不完整的时间在你的access.log文件\n"
+
+#: log.c:972 log.c:976 log.c:981 log.c:985 log.c:989 log.c:1089 log.c:1093
+#: log.c:1097 log.c:1160 useragent.c:90
+#, c-format
+msgid "Maybe you have a broken date in your %s file\n"
+msgstr "可能你有一个不完整的日期在你的 %s 文件中\n"
+
+#: log.c:1011
+#, c-format
+msgid "Maybe you have a broken client IP address in your %s file\n"
+msgstr "可能你有一个不完整的客户端IP地址在你的 %s 文件中\n"
+
+#: log.c:1015
+#, c-format
+msgid "Maybe you have a broken result code in your %s file\n"
+msgstr "可能你有一个不完整的结果代码在你的 %s 文件中\n"
+
+#: log.c:1019
+#, c-format
+msgid "Maybe you have a broken amount of data in your %s file\n"
+msgstr "可能你有一个不完整的数据总和在你的 %s 文件中\n"
+
+#: log.c:1023
+#, c-format
+msgid "Maybe you have a broken request method in your %s file\n"
+msgstr "可能你有一个不完整的需求方法在你的 %s 文件中\n"
+
+#: log.c:1031 log.c:1154
+#, c-format
+msgid "Maybe you have a broken user ID in your %s file\n"
+msgstr "可能你有一个不完整的用户ID在你的 %s 文件中\n"
+
+#: log.c:1040
+#, c-format
+msgid "Cannot convert the timestamp from the squid log file\n"
+msgstr "不能转换时间戳从squid日志文件\n"
+
+#: log.c:1148
+#, c-format
+msgid "Maybe you have a broken IP in your %s file\n"
+msgstr "可能你有一个不完整的IP地址在你的 %s 文件中\n"
+
+#: log.c:1172
+#, c-format
+msgid "Maybe you have a broken download duration in your %s file\n"
+msgstr "可能你有一个不完整的下载持续时间在你的 %s 文件中\n"
+
+#: log.c:1178
+#, c-format
+msgid "Maybe you have a broken download size in your %s file\n"
+msgstr "可能你有一个不完整的下载大小在你的 %s 文件中\n"
+
+#: log.c:1186
+#, c-format
+msgid "Maybe you have a broken access code in your %s file\n"
+msgstr "可能你有一个不完整的访问代码在你的 %s 文件中\n"
+
+#: log.c:1199
+#, c-format
+msgid "Maybe you have a broken year in your %s file\n"
+msgstr "可能你有一个不完整的年份在你的 %s 文件中\n"
+
+#: log.c:1203
+#, c-format
+msgid "Maybe you have a broken month in your %s file\n"
+msgstr "可能你有一个不完整的月份在你的 %s 文件中\n"
+
+#: log.c:1216
+#, c-format
+msgid "Unknown input log file format\n"
+msgstr "未知的输入日志文件格式\n"
+
+#: log.c:1243
+#, c-format
+msgid "User ID too long: %s\n"
+msgstr "用户ID过长: %s\n"
+
+#: log.c:1256
+#, c-format
+msgid "Excluded code: %s\n"
+msgstr "已排除代码: %s\n"
+
+#: log.c:1327
+#, c-format
+msgid "Excluded site: %s\n"
+msgstr "已排除站点: %s\n"
+
+#: log.c:1395
+#, c-format
+msgid "Excluded user: %s\n"
+msgstr "已排除用户: %s\n"
+
+#: log.c:1425
+#, c-format
+msgid "Not enough memory to store the user %s\n"
+msgstr "没有足够的内存来存储用户 %s\n"
+
+#: log.c:1449
+#, c-format
+msgid "Failed to close the log file of user %s - %s\n"
+msgstr "关闭用户日志文件失败 %s - %s\n"
+
+#: log.c:1459
+#, fuzzy, c-format
+msgid "Temporary user file name too long: %s/%s.unsort\n"
+msgstr "临时用户文件名过长: %s/sarg/%s.unsort\n"
+
+#: log.c:1463 log.c:1494
+#, c-format
+msgid "(log) Cannot open temporary file: %s - %s\n"
+msgstr "(log) 不能打开临时文件: %s - %s\n"
+
+#: log.c:1480
+#, c-format
+msgid "Write error in the log file of user %s\n"
+msgstr "日志文件中的用户存在写入错误 %s\n"
+
+#: log.c:1543
+#, c-format
+msgid "SARG: Records in file: %lu, reading: %3.2f%%\n"
+msgstr "SARG: 纪录在文件: %lu, reading: %3.2f%%\n"
+
+#: log.c:1549
+#, c-format
+msgid "   Records read: %ld, written: %ld, excluded: %ld\n"
+msgstr "纪录 读取: %ld, 已写入: %ld, 排除: %ld\n"
+
+#: log.c:1571
+#, c-format
+msgid "Log with mixed records format (squid and common log)\n"
+msgstr "日志与纪录混合格式(squid and common log)\n"
+
+#: log.c:1574
+#, c-format
+msgid "Common log format\n"
+msgstr "普通日志格式\n"
+
+#: log.c:1577
+#, c-format
+msgid "Squid log format\n"
+msgstr "Squid日志格式\n"
+
+#: log.c:1580
+#, c-format
+msgid "Sarg log format\n"
+msgstr "Sarg日志格式\n"
+
+#: log.c:1583
+#, c-format
+msgid "Log with invalid format\n"
+msgstr "不存在的日志格式\n"
+
+#: log.c:1587
+#, c-format
+msgid "No records found\n"
+msgstr "没有找到纪录\n"
+
+#: log.c:1588 log.c:1684
+#, c-format
+msgid "End\n"
+msgstr "结束\n"
+
+#: log.c:1602
+#, c-format
+msgid "Period covered by log files: %s-%s\n"
+msgstr "期间被日志文件覆盖: %s - %s\n"
+
+#: log.c:1606
+#, c-format
+msgid "Failed to build the string representation of the date range\n"
+msgstr "建立以字符串表示日期的范围时失败\n"
+
+#: log.c:1616
+#, c-format
+msgid "Period: %s\n"
+msgstr "期间: %s\n"
+
+#: log.c:1631
+#, c-format
+msgid "failed to rename %s to %s - %s\n"
+msgstr "重命名失败 %s 至 %s - %s\n"
+
+#: log.c:1650
+#, c-format
+msgid "Sarg parsed log saved as %s\n"
+msgstr "Sarg解析日志另存为 %s\n"
+
+#: log.c:1700
+#, c-format
+msgid "Loading password file from %s\n"
+msgstr "加载密码从文件 %s\n"
+
+#: log.c:1703
+#, c-format
+msgid "(getusers) Cannot open file %s - %s\n"
+msgstr "(getusers) 不能打开文件 %s - %s\n"
+
+#: log.c:1708
+#, c-format
+msgid "Failed to move till the end of the users file %s: %s\n"
+msgstr "移动用户文件至末尾时失败%s: %s\n"
+
+#: log.c:1718
+#, c-format
+msgid "Failed to rewind the users file %s: %s\n"
+msgstr "转存用户文件时失败 %s: %s\n"
+
+#: log.c:1723 util.c:1397
+#, c-format
+msgid "malloc error (%ld)\n"
+msgstr "内存分页错误 (%ld)\n"
+
+#: log.c:1733
+#, c-format
+msgid "You have an invalid user in your %s file\n"
+msgstr "有一个不存在的用户在你的 %s 文件\n"
+
+#: longline.c:113 longline.c:126
+#, c-format
+msgid "Not enough memory to read one more line from the input log file\n"
+msgstr "没有足够的内存再读取输入日志文件\n"
+
+#: realtime.c:59
+#, c-format
+msgid "(realtime) mkstemp error - %s\n"
+msgstr "(realtime)mkstemp 错误 - %s\n"
+
+#: realtime.c:64 realtime.c:209
+#, c-format
+msgid "Not enough memory to read the log file\n"
+msgstr "没有足够的内存来读取日志文件\n"
+
+#: realtime.c:71
+#, fuzzy, c-format
+msgid "Failed to get the %d trailing lines of %s: %s\n"
+msgstr "获取文件创建时间时失败 %s\n"
+
+#: realtime.c:72
+#, fuzzy, c-format
+msgid "tail command: %s\n"
+msgstr "命令: %s\n"
+
+#: realtime.c:77
+#, c-format
+msgid "Maybe a broken record or garbage was returned by %s\n"
+msgstr "可能有不完整的纪录或者垃圾返回从 %s\n"
+
+#: realtime.c:110
+#, c-format
+msgid "The time stamp at column 1 is too long\n"
+msgstr "时间戳在列1太长\n"
+
+#: realtime.c:114
+#, c-format
+msgid "The connection duration at column 2 is too long\n"
+msgstr "连接持续时间在列2过长\n"
+
+#: realtime.c:122
+#, c-format
+msgid "The IP address at column 3 is too long\n"
+msgstr "在列3的IP地址过长\n"
+
+#: realtime.c:126
+#, c-format
+msgid "The status at column 4 is too long\n"
+msgstr "在列4的状态太长\n"
+
+#: realtime.c:130
+#, c-format
+msgid "The size at column 5 is too long\n"
+msgstr "列5的大小过长\n"
+
+#: realtime.c:134
+#, c-format
+msgid "The action at column 6 is too long\n"
+msgstr "列6的作用过长\n"
+
+#: realtime.c:139 realtime.c:148 realtime.c:152 realtime.c:156
+#, c-format
+msgid "The URL at column 7 is too long\n"
+msgstr "列7的连接过长\n"
+
+#: realtime.c:143
+#, c-format
+msgid "The user ID at column 8 is too long\n"
+msgstr "列8的用户ID过长\n"
+
+#: realtime.c:160
+#, c-format
+msgid "The data at column 8 is too long\n"
+msgstr "列8的数据过长\n"
+
+#: realtime.c:164
+#, c-format
+msgid "The user at column 9 is too long\n"
+msgstr "列9的用户过长\n"
+
+#: realtime.c:202
+#, c-format
+msgid "(realtime) open error %s - %s\n"
+msgstr "(realtime)打开错误 %s - %s\n"
+
+#: realtime.c:292
+msgid "Realtime"
+msgstr "时实"
+
+#: realtime.c:293
+msgid "Auto refresh"
+msgstr "自动刷新"
+
+#: realtime.c:294
+msgid "TYPE"
+msgstr "类型"
+
+#: repday.c:65
+#, c-format
+msgid "Output file name too long: %s/%s/d%s.html\n"
+msgstr "输出文件名过长 %s/%s/d%s.html\n"
+
+#: repday.c:70 repday.c:123
+#, c-format
+msgid "(repday) Cannot open log file %s\n"
+msgstr "(repday) 不能打开文件 %s\n"
+
+#: repday.c:91 totday.c:89
+#, c-format
+msgid "Too many different dates in %s\n"
+msgstr "不同的日期在 %s\n"
+
+#: repday.c:98 squidguard_report.c:104
+#, c-format
+msgid "Invalid time in file %s\n"
+msgstr "无效的时间在文件中 %s\n"
+
+#: repday.c:127
+msgid "Day report"
+msgstr "日报"
+
+#: repday.c:145 repday.c:188
+msgid "H"
+msgstr "H"
+
+#: repday.c:184
+msgid "H:M:S"
+msgstr "H:M:S"
+
+#: report.c:89
+#, c-format
+msgid ""
+"Cannot create the output directory name containing the period as part of the "
+"name\n"
+msgstr "不能创建输出文件夹名包含期间的部分名称\n"
+
+#: report.c:101 report.c:125 report.c:268 report.c:429 report.c:478
+#: report.c:514 report.c:589 report.c:848
+#, c-format
+msgid "(report) Cannot open file %s\n"
+msgstr "(report) 不能打开文件 %s\n"
+
+#: report.c:121
+#, c-format
+msgid "(report) directory entry too long: %s/%s\n"
+msgstr "(report) 文件夹过长 %s/%s\n"
+
+#: report.c:181
+#, c-format
+msgid "There is a broken smart info in file %s\n"
+msgstr "有不完整的智能信息在文件 %s\n"
+
+#: report.c:281
+msgid "Site access report"
+msgstr "站点访问报告"
+
+#: report.c:396
+#, c-format
+msgid "Successful report generated on %s\n"
+msgstr "成功的生成报告在 %s\n"
+
+#: report.c:401
+#, c-format
+msgid "Successful report generated and sent to %s\n"
+msgstr "成功的报告生成并发送至 %s\n"
+
+#: report.c:422
+#, c-format
+msgid "Making file: %s/%s\n"
+msgstr "生成文件: %s/%s\n"
+
+#: report.c:424 report.c:473
+#, c-format
+msgid "Temporary file name too long: %s/%s.utmp\n"
+msgstr "临时文件名过长: %s/%s.utmp\n"
+
+#: report.c:450
+#, c-format
+msgid "Temporary file name too long: %s/%s.htmp\n"
+msgstr "临时文件名过长: %s/%s.htmp\n"
+
+#: report.c:455
+#, c-format
+msgid "(report-1) Cannot open file %s - %s\n"
+msgstr "(report-1) 不能打开文件 %s - %s\n"
+
+#: report.c:509
+#, c-format
+msgid "Path too long %s/%s.utmp\n"
+msgstr "路径过长 %s/%s.utmp\n"
+
+#: report.c:551
+#, c-format
+msgid "Path too long %s/%s.htmp\n"
+msgstr "路径过长 %s/%s.htmp\n"
+
+#: report.c:556
+#, c-format
+msgid "(report-2) Cannot open file %s - %s\n"
+msgstr "(report-2)不能打开文件 %s - %s\n"
+
+#: report.c:584
+#, c-format
+msgid "Path too long %s/%s.ip\n"
+msgstr "路径过长 %s/%s.ip\n"
+
+#: report.c:637
+#, c-format
+msgid "Invalid total number of accesses in %s\n"
+msgstr "不存在的访问总数在 %s\n"
+
+#: report.c:654
+#, c-format
+msgid "Invalid total size in %s\n"
+msgstr "不存在的总大小在 %s\n"
+
+#: report.c:671
+#, c-format
+msgid "Invalid total elapsed time in %s\n"
+msgstr "不存在总的过去时间在 %s\n"
+
+#: report.c:688
+#, c-format
+msgid "Invalid total cache hit in %s\n"
+msgstr "不存在的缓存命中总数 %s\n"
+
+#: report.c:705
+#, c-format
+msgid "Invalid total cache miss in %s\n"
+msgstr "不存在的缓存未命中总数 %s\n"
+
+#: report.c:715
+#, c-format
+msgid "User name too long or invalid in %s\n"
+msgstr "用户名过长或者不存在 %s\n"
+
+#: report.c:731
+#, c-format
+msgid "Invalid number of accesses in %s\n"
+msgstr "不存在的访问数 %s\n"
+
+#: report.c:748
+#, c-format
+msgid "Invalid number of bytes in %s\n"
+msgstr "不存在字节数z %s\n"
+
+#: report.c:757
+#, c-format
+msgid "URL too long or invalid in %s\n"
+msgstr "连接过长或不存在 %s\n"
+
+#: report.c:765
+#, c-format
+msgid "IP address too long or invalid in %s\n"
+msgstr "IP地址过长或不存在 %s\n"
+
+#: report.c:773
+#, c-format
+msgid "Time too long or invalid in %s\n"
+msgstr "时间过长或不存在 %s\n"
+
+#: report.c:781
+#, c-format
+msgid "Date too long or invalid in %s\n"
+msgstr "日期过长或不存在z %s\n"
+
+#: report.c:797
+#, c-format
+msgid "Invalid elapsed time in %s\n"
+msgstr "不存在的的过去时间在 %s\n"
+
+#: report.c:814
+#, c-format
+msgid "Invalid cache hit size in %s\n"
+msgstr "不存在的缓存命中大小在 %s\n"
+
+#: report.c:831
+#, c-format
+msgid "Invalid cache miss size in %s\n"
+msgstr "不存在缓存未命中大小在 %s\n"
+
+#: siteuser.c:72 siteuser.c:78
+#, c-format
+msgid "(siteuser) Cannot open log file %s\n"
+msgstr "(siteuser) 不能打开日志文件 %s\n"
+
+#: siteuser.c:82 siteuser.c:86 topuser.c:194
+msgid "Sites & Users"
+msgstr "站点 & 用户"
+
+#: siteuser.c:100
+#, c-format
+msgid "ERROR: Cannot load. Memory fault\n"
+msgstr "错误: 不能载入. 内存错误 \n"
+
+#: smartfilter.c:67
+#, c-format
+msgid "cannot build the sort command to sort file %s\n"
+msgstr "不能构建排序命令来排序文件 %s\n"
+
+#: smartfilter.c:77 smartfilter.c:84
+#, c-format
+msgid "(smartfilter) Cannot open log file %s\n"
+msgstr "(smartfilter)不能打开日志文件 %s\n"
+
+#: smartfilter.c:130 smartfilter.c:184 smartfilter.c:194 util.c:1591
+msgid "Generated by"
+msgstr "由 生成"
+
+#: smartfilter.c:130 smartfilter.c:184 smartfilter.c:194 util.c:1591
+msgid "on"
+msgstr "on"
+
+#: smartfilter.c:136
+#, c-format
+msgid "(smartfilter) Cannot open file %s\n"
+msgstr "(smartfilter) 不能打开文件 %s\n"
+
+#: sort.c:124
+#, c-format
+msgid "pre-sorting files\n"
+msgstr "预排序文件\n"
+
+#: sort.c:154
+#, c-format
+msgid "user name too long to sort %s\n"
+msgstr "用户名过长无法排序 %s\n"
+
+#: sort.c:164
+#, c-format
+msgid "user name too long for %s/%s.unsort\n"
+msgstr "用户名过长 %s/%s.unsort\n"
+
+#: sort.c:177 topuser.c:142
+msgid "connect"
+msgstr ""
+
+#: sort.c:179
+#, fuzzy
+msgid "site"
+msgstr "热门站点"
+
+#: sort.c:181 topuser.c:145
+#, fuzzy
+msgid "time"
+msgstr "时实"
+
+#: sort.c:183 topuser.c:147
+msgid "bytes"
+msgstr ""
+
+#: sort.c:187 topuser.c:152
+msgid "normal"
+msgstr ""
+
+#: sort.c:189 topuser.c:155
+msgid "reverse"
+msgstr ""
+
+#: splitlog.c:46
+#, fuzzy, c-format
+msgid "(splitlog) Cannot open log file %s - %s\n"
+msgstr "(splitlog) 无法打开日志文件 %s\n"
+
+#: splitlog.c:58 squidguard_log.c:178
+#, fuzzy, c-format
+msgid "Invalid date found in file %s\n"
+msgstr "在文件中存在无效的日期 %s\n"
+
+#: squidguard_log.c:56
+#, c-format
+msgid "Reading redirector log file %s\n"
+msgstr "读取重定向日志文件 %s\n"
+
+#: squidguard_log.c:83 squidguard_log.c:88
+#, c-format
+msgid ""
+"Not enough memory to store the name of the new redirector log to be read - %"
+"s\n"
+msgstr "读取新的重定向日志文件名时没有的足够的内存 - %s\n"
+
+#: squidguard_log.c:93 squidguard_log.c:296 squidguard_log.c:313
+#: squidguard_report.c:69 squidguard_report.c:74
+#, c-format
+msgid "(squidguard) Cannot open log file %s\n"
+msgstr "(squidguard) 不能打开日志文件 %s\n"
+
+#: squidguard_log.c:98
+#, fuzzy, c-format
+msgid "Not enough memory to read the redirector log\n"
+msgstr "没有足够的内存去读取文件 %s\n"
+
+#: squidguard_log.c:108
+#, c-format
+msgid "There is a broken record or garbage in your %s file\n"
+msgstr "有不完整的纪录或垃圾在你的 %s 文件中\n"
+
+#: squidguard_log.c:138
+#, c-format
+msgid "Hour string too long in redirector log file %s\n"
+msgstr "在重定向日志文件中小时字符串太长 %s\n"
+
+#: squidguard_log.c:144
+#, fuzzy, c-format
+msgid "Banning source name too long in redirector log file %s\n"
+msgstr "在重定向日志文件中阻止列表名过长 %s\n"
+
+#: squidguard_log.c:150
+#, c-format
+msgid "Banning list name too long in redirector log file %s\n"
+msgstr "在重定向日志文件中阻止列表名过长 %s\n"
+
+#: squidguard_log.c:156
+#, c-format
+msgid "IP address too long in redirector log file %s\n"
+msgstr "在重定向日志文件中IP地址过长 %s\n"
+
+#: squidguard_log.c:162
+#, c-format
+msgid "User ID too long in redirector log file %s\n"
+msgstr "在重定向日志文件中用户名过长 %s\n"
+
+#: squidguard_log.c:168
+#, c-format
+msgid "URL too long in redirector log file %s\n"
+msgstr "在重定向日志文件中连接过长 %s\n"
+
+#: squidguard_log.c:185
+#, fuzzy, c-format
+msgid "Invalid time found in file %s\n"
+msgstr "无效的时间在文件中 %s\n"
+
+#: squidguard_log.c:189
+#, fuzzy, c-format
+msgid "Invalid redirected source in file %s\n"
+msgstr "在文件中存在无效的日期 %s\n"
+
+#: squidguard_log.c:193
+#, fuzzy, c-format
+msgid "Invalid redirected list in file %s\n"
+msgstr "在文件中存在无效的日期 %s\n"
+
+#: squidguard_log.c:197 squidguard_report.c:112
+#, fuzzy, c-format
+msgid "Invalid URL in file %s\n"
+msgstr "在文件中存在无效的日期 %s\n"
+
+#: squidguard_log.c:201
+#, fuzzy, c-format
+msgid "Invalid source IP in file %s\n"
+msgstr "在文件中存在无效的日期 %s\n"
+
+#: squidguard_log.c:205 squidguard_report.c:96
+#, fuzzy, c-format
+msgid "Invalid user in file %s\n"
+msgstr "在文件中存在无效输入 %s\n"
+
+#: squidguard_log.c:308
+#, c-format
+msgid "Cannot open squidGuard config file: %s\n"
+msgstr "不能打开sauidGuard 配置文件: %s\n"
+
+#: squidguard_report.c:79
+#, fuzzy, c-format
+msgid "Not enough memory to read the processed redirector log\n"
+msgstr "没有足够的内存来读取日志文件\n"
+
+#: squidguard_report.c:83 squidguard_report.c:87
+msgid "Redirector report"
+msgstr "重定向报告"
+
+#: squidguard_report.c:91
+msgid "RULE"
+msgstr "规则"
+
+#: squidguard_report.c:108
+#, fuzzy, c-format
+msgid "Invalid IP address in file %s\n"
+msgstr "在文件中存在无效的日期 %s\n"
+
+#: squidguard_report.c:116
+#, fuzzy, c-format
+msgid "Invalid rule in file %s\n"
+msgstr "在文件中存在无效的日期 %s\n"
+
+#: topsites.c:83 topsites.c:89 topsites.c:175 topsites.c:184
+#, c-format
+msgid "(topsites) Cannot open log file %s\n"
+msgstr "(topsites) 不能打开日志文件 %s\n"
+
+#: topsites.c:188 topuser.c:193
+msgid "Top sites"
+msgstr "热门站点"
+
+#: topsites.c:193
+#, c-format
+msgid "Top %d sites"
+msgstr "热门 %d 站点"
+
+#: topsites.c:220
+#, c-format
+msgid "The url is invalid in file %s\n"
+msgstr "这个连接不存在在文件 %s\n"
+
+#: topuser.c:68 topuser.c:74 topuser.c:168 topuser.c:176 topuser.c:408
+#, c-format
+msgid "(topuser) Cannot open file %s\n"
+msgstr "(topuser) 不能打开文件 %s\n"
+
+#: topuser.c:82 util.c:709
+#, c-format
+msgid "Not enough memory to read the file %s\n"
+msgstr "没有足够的内存去读取文件 %s\n"
+
+#: topuser.c:139
+#, fuzzy
+msgid "user"
+msgstr "用户"
+
+#: topuser.c:180
+#, c-format
+msgid "SARG report for %s"
+msgstr "SARG 报告 %s"
+
+#: topuser.c:186
+#, c-format
+msgid "Sort: %s, %s"
+msgstr ""
+
+#: topuser.c:188
+msgid "Top users"
+msgstr "热门用户"
+
+#: topuser.c:196
+msgid "Redirector"
+msgstr "重定向"
+
+#: topuser.c:198
+msgid "Denied accesses"
+msgstr "阻止访问"
+
+#: topuser.c:201
+msgid "Useragent"
+msgstr "用户代理"
+
+#: topuser.c:246
+#, c-format
+msgid "There is a broken user in file %s\n"
+msgstr "有不完整的用户在文件 %s\n"
+
+#: topuser.c:258
+#, c-format
+msgid "There is a broken elpased time in file %s\n"
+msgstr "有不完整的过去时间在文件 %s\n"
+
+#: topuser.c:262
+#, c-format
+msgid "There is a broken in-cache size in file %s\n"
+msgstr "有不完整的 in-cache 大小在文件 %s\n"
+
+#: topuser.c:266
+#, c-format
+msgid "There is a broken out-of-cache size in file %s\n"
+msgstr "有不完整的 out-of-cache 大小在文件 %s\n"
+
+#: topuser.c:293
+msgid "Graphic"
+msgstr "视图"
+
+#: topuser.c:321
+#, c-format
+msgid ""
+"The total of the in-cache and cache-miss is not 100%% at position %d (user %"
+"s)\n"
+msgstr ""
+
+#: topuser.c:363
+#, c-format
+msgid "The total of the in-cache and cache-miss is not 100%%\n"
+msgstr ""
+
+#: topuser.c:402
+#, c-format
+msgid "Write error in top user list %s\n"
+msgstr "写入错误在热门用户列表 %s\n"
+
+#: topuser.c:404
+#, c-format
+msgid "Failed to close the top user list %s - %s\n"
+msgstr "关闭活跃用户列表时失败 %s - %s\n"
+
+#: totday.c:58 totday.c:62
+#, c-format
+msgid "File name too long: %s/%s%s\n"
+msgstr "文件名过长: %s/%s%s\n"
+
+#: totday.c:67 totday.c:114
+#, c-format
+msgid "(totday) Cannot open log file %s\n"
+msgstr "(today) 不能打开日志文件 %s\n"
+
+#: totday.c:139
+#, c-format
+msgid "Cannot delete temporary file %s - %s\n"
+msgstr "无法删除临时文件 %s - %s\n"
+
+#: totger.c:44
+#, c-format
+msgid "(totger) Cannot open file %s\n"
+msgstr "(totger) 不能打开文件 %s\n"
+
+#: totger.c:49
+#, c-format
+msgid "Not enough memory to read the temporary file %s\n"
+msgstr "没有足够的内存去读取临时文件 %s\n"
+
+#: totger.c:66
+#, c-format
+msgid "Failed to move to the end of %s - %s\n"
+msgstr "移动到末尾时失败 %s - %s\n"
+
+#: totger.c:75
+#, c-format
+msgid "Failed to write the total line in %s\n"
+msgstr "写入第一行时失败 %s\n"
+
+#: usage.c:32
+#, c-format
+msgid "Usage: %s [options...]\n"
+msgstr "使用: %s [选项...]\n"
+
+#: usage.c:33
+msgid "     -a Hostname or IP address"
+msgstr "     -a 主机名或者IP地址"
+
+#: usage.c:34
+msgid "     -b Useragent log"
+msgstr "     -b 用户代理日志"
+
+#: usage.c:35
+msgid "     -c Exclude file"
+msgstr "     -c 排除的文件"
+
+#: usage.c:36
+msgid "     -d Date from-until dd/mm/yyyy-dd/mm/yyyy"
+msgstr "     -d 日期从－到 dd/mm/yyyy-dd/mm/yyyy"
+
+#: usage.c:37
+msgid "     -e Email address to send reports (stdout for console)"
+msgstr "     -e 邮件地址发送报告 (stdout for console)"
+
+#: usage.c:38
+#, c-format
+msgid "     -f Config file (%s/sarg.conf)\n"
+msgstr "     -f 配置文件 (%s/sarg.conf)\n"
+
+#: usage.c:39
+msgid "     -g Date format [e=Europe -> dd/mm/yyyy, u=USA -> mm/dd/yyyy]"
+msgstr "     -g 日期格式 [e=欧洲 -> dd/mm/yyyy, u=美国 ->mm/dd/yyyy]"
+
+#: usage.c:40
+msgid "     -h This help"
+msgstr "     -h 这里是帮助"
+
+#: usage.c:41
+msgid "     -i Reports by user and IP address"
+msgstr "     -i 用户报告和IP地址"
+
+#: usage.c:42
+msgid "     -l Input log"
+msgstr "     -l 输入日志"
+
+#: usage.c:43
+msgid "     -n Resolve IP Address"
+msgstr "     -n 解析IP地址"
+
+#: usage.c:44
+msgid "     -o Output dir"
+msgstr "     -o 输出目录"
+
+#: usage.c:45
+msgid "     -p Use Ip Address instead of userid (reports)"
+msgstr "     -p 使用IP地址替代用户ID (reports)"
+
+#: usage.c:46
+msgid "     -s Accessed site [Eg. www.microsoft.com, www.netscape.com]"
+msgstr "     -s 访问站点 [例如 www.microsoft.com, www.netscape.com]"
+
+#: usage.c:47
+msgid "     -t Time [HH, HH:MM]"
+msgstr "     -t 时间[HH,HH:MM]"
+
+#: usage.c:48
+msgid "     -u User"
+msgstr "     -u 用户"
+
+#: usage.c:49
+msgid "     -w Temporary dir"
+msgstr "     -w 临时目录"
+
+#: usage.c:50
+msgid "     -x Debug messages"
+msgstr "     -x 差错信息"
+
+#: usage.c:51
+msgid "     -z Process messages"
+msgstr "     -z 进程信息"
+
+#: usage.c:52
+msgid "     -convert Convert the access.log file to a legible date"
+msgstr "     -convert 转换 access.log 文件到一个易懂的日期"
+
+#: usage.c:53
+msgid "     -split Split the log file by date in -d parameter"
+msgstr "     -split 使用日期分离日志文件 -d 参数"
+
+#: usage.c:56
+msgid ""
+"\n"
+"\tPlease donate to the sarg project:"
+msgstr ""
+"\n"
+"\t请捐助Sarg项目:"
+
+#: useragent.c:66 useragent.c:71 useragent.c:144 useragent.c:153
+#: useragent.c:221 useragent.c:229 useragent.c:281
+#, c-format
+msgid "(useragent) Cannot open file %s\n"
+msgstr "(useragent) 不能打开文件 %s\n"
+
+#: useragent.c:76
+#, c-format
+msgid "Reading useragent log: %s\n"
+msgstr "读取用户代理日志: %s\n"
+
+#: useragent.c:101
+#, c-format
+msgid "Maybe you have a broken useragent entry in your %s file\n"
+msgstr "可能你有不完整的用户代理在你的 %s 文件\n"
+
+#: useragent.c:123
+#, c-format
+msgid "   Records read: %ld\n"
+msgstr "   纪录 读取: %ld\n"
+
+#: useragent.c:158
+#, c-format
+msgid "Making Useragent report\n"
+msgstr "标记的用户代理报告\n"
+
+#: useragent.c:160 useragent.c:161
+msgid "Squid Useragent's Report"
+msgstr "Squid用户代理的报告"
+
+#: useragent.c:170 useragent.c:291
+msgid "AGENT"
+msgstr "代理"
+
+#: useragent.c:175 useragent.c:239
+#, c-format
+msgid "There is an invalid IP address in file %s\n"
+msgstr "有一个无效的IP地址在文件 %s\n"
+
+#: useragent.c:188 useragent.c:243 useragent.c:298
+#, c-format
+msgid "There is an invalid useragent in file %s\n"
+msgstr "有一个无效的用户代理在文件 %s\n"
+
+#: userinfo.c:69
+#, c-format
+msgid "Not enough memory to store the user\n"
+msgstr "没有足够的内存来存储用户 \n"
+
+#: usertab.c:64
+#, c-format
+msgid "(usertab) Cannot open file %s - %s\n"
+msgstr "(usertab) 不能打开文件 %s - %s\n"
+
+#: usertab.c:68
+#, c-format
+msgid "Failed to move till the end of the usertab file %s: %s\n"
+msgstr "无法移动直到用户表文件末尾 %s: %s\n"
+
+#: usertab.c:73
+#, c-format
+msgid "Cannot get the size of file %s"
+msgstr "不能获取文件的大小 %s"
+
+#: usertab.c:78
+#, c-format
+msgid "Failed to rewind the usertab file %s: %s\n"
+msgstr "无法转回用户表文件 %s: %s\n"
+
+#: usertab.c:82
+#, c-format
+msgid "ERROR: Cannot load. Memory fault"
+msgstr "错误: 不能加载,存内错误"
+
+#: usertab.c:93 usertab.c:102
+#, c-format
+msgid "The list of the users is too long in your %s file.\n"
+msgstr "用户列表过长在你的 %s 文件.\n"
+
+#: usertab.c:139
+#, c-format
+msgid "Unable to connect to LDAP server %s on port %d\n"
+msgstr "不能连接至LDAP服务器 %s 使用端口 %d\n"
+
+#: usertab.c:145
+#, c-format
+msgid "Could not set LDAP protocol version %d\n"
+msgstr "不能设置LDAP协议版本 %d\n"
+
+#: usertab.c:153
+#, c-format
+msgid "Cannot bind to LDAP server: %s\n"
+msgstr "不能绑定至LDAP服务器: %s\n"
+
+#: usertab.c:192
+#, c-format
+msgid "LDAP search failed: %s\n"
+msgstr "LDAP搜索失败: %s\n"
+
+#: usertab.c:226 usertab.c:236
+#, c-format
+msgid "Loading User table: %s\n"
+msgstr "载入用户表: %s\n"
+
+#: usertab.c:231
+#, c-format
+msgid "LDAP module not compiled in sarg\n"
+msgstr "LDAP模块没有编译在sarg中\n"
+
+#: util.c:77
+#, c-format
+msgid "getword backtrace:\n"
+msgstr "getword 回溯:\n"
+
+#: util.c:96
+#, c-format
+msgid "Cannot parse again the line as it was modified\n"
+msgstr "不能再次解析因为它已经被修改\n"
+
+#: util.c:240
+#, c-format
+msgid "Invalid buffer passed to getword_ptr\n"
+msgstr "不存在的缓冲区传递给 getword_ptr\n"
+
+#: util.c:294
+#, c-format
+msgid "Invalid path (%s). Please, use absolute paths only.\n"
+msgstr ""
+"不存在的路径 (%s).\n"
+" 请仅使用绝对路径.\n"
+
+#: util.c:295 util.c:310 util.c:322
+#, c-format
+msgid "process aborted.\n"
+msgstr "进程中止.\n"
+
+#: util.c:302
+#, c-format
+msgid "directory name too long: %s\n"
+msgstr "文件夹名过长: %s\n"
+
+#: util.c:309 util.c:321
+#, c-format
+msgid "mkdir %s %s\n"
+msgstr "创建目录 %s %s\n"
+
+#: util.c:338
+#, c-format
+msgid ""
+"The requested number of digits passed to my_lltoa (%d) is bigger than the "
+"output buffer size (%d)\n"
+msgstr "传递给my_lltoa (%d) 数位要求大于输出缓存大小 (%d)\n"
+
+#: util.c:413
+msgid ""
+"January,February,March,April,May,June,July,August,September,October,November,"
+"December"
+msgstr "一月,二月,三月,四月,五月,六月,七月,八月,九月,十月,十一月,十二月"
+
+#: util.c:432
+msgid "SARG: "
+msgstr "SARG: "
+
+#: util.c:616
+#, c-format
+msgid "Failed to read the date in %s\n"
+msgstr "读取日期失败 %s\n"
+
+#: util.c:674
+#, c-format
+msgid "Failed to read the number of users in %s\n"
+msgstr "读取用户数失败 %s\n"
+
+#: util.c:722
+#, c-format
+msgid "There is a invalid user in file %s\n"
+msgstr "有不存在的用户在文件 %s\n"
+
+#: util.c:728
+#, c-format
+msgid "There a broken total number of access in file %s\n"
+msgstr "有不完整的访问总数在文件 %s\n"
+
+#: util.c:897
+#, c-format
+msgid "Cannot copy images to target directory %simages\n"
+msgstr "不能拷贝镜像到目标文件夹 %simages\n"
+
+#: util.c:907
+#, c-format
+msgid "(util) Can't open directory %s: %s\n"
+msgstr "(util) 不能打开文件夹 %s: %s\n"
+
+#: util.c:915
+#, c-format
+msgid "Cannot stat \"%s\" - %s\n"
+msgstr "不能开始 \"%s\" - %s\n"
+
+#: util.c:926
+#, c-format
+msgid "Failed to copy image %s to %s\n"
+msgstr "拷贝镜像失败 %s 到  %s\n"
+
+#: util.c:932 util.c:935
+msgid "Cannot open file"
+msgstr "不能打开文件"
+
+#: util.c:1022 util.c:1045
+#, c-format
+msgid "File %s already exists, moved to %s\n"
+msgstr "文件 %s 已经存在, 移动至 %s\n"
+
+#: util.c:1063
+#, c-format
+msgid "cannot open %s for writing\n"
+msgstr "不能打开文件 %s 来写入\n"
+
+#: util.c:1072 util.c:1077
+#, c-format
+msgid "Failed to write the date in %s\n"
+msgstr "写入时间时失败在w %s\n"
+
+#: util.c:1160
+#, c-format
+msgid ""
+"The date passed as argument is not formated as dd/mm/yyyy or dd/mm/yyyy-dd/"
+"mm/yyyy\n"
+msgstr "作为参数时日期格式不能为dd/mm/yyyy or dd/mm/yyyy-dd/mm/yyyy\n"
+
+#: util.c:1165 util.c:1169
+#, c-format
+msgid ""
+"The date range passed as argument is not formated as dd/mm/yyyy or dd/mm/"
+"yyyy-dd/mm/yyyy\n"
+msgstr ""
+"作为参数的日期区间格式不能为dd/mm/yyyy or dd/mm/yyyy-dd/mm/yyyy-dd/mm/yyyy\n"
+
+#: util.c:1182
+#, c-format
+msgid "Failed to get the current time\n"
+msgstr "得到准确时间时失败\n"
+
+#: util.c:1187
+#, c-format
+msgid "Invalid number of days in -d parameter\n"
+msgstr "无效的日期数字在使用 -d 参数时\n"
+
+#: util.c:1193 util.c:1217 util.c:1224 util.c:1233 util.c:1246
+#, c-format
+msgid "Cannot convert local time: %s\n"
+msgstr "不能转换本地时间: %s\n"
+
+#: util.c:1212
+#, c-format
+msgid "Invalid number of weeks in -d parameter\n"
+msgstr "无效的周数字在使用 -d 参数时\n"
+
+#: util.c:1241
+#, c-format
+msgid "Invalid number of months in -d parameter\n"
+msgstr "无效的月份数字在使用 -d 参数时\n"
+
+#: util.c:1275
+#, fuzzy, c-format
+msgid "Invalid date range passed on command line\n"
+msgstr "卤盲脕驴麓芦碌脻碌脛脠脮脝脷路露脦搂脦脼脨搂\n"
+
+#: util.c:1328
+#, c-format
+msgid "Purging temporary file sarg-general\n"
+msgstr "清楚临时文件sarg-general\n"
+
+#: util.c:1331
+#, c-format
+msgid "(removetmp) directory too long to remove %s/sarg-period\n"
+msgstr "(removetmp) 文件夹太长不能被删除 %s/sarg-period\n"
+
+#: util.c:1335
+#, c-format
+msgid "(removetmp) Cannot open file %s\n"
+msgstr "(removetmp) 不能打开文件 %s\n"
+
+#: util.c:1343
+#, c-format
+msgid "Failed to rewind to the beginning of the file %s: %s\n"
+msgstr "转向文件开始部分时失败 %s: %s\n"
+
+#: util.c:1348
+#, c-format
+msgid "Failed to write the total line in %s - %s\n"
+msgstr "写入所有行时失败%s - %s\n"
+
+#: util.c:1353
+#, c-format
+msgid "Failed to truncate %s: %s\n"
+msgstr "截短时失败 %s: %s\n"
+
+#: util.c:1357
+#, c-format
+msgid "Failed to close %s after writing the total line - %s\n"
+msgstr "写入所有行之后关闭 %s 时失败 - %s\n"
+
+#: util.c:1377
+#, c-format
+msgid "(util) Cannot open file %s (exclude_codes)\n"
+msgstr "(util)不能打开文件 %s (exclude_codes)\n"
+
+#: util.c:1382
+#, c-format
+msgid "Failed to move till the end of the excluded codes file %s: %s\n"
+msgstr "在排除代码文件之前不能移动该文件 %s: %s\n"
+
+#: util.c:1391
+#, c-format
+msgid "Failed to rewind the excluded codes file %s: %s\n"
+msgstr "转向排除代码文件时失败 %s: %s\n"
+
+#: util.c:1408
+#, c-format
+msgid "Too many codes to exclude in file %s\n"
+msgstr "在文件中过多的编码被排除 %s\n"
+
+#: util.c:1563
+#, c-format
+msgid "Cannot get disk space because the path %s%s is too long\n"
+msgstr "不能获取磁盘空间因为路径 %s%s 过长\n"
+
+#: util.c:1567
+#, c-format
+msgid "Cannot get disk space with command %s\n"
+msgstr "不能得到磁盘空间使用命令 %s\n"
+
+#: util.c:1571
+#, c-format
+msgid "Cannot get disk size with command %s\n"
+msgstr "不能获取磁盘大小使用命令 %s\n"
+
+#: util.c:1576
+#, c-format
+msgid "The command %s failed\n"
+msgstr "命令 %s 失败\n"
+
+#: util.c:1734
+#, c-format
+msgid "SARG Version: %s\n"
+msgstr "SARG版本: %s\n"
+
+#: util.c:1766
+#, c-format
+msgid "directory name to delete too long: %s/%s\n"
+msgstr "文件夹名称太长不能删除: %s/%s\n"
+
+#: util.c:1775
+#, c-format
+msgid "cannot stat %s\n"
+msgstr "不能开始 %s\n"
+
+#: util.c:1780 util.c:1793
+#, c-format
+msgid "cannot delete %s - %s\n"
+msgstr " 不能删除 %s - %s\n"
+
+#: util.c:1786
+#, c-format
+msgid "unknown path type %s\n"
+msgstr "未知的路径类型 %s\n"
+
+#~ msgid "Sort"
+#~ msgstr "排序"
+
+#, fuzzy
+#~ msgid "USER"
+#~ msgstr "用户"
+
+#~ msgid "Temporary directory name too long: %s\n"
+#~ msgstr "临时文件夹名称过长: %s\n"
+
+#~ msgid "SARG: MALICIUS CODE DETECTED.\n"
+#~ msgstr "SARG: MALICIUS 代码侦测到d.\n"
+
+#~ msgid ""
+#~ "SARG: I think someone is trying to execute arbitrary code in your system "
+#~ "using sarg.\n"
+#~ msgstr "SARG: 我想有人在尝试执行任意的代码在你的系统中使用sarg.\n"
+
+#~ msgid ""
+#~ "SARG: please review your access.log and/or your useragent.log file.\n"
+#~ msgstr "SARG: 请察看access.log 和/或 useragent.log 文件.\n"
+
+#~ msgid "SARG: process stoped. No actions taken.\n"
+#~ msgstr "SARG: 进程中止.没有执行.\n"
+
+#~ msgid "temporary directory too long: %s/sarg\n"
+#~ msgstr "临时文件夹过长: %s/sarg\n"
+
+#~ msgid "(convlog) Cannot open log file %s\n"
+#~ msgstr "(convlog) 不能打开日志文件 %s\n"
+
+#~ msgid "user name too long for %s/%s/graph_day.png\n"
+#~ msgstr "用户名过长 %s/%s/graph_day.png\n"
+
+#~ msgid "Option -%c require an argument\n"
+#~ msgstr "选项 -%c 需要一个判断\n"
+
+#~ msgid "Year string too long in redirector log file %s\n"
+#~ msgstr "在重定向日志文件中年份字符串太长 %s\n"
+
+#~ msgid "Month string too long in redirector log file %s\n"
+#~ msgstr "在重定向日志文件中月份字符串过长 %s\n"
+
+#~ msgid "Day string too long in redirector log file %s\n"
+#~ msgstr "在重定向日志文件中日期字符串太长 %s\n"
+
+#~ msgid "There is a broken rule in file %s\n"
+#~ msgstr "有不完整的规则在文件 %s\n"
+
+#~ msgid "(authfail) read error in %s\n"
+#~ msgstr "(authfail) 露脕脠隆麓铆脦贸%s\n"
+
+#~ msgid "(dansguardian_report) Cannot open file %s\n"
+#~ msgstr "拢篓dansguardian_report拢漏脦脼路篓麓貌驴陋脦脛录镁%s\n"
+
+#~ msgid "(dansguardian_report) read error in %s\n"
+#~ msgstr "拢篓dansguardian_report拢漏%s露脕脠隆麓铆脦贸\n"
+
+#~ msgid "Decompressing log file: %s > %s/sarg/sarg-file.in (zcat)\n"
+#~ msgstr ""
+#~ "陆芒脩鹿脣玫脠脮脰戮脦脛录镁脰脨: %s > %s/sarg/sarg-file.in (zcat)\n"
+
+#~ msgid "Decompressing log file: %s > %s/sarg/sarg-file.in (bzcat)\n"
+#~ msgstr ""
+#~ "陆芒脩鹿脣玫脠脮脰戮脦脛录镁脰脨: %s > %s/sarg/sarg-file.in (bzcat)\n"
+
+#~ msgid "Decompressing log file: %s (uncompress)\n"
+#~ msgstr "陆芒脩鹿脣玫脠脮脰戮脦脛录镁脰脨: %s (uncompress)\n"
+
+#~ msgid "compression command too long for log file %s\n"
+#~ msgstr "脩鹿脣玫脙眉脕卯露脭脫脷脠脮脰戮脦脛录镁鹿媒鲁陇 %s\n"
+
+#~ msgid "(denied) Cannot open file %s\n"
+#~ msgstr "拢篓denied拢漏脦脼路篓麓貌驴陋脦脛录镁 %s\n"
+
+#~ msgid "(denied) read error in %s\n"
+#~ msgstr "拢篓denied拢漏露脕脠隆麓铆脦贸 %s\n"
+
+#~ msgid "(download) Cannot open file %s\n"
+#~ msgstr "拢篓download拢漏脦脼路篓麓貌驴陋脦脛录镁 %s\n"
+
+#~ msgid "(download) read error in %s\n"
+#~ msgstr "拢篓download拢漏露脕脠隆麓铆脦贸 %s\n"
+
+#~ msgid "(email) read error in %s\n"
+#~ msgstr "拢篓email拢漏露脕脠隆麓铆脦贸 %s\n"
+
+#~ msgid "user name too long for %s/%s.graph\n"
+#~ msgstr "脫脙禄搂脙没鹿媒鲁陇露脭脫脷 %s/%s.graph\n"
+
+#~ msgid "(html1) Cannot open file %s\n"
+#~ msgstr "拢篓html1拢漏脦脼路篓麓貌驴陋脦脛录镁 %s\n"
+
+#~ msgid "(html1) read error in %s\n"
+#~ msgstr "(html1) 露脕脠隆麓铆脦贸麓脫 %s\n"
+
+#~ msgid "IN"
+#~ msgstr "露脕脠毛"
+
+#~ msgid "CACHE"
+#~ msgstr "禄潞麓忙"
+
+#~ msgid "OUT"
+#~ msgstr "脢盲鲁枚"
+
+#~ msgid "Maybe you have a broken number of access in your %s file\n"
+#~ msgstr ""
+#~ "麓铆脦贸碌脛脕卢陆脫脢媒驴脡脛脺麓忙脭脷脫脷脛茫碌脛 %s脦脛录镁脰脨\n"
+
+#~ msgid "Maybe you have a broken number of bytes in your %s file\n"
+#~ msgstr ""
+#~ "麓铆脦贸碌脛脳脰陆脷脢媒驴脡脛脺麓忙脭脷脫脷脛茫碌脛 %s脦脛录镁脰脨\n"
+
+#~ msgid "Maybe you have a broken status in your %s file\n"
+#~ msgstr "麓铆脦贸碌脛脳麓脤卢驴脡脛脺麓忙脭脷脫脷脛茫碌脛 %s脦脛录镁脰脨\n"
+
+#~ msgid "Maybe you have a broken in cache column in your %s file\n"
+#~ msgstr ""
+#~ "麓铆脦贸碌脛露脕脠毛禄潞麓忙脕脨驴脡脛脺麓忙脭脷脫脷脛茫碌脛 %s脦脛录镁脰"
+#~ "脨\n"
+
+#~ msgid "Maybe you have a broken not in cache column in your %s file (%d)\n"
+#~ msgstr ""
+#~ "麓铆脦贸碌脛路脟露脕脠毛禄潞麓忙脕脨驴脧脛脺麓忙脭脷脫脷脛茫碌脛 %s脦脛录"
+#~ "镁(%d)\n"
+
+#~ msgid "Maybe you have a broken elapsed time in your %s file (%d)\n"
+#~ msgstr ""
+#~ "麓铆脦贸碌脛脕梅脢脜脢卤录盲驴脡脛脺麓忙脭脷脫脷脛茫碌脛 %s脦脛录镁脰脨 (%"
+#~ "d)\n"
+
+#~ msgid ""
+#~ "SARG: The date range requested on the command line by option -d is "
+#~ "invalid.\n"
+#~ msgstr ""
+#~ "脢鹿脫脙虏脦脢媒-d脭脷脙眉脕卯脨脨脰脨脟毛脟贸碌脛脠脮脝脷路露脦搂脦脼脨"
+#~ "搂.\n"
+
+#~ msgid "Maybe you have a broken date range definition.\n"
+#~ msgstr "驴脡脛脺麓忙脭脷露篓脪氓脠脮脝脷路露脦搂脣茅脝卢.\n"
+
+#~ msgid "There is a broken quantity in file %s\n"
+#~ msgstr "脦脛录镁脰脨麓忙脭脷脣茅脝卢 %s\n"
+
+#~ msgid "(siteuser) Cannot open file %s\n"
+#~ msgstr "拢篓siteuser拢漏脦脼路篓麓貌驴陋脦脛录镁 %s\n"
+
+#~ msgid "(siteuser) read error in %s\n"
+#~ msgstr "拢篓siteuser拢漏露脕脠隆麓铆脦贸 %s\n"
+
+#~ msgid "(smartfilter) read error in %s\n"
+#~ msgstr "拢篓smartfilter拢漏露脕脠隆麓铆脦贸 %s\n"
+
+#~ msgid "Reading squidGuard log file %s\n"
+#~ msgstr "露脕脠隆squidGuard脠脮脰戮脦脛录镁脰脨 %s\n"
+
+#~ msgid "(squidguard) Cannot open file %s\n"
+#~ msgstr "拢篓squidguard拢漏脦脼路篓麓貌驴陋脦脛录镁 %s\n"
+
+#~ msgid "(squidguard) read error in %s\n"
+#~ msgstr "拢篓squidguard拢漏露脕脠隆麓铆脦贸 %s\n"
+
+#~ msgid "SQUIDGUARD"
+#~ msgstr "SQUIDGUARD"
+
+#~ msgid "(topsites) Cannot open file %s\n"
+#~ msgstr "拢篓topsites拢漏脦脼路篓麓貌驴陋脦脛录镁 %s\n"
+
+#~ msgid "(topsites) read error in %s\n"
+#~ msgstr "拢篓topsites拢漏露脕脠隆麓铆脦贸 %s\n"
+
+#~ msgid "(topuser) Read error in %s\n"
+#~ msgstr "拢篓topuser拢漏露脕脠隆麓铆脦贸 %s\n"
+
+#~ msgid "squidGuard"
+#~ msgstr "squidGuard"
+
+#~ msgid "Making period file\n"
+#~ msgstr "脰脝脳梅脰脺脝脷脦脛录镁脰脨 \n"
+
+#~ msgid "Output file name too long: %s/sarg-period\n"
+#~ msgstr "脢盲鲁枚脦脛录镁脙没鹿媒鲁陇拢潞%s/sarg-period\n"
+
+#~ msgid "Cannot open file %s for writing\n"
+#~ msgstr "脦脼路篓麓貌驴陋脦脛录镁虏垄脨麓脠毛 %s\n"
+
+#~ msgid "Failed to write the requested period in %s\n"
+#~ msgstr "脨麓脠毛脟毛脟贸碌脛脰脺脝脷脢搂掳脺%s\n"
+
+#~ msgid "malloc error (1024)\n"
+#~ msgstr "露炉脤卢脛脷麓忙路脰脜盲麓铆脦贸拢篓1024拢漏\n"

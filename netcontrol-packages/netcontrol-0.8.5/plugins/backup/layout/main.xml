@@ -1,0 +1,20 @@
+<xml> 
+    <label text="Central de Backups" size="5" />
+    <toolbar>
+        <button id="fazer_backup" text="Realizar Backup" icon='/dl/filesystems/icon.png' />
+    </toolbar>
+    
+    <pad id="main">
+        <dt id="list" width="100%">
+            <dtr header="True">
+                <dth>
+                    <label text="Arquivos de Backup" />
+                </dth>
+                <dth>
+                    <label text="Data e Hora" />
+                </dth>
+                <dth width="1" />
+            </dtr>
+        </dt>
+    </pad>
+</xml>

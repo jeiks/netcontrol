@@ -1,0 +1,14 @@
+<xml>
+  <toolbar>
+     <button id="del_serv" text="Desinstalar servidor Cacic" icon="/dl/core/ui/stock/delete.png" />
+     <button id="install_serv" text="Instalar servidor Cacic" icon="/dl/core/ui/stock/add.png" />
+  </toolbar>
+  <vconteiner>
+    <div style="text-align:center; padding-top:20px;">
+      <vconteiner id="t1" name="t1">
+      </vconteiner>
+      <vconteiner id="t2" name="t2">
+      </vconteiner>
+    </div>
+  </vconteiner>
+</xml>

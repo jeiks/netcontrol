@@ -1,0 +1,56 @@
+#! /bin/sh
+
+set -e
+
+case "$1" in
+	abort-upgrade)
+		version=$2
+		if dpkg --compare-versions "$2" lt 2.2.6-1; then
+			if test -f /etc/sarg/sarg.conf; then
+				mv /etc/sarg/sarg.conf /etc/squid
+			fi
+
+			if test -f /etc/sarg/exclude_codes; then
+				mv /etc/sarg/exclude_codes /etc/squid/sarg.exclude_codes
+			fi
+
+			if test -f /etc/sarg/exclude_hosts; then
+				mv /etc/sarg/exclude_hosts /etc/squid/sarg.hosts
+			fi
+
+			if test -f /etc/sarg/sarg-reports.conf; then
+				mv /etc/sarg/sarg-reports.conf /etc/squid
+			fi
+
+			if test -f /etc/sarg/exclude_users; then
+				mv /etc/sarg/exclude_users /etc/squid/sarg.users
+			fi
+
+			if test -f /etc/sarg/usertab; then
+				mv /etc/sarg/usertab /etc/squid/usertab
+			fi
+
+			if test -f /etc/sarg/user_limit_block; then
+				mv /etc/sarg/user_limit_block /etc/squid
+			fi
+
+			if test -d /usr/share/sarg/languages; then
+				mv /usr/share/sarg/languages /etc/squid
+			fi
+
+			if test -d /usr/share/sarg/images; then
+				mv /usr/share/sarg/images /etc/squid
+			fi
+
+			if test -d /usr/share/sarg/fonts; then
+				mv /usr/share/sarg/fonts /etc/squid
+			fi
+
+			if test -d /var/lib/sarg; then
+				mv /var/lib/sarg /var/www/squid-reports
+			fi
+		fi
+		;;
+esac
+
+#DEBHELPER#

@@ -1,0 +1,91 @@
+/*! \file log.c
+\brief Program entry point
+*/
+
+/*! \fn int main(int argc,char *argv[])
+Entry point of the program. See the man page for the accepted parameters.
+
+\param argc The number of arguments passed in \a argv to the program.
+\param argv The arguments passed to the program.
+
+This function parse and process the program's options.
+
+It also parse and read the log file to analyse.
+
+\section ReadAccessLog Reading of the access log file
+
+Sarg detects the type of log that is provided. Although sarg can process multiple
+log files in one pass, they must be all of the same type. You cannot mix logs from
+different applications in one single run.
+
+\subsection SquidAccessLog Reading the squid access.log file
+
+Sarg only understand the format of the default squid log file.
+
+\subsection IisAccessLog Reading the IIS log file
+
+Sarg recognize this type of log by the first line. It starts with
+the string "#Software: Mic" without the quotes. Then sarg searches for a line
+indicating the columns found in the file. It extracts the column number of the
+columns it needs to produce the report.
+
+\section UserUnsortLog Output files
+
+The data are written in files with the \c unsort extension and named after the
+user whose access line is processed. It contains the following columns separated
+by one space:
+
+\arg The day of the access.
+\arg The time of the access.
+\arg The user ID.
+\arg The IP address of the user.
+\arg The number of bytes transfered.
+\arg The HTTP code of the server to the request.
+\arg The time spent in that request.
+\arg The smart filter information (?).
+
+Moreover, any URL classified as a download is written in the \c download.unsort file
+with the following columns:
+
+\arg The day of the download.
+\arg The time of the download.
+\arg The user ID.
+\arg The IP address of the user.
+\arg The full URL of the downloaded file.
+
+Any URL returning the HTTP code 403 (forbidden access) is reported in the file
+\c denied.log.unsort with the following columns:
+
+\arg The day of the access.
+\arg The time of the access.
+\arg The user ID.
+\arg The IP address of the user.
+\arg The URL that was rejected.
+
+Any URL returning the HTTP code 401 (unauthorized) or 407 (?) is reported in the file
+\c authfail.log.unsort with the following columns:
+
+\arg The day of the access.
+\arg The time of the access.
+\arg The user ID.
+\arg The IP address of the user.
+\arg The URL that was rejected.
+
+
+*/
+
+
+
+
+
+/*! \fn static void getusers(const char *pwdfile, int debug)
+Read the user ID from a passwd file and merge them in :userfile.
+
+\param pwdfile The name of the passwd file to read. The columns are separated by colons and
+only the first column is kept.
+\param debug Set to \c true to print debug informations.
+
+\bug This function is obviously intented to provide a list of user ID for get_usertab_name()
+but the names are not stored in a way that is usable by that function.
+*/
+

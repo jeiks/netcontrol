@@ -1,0 +1,13 @@
+plugins/services/api.py	var/lib/netcontrol/plugins/services/
+plugins/services/files	var/lib/netcontrol/plugins/services/
+plugins/services/__init__.py	var/lib/netcontrol/plugins/services/
+plugins/services/layout	var/lib/netcontrol/plugins/services/
+plugins/services/main.py	var/lib/netcontrol/plugins/services/
+plugins/services/meter.py	var/lib/netcontrol/plugins/services/
+plugins/services/s_arch.py	var/lib/netcontrol/plugins/services/
+plugins/services/s_bsd.py	var/lib/netcontrol/plugins/services/
+plugins/services/s_centos.py	var/lib/netcontrol/plugins/services/
+plugins/services/s_gentoo.py	var/lib/netcontrol/plugins/services/
+plugins/services/s_upstart.py	var/lib/netcontrol/plugins/services/
+plugins/services/widget.py	var/lib/netcontrol/plugins/services/
+plugins/services/widgets	var/lib/netcontrol/plugins/services/

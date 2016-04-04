@@ -1,0 +1,10 @@
+<dialogbox id="bck">
+        <!--<formline text="Salvar em ">
+            <textinput id="local" name="local" width="100" />
+        </formline>
+        -->
+        <label id="local" size="1" text="O arquivo será salvo na pasta /var/backups/netcontrol"/>
+        <formline text="Digite um nome para o arquivo de backup">
+            <textinput id="nome" name="nome" width="100" />
+        </formline>
+</dialogbox>

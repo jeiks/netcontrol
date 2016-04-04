@@ -1,0 +1,48 @@
+Template: ntop/user
+Type: string
+Default: ntop
+_Description: User for the ntop process to run as:
+ Please choose the login that should be used to execute the ntop
+ process. The use of the root user is not allowed.
+ .
+ The account will be created if it does not already exist, but
+ if you leave it blank, no login will be created and ntop will
+ not run until manually configured.
+
+Template: ntop/interfaces
+Type: string
+Default: none
+_Description: Interfaces for ntop to listen on:
+ Please enter a comma-separated list of interfaces that ntop
+ should listen on.
+
+Template: ntop/admin_password
+Type: password
+_Description: Administrator password:
+ Please choose a password to be used for the privileged user "admin" in
+ ntop's web interface.
+
+Template: ntop/admin_password_again
+Type: password
+_Description: Re-enter password to verify:
+ Please enter the same password again to verify that you have typed it
+ correctly.
+
+Template: ntop/password_empty
+Type: error
+_Description: Empty password
+ You entered an empty password, which is not allowed.
+ Please choose a non-empty password.
+
+Template: ntop/password_mismatch
+Type: error
+_Description: Password input error
+ The two passwords you entered were not the same. Please try again.
+
+Template: ntop/password_reset
+Type: boolean
+Default: false
+_Description: Set a new administrator password?
+ A password for ntop's administrative web interface has already been set.
+ .
+ Please choose whether you want to change that password.

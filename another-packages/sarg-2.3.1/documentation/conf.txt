@@ -1,0 +1,31 @@
+/*! \file conf.h
+\brief Include headers and define global variables.
+*/
+
+/*! \var DownloadSuffix
+A comma separated list of extensions to report as files downloaded by the user. The list is not case sensitive.
+*/
+
+/*! \var download_count
+The total number of files seen as downloaded.
+*/
+
+/*! \var LogoImage
+The image to link in the HTML files as the logo of the organisation generating the reports.
+*/
+
+/*! \var Width
+The width in pixel of the logo ::LogoImage to display in the HTML reports.
+*/
+
+/*! \var Height
+The height in pixel of the logo ::LogoImage to display in the HTML reports.
+*/
+
+/*! \var LogoText
+The text to display next to the logo of the organisation producing the reports.
+*/
+
+/*! \var LogoTextColor
+The color to write the text of the logo in ::LogoText.
+*/

@@ -1,0 +1,10 @@
+<xml>
+    <dialogbox id="dlgEditDomain">
+        <formline text="Hostname">
+            <textinput id="hostname" name="hostname" />
+        </formline>
+        <formline text="Endereço">
+            <textinput id="addr" name="addr" />
+        </formline>
+    </dialogbox>
+</xml>

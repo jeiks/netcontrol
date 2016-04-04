@@ -1,0 +1,55 @@
+<dialogbox id="edit">
+	<dt>
+		<dtr>
+			<dth><label text="Nome" size="3"/></dth>
+			<dth><textinput name="nome" id="nome" /></dth>
+		</dtr>
+		<dtr>
+			<dth><label text="IP" size="3"/></dth>
+			<dth><textinput name="ip" id="ip" /></dth>
+		</dtr>
+		<dtr>
+			<dth><label text="Banda Liberada" size="3"/></dth>
+			<dth><textinput name="banda_liberada" id="banda_liberada" /></dth>
+		</dtr>
+		<dtr>
+			<dth><label text="Delimitado" size="3"/></dth>
+			<dth>
+				<center>
+					<dt>
+						<dtr>
+							<dth><radio text="Sim" name="delimitado" id="delimitado" value="sim" /></dth>
+							<dth><radio text="Não" name="delimitado" id="delimitado" value="nao" /></dth>
+						</dtr>
+					</dt>
+				</center>
+			</dth>
+		</dtr>
+		<dtr>
+			<dth><label text="Isolado" size="3"/></dth>
+			<dth>
+				<center>
+					<dt>
+						<dtr>
+							<dth><radio text="Sim" name="isolado" id="isolado" value="sim" /></dth>
+							<dth><radio text="Não" name="isolado" id="isolado" value="nao" /></dth>
+						</dtr>
+					</dt>
+				</center>
+			</dth>
+		</dtr>
+		<dtr>
+			<dth>
+				<label text="Nível de Prioridade" />
+			</dth>
+			<dth>
+				<select id="prioridade" name="prioridade">
+					<selectoption text="Alta" value="5"></selectoption>
+					<selectoption text="Média" value="4"></selectoption>
+					<selectoption text="Baixa" value="3"></selectoption>
+				</select>
+			</dth>
+		</dtr>
+	</dt>
+	<label id="erro" name="erro" size="3" />
+</dialogbox>

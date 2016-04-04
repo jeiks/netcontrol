@@ -1,0 +1,12 @@
+/*!\file repday.c
+\brief Daily text report.
+*/
+
+
+
+/*! \fn void report_day(const struct userinfostruct *uinfo)
+Create the text report with the daily internet usage made by the user.
+
+\param uinfo The data about the user whose report must be created.
+
+*/

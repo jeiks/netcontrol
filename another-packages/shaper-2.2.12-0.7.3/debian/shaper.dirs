@@ -1,0 +1,4 @@
+etc/shaper
+etc/default
+usr/share/doc/shaper
+var/cache/shaper

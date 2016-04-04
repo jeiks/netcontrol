@@ -1,0 +1,4 @@
+plugins/shell/files	var/lib/netcontrol/plugins/shell/
+plugins/shell/__init__.py	var/lib/netcontrol/plugins/shell/
+plugins/shell/layout	var/lib/netcontrol/plugins/shell/
+plugins/shell/main.py	var/lib/netcontrol/plugins/shell/

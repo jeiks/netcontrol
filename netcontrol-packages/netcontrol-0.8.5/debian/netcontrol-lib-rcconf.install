@@ -1,0 +1,3 @@
+plugins/lib_rcconf/api.py	var/lib/netcontrol/plugins/lib_rcconf/
+plugins/lib_rcconf/files	var/lib/netcontrol/plugins/lib_rcconf/
+plugins/lib_rcconf/__init__.py	var/lib/netcontrol/plugins/lib_rcconf/

@@ -1,0 +1,38 @@
+<dialogbox id="dlgEditUser">
+    <label text="Informações sobre o Usuário:" size="3" />
+    <center>
+        <label text="NOTA: Não utilize acentos ou cedilha" />
+    </center>
+    <spacer height="10" />
+    <formline text="Login">
+        <textinput id="login" name="login" />
+    </formline>
+    <formline text="Senha">
+        <textinput id="passwd1" name="passwd1" password="True" />
+    </formline>
+    <formline text="Confirmação da Senha">
+        <textinput id="passwd2" name="passwd2" password="True" />
+    </formline>
+    <formline text="Nome Completo">
+        <textinput id="name" name="name" />
+    </formline>
+    <formline text="Apelido (Família)">
+        <textinput id="surname" name="surname" />
+    </formline>
+    <formline text="Diretório Pessoal (MODIFIQUE)">
+        <textinput id="homeDirectory" name="homeDirectory" value="/home/" />
+    </formline>
+    <formline text="Endereço">
+        <textinput id="address" name="address" />
+    </formline>
+    <formline text="E-Mail">
+        <textinput id="mail" name="mail" />
+    </formline>
+    <formline text="Telefone">
+        <textinput id="phone" name="phone" />
+    </formline>
+    <formline text="Shell de Login">
+        <textinput id="loginShell" name="loginShell" value="/bin/bash" />
+    </formline>
+    <label text="" id="alert" name="alert" bold="True" />
+</dialogbox>

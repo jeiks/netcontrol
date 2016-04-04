@@ -1,0 +1,26 @@
+#!/bin/bash
+
+set -e
+
+case "$1" in
+    install|upgrade)
+        if test -d /etc/squid;then
+            mkdir -p /var/backups/
+            tar cvzf /var/backups/squid_$(date '+%Y%m%d_%H%M').tar.gz /etc/squid &> /dev/null
+        fi
+        if test -d /etc/squid3;then
+            mkdir -p /var/backups/
+            tar cvzf /var/backups/squid3_$(date '+%Y%m%d_%H%M').tar.gz /etc/squid3 &> /dev/null
+        fi
+    ;;
+
+    abort-upgrade)
+    ;;
+
+    *)
+        echo "preinst called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+
+exit 0

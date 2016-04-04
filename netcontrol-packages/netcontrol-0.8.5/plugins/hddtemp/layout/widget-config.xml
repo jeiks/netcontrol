@@ -1,0 +1,6 @@
+<xml>
+    <dialogbox id="dlgWidgetConfig">
+        <label size="2" text="Selecione o disco" />
+        <selectinput name="disk" id="list" />
+    </dialogbox>
+</xml>

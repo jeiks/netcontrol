@@ -1,0 +1,27 @@
+This package was debianized by Rocco Carbone <rocco@ntop.org> on
+Fri,  5 Mar 2004 09:37:13 +0100 from sources at SourceForge mirror:
+
+ http://switch.dl.sourceforge.net/sourceforge/ntop/ntop-3.0pre2.tgz
+
+This is an unofficial distribution mainly because I have no time
+to become a Debian maintainer.
+
+Upstream Author: Luca Deri <deri@ntop.org>
+
+Copyright:
+
+This program is free software; you may redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2, or (at your option)
+any later version.
+
+This is distributed in the hope that it will be useful, but without
+any warranty; without even the implied warranty of merchantability or
+fitness for a particular purpose. See the GNU General Public License
+for more details.
+
+A copy of the GNU General Public License is available as
+/usr/share/common-licenses/GPL in the Debian GNU/Linux distribution or on the
+World Wide Web at http://www.gnu.org/copyleft/gpl.html.  You can also
+obtain it by writing to the Free Software Foundation, Inc., 59 Temple
+Place - Suite 330, Boston, MA 02111-1307, USA.

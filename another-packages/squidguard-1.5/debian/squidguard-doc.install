@@ -1,0 +1,3 @@
+doc/*.txt			usr/share/doc/squidguard-doc/doc
+doc/*.gif			usr/share/doc/squidguard-doc/html
+doc/*.html			usr/share/doc/squidguard-doc/html

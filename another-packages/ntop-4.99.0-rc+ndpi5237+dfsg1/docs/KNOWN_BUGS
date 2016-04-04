@@ -1,0 +1,331 @@
+   _   _ _
+  | \ | | |_ ___  _ __
+  |  \| | __/ _ \| '_ \
+  | |\  | || (_) | |_) |
+  |_| \_|\__\___/| .__/
+                 |_|
+
+             Network Top
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+v2.1 (Jun 2002)
+
+B1. https:// & tcp wrappers
+
+     If you compile ntop with tcp wrappers and attempt to access an 
+     https:// url, it will fail with
+
+        "Jun 11 14:22:52 www ntop[22622]: warning: can't get client address: Bad file descriptor"
+
+     in the log.  
+
+     hosts.allow:
+
+       ntop: 192.168.0.
+
+     hosts.deny:
+
+       ntop: ALL
+
+
+     No real clue why - the code that ntop uses:
+
+         {
+           struct request_info req;
+           request_init(&req, RQ_DAEMON, DAEMONNAME, RQ_FILE, myGlobals.newSock, NULL);
+           fromhost(&req);
+           if(!hosts_access(&req)) {
+             closelog(); /* just in case */
+             openlog(DAEMONNAME, LOG_PID, deny_severity);
+             syslog(deny_severity, "refused connect from %s", eval_client(&req));
+           }
+           else
+             handleHTTPrequest(from.sin_addr);
+         }
+
+     is the same as the code used, for example, by sshd. 
+
+     It's the fromhost() call - without a value set there, there is no file descriptor
+     set, and the hosts_access() call is then "properly" rejecting the request.
+
+
+========================================
+
+B2. https:// & Opera
+
+     With fixes through 25Jun2002, this works, albeit VERY SLOWLY on the handshake.
+     Sometimes as much as two minutes.  After that, clicking around through the 
+     ntop web server works fine, but it is also subject to a noticeable delay bringing
+     up the png images.
+
+     However, some versions of Opera (6.03 under Win98), give an SSL error and no results:
+
+        Jun 29 08:17:31 localhost ntop[17731]: SSL(read)ERROR [Thread 17731]: error:140EC0E5:SSL routines:SSL2_READ_INTERNAL:ssl handshake failure at s2_pkt.c(142)  
+
+     Sometimes with tcp wrappers enabled you get errors:
+
+        Jun 25 12:17:37 tigger ntop[26664]: SSL(ssl_init_connection)ERROR [Thread 26664]: error:1407609C:SSL routines:SSL23_GET_CLIENT_HELLO:http request at s23_srvr.c(390)  
+        Jun 25 12:17:37 tigger ntop[26664]: warning: can't get client address: Bad file descriptor
+
+     It's unknown - but suspected - that this last case is the same as #1, above.
+ 
+
+========================================
+
+B3. sflowPlugin.c will not compile in single threaded mode
+
+   (it uses queuePacket, which is #ifdef ed out in pbuf.c)
+
+================================================================================
+ISSUES - not bugs per se, but worth a comment...
+================================================================================
+
+I1. https:// & Netscape 6.2.2 et al
+
+     Hangs the ntop web server thread.  It goes into the ssl_accept() routine and
+     never comes back.  ntop continues processing packets, but there is no way to
+     retrieve data or softly shutdown ntop.  According to openSSL, it's a problem
+     with Netscape not handling a legal combination of flags on the handshake.
+     openSSL 0.9.6c (or d?) is supposed to have a work-around for this. Both sides
+     (client and server) are waiting for the other to finish the handshake.
+
+     A partial fix is present in the final code, but disabled by default.  This uses
+     a watchdog thread to detect the hang and cancel out the connection.  It means
+     that the offending user gets nothing returned, but at least the ntop web server
+     isn't hung.
+
+     The fix is enabled either by the ./configure parameter --enable-sslwatchdog
+     or the run-time parameter --ssl-watchdog.
+
+     Testing seems to show this is not necessary for:
+
+        Linux / konqueror 2.2.2 (under kde 2.2.2-2)
+        Linux / mozilla 0.9.9-12.7.2
+        Linux / mozilla 1.0.1-4
+        Linux / Netscape (Navigator) 4.78-2
+
+        Win2K / Internet Explorer 5.5
+        Win2K / Netscape (Navigator) 4.79
+        Win2K / Netscape (Navigator) 4.61 (oh the things I do for Luca...)
+
+        Win98 / Internet Explorer 5.5
+
+     It is necessary, but the fix "works" for:
+
+        Linux / Galeon 1.2.0-5
+        Linux / Galeon 1.2.5-3
+        Linux / Opera 6.0-20020225.3
+
+        Win2K / Netscape 6.2.2
+        Win2K / Opera 6.03
+
+     Remember, saying it "works" means that the hangup doesn't kill ntop's web server
+     for other users, not that the user of the offending browser will see
+     anything meaningful.  Galeon gets farther, but still hangs itself up.
+
+   Recommended:
+     If you aren't seeing the problem:
+         don't worry - be happy.
+     If you are, try running for a while with --ssl-watchdog
+         If that seems to fix it, then compile with --enable-sslwatchdog
+
+
+========================================
+
+I2. SIGPIPE - primarilly under gdb in Win2K environment.
+
+   The problem is that Internet Explorer (and other browsers) seem to close
+   the connection when they receive an unknown certificate in response to
+   an https:// request.  This causes a SIGPIPE and kills the web handling
+   thread - sometimes (for sure, the ONLY case I know of is if ntop is
+   run under Linux gdb connected to from a Win2K browser).
+   
+   This code simply counts SIGPIPEs and ignores them.
+ 
+   However, it's not that simple - under gdb under Linux (and perhaps other
+   OSes), the thread mask on a child thread disables our ability to set a
+   signal handler for SIGPIPE. However, gdb seems to trap the SIGPIPE and
+   reflect it to the code, even if the code wouldn't see it without the debug!
+  
+   Hence the multi-step code.
+  
+   This code SHOULD be safe.  Many other programs have had to so this.
+  
+   Because I'm not sure, I've put both a compile time (--enable-ignoresigpipe)
+   and run-time --ignore-sigpipe option in place.
+  
+   Recommended:
+     If you aren't seeing the "mysterious death of web server" problem:
+         don't worry - be happy.
+     If you are, try running for a while with --ignore-sigpipe
+         If that seems to fix it, then compile with --enable-ignoressigpipe
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Older bugs (v1.3) - Unknown if these are still current
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+  KNOWN_BUGS
+  ==========
+
+
+O1. Linux Sockets Bug (Platform Linux/i386)
+   [Alan.Cox@linux.org is aware of the above issue. Status: no reply]
+
+Below you can find the packetLogger code that can be used to
+reproduce the problem. Suppose to have
+host A (MAC Address 08:00:69:0B:6F:A1) and host B (MAC Address
+00:20:AF:73:C6:2E). Host B is an i386 running Linux 2.X. No matter what
+OS runs on A. Now start "packetLogger 08:00:69:0B:6F:A1 
+00:20:AF:73:C6:2E" in order to filter packets flowing though A and B. I
+suppose there's no other traffic (e.g. telnet) between A and B. Now from
+A do 'ftp B' and transfer a file C (large, e.g. > 1 MB). Stop
+packetLogger, look at the # of packets and restart it. Now from B do
+'ftp A' and transfer the very same file C [if A and B are Linux boxes
+you can start packetLogger on both hosts]. You will notice that in the
+second case you've lost many packets whereas in the first case
+everything works fine.
+
+========================================
+#include <sys/param.h>
+#include <sys/ioctl.h>
+#include <sys/socket.h>
+#include <sys/time.h>
+#include <net/if.h>
+#include <linux/if_ether.h>
+#include <netinet/in.h>
+#include <errno.h>
+#include <malloc.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+
+struct	ethernet_header {
+  u_char	ether_dhost[6];
+  u_char	ether_shost[6];
+  u_short	ether_type;
+};
+
+
+char* etheraddr_string(const u_char *ep)
+{
+  u_int i, j;
+  char *cp;
+  struct enamemem *tp;
+  static char buf[sizeof("00:00:00:00:00:00")];
+  char hex[] = "0123456789ABCDEF";
+
+  cp = buf;
+
+  if ((j = *ep >> 4) != 0)
+    *cp++ = hex[j];
+  else
+    *cp++ = '0';
+
+  *cp++ = hex[*ep++ & 0xf];
+
+  for(i = 5; (int)--i >= 0;) {
+    *cp++ = ':';
+    if ((j = *ep >> 4) != 0)
+      *cp++ = hex[j];
+    else
+      *cp++ = '0';
+
+    *cp++ = hex[*ep++ & 0xf];
+  }
+
+  *cp = '\0';
+
+  return (buf);
+}
+
+
+int main(int argc, char* argv[]) {
+  struct ifreq ifr;
+  struct sockaddr sa;
+  char *device = "eth0";
+  unsigned long packetNum=0, totLen=0;
+  int fd;
+
+  if(argc != 3) {
+    printf("Usage: %s <MAC Addr. host A> <MAC Addr. host B>\n", argv[0]);
+    printf("Example: %s 08:00:69:0B:6F:A1  00:20:AF:73:C6:2E\n", argv[0]);
+    return(-1);
+  }
+
+  fd = socket(PF_INET, SOCK_PACKET, htons(ETH_P_ALL));
+
+  if (fd < 0) {
+    printf("Error creating socket.\n");
+    return(-1);
+  }
+
+  /* Bind to the interface name */
+  memset(&sa, 0, sizeof(sa));
+  sa.sa_family = AF_INET;
+  (void)strncpy(sa.sa_data, device, sizeof(sa.sa_data));
+  if (bind(fd, &sa, sizeof(sa))) {
+    printf("bind: error\n");
+    return(-1);
+  }
+
+  memset(&ifr, 0, sizeof(ifr));
+  strncpy(ifr.ifr_name, device, sizeof(ifr.ifr_name));
+  if (ioctl(fd, SIOCGIFHWADDR, &ifr) < 0 ) {
+    printf("SIOCGIFHWADDR: error\n");
+    return(-1);
+  }
+
+  /* Base the buffer size on the interface MTU */
+  memset(&ifr, 0, sizeof(ifr));
+  strncpy(ifr.ifr_name, device, sizeof(ifr.ifr_name));
+  if (ioctl(fd, SIOCGIFMTU, &ifr) < 0 ) {
+    printf("SIOCGIFMTU: error\n");
+    return(-1);
+  }
+  
+  while(1) {
+    struct sockaddr from;
+    int fromlen, cc, len=0;
+    u_char bp[2048], srcHost[64], dstHost[64];
+    struct ethernet_header *ep;
+
+    do {
+      fromlen = sizeof(from);
+      cc = recvfrom(fd, bp, 2048, 0, &from, &fromlen);      
+      len += cc;
+    } while (strcmp(device, from.sa_data));
+
+    ep = (struct ethernet_header*)bp;
+
+    strcpy(srcHost, etheraddr_string(ep->ether_shost));
+    strcpy(dstHost, etheraddr_string(ep->ether_dhost));
+
+
+    if(strcmp(srcHost, argv[1]) && strcmp(srcHost, argv[2]))
+      continue;
+    else if(strcmp(dstHost, argv[1]) && strcmp(dstHost, argv[2]))
+      continue;
+    else {
+      totLen += len;
+      printf("%5d\t%8u\t%s -> %s (len=%d)\n", 
+	     ++packetNum, totLen, srcHost, dstHost, len);
+    }
+  }
+
+  close(fd);
+  return(0);
+}
+
+========================================
+
+O2. iPPP (Linux)
+   [iPPP guys have been informed. Status: no reply]
+
+ntop works with PPP but it presents some problems with iPPP (ISDN PPP). Some packets cannot 
+be decoded properly. Tools other than ntop (e.g. tcpdump, ethereal) can't handle such packets 
+either.
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-

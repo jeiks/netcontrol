@@ -1,0 +1,64 @@
+/*! \file util.c
+\brief Various useful functions.
+*/
+
+
+/*! \def INITIAL_LINE_BUFFER_SIZE
+The initial buffer size to allocate to read a long line from a text file.
+*/
+
+
+
+
+
+
+/*! \fn longline longline_create(void)
+Prepare the buffer to read long text lines from a file.
+
+\return The object create by the function. It must be freed
+with a call to longline_destroy().
+*/
+
+
+
+
+
+/*! \fn void longline_reset(longline line)
+Reset the internal state of the object to start a new reading on a new file.
+
+\param line The object created by longline_create().
+*/
+
+
+
+
+
+/*! \fn char *longline_read(FILE *fp_in,longline line)
+Read one long line of text from a file. If the buffer is too short, it is
+expended until the line can fit in it.
+
+The function always read as many bytes as can fit in the buffer and split the lines
+to return one line at a time to the caller. The returned lines are always terminated
+by a null ASCII character. The CR or LF are removed.
+
+Any empty line is skipped.
+
+\param fp_in The file to read.
+\param line The object created by longline_create().
+
+\return A pointer to the beginning of the string in the buffer or NULL if it is
+the last string read.
+
+\note If not enough memory is available to read the line, the program is terminated
+with an error message.
+*/
+
+
+
+
+
+/*! \fn void longline_destroy(longline line)
+Free the memory allocated by longline_create().
+
+\param line The object to destroy.
+*/

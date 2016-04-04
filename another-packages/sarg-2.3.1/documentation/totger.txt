@@ -1,0 +1,14 @@
+/*! \file totger.c
+\brief Compute the total of the general report.
+*/
+
+
+/*! \fn int totalger(const char *dirname, int debug, const char *outdir)
+Append a TOTAL line into the \c sarg-general file containing the total of the numerical
+columns of that file.
+
+\param dirname The directory containing the \c sarg-general file.
+\param debug \c True to output the debug informations.
+\param outdir Unused.
+
+*/

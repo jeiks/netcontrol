@@ -1,0 +1,15 @@
+This work was packaged for Debian by:
+
+    Jacson RC Silva <jacsonrcsilva@gmail.com> on Tue, 18 Dec 2012 17:03:54 -0200
+
+Upstream Author(s):
+
+    Squid Team
+    Updated by: Jacson RC Silva <jacsonrcsilva@gmail.com>
+
+The Debian packaging is:
+
+    Copyright (C) 2012 Jacson RC Silva <jacsonrcsilva@gmail.com>
+
+and is licensed under the GPL version 3,
+see "/usr/share/common-licenses/GPL-3".

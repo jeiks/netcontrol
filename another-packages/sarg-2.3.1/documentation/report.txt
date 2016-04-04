@@ -1,0 +1,190 @@
+/*! \file report.c
+\brief Generate the reports.
+*/
+
+/*! \fn void gerarel(void)
+Generate the reports from the files created by main() in the temporary directory and sorted
+by sort_users_log().
+
+The function outputs several files:
+
+\arg \c user.utmp: The URL accessed by the user.
+\arg \c user.htmp: The date and time of usage of the web.
+
+The files are then organized in reports.
+
+*/
+
+
+
+
+
+/*! \fn static void maketmp(const char *user, const char *dirname, int debug, int indexonly)
+Create a temporary file with the extension \c utmp to store the sites accessed by the user.
+
+\param user The name of the user.
+\param dirname The directory where to create the file.
+\param debug \c True to run in debug mode.
+\param indexonly \c True if only an index is created and not the actual files.
+
+The content of the file is created one line at a time by gravatmp().
+*/
+
+
+
+
+
+
+/*! \fn static void maketmp_hour(const char *user, const char *dirname, int indexonly)
+Create a temporary file with the extension \c htmp to store the times the user surfed the web.
+
+\param user The name of the user.
+\param dirname The directory where to create the file.
+\param indexonly \c True if only an index is created and not the actual files.
+
+The content of the file is created one line at a time by gravatmp_hora().
+
+*/
+
+
+
+
+
+/*! \fn void gravatmp(const char *oldaccuser, const char *dirname, const char *oldurl, long long int nacc, long long int nbytes, const char *oldmsg, long long int nelap, int indexonly, long long int incache, long long int oucache)
+Append one line into the \c utmp temporary file of the user.
+
+\param oldaccuser The user.
+\param dirname The directory with the temporary file.
+\param oldurl The URL being accessed.
+\param nacc The number of access to the site.
+\param nbytes The number of bytes transfered.
+\param oldmsg The status of the connection.
+\param nelap The time spent downloading the data.
+\param indexonly \c True if only an index is created and not the actual files.
+\param incache The number of bytes fetched from the cache of squid.
+\param oucache The number of bytes not fetched from the cache of squid.
+
+The file contains one line per entry with the following informations in that order:
+\arg the number of access;
+\arg the number of bytes transfered;
+\arg the URL access by the user;
+\arg the status of the connection;
+\arg the time spent downloading that URL;
+\arg the number of bytes comming from the cache of squid;
+\arg the number of bytes not found in the cache of squid.
+*/
+
+
+
+
+
+/*! \fn static void gravatmp_hora(const char *dirname, const char *user, const char *data, const char *hora, const char *elap, const char *bytes, int indexonly)
+Append one line into the \c htmp temporary file of the user.
+
+\param dirname The directory with the temporary file.
+\param user The user.
+\param data The date of the access.
+\param hora The time of the access.
+\param elap The time spent.
+\param bytes The number of bytes transfered.
+\param indexonly \c True if only an index is created and not the actual files.
+
+The file contains one line per entry with the following informations in that order:
+\arg the date;
+\arg the time;
+\arg the number of bytes transfered or the time spent downloading them.
+
+*/
+
+
+
+
+
+/*! \fn static void gravaporuser(const char *user, const char *dirname, const char *url, const char *ip, const char *data, const char *hora, const char *tam, const char *elap, int indexonly)
+Append one line into the \c ip temporary file of the user.
+
+\param user The user.
+\param dirname The directory with the temporary file.
+\param url The URL accessed by the user.
+\param ip The IP from which the user is accessing the web.
+\param data The date of the access.
+\param hora The time of the access.
+\param tam The number of bytes transfered.
+\param elap The time spent.
+\param indexonly \c True if only an index is created and not the actual files.
+*/
+
+
+
+
+
+/*! \fn static void gravatmpf(const char *oldaccuser, const char *dirname, const char *oldurl, long long int nacc, long long int nbytes, const char *oldmsg, long long int nelap, int indexonly, long long int incache, long long int oucache)
+Looks suspiciously identical to gravatmp() except that it reset ::ind2 to zero.
+
+\param oldaccuser The user.
+\param dirname The directory with the temporary file.
+\param oldurl The URL being accessed.
+\param nacc The number of access to the site.
+\param nbytes The number of bytes transfered.
+\param oldmsg Unused.
+\param nelap The time spent downloading the data.
+\param indexonly \c True if only an index is created and not the actual files.
+\param incache The number of bytes fetched from the cache of squid.
+\param oucache The number of bytes not fetched from the cache of squid.
+*/
+
+
+
+
+
+/*! \fn static void gravager(char *dirname, const char *user, long long int nacc, const char *url, long long int nbytes, const char *ip, const char *hora, const char *dia, long long int nelap, long long int incache, long long int oucache)
+Append a record to the sarg-general file.
+
+\param dirname The directory where the sarg-general file is. The string is modified when the function returns.
+\param user The user making the connection.
+\param nacc The number of access to the site.
+\param url The accessed URL.
+\param nbytes the number of bytes transfered.
+\param ip The IP address of the user.
+\param hora The time of the access.
+\param dia The date of the access.
+\param nelap The time spent on that site.
+\param incache Number of bytes fetched from the cache of squid.
+\param oucache Number of bytes not found in the cache of squid.
+*/
+
+
+
+
+/*! \fn int ger_read(char *buffer,struct generalitemstruct *item,const char *filename)
+Parse one line of the file written by gravager().
+
+\param buffer The line of text to parse.
+\param item The structure to fill with the data parsed from the line. The structure contains
+pointers to strings but some of them are limited in length to detect a corruption of the file
+and to let the caller use simple string manipulation functions with fixed size buffer.
+\param filename The name of the file from which the line is extracted to report it if an
+error is found.
+
+\return Zero on succes. The program exits if an error is found.
+*/
+
+
+
+
+
+/*! \fn static void grava_SmartFilter(const char *dirname, const char *user, const char *ip, const char *data, const char *hora, const char *url, const char *smart)
+Append a record into the \c smartfilter.unsort file of the specified directory.
+
+\param dirname The directory where to create the file.
+\param user The user to store in the record.
+\param ip The IP used by the user.
+\param data The date of the access.
+\param hora The time of the access.
+\param url The accessed URL.
+\param smart The last entry of the log file.
+
+\bug The function suspiciously appends the HTML tags to end the HTML file of the user but it doesn't flag the file
+as closed so other HTML data may end up after the closing of the HTML and be invisible to the user.
+
+*/

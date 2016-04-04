@@ -1,0 +1,79 @@
+/*!\file grepday.c
+\brief Produce the graphics of the reports.
+*/
+
+
+
+
+
+
+
+
+
+
+
+/*! \fn static void Sarg_gdImageStringFT (struct GraphDataStruct *gdata, int fg, char *fontlist,
+                         double ptsize, double angle, int x, int y, const char *string,enum TextRefPos RefPos)
+Draw a text on the GD image after converting the current character set defined by ::CharSet into UTF-8
+as requested by libgd.
+
+\param gdata The data about the graphic.
+\param fg The color to render the text.
+\param fontlist The name of the font to use to render the text.
+\param ptsize A scale factor to scale the text.
+\param angle The angle to rotate the text counter-clockwise in radian.
+\param x The X position of the text on the image.
+\param y The Y position of the text on the image.
+\param string The string to write.
+\param RefPos How to lay out the text with respect of the (x,y) coordinate.
+
+\return The return code of \c gdImageStringFTEx. It is NULL on success or an error
+string on failure.
+
+\note See the official documentation of gdImageStringFT at http://www.libgd.org/Font#char_.2AgdImageStringFT.28gdImagePtr_im.2C_int_.2Abrect.2C_int_fg.2C_char_.2Afontname.2C_double_ptsize.2C_double_angle.2C_int_x.2C_int_y.2C_char_.2Astring.29_.28FUNCTION.29
+*/
+
+
+
+
+
+/*! \fn static void bar(struct GraphDataStruct *gdata,int x1,long long int n)
+Draw one bar of the graph.
+
+\param gdata The data of the graphic.
+\param x1 The X position of the bar.
+\param n The height of the bar.
+*/
+
+
+
+
+
+/*! \fn void greport_prepare(void)
+Prepare the drawing of the graphics by checking the availability
+of the selected font and by preparing iconv to translate the strings
+from the locale character set to UTF-8.
+*/
+
+
+
+
+
+/*! \fn void greport_day(const struct userinfostruct *uinfo)
+Draw the graphic of the report for the user. The action must have been prepared
+by greport_prepare().
+
+\param uinfo The informations about the user for which to draw the graphic.
+*/
+
+
+
+
+
+/*! \fn void greport_cleanup(void)
+Free the memory allocated internally by libgd and the resources prepared by greport_prepare().
+
+It is not necessary to free up that memory as it is reclaimed by the kernel when sarg terminates but
+it clutters the valgrind reports. If this function is called before sarg terminates, the memory leaks
+reported by valgrind are to be addressed.
+*/

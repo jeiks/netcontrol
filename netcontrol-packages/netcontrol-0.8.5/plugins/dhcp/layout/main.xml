@@ -1,0 +1,114 @@
+<xml>
+    <link rel="stylesheet" href="/dl/dhcp/dhcp.css" />
+    <toolbar>
+        <div style="text-align: center">
+            <hcontainer>
+                <button id="addSubnet" text="Adicionar rede" icon="/dl/core/ui/stock/add.png" />
+                <spacer width="40" />
+                <button id="addHost"   text="Adicionar host" icon="/dl/core/ui/stock/add.png" />
+                <spacer width="40" />
+                <button id="restartDHCP" text="Aplicar modificações" icon="/dl/core/ui/stock/refresh.png" />
+            </hcontainer>
+        </div>
+    </toolbar>
+    
+    <div style="text-align: center">
+        <label text="Servidor de IPs Dinâmicos" size="5" />
+    </div>
+
+    <pad>
+    <lt>
+        <ltr>
+            <ltd>
+                <scrollcontainer id="tree" width="240" height="360" />
+            </ltd>
+            <ltd>
+                <logviewer id="data" width="470" height="360" />
+            </ltd>
+        </ltr>
+    </lt>
+    </pad>
+    <div style="text-align: center">
+        <label text="" size="2" id="mainMessage" name="mainMessage" />
+    </div>
+
+    <dialogbox id="dlgSubnet">
+        <formline text="Rede">
+            <tipicon text="IP da Sub-rede que deseja adicionar no Servidor de IPs" icon="/dl/core/ui/stock/info.png"/>
+            <textinput id="ip" name="ip" />
+        </formline>
+        <formline text="Máscara">
+            <tipicon text="Máscara da Sub-rede informada" icon="/dl/core/ui/stock/info.png"/>
+            <textinput id="mascara" name="mascara" />
+        </formline>
+        <formline text="Roteador (opcional)">
+            <tipicon text="IP do Host que todos os computadores devem passar para acessar a Internet" icon="/dl/core/ui/stock/info.png"/>
+            <textinput id="roteador" name="roteador" />
+        </formline>
+        <formline text="Servidor de Nomes (opcional)">
+            <tipicon text="IP do Host que será o Servidor de Nomes" icon="/dl/core/ui/stock/info.png"/>
+            <textinput id="dns" name="dns" />
+        </formline>
+        <div style="text-align: center;color: red">
+            <label text="" size="2" id="dlgMessageSubnet" name="dlgMessageSubnet" />
+        </div>
+    </dialogbox>
+
+    <dialogbox id="dlgHost">
+        <formline text="Nome">
+            <tipicon text="É o nome de seu Host" icon="/dl/core/ui/stock/info.png"/>
+            <textinput id="name" name="name" />
+        </formline>
+        <formline text="MAC">
+            <tipicon text="MAC é o endereço físico da placa de rede de seu Host" icon="/dl/core/ui/stock/info.png"/>
+            <textinput id="mac" name="mac" />
+        </formline>
+        <formline text="IP">
+            <tipicon text="IP do seu Host" icon="/dl/core/ui/stock/info.png"/>
+            <textinput id="ip" name="ip" />
+        </formline>
+        <formline text="Máscara">
+            <tipicon text="Máscara do seu Host (isso definirá qual rede ele pertence)" icon="/dl/core/ui/stock/info.png"/>
+            <textinput id="masc" name="masc" />
+        </formline>
+        <formline text="LTSP">
+                <tipicon text="Define se sua máquina deve ou não ser executada no LTSP" icon="/dl/core/ui/stock/info.png"/>
+                <selectinput id="ltsp" name="ltsp">
+                      <selectoption id="ltsp0" name="ltsp0" value="0" text="Sem inicialização remota" />
+                      <selectoption id="ltsp1" name="ltsp1" value="1" text="Inicialização remota" />
+                </selectinput>
+        </formline>
+        <formline text="Remover Host" id="delHostOption" name="delHostOption">
+            <hcontainer>
+                <tipicon text="Marque essa opção para remover o host" icon="/dl/core/ui/stock/info.png" />
+                <spacer width="5" />
+                <checkbox id="delHost" name="delHost" />
+            </hcontainer>
+        </formline>
+        <div style="text-align: center;color: red">
+            <label text="" size="2" id="dlgMessageHost" name="dlgMessageHost" />
+        </div>
+        <div style='text-align:center'>
+            <label id="formLineIP1" name="formLineIP" text="" />
+        </div>
+        <div style='text-align:center'>
+            <label id="formLineIP2" name="formLineIP" text="" />
+        </div>
+    </dialogbox>
+
+
+    <dialogbox id="dlgInfo" hidecancel="True">
+        <vcontainer>
+            <div id="dlgInfoTitle" name="dlgInfoTitle" style="text-align: center;color: red">
+                <label text="Ocorreu um erro ao reiniciar o processo DHCP!" size="2" id="dlgInfo1" name="dlgInfo1" />
+            </div>
+            <div style="text-align: center;color: red">
+                <label text="Verifique se você possui uma interface de rede capaz de abrigar essa faixa de IPs configurados!" id="dlgInfo2" name="dlgInfo2" />
+            </div>
+            <div style="text-align: center" id="divError" name="divError">
+                <label text="Logs do Servidor de IPs:" />
+            </div>
+        </vcontainer>
+    </dialogbox>
+
+</xml>

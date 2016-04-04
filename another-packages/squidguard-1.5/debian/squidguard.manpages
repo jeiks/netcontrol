@@ -1,0 +1,4 @@
+debian/man/hostbyname.1
+debian/man/sgclean.1
+debian/man/squidGuard.1
+debian/man/update-squidguard.1

@@ -1,0 +1,14 @@
+#! /bin/sh -e
+
+. /usr/share/debconf/confmodule
+
+# Invalidate any cached commands.
+rm -f /var/cache/shaper/cbq.init
+
+#DEBHELPER#
+
+# The upgrade is complete, so no more concern about the question being asked
+# twice. Clean up the flag.
+db_fset shaper/kernel-modules seen_in_07_upgrade false
+
+exit 0

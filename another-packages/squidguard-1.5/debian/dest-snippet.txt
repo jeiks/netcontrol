@@ -1,0 +1,208 @@
+#
+# DESTINATION CLASSES:
+#
+
+#NAME EN: Advertisements
+#NAME DE: Werbung
+dest advert {
+		domainlist 	BL/adv/domains
+		urllist 	BL/adv/urls
+}
+#NAME EN: Aggressive
+#NAME DE: Aggressiv
+dest aggress {
+		domainlist 	BL/aggressive/domains
+		urllist 	BL/aggressive/urls
+}
+#NAME EN: Alcohol
+#NAME DE: Alkohol
+dest alcohol {
+		domainlist 	BL/alcohol/domains
+		urllist 	BL/alcohol/urls
+}
+#NAME EN: Anonymous VPN
+#NAME DE: Anonymes VPN
+dest anonvpn {
+		domainlist 	BL/anonvpn/domains
+		urllist 	BL/anonvpn/urls
+}
+#NAME EN: Chat
+#NAME DE: Chatten
+dest chat {
+		domainlist 	BL/chat/domains
+		urllist 	BL/chat/urls
+}
+#NAME EN: Cost Traps
+#NAME DE: Kostenfallen
+dest traps {
+		domainlist 	BL/costtraps/domains
+		urllist 	BL/costtraps/urls
+}
+#NAME EN: Dating
+#NAME DE: Kontaktboersen
+dest dating {
+		domainlist 	BL/dating/domains
+		urllist 	BL/dating/urls
+}
+#NAME EN: Drugs
+#NAME DE: Drogen
+dest drugs {
+		domainlist 	BL/drugs/domains
+		urllist 	BL/drugs/urls
+}
+#NAME EN: Dynamic Addresses
+#NAME DE: Dynamische Adressen
+dest dynamic {
+		domainlist 	BL/dynamic/domains
+		urllist 	BL/dynamic/urls
+}
+#NAME EN: Fortune telling
+#NAME DE: Wahrsagerei
+dest fortune {
+		domainlist 	BL/fortunetelling/domains
+		urllist 	BL/fortunetelling/urls
+}
+#NAME EN: Forum
+#NAME DE: Forum
+dest forum {
+		domainlist 	BL/forum/domains
+		urllist 	BL/forum/urls
+}
+#NAME EN: Gambling/Casino
+#NAME DE: Wetten/Gluecksspiel 
+dest gamble {
+		domainlist 	BL/gamble/domains
+		urllist 	BL/gamble/urls
+}
+#NAME EN: Hacking
+#NAME DE: Hacking
+dest hacking {
+		domainlist 	BL/hacking/domains
+		urllist 	BL/hacking/urls
+}
+#NAME EN: Hobby/Games
+#NAME DE: Hobby/Spiele
+dest hobby2 {
+		domainlist 	BL/hobby/games-misc/domains
+		urllist 	BL/hobby/games-misc/urls
+}
+#NAME EN: Hobby/Online-Games
+#NAME DE: Hobby/Online-Spiele
+dest hobby3 {
+		domainlist 	BL/hobby/games-online/domains
+		urllist 	BL/hobby/games-online/urls
+}
+#NAME EN: Imagehosting
+#NAME DE: Bildergalerien
+dest imagehost {
+		domainlist 	BL/imagehosting/domains
+		urllist 	BL/imagehosting/urls
+}
+
+
+#NAME EN: Porn  (15 MByte)
+#NAME DE: Pornographie
+dest porn {
+		domainlist 	BL/porn/domains
+		urllist 	BL/porn/urls
+}
+#NAME EN: Sex/Lingerie
+#NAME DE: Sex/Reizwaesche
+dest sex1 {
+		domainlist 	BL/sex/lingerie/domains
+		urllist 	BL/sex/lingerie/urls
+}
+#NAME EN: Sex/Education
+#NAME DE: Sex/Sexualkunde
+dest sex2 {
+		domainlist 	BL/sex/education/domains
+		urllist 	BL/sex/education/urls
+}
+
+
+#NAME EN: Proxy
+#NAME DE: Proxy
+dest proxies {
+		domainlist 	BL/redirector/domains
+		urllist 	BL/redirector/urls
+}
+#NAME EN: Remote Control
+#NAME DE: Fernkontrolle
+dest remote {
+		domainlist 	BL/remotecontrol/domains
+		urllist 	BL/remotecontrol/urls
+}
+#NAME EN: Ringtones
+#NAME DE: Klingeltöne
+dest ringtones {
+		domainlist 	BL/ringtones/domains
+		urllist 	BL/ringtones/urls
+}
+#NAME EN: Social Networking
+#NAME DE: Social Networking
+dest socialnet {
+		domainlist 	BL/socialnet/domains
+		urllist 	BL/socialnet/urls
+}
+#NAME EN: Spyware
+#NAME DE: Spioniersoftware
+dest spyware {
+		domainlist 	BL/spyware/domains
+		urllist 	BL/spyware/urls
+}
+#NAME EN: Tracker
+#NAME DE: Ausspaehsoftware
+dest tracker {
+		domainlist 	BL/tracker/domains
+		urllist 	BL/tracker/urls
+}
+#NAME EN: URL shortener
+#NAME DE: Kurz-URLs
+dest urlshort {
+		domainlist 	BL/urlshortener/domains
+		urllist 	BL/urlshortener/urls
+}
+#NAME EN: Violence
+#NAME DE: Gewalt
+dest violence {
+		domainlist 	BL/violence/domains
+		urllist 	BL/violence/urls
+}
+#NAME EN: Warez
+#NAME DE: Hacker-Software
+dest warez {
+		domainlist 	BL/warez/domains
+		urllist 	BL/warez/urls
+}
+#NAME EN: Weapons
+#NAME DE: Waffen
+dest weapons {
+		domainlist 	BL/weapons/domains
+		urllist 	BL/weapons/urls
+}
+#NAME EN: Webmail
+#NAME DE: Webmail
+dest webmail {
+		domainlist 	BL/webmail/domains
+		urllist 	BL/webmail/urls
+}
+#NAME EN: Internet Phone
+#NAME DE: Internet Telephonie
+dest webphone {
+		domainlist 	BL/webphone/domains
+		urllist 	BL/webphone/urls
+}
+#NAME EN: Internet radios
+#NAME DE: Internet Radios
+dest webradio {
+		domainlist 	BL/webradio/domains
+		urllist 	BL/webradio/urls
+}
+#NAME EN: Web TV, Internet TV
+#NAME DE: Internet Fernsehen
+dest webtv {
+		domainlist 	BL/webtv/domains
+		urllist 	BL/webtv/urls
+}
+
+

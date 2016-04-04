@@ -1,0 +1,47 @@
+=for header
+manpage:  HOSTBYNAME
+section:  1
+title:    SquidGuard documentation
+version:  Version 1.5
+datum:    2012-04-20
+
+=encoding utf8
+
+=head1 NAME
+
+hostbyname - Expand domain or urls list with IP addresses
+
+=head1 SYNOPSIS
+
+B<hostbyname> < urls > I<urls+ip>
+
+B<hostbyname>  < domains > I<domains+ip>
+
+=head1 DESCRIPTION
+
+Hostbyname takes a squidGuard domain or urls list and does some half
+harted effort to expand it with the corresponding IP-addresses.
+
+=head1 COPYRIGHT and LICENSE
+
+Copyright (C) 2000 Pål Baltzersen
+
+This script is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License version 2 as
+published by the Free Software Foundation.
+
+On Debian systems, the complete text of the GNU General Public
+License version 2 can be found in `/usr/share/common-licenses/GPL-2'.
+
+=head1 AUTHOR
+
+B<hostbyname> was written by Pål Baltzersen.
+
+This manual page was written by Joachim Wiedorn <ad_debian at joonet.de>
+for the Debian project (and may be used by others).
+
+=head1 SEE ALSO
+
+B<squidGuard>(1), B<update-squidguard>(1)
+
+=cut

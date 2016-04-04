@@ -1,0 +1,15 @@
+<xml>
+    <toolbar>
+        <button id="refresh_reports" text="Atualizar reports" icon="/dl/core/ui/stock/refresh.png" />
+    </toolbar>
+    <pad>
+        <hcontainer spacing="20">
+            <scrollcontainer id="tree" width="700" height="700" />
+            <vcontainer name="site" id="site" width="500" height="500" />
+        </hcontainer>
+    </pad>
+    <div id="contSarg" name="contSarg" width="100%" height="100%" style="margin-top:5px; overflow:auto;">
+    </div>
+    <vcontainer id="imprimePC" name="imprimePC">
+    </vcontainer>
+</xml>

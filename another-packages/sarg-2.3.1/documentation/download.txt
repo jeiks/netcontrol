@@ -1,0 +1,72 @@
+/*!\file download.c
+\brief Report the downloaded files
+*/
+
+
+/*! \var static char *DownloadSuffix=NULL;
+The buffer to store the list of the suffixes to take into account when generating
+the report of the downloaded files. The suffixes in the list are separated by the ASCII
+null.
+*/
+
+
+
+/*! \var static char **DownloadSuffixIndex=NULL;
+The index of all the suffixes stored in ::DownloadSuffix. The list is sorted alphabetically.
+to speed up the search.
+*/
+
+
+/*! \var static int NDownloadSuffix=0;
+The number of suffixes in ::DownloadSuffixIndex.
+*/
+
+
+
+/*! \fn void download_report(void)
+Generate the report of the downloaded files. The list of the suffixes to take into account
+is set with set_download_suffix().
+*/
+
+
+
+/*! \fn void free_download(void)
+Free the memory allocated by set_download_suffix().
+*/
+
+
+
+/*! \fn void set_download_suffix(const char *list)
+Set the list of the suffixes corresponding to the download of files you want to detect with
+is_download_suffix(). The list is sorted to make the search faster.
+
+\param list A comma separated list of the suffixes to set in ::DownloadSuffix.
+
+\note The memory allocated by this function must be freed by free_download().
+*/
+
+
+
+
+
+/*! \fn int is_download_suffix(const char *url)
+Tell if the URL correspond to a downloaded file. The function takes the extension at the end of the
+URL with a maximum of 9 characters and compare it to the list of the download suffix in
+::DownloadSuffix. If the suffix is found in the list, the function reports the URL as the download
+of a file.
+
+\param url The URL to test.
+
+\retval 1 The URL matches a suffix of a download.
+\retval 0 The URL is not a known download.
+
+\note A downloaded file cannot be detected if the file name is embedded in a GET or POST request. Only requests
+that ends with the file name can be detected.
+
+\note A URL embedding another web site's address ending by .com at the end of the URL will match the download
+extension com if it is defined in the ::DownloadSuffix.
+*/
+
+
+
+

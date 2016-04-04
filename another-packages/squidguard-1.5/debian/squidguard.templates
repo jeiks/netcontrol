@@ -1,0 +1,10 @@
+Template: squidguard/dbreload
+Type: boolean
+Default: true
+_Description: Rebuild Squidguard blacklist database during postinst?
+ Rebuilding the blacklist databases is time consuming and under some
+ circumstances could cause problems.  With the breakout of individual
+ blacklist section packages the time it takes for each package to rebuild
+ will be extensive.  Also it may not be desireable to rebuild these
+ databases on production servers.  You can manually perform a rebuild by
+ running /usr/sbin/update-squidguard.

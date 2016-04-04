@@ -1,0 +1,16 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          cacic
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: pycacic
+# Description:       pycacic
+### END INIT INFO
+
+# Cacic Init
+
+if [ "$1" = "start" ]; then
+	(nohup python /usr/share/pycacic/cacic.py > /usr/share/pycacic/logs/agent.log 2>&1)&
+fi

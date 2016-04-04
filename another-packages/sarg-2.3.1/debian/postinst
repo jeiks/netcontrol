@@ -1,0 +1,56 @@
+#! /bin/sh
+
+set -e
+
+# Move a conffile without triggering a dpkg question
+mv_conffile() {
+    local OLDCONFFILE="$1"
+    local NEWCONFFILE="$2"
+
+    [ -e "$OLDCONFFILE" ] || return 0
+
+    echo "Preserving user changes to $NEWCONFFILE ..."
+    mv -f "$NEWCONFFILE" "$NEWCONFFILE".dpkg-new
+    mv -f "$OLDCONFFILE" "$NEWCONFFILE"
+}
+
+case "$1" in
+	install|configure)
+		if dpkg --compare-versions "$2" lt 2.2.6-1; then
+			mv_conffile "/etc/squid3/sarg.conf" "/etc/sarg/sarg.conf"
+			mv_conffile "/etc/squid3/sarg.exclude_codes" "/etc/sarg/exclude_codes"
+			mv_conffile "/etc/squid3/sarg.hosts" "/etc/sarg/exclude_hosts"
+			mv_conffile "/etc/squid3/sarg-reports.conf" "/etc/sarg/sarg-reports.conf"
+			mv_conffile "/etc/squid3/sarg.users" "/etc/sarg/exclude_users"
+			mv_conffile "/etc/squid3/sarg.usertab" "/etc/sarg/usertab"
+			mv_conffile "/etc/squid3/user_limit_block" "/etc/sarg/user_limit_block"
+		fi
+
+		if [ -e /etc/squid3/fonts/Verdana.TTF ] ; then
+			rm /etc/squid3/fonts/Verdana.TTF
+		fi
+
+		if [ -e /etc/squid3/fonts/license ] ; then
+			rm /etc/squid3/fonts/license
+		fi
+
+		if [ -e /etc/squid3/fonts/README ] ; then
+			rm /etc/squid3/fonts/README
+		fi
+
+		if [ -e /etc/squid3/sarg-maint.sh ] ; then
+			rm /etc/squid3/sarg-maint.sh
+		fi
+
+		;;
+	abort-upgrade|abort-remove|abort-deconfigure)
+		;;
+	*)
+		#
+		#	Unknown action - do nothing.
+		#
+		exit 0
+		;;
+esac
+
+#DEBHELPER#

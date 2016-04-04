@@ -1,0 +1,19 @@
+<dialogbox id="dlgEdit">
+        <formline text="IP">
+            <textinput id="ip" name="ip" />
+        </formline>
+        <formline text="Máscara">
+            <select id="mascara" name="mascara">
+            </select>
+        </formline>
+        <formline text="Banda">
+            <textinput id="banda" name="banda_pc" />
+        </formline>
+        <formline text="Medida">
+            <select id="medida" name="medida">
+            </select>
+        </formline>
+        <formline  text="Indentificação do computador">
+            <textinput id="id_pc" name="id_pc" />
+        </formline>
+</dialogbox>

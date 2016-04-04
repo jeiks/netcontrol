@@ -1,0 +1,14 @@
+<dialogbox id="dlgEdit">
+        <formline text="Confirmar MAC">
+            <textinput id="mac" name="mac" />
+        </formline>
+        <formline text="Novo IP do cliente">
+            <textinput id="ip" name="ip" />
+        </formline>
+        <formline text="Novo IP do cliente">
+            <select id="app" name="app" >
+		<selectoption id="selectS" name="selectS" value="servidor" text="Executar no Servidor" />
+	        <selectoption id="selectC" name="selectC" value="cliente" text="Executar no Cliente" />
+            </select>
+        </formline>
+</dialogbox>

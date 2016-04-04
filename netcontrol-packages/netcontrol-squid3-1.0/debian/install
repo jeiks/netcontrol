@@ -1,0 +1,4 @@
+debian/squidGuard.conf	usr/share/netcontrol-squid3/
+debian/squid.conf	    usr/share/netcontrol-squid3/
+debian/blacklists	    usr/share/netcontrol-squid3/
+

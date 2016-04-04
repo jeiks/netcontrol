@@ -1,0 +1,136 @@
+# Makefile.in for sarg
+
+prefix=@prefix@
+datarootdir=@datarootdir@
+datadir=@datadir@
+exec_prefix=@exec_prefix@
+PACKAGE_TARNAME=@PACKAGE_TARNAME@
+docdir      = @docdir@
+CC          = @CC@
+BINDIR      = @bindir@
+MANDIR      = @mandir@
+SYSCONFDIR  = @sysconfdir@
+SARGPHPDIR  = @SARGPHPDIR@
+FONTDIR     = @FONTDIR@
+IMAGEDIR    = @IMAGEDIR@
+IBINDIR     = -DBINDIR=\"@bindir@\"
+ISYSCONFDIR = -DSYSCONFDIR=\"@sysconfdir@\"
+ISARGPHPDIR = -DSARGPHPDIR=\"@SARGPHPDIR@\"
+IFONTDIR    = -DFONTDIR=\"@FONTDIR@\"
+IIMAGEDIR   = -DIMAGEDIR=\"@IMAGEDIR@\"
+ILOCALEDIR  = -DLOCALEDIR=\"@localedir@\"
+CFLAGS      = @CFLAGS@
+CPPFLAGS    = @CPPFLAGS@
+LDFLAGS     = @LDFLAGS@
+DEFS        = $(IBINDIR) $(ISYSCONFDIR) $(IFONTDIR) $(IIMAGEDIR) $(ISARGPHPDIR) $(ILOCALEDIR) @DEFS@
+LIBS        = @LIBS@
+SRCDIR      = .
+VPATH       = .
+INSTALL     = cp
+
+INSTALL_PROGRAM = $(INSTALL)
+
+SRCS = util.c log.c report.c topuser.c email.c sort.c html.c \
+       totger.c index.c getconf.c usage.c decomp.c ip2name.c \
+       useragent.c exclude.c convlog.c totday.c repday.c datafile.c\
+       indexonly.c splitlog.c lastlog.c topsites.c siteuser.c css.c \
+       smartfilter.c denied.c authfail.c charset.c \
+       squidguard_log.c squidguard_report.c auth.c download.c grepday.c \
+       dansguardian_log.c dansguardian_report.c realtime.c btree_cache.c \
+       usertab.c userinfo.c longline.c
+
+OBJS = $(patsubst %.c,%.o,$(SRCS))
+
+DISTFILES = $(SRCS) ABOUT-NLS
+
+SUBDIRS = po
+.PHONY: all install clean uninstall mostlyclean distclean update-po $(SUBDIRS)
+
+all: sarg
+
+.c.o:
+	$(CC) -c -I. $(CPPFLAGS) $(DEFS) $(CFLAGS) $<
+
+*.o: include/conf.h include/info.h include/defs.h
+
+sarg: $(OBJS)
+	$(CC) $(LDFLAGS) $(OBJS) -o $@ $(LIBS) $(LIBCRYPT)
+
+$(SUBDIRS):
+	$(MAKE) -C $@
+
+install: all install-po
+	-@if test ! -d $(DESTDIR)$(BINDIR); then \
+		echo "creating $(DESTDIR)$(BINDIR)"; \
+		mkdir -p $(DESTDIR)$(BINDIR); \
+	fi
+	-@if test ! -d $(DESTDIR)$(MANDIR); then \
+		echo "creating $(DESTDIR)$(MANDIR)"; \
+		mkdir -p $(DESTDIR)$(MANDIR); \
+	fi
+	-@if test ! -d $(DESTDIR)$(SYSCONFDIR); then \
+		echo "creating $(DESTDIR)$(SYSCONFDIR)"; \
+		mkdir -p $(DESTDIR)$(SYSCONFDIR); \
+	fi
+	-@if test ! -d $(DESTDIR)$(IMAGEDIR); then \
+		echo "Creating $(DESTDIR)$(IMAGEDIR)"; \
+		mkdir -p $(DESTDIR)$(IMAGEDIR); \
+	fi
+	$(INSTALL_PROGRAM) sarg $(DESTDIR)$(BINDIR)/sarg
+	chmod 755 $(DESTDIR)$(BINDIR)/sarg
+	$(INSTALL_PROGRAM) sarg.1 $(DESTDIR)$(MANDIR)/sarg.1
+	chmod 755 $(DESTDIR)$(MANDIR)/sarg.1
+	@if test ! -f $(DESTDIR)$(SYSCONFDIR)/sarg.conf; then \
+		echo "cp $(DESTDIR)$(SYSCONFDIR)/sarg.conf"; \
+		cp sarg.conf $(DESTDIR)$(SYSCONFDIR)/sarg.conf; \
+	else \
+		cp sarg.conf $(DESTDIR)$(SYSCONFDIR)/sarg.conf.default; \
+	fi
+	cp ./exclude_codes $(DESTDIR)$(SYSCONFDIR);
+	cp ./user_limit_block $(DESTDIR)$(SYSCONFDIR);
+	cp -r ./images/* $(DESTDIR)$(IMAGEDIR);
+	-@if test -n "$(FONTDIR)" ; then \
+		if test ! -d "$(DESTDIR)$(FONTDIR)" ; then \
+			echo "Creating $(DESTDIR)$(FONTDIR)"; \
+			mkdir -p "$(DESTDIR)$(FONTDIR)"; \
+		fi; \
+		cp -r ./fonts/* "$(DESTDIR)$(FONTDIR)"; \
+	fi
+	cp -r ./css.tpl $(DESTDIR)$(SYSCONFDIR);
+	-@if test -n "$(SARGPHPDIR)" -a -d "$(DESTDIR)$(SARGPHPDIR)"; then \
+		cp -r ./sarg-php $(DESTDIR)$(SARGPHPDIR); \
+	fi
+
+uninstall: uninstall-po
+	rm -f $(DESTDIR)$(BINDIR)/sarg
+	rm -f $(DESTDIR)$(MANDIR)/sarg.1
+
+TAGS: $(SRCS)
+	etags $(SRCS)
+
+clean: clean-po
+	rm -f sarg *.o core
+
+mostlyclean: clean
+
+distclean: clean
+	rm -f Makefile config.status config.cache config.log
+
+realclean: distclean
+	rm -f TAGS
+
+install-po:
+	$(MAKE) -C po install
+
+uninstall-po:
+	$(MAKE) -C po uninstall
+
+clean-po:
+	$(MAKE) -C po clean
+
+update-po:
+	$(MAKE) -C po update-po
+
+po-from-tp:
+	@echo "Fetching latest po files from translationprojetc.org"
+	rsync -Lrtvz -u  translationproject.org::tp/latest/sarg/  po

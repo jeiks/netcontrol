@@ -1,0 +1,31 @@
+Package:     squidguard
+Subject:     distclean more files
+Author:      Joachim Wiedorn <ad_debian at joonet.de>
+Forwarded:   no
+Last-Update: 2012-04-13
+
+Some distclean rules do not delete all files, which will be created 
+while configure or compiling.
+---
+
+diff -urN s04/samples/Makefile.in s05/samples/Makefile.in
+--- s04/samples/Makefile.in	2007-11-16 17:58:32.000000000 +0100
++++ s05/samples/Makefile.in	2012-04-13 23:39:43.835436866 +0200
+@@ -49,4 +49,5 @@
+ 
+ distclean:: realclean
+ 	@echo making $@ in `basename \`pwd\``
+-	$(RM) Makefile sample.conf squidGuard.cgi squidGuard-simple.cgi
++	$(RM) Makefile sample.conf squidGuard.cgi 
++	$(RM) squidGuard-simple.cgi squidGuard-simple-de.cgi
+diff -urN s04/src/Makefile.in s05/src/Makefile.in
+--- s04/src/Makefile.in	2009-01-03 21:05:39.000000000 +0100
++++ s05/src/Makefile.in	2012-04-13 23:39:43.872458996 +0200
+@@ -150,6 +150,7 @@
+ distclean:: realclean
+ 	@echo making $@ in `basename \`pwd\``
+ 	$(RM) Makefile sg.h config.h
++	$(RM) sg.y sgDiv.c
+ 
+ #
+ # Dependencies for maintenance

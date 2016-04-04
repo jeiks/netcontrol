@@ -1,0 +1,235 @@
+
+   _   _ _
+  | \ | | |_ ___  _ __
+  |  \| | __/ _ \| '_ \
+  | |\  | || (_) | |_) |
+  |_| \_|\__\___/| .__/
+                 |_|
+
+             Network Top
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+  AUTHORS
+  =======
+
+  This is a list of authors who have written
+  or edited parts of the ntop sources.
+
+
+  o Original author of ntop:
+    Luca Deri <deri at ntop.org>
+
+
+
+  CONTRIBUTORS
+  ============
+  o Rocco Carbone <rocco at ntop.org>
+    starting at version 1.2.13a he wrote the NtoPerl Module
+    and adapted the configuration stuff to use GNU auto{make,conf}
+
+Throughout ntop, there are 100s of small, medium and large fixes, which individuals
+have contributed to the community.  With appologies for anyone left out, for
+mis-spellings, and/or my (Burton's) inability to distinguish prenames from surnames,
+the following contributed in some way - large or small - to ntop 2.2 and/or
+to the prior versions:
+
+         Rami AlZaid <rami at alzaid.com>
+         Ralf Amandi <Ralf.Amandi at accordata.net>
+         Michael Baird <mike at tc3net.com>
+         Pietro Bandera <pietrob at lansystems.it>
+         Brent L. Bates <blbates at vigyan.com>
+         Pierre-Loic Baudet [baudetp at libertysurf.fr]
+         Fabrice Bellet <Fabrice.Bellet at creatis.insa-lyon.fr>
+         Philippe Bereski <Philippe.Bereski at ms.alcatel.fr>
+         Thomas Biege <thomas at suse.de>
+         Blake <blakes_email at yahoo.com>
+         Fran Boon <flavour at partyvibe.com>
+         Walter Brock <walterbrock at netscape.net>
+         David Brown <david at caldera.com>
+         Rocco Carbone <rocco at ntop.org>
+         Paul Chapman <pchapman at fury.bio.dfo.ca>
+         Albert Chin-A-Young <china at thewrittenword.com>
+         Bailleux Christophe <cb at grolier.fr>
+         Joel Crisp <jcrisp at dyn21-126.trilogy.com>
+         Roberto F. De Luca <deluca at tandar.cnea.gov.ar>
+         Rusetsky Dmitry <dimania at mail.ru>
+         Danijel Doriae <danijel.doric at industrogradnja.tel.hr>
+         Curtis Doty <Curtis at GreenKey.net>
+         J.R. Duarte <jrduarte at partyvibe.com>
+         Juan Ramon Duarte <jrduarte at mail.oxfam.org.uk>
+         Eric Dumazet <dada1 at cosmosbay.com>
+         Diana Eichert <deicher at sandia.gov>
+         Jac Engel <jacengel at home.nl>
+         Joseph Ezerski <jezerski at broadcom.com>
+         Fuji Film eSystems
+         Charles M. Gagnon <charlesg at unixrealm.com>
+         Fred Grayson <fred at fred-grayson.net>
+         Berthold Gunreben <bg at suse.de>
+         C C Magnus Gustavsson <magnus at gustavsson.se>
+         Christian Hammers <ch at westend.com>
+         Seamus Hartmann <shartmann at fujifilmesys.com>
+         Marcel Hauser <marcel_hauser at gmx.ch>
+         Falk Hayn <Falk.Hayn at gmx.de>
+         Tony Hernandez <tonyh at housing.ufl.edu>
+         Stanley Hopcroft <Stanley.Hopcroft at IPAustralia.Gov.AU>
+         Benny Horta <BHorta1 at dadeschools.net>
+         Vanja Hrustic <vanja at relaygroup.com>
+         Jan Johansson <j2 at mupp.net>
+         InMon Corp. <info at inmon.com>
+         Martin Kammerhofer <dada at sbox.tu-graz.ac.at>
+         Arnt Karlsen <arnt at c2i.net>
+         Matthias Kattanek <mattes at mykmk.com>
+         Mike Klinkert <michael at nomennescio.net>
+         Eddy Lai <eddy at ModernTerminals.com>
+         Jacques Le Rest <jlerest at ifremer.fr>
+         Tanner Lovelace <lovelace at opennms.org>
+         Martin Lucina <mato at kotelna.sk>
+         Ola Lundqvist <opal at debian.org>
+         Neil McKee <neil_mckee at inmon.com>
+         Antonello Maiorca <marty at tai.it>
+         Marius <marius at tbs.co.za>
+         Andrea Marangoni <marangoni at unimc.it>
+         Peter Marquardt <wwwutz at mpimg-berlin-dahlem.mpg.de>
+         David Masterson <David.Masterson at kla-tencor.com>
+         William R. McDonough <wrmcd at wilmcd.com>
+         Roy-Magne Mo <romo at interpost.no>
+         David Moore <davem at mitre.org>
+         Mouse, Anon E.
+         Tony Nelson <tnelson at starpoint.com>
+         Valeri V. Parchine <valeri at com-con.com>
+         Richard Parvass <Richard.Parvass at ReckittBenckiser.com>
+         Nicolai Petri <Nicolai at atomic.dk>
+         Andreas Pfaeller <apfaller at yahoo.com.au> or <a.pfaller at pop.gun.de>
+         Christoph Pfisterer <cp at chrisp.de>
+         Chris Picton <chrisp at tangent.co.za>
+         Francis Pintos <francis at arhl.com.hk>
+         Dale E Reed, Jr. <daler at iea-software.com>
+         Scott Renfro <scott at renfro.org>
+         Jeff Rhine <jeffr at virtualempire.com> -- The 'Don Quixote' award
+         Jordan Ritter <jpr5 at darkridge.com>
+         Wayne Roberts <wroberts1 at cx983858-b.orng1.occa.home.com>
+         Doug Royer <doug at royer.com>
+         Daniel Savard <daniel.savard at gespro.com>
+         Igor Schein <igor at txc.com>
+         Dennis Schoen <dennis at cns.dnsalias.org>
+         Paul D. Smith <psmith at baynetworks.com>
+         Eugene Spiker <spiker at practicalsupport.com>
+         Burton M. Strauss III <BStrauss at acm.org>, <BStrauss3 at attbi.com>, <Burton at ntopsupport.com>
+         Stefano Suin <stefano at ntop.org>
+         Kimmo Suominen <kim at tac.nyc.ny.us>
+         Peter Suschlik <peter at zilium.de>
+         Rainer Tammer <rainer.tammer at spg.schulergroup.com>
+         Axel Thimm <Axel.Thimm+ntop at physik.fu-berlin.de>
+         Michael Weidel <michael.weidel at gmx.de>
+         Michael Wescott <wescott at crosstor.com>
+         Wies-Software <wies at wiessoft.de>
+         Christoph Zens <chris at topfen.homeip.net>
+         elmer at linking.ee
+         Ethernet-codes at Cavebear.com
+
+Contributors for ntop 3.0:
+
+         (First off, the biggies)
+
+         IPv6 - code contributed by Olivier Festor <Olivier.Festor at loria.fr> and
+                Abdelkader Lahmadi <Abdelkader.Lahmadi at loria.fr>
+                of the MADYNES Research Time (Managing DYnamic NEtworks and Services),
+                http://madynes.loria.fr/.
+
+         FibreChannel and SCSI - code contributed by Dinesh G Dutt <ddutt at cisco.com>
+                of Cisco.
+
+         -x/-X memory limit options - Gianluca Insolvibile <g.insolvibile at cpr.it>
+
+         OpenBSD 3.4 - Julien Touche <julien.touche at lycos.com>
+
+         All | Local | Remote selections - Luigi Iotti <luigi at iotti.biz>
+
+         FreeBSD support - Michal Meloun <meloun at miracle.cz> and
+                           Stanley Hopcroft <Stanley.Hopcroft at IPAustralia.Gov.AU>
+
+         Andy <andy at shady.org>
+         B. Loic <50891 at snr.fr>
+         Christoph Zens <chris at topfen.homeip.net>
+         Chris Turbeville <turbo at verio.net>
+         Dave Dell'Amico <dave at gufi.org>
+         Dominique Lalot <lalot at univ-aix.fr>
+         Fulvio Risso <fulvio.risso at polito.it>
+         Helmut Schneider <jumper99 at gmx.de>
+         Jay Johnston <jajohnst at cisco.com> for support of the netFlow v9 effort
+         Ken Beaty <ken at ait.com>
+         Marco Sanson <marco.sanson at infvic.it>
+         Markus Rehbach <Markus.Rehbach at gmx.de>
+         Reuben Fischman <Reuben.Fischman at GDC4S.Com>
+         Robbert Kouprie <R.Kouprie at DTO.TUDelft.NL>
+         Sumit Pandya <sumit at elitecore.com>
+
+
+Contributors for ntop 3.1:
+
+         (First off the usual suspects)
+                   Luca
+                   Burton/Dinesh/Robbert/Rocco
+
+         Alberto Ornaghi (ALoR) / Marco Valleri (NaGA) -- Ettercap
+
+         David J. Bianco <bianco@jlab.org
+         Joshua Cowan <jcowan@pobox.com>
+         Gino Dion <gino.dion@alcatel.com>
+         Nathan G. Grennan <ntop-dev@cygnusx-1.org>
+         Bret Jordan <bret.jordan@utah.edu>
+         Leo
+         Carlo Luchetti <cluchetti@toplan.it>
+         Marc Mazuhelli <Marc.Mazuhelli@USherbrooke.ca>
+         Tony Nelson <tnelson@starpoint.com>
+         Abraham Saad Porto <sistemas@anpala.com.co>
+         Bill Robbins <robbins@hostopia.com>
+         Daniele Sgandurra <sgandurr@cli.di.unipi.it> - rrd_alarm
+         Ralf Stodt <rstodt@magellan-net.de>
+         Julian Touche <julien.touche@lycos.com>
+         Gilse Vanem <giva@bgnett.no>
+         J.P. Van Oyen
+         Jakub Walczak <jaqb@jaqb.int.pl>
+         Andy Wood <andy.wood@sptrm.com>
+         
+         And an international organization which wishes to remain anonymous.
+         
+         AND: The Don Quixote prize (for tilting at Windmills) goes to...
+              Julien Touche for his attack on OpenBSD!
+
+
+Contributors for ntop 3.2:
+
+         (First off the usual suspects)
+                   Luca
+                   Burton/Dinesh/Robbert
+
+         Adjoined Consulting, Miami, FL, USA
+         atmfu@126.com
+         Berthold Gunreben <bg@suse.de>
+         Brad Doctor <bdoctor@ps-ax.com>
+         Craig Humphrey <Craig.Humphrey@chapmantripp.com>
+         handianfei99@mails.tsinghua.edu.cn
+         Helmut Manck <helmut.manck@secunet.com>
+         Kenneth Porter <shiva@sewingwitch.com>
+         Marius Onica <omar@uoradea.ro>
+         Ross West <westr@connection.ca>
+
+         And an international organization which wishes to remain anonymous.
+
+
+Contributors for ntop 3.3:
+
+         (First off the usual suspects)
+                   Luca
+                   Burton/Dinesh/Robbert
+
+	 Ola Lundqvist  <opal at debian.org>
+	 Mike Frysinger <vapier at gentoo.org>
+	 Peter Volkov   <pva at gentoo.org> 
+         Fabio Pintus    <fabio.pintus at gmail.com>
+
+If you've been left off the list, it's not intentional.  Please let us know!
+
+Thanks!
